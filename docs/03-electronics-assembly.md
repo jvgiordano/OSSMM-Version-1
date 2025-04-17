@@ -1,4 +1,4 @@
-# [Electronics Assembly]{.underline}
+# Electronics Assembly
 
 Welcome to the Electronics Assembly section. The goal is to combine all
 the electronic components in working order and install them in the 3D
@@ -8,14 +8,16 @@ To give you an idea of what we are hoping to achieve, here are some
 photos of the finished assembly. To demonstrate the interior, the lid is
 left open in some of the photos.
 
-  ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-   ![](media/electronics-assembly/image1.jpeg){width="2.4in"   ![](media/electronics-assembly/image2.jpeg){width="2.4in"                                                              ![](media/electronics-assembly/image3.jpeg){width="1.81in"
-                height="1.8059798775153106in"}                              height="1.8059798775153106in"}                                                                            height="1.81083552055993in"}
-  ----------------------------------------------------------- ----------------------------------------------------------- ----------------------------------------------------------- ------------------------------------------------------------
-   ![](media/electronics-assembly/image4.jpeg){width="2.4in"                                                              ![](media/electronics-assembly/image5.jpeg){width="2.4in"   
-                height="1.8059798775153106in"}                                                                            height="1.8059798775153106in"}                              
+<div align="center" style="display: flex; justify-content: center; gap: 10px;">
+  <img src="media/electronics-assembly/image1.jpeg" style="width: 30%;">
+  <img src="media/electronics-assembly/image2.jpeg" style="width: 30%;">
+  <img src="media/electronics-assembly/image3.jpeg" style="width: 17%;">
+</div>
 
-  ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+<div align="center" style="display: flex; justify-content: center; gap: 10px;">
+  <img src="media/electronics-assembly/image4.jpeg" style="width: 30%;">
+  <img src="media/electronics-assembly/image5.jpeg" style="width: 30%;">
+</div>
 
 Note: In some of the photos, edges may appear curved, such as the sides
 of the electronic case. This is due to issues with the magnifier and
@@ -24,8 +26,9 @@ straight.
 
 ## Step 1. Gather all the relevant parts and tools needed:
 
-![](media/electronics-assembly/image6.jpeg){width="6.5in"
-height="4.894444444444445in"}
+<div align="center">
+  <img src="media/electronics-assembly/image6.jpeg" style="width: 65%;">
+</div>
 
 Parts:
 
@@ -48,8 +51,9 @@ Parts:
 
 9.  one sheet of paper (not shown)
 
-![](media/electronics-assembly/image7.png){width="6.5in"
-height="3.4972222222222222in"}
+<div align="center">
+  <img src="media/electronics-assembly/image7.png" style="width: 80%;">
+</div>
 
 Required Tools:
 
@@ -61,8 +65,9 @@ Required Tools:
 
 4.  Multimeter
 
-![](media/electronics-assembly/image8.jpeg){width="6.489583333333333in"
-height="3.09375in"}
+<div align="center">
+  <img src="media/electronics-assembly/image8.jpeg" style="width: 80%;">
+</div>
 
 Recommended Tools:
 
@@ -70,8 +75,9 @@ Recommended Tools:
 
 6.  Fume Extractor (if not working in a ventilated environment)
 
-![](media/electronics-assembly/image9.jpeg){width="6.489583333333333in"
-height="3.0625in"}
+<div align="center">
+  <img src="media/electronics-assembly/image9.jpeg" style="width: 80%;">
+</div>
 
 Expendables:
 
@@ -96,9 +102,8 @@ Please refer to this [Arduino documentation on
 soldering](https://docs.arduino.cc/learn/electronics/soldering-basics/)
 for best practices and more information.
 
-Step 2. Verify that electronic components fit inside the 3D Printed Case
-Bottom.\
-\
+## Step 2. Verify that electronic components fit inside the 3D Printed Case Bottom
+
 **Goal: Ensure that the electronic case bottom and electronic components
 fit together.** It is possible the case was not printed correctly, or
 that components require minor modification to fit.
@@ -120,8 +125,9 @@ the electronic case bottom has printed to the correct dimensions. A
 properly insert Vibration Motor is shown in the photo below, along with
 the locations of the battery and MCU.
 
-![](media/electronics-assembly/image10.jpg){width="3.9817169728783903in"
-height="6.373126640419947in"}
+<div align="center">
+  <img src="media/electronics-assembly/image10.jpg" style="width: 65%; transform: rotate(90deg);">
+</div>
 
 Please note that the Seeed Xiao Sense inserts upside down so that the
 USB port will fit in the case's USB slot.\
@@ -140,18 +146,17 @@ case where the vibration disc orientation allows the wiring to exceed
 the boundary of the board. The right photo shows the solution where the
 disc has been rotated to keep the wiring on board.
 
-  -------------------------------------------------------------------------------------------------------------------------------------------------------
-  ![](media/electronics-assembly/image11.jpeg){width="2.9431091426071743in"   ![](media/electronics-assembly/image12.jpeg){width="2.7648195538057743in"
-  height="2.25in"}                                                            height="2.25in"}
-  --------------------------------------------------------------------------- ---------------------------------------------------------------------------
-
-  -------------------------------------------------------------------------------------------------------------------------------------------------------
+<div align="center" style="display: flex; justify-content: center; gap: 10px;">
+  <img src="media/electronics-assembly/image11.jpeg" style="width: 40%; transform: rotate(180deg);">
+  <img src="media/electronics-assembly/image12.jpeg" style="width: 40%; transform: rotate(180deg);">
+</div>
 
 The photo below shows the inclusion of the AD8232, which should sit
 above the Vibration Motor Board.
 
-![](media/electronics-assembly/image13.jpeg){width="6.505529308836396in"
-height="4.9in"}
+<div align="center">
+  <img src="media/electronics-assembly/image13.jpeg" style="width: 65%;">
+</div>
 
 If the components fit, move on to the next step. Otherwise, take the
 time to reprint the case or gently modify the components as needed.
@@ -175,42 +180,51 @@ the one that is not smooth. With the internal face up, insert the
 exposed wire through one of the round holes, keeping the wire in the
 notch as shown in the photo below:
 
-![](media/electronics-assembly/image14.jpeg){width="6.5in"
-height="4.89582895888014in"}
+<div align="center">
+  <img src="media/electronics-assembly/image14.jpeg" style="width: 65%;">
+</div>
 
 Then, insert one of the male snap-fasteners into the same hole.
 
-![](media/electronics-assembly/image15.jpeg){width="6.5in"
-height="4.89582895888014in"}
+<div align="center">
+  <img src="media/electronics-assembly/image15.jpeg" style="width: 65%;">
+</div>
 
 Flip the electronic lid over. Bend the exposed wiring over the male snap
 fastener. Trim excess wire.
 
-![](media/electronics-assembly/image16.jpeg){width="6.5in"
-height="4.89582895888014in"}
+<div align="center">
+  <img src="media/electronics-assembly/image16.jpeg" style="width: 65%;">
+</div>
 
 Next, using a female snap-fastener, cover the male snap fastener **while
 keeping the exposed wiring in position.** Some of the strands may move,
 but if most of the wiring remains in place there should be no
-issues.![](media/electronics-assembly/image17.jpeg){width="6.5in"
-height="4.89582895888014in"}
+issues.
+
+<div align="center">
+  <img src="media/electronics-assembly/image17.jpeg" style="width: 65%;">
+</div>
 
 Squeeze by hand. This should result in a tight connection where the wire
 will not freely come away. Gaps between the snap-fastener and wiring
 will remain as shown in the photo below. These gaps will be addressed
 shortly.
 
-![](media/electronics-assembly/image18.jpeg){width="6.5in"
-height="4.89582895888014in"}
+<div align="center">
+  <img src="media/electronics-assembly/image18.jpeg" style="width: 65%;">
+</div>
 
 To eliminate the gaps and ensure a tight connection we will crimp the
 snap-fastener closed. Gather your installation tool and hammer.\
 \
 Find a corner of a hard flat surface. A corner is needed because it will
 provide support beneath the snap-fastener without potentially damaging
-the electronic case lid's side
-tabs.![](media/electronics-assembly/image19.jpeg){width="6.5in"
-height="4.89582895888014in"}
+the electronic case lid's side tabs.
+
+<div align="center">
+  <img src="media/electronics-assembly/image19.jpeg" style="width: 65%;">
+</div>
 
 Position the electronic case over the corner such that the corner will
 support the male end of the snap fastener below but not touch the
@@ -219,8 +233,9 @@ four side tabs on the electronic case lid. Place the crimping tool on
 top and hammer down. Use the non-rubber side of the hammer. Do not be
 afraid to use force, or to strike multiple times.
 
-![](media/electronics-assembly/image20.jpeg){width="5.311199693788277in"
-height="4.0in"}
+<div align="center">
+  <img src="media/electronics-assembly/image20.jpeg" style="width: 65%;">
+</div>
 
 **Remember, the goal is to have a tight, secure fit that will not come
 undone and will make solid contact with the exposed wiring.** This is
@@ -229,21 +244,25 @@ accurate sleep monitoring.
 
 Repeat the process for the other hole. Make sure the snap fasteners are
 secure. Below is a complete electronic case lid with attached
-snap-fasteners:![](media/electronics-assembly/image21.jpeg){width="6.5in"
-height="4.89582895888014in"}
+snap-fasteners:
+
+<div align="center">
+  <img src="media/electronics-assembly/image21.jpeg" style="width: 65%;">
+</div>
 
 It is okay to have a little gap as shown below if the connection is
 snug. Please note that overcrimping can lead to the wire being cut, but
 if the wires are placed correctly in the notch this is unlikely.
 
-![](media/electronics-assembly/image22.jpeg){width="6.5in"
-height="4.89582895888014in"}
+<div align="center">
+  <img src="media/electronics-assembly/image22.jpeg" style="width: 65%;">
+</div>
 
 ## Step 4. Prepare and Connect the AD8232
 
 **Goal: Begin preparing the PCBs for connection with the MCU. First the
-AD8232 must be modified.\
-**\
+AD8232 must be modified.**
+
 Before connecting the electronic components some additional preparation
 is required. We will prepare the boards before connecting all the units
 together at one. The first component is the AD8232 EKG board.
@@ -256,8 +275,9 @@ into the confines of the electronic case. *For those interested in more
 information about this design choice, please refer to the section below
 titled, "Additional Information on the AD8232."*
 
-![](media/electronics-assembly/image23.png){width="6.5in"
-height="4.894444444444445in"}
+<div align="center">
+  <img src="media/electronics-assembly/image23.png" style="width: 65%;">
+</div>
 
 To remove the jack, use a pair of wire cutters to pry it off the board.
 Do not be afraid to use some force.
@@ -268,13 +288,16 @@ board for other uses later. After testing with multiple boards, prying
 off the 3.5mm jack has always been the fastest solution and we have yet
 to experience any board failures with this process.
 
-(See video of removal)
+<div align="center">
+  <img src="media/electronics-assembly/JackRemoval.gif" alt="3.5mm Jack Removal Process">
+</div>
 
 Once the 3.5mm jack is removed, the AD8232 board should appear as in the
 photo below:
 
-![](media/electronics-assembly/image24.jpeg){width="6.491666666666666in"
-height="4.883333333333334in"}
+<div align="center">
+  <img src="media/electronics-assembly/image24.jpeg" style="width: 65%;">
+</div>
 
 ## Step 5. Prepare the PulseSensor
 
@@ -287,14 +310,16 @@ Even if the unit comes with wires it is recommended to switch them to
 better quality silicone insulated ones. This will prolong the durability
 and longevity of the device, and make later assembly easier.
 
-![](media/electronics-assembly/image25.jpeg){width="6.483333333333333in"
-height="4.883333333333334in"}
+<div align="center">
+  <img src="media/electronics-assembly/image25.jpeg" style="width: 65%;">
+</div>
 
 If you have pins, it is easiest to remove the black separator then
 desolder the pins one by one.
 
-![](media/electronics-assembly/image26.jpeg){width="6.483333333333333in"
-height="4.883333333333334in"}
+<div align="center">
+  <img src="media/electronics-assembly/image26.jpeg" style="width: 65%;">
+</div>
 
 **Before adding new rewires note that you have a choice to add the wires
 now or later.** Both options are viable, but **we found it easier to add
@@ -306,8 +331,10 @@ now.
 In any case we show the wiring in the photo below for demonstration.
 When rewiring please confirm that the order of the electrodes of S
 (Signal), + (3.3V), and -- (Ground, 0V):
-![](media/electronics-assembly/image27.jpeg){width="6.483333333333333in"
-height="4.883333333333334in"}
+
+<div align="center">
+  <img src="media/electronics-assembly/image27.jpeg" style="width: 65%;">
+</div>
 
 ## Step 6. Prepare the Vibration Motor
 
@@ -315,8 +342,9 @@ height="4.883333333333334in"}
 
 If the vibration motor board comes with pins these must be removed.
 
-![](media/electronics-assembly/image28.jpeg){width="6.483333333333333in"
-height="4.883333333333334in"}
+<div align="center">
+  <img src="media/electronics-assembly/image28.jpeg" style="width: 65%;">
+</div>
 
 If the pins are bent, we recommend cutting below the bend, then remove
 the plastic separator as shown in the photo below**. It is not
@@ -324,25 +352,28 @@ recommended to cut the pins as low as possible on the board.** They are
 easiest to remove with tweezers or pliers while desoldering if there is
 something to grasp.
 
-![](media/electronics-assembly/image29.jpeg){width="6.483333333333333in"
-height="4.883333333333334in"}
+<div align="center">
+  <img src="media/electronics-assembly/image29.jpeg" style="width: 65%;">
+</div>
 
 The prepared board should look as the below. Nothing external protruding
 over the board's boundaries, and electrode pinholes ready for wires.
 
-![](media/electronics-assembly/image30.jpeg){width="6.483333333333333in"
-height="4.883333333333334in"}
+<div align="center">
+  <img src="media/electronics-assembly/image30.jpeg" style="width: 65%;">
+</div>
 
-## Step 7. Solder the components together according to the Layman's schematic.
+## Step 7. Solder the components together according to the Layman's schematic
 
-**Goal: Assemble all the components! **
+**Goal: Assemble all the components!**
 
 It is now time to assemble all the components with wires! Refer to the
 Layman's schematic below for the connections. We will show step by step
 soldering photos further below:
 
-![](media/electronics-assembly/image31.jpeg){width="6.489583333333333in"
-height="3.65625in"}
+<div align="center">
+  <img src="media/electronics-assembly/image31.jpeg">
+</div>
 
 **Before proceeding, please note the following:**
 
@@ -374,21 +405,24 @@ wire for each of the boards, and a 3.3V wire for the Vibration Motor
 board. We highlight again, wires should come out of the bottom of the
 board:
 
-![](media/electronics-assembly/image32.jpeg){width="6.479166666666667in"
-height="4.875in"}
+<div align="center">
+  <img src="media/electronics-assembly/image32.jpeg" style="width: 65%;">
+</div>
 
 Once the connections are soldered, trim off any excess wires as shown
 below for the red 3.3V line.
 
-![](media/electronics-assembly/image33.jpeg){width="6.479166666666667in"
-height="4.875in"}
+<div align="center">
+  <img src="media/electronics-assembly/image33.jpeg" style="width: 65%;">
+</div>
 
 Now we connect the wiring for the other side of the board. Again we
 thread the wiring through the pin holes, bend the wires so they hold
 themselves.
 
-![](media/electronics-assembly/image34.jpeg){width="6.479166666666667in"
-height="4.875in"}
+<div align="center">
+  <img src="media/electronics-assembly/image34.jpeg" style="width: 65%;">
+</div>
 
 Solder these connections then trim any excess.
 
@@ -403,37 +437,44 @@ Here is an example photo of the PulseSensor with wires, not yet
 connected to the MCU, but with the wires properly slotted through the
 electronic case lid.
 
-![](media/electronics-assembly/image35.jpeg){width="6.479166666666667in"
-height="4.875in"}
+<div align="center">
+  <img src="media/electronics-assembly/image35.jpeg" style="width: 65%; transform: rotate(180deg);">
+</div>
 
 Please fully connect the PulseSensor to the MCU now.
 
 Next we will connect the Vibration Motor Board as shown below:
 
-![](media/electronics-assembly/image36.jpeg){width="6.479166666666667in"
-height="4.875in"}
+<div align="center">
+  <img src="media/electronics-assembly/image36.jpeg" style="width: 65%;">
+</div>
 
 Finally, we will connect the AD8232 EKG Board. We sill start with the
 side connections for GND, 3.3V, and OUTPUT. Here we remind again that
 these wires should come out from the bottom of the board. We hang the
-wires through the pin
-holes.![](media/electronics-assembly/image37.jpeg){width="6.479166666666667in"
-height="4.875in"}
+wires through the pin holes.
+
+<div align="center">
+  <img src="media/electronics-assembly/image37.jpeg" style="width: 65%; transform: rotate(180deg);">
+</div>
 
 Next we solder and clean the connections by snipping off any excess
 wire.
 
-![](media/electronics-assembly/image38.jpeg){width="6.479166666666667in"
-height="4.875in"}
+<div align="center">
+  <img src="media/electronics-assembly/image38.jpeg" style="width: 65%; transform: rotate(180deg);">
+</div>
 
 In a similar manner, we now solder the RA and LA connections. Note, the
 wires for this connection are those remaining from the electronic case
 lid. These two wires are for our EOG / EEG signals. Notice the thicker,
 yelow and blue wires we used in this tutorial for this section. It does
 not matter which wire goes into LA or RA. We note here again that the
-wire from the top connections emerge from the top of the
-board.![](media/electronics-assembly/image39.jpeg){width="6.479166666666667in"
-height="4.875in"}
+wire from the top connections emerge from the top of the board.
+
+<div align="center">
+  <img src="media/electronics-assembly/image39.jpeg" style="width: 65%; transform: rotate(180deg);">
+</div>
 
 ## Step 8. Connect the Battery
 
@@ -441,24 +482,24 @@ height="4.875in"}
 
 Now it's time to connect the battery.\
 \
-⚠️ CRITICAL SAFETY CHECK ⚠️
+<div align="center">
+  ⚠️ CRITICAL SAFETY CHECK ⚠️
 
-**IMPORTANT: YOU MUST VERIFY BATTERY LEAD POLARITY WITH MULTIMETER**
+  <b>IMPORTANT: YOU MUST VERIFY BATTERY LEAD POLARITY WITH MULTIMETER</b>
 
-\- RED should be POSITIVE (+)
+  - RED should be POSITIVE (+)
+  - BLACK should be NEGATIVE (-)
 
-\- BLACK should be NEGATIVE (-)
+  <b>CAUTION:</b> Some manufacturers reverse this standard color coding.
 
-**CAUTION:** Some manufacturers reverse this standard color coding.
+  <b>⚠️ CONNECTING INCORRECT POLARITY WILL PERMANENTLY DAMAGE THE MCU ⚠️</b>
 
-**⚠️ CONNECTING INCORRECT POLARITY WILL PERMANENTLY DAMAGE THE MCU ⚠️**
+  With the polarity of the battery leads verified, <b>carefully solder the leads to the MCU battery contacts</b> as shown in the photo below. Here RED is positive, and BLACK is negative.
+</div>
 
-With the polarity of the battery leads verified, **carefully solder the
-leads to the MCU battery contacts** as shown in the photo below. Here
-RED is positive, and BLACK is negative.
-
-![](media/electronics-assembly/image40.jpeg){width="6.479166666666667in"
-height="4.875in"}
+<div align="center">
+  <img src="media/electronics-assembly/image40.jpeg" style="width: 65%;">
+</div>
 
 Accidentally soldering the leads to the wrong location (such as positive
 to negative) will likelydamage your board. The extent of the damage may
@@ -485,15 +526,17 @@ Install the MCU (upside down), the battery, and Vibration Motor Board.
 Loop the Vibration Motor Bord wires around the upper right peg as shown
 below:
 
-![](media/electronics-assembly/image41.png){width="6.5in"
-height="4.894444444444445in"}
+<div align="center">
+  <img src="media/electronics-assembly/image41.png" style="width: 65%;">
+</div>
 
 Next, install the AD8232 Board into position. The side pins should be
 located over the center of the electronic case, and the EOG/EEG (RA/LA)
 pins should be towards the bottom left corner.
 
-![](media/electronics-assembly/image42.jpeg){width="6.479166666666667in"
-height="4.875in"}
+<div align="center">
+  <img src="media/electronics-assembly/image42.jpeg" style="width: 65%;">
+</div>
 
 If the MCU is overly loose in its slot, we recommend covering it with
 folded paper as shown in the figure below to ensure it remains in its
@@ -501,15 +544,18 @@ slot during use. Please note the following photos show a separate OSSMM
 device printed in blue, and with 30AWG wiring for the EOG/EEG
 electrodes.
 
-![](media/electronics-assembly/image43.jpeg){width="4.88in"
-height="6.506666666666667in"}
+<div align="center">
+  <img src="media/electronics-assembly/image43.jpeg" style="width: 40%; transform: rotate(90deg);">
+</div>
 
 We also recommend installing one sheet of paper cutout as shown in the
 photo below over the circuits. This provides an insulative barrier from
 the metal snap-fastener electrodes and eliminates any possibility of
-shorting with the underlying PCBs.\
-![](media/electronics-assembly/image44.jpeg){width="4.88in"
-height="6.506666666666667in"}
+shorting with the underlying PCBs.
+
+<div align="center">
+  <img src="media/electronics-assembly/image44.jpeg" style="width: 40%; transform: rotate(90deg);">
+</div>
 
 ## Step 10. Close the Electronic Case
 
@@ -530,17 +576,21 @@ When it is finished it should look like the following:
 
 Back:
 
-# ![](media/electronics-assembly/image45.jpeg){width="6.479166666666667in" height="4.875in"}
+<div align="center">
+  <img src="media/electronics-assembly/image45.jpeg" style="width: 65%;">
+</div>
 
 Front:
 
-![](media/electronics-assembly/image46.jpeg){width="6.479166666666667in"
-height="4.875in"}
+<div align="center">
+  <img src="media/electronics-assembly/image46.jpeg" style="width: 65%;">
+</div>
 
 Side with USB-C:
 
-![](media/electronics-assembly/image47.jpeg){width="6.5in"
-height="8.625in"}
+<div align="center">
+  <img src="media/electronics-assembly/image47.jpeg" style="width: 35%;">
+</div>
 
 ## Step 11. Now it's time for full assembly!
 
@@ -575,12 +625,12 @@ gladly accept this trade-off.\
 \*To be very clear on how safe the RLD already is, please consider the
 following: The AD8232 EKG board in its standard "Cardiac Monitor
 configuration," which is used here prior to "safety" modification, is
-set with an "RL" output resistor of 360kΩ limiting the output current to
+set with an "RL" output resistor of 360kΩ limiting the output current to
 a participant's body of ≤ 10 µA, provided the PCB voltage is 3.3V. In
 the worst case scenarion, even if the voltage were raised to 4.2V (i.e.
 directly powered by a fully charged 3.7V LiPo battery, which it is not)
 and the resistor had the lowest value within the ±10% tolerance range
-(that is 324 KΩ), the maximum current would be 13 µA. In comparison,
+(that is 324 KΩ), the maximum current would be 13 µA. In comparison,
 tACS and tDCS devices supply current to a participants head of up to
 2mA, or more than 150x the worst case scenario of the AD8232. However,
 given that there is still a "risk" using the RLD, this would needlessly
