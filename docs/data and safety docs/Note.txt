@@ -1,0 +1,21 @@
+Provided here are the Data and Safety Sheets for
+the components used in the OSSMM device. Because
+storage size is a restrictive factor for this 
+repository, some of the data sheets have been 
+compressed. The manufacturer and component names
+have been provided for all, therefore it is
+possible to retrieve uncompressed copies elsewhere
+online should they be required.
+
+Regarding the heart rate monitor strap, the OSSMM
+design functions with the industry standard dimensions
+of the electrode contact width which is ~46 mm. Each
+manufacturer produces these straps with varying
+materials and different quality levels of conductive
+material. Provided in this documentation is the data
+sheet for the Polar Care Pro Strap, and an email
+from a company representative showing the supplier
+requirements which cover a range of safety standards.
+To be explicit, other straps may be used, but the 
+Polar Care Strap Pro information is presented as a 
+viable option.
