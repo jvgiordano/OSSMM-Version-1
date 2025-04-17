@@ -51,6 +51,16 @@ With the smallest recommended battery (120 mAh) and only sleep monitoring functi
 
 The OSSMM device can sample at 250Hz, and 8 hours of sleep is roughly equivalent to 500 MB of data at this rate.
 
+## Documentation Guide
+
+This documentation provides the necessary information to build, set up, and understand the OSSMM V1.0.2. Please follow the sections below in order:
+
+1.  **[Prerequisites](01-prerequisites.md)**: Required software, tools, components, and background skills.
+2.  **[3D Printables](02-printables.md)**: Accessing files and instructions for printing the device casing.
+3.  **[Electronics Assembly](03-electronics-assembly.md)**: Step-by-step guide for soldering and assembling the hardware components.
+4.  **[Software Setup](04-software.md)**: Instructions for uploading code onto the microcontroller and setting up the smartphone application.
+5.  **[Final Assembly & Completion](05-completion.md)**: Integrating the electronics into the casing, attaching the headband, and final checks.
+
 ## Safety Considerations
 
 User safety was a fundamental priority throughout the development of OSSMM. The design incorporates several important safety features:
@@ -78,16 +88,6 @@ OSSMM was designed with data protection as a priority, incorporating multiple la
 * **Device security recommendations**: Due to the sensitive nature of sleep and physiological data, we strongly recommend that smartphones used with OSSMM be secured with PIN codes, biometric authentication, or other access controls.
 
 To further enhance your data security, consider regularly backing up and then purging old sleep data that is no longer needed for your research or personal analysis. Remember that physiological data, including sleep patterns, is considered sensitive personal information in many jurisdictions.
-
-## Documentation Guide
-
-This documentation provides the necessary information to build, set up, and understand the OSSMM V1.0.2. Please follow the sections below in order:
-
-1.  **[Prerequisites](01-prerequisites.md)**: Required software, tools, components, and background skills.
-2.  **[3D Printables](02-printables.md)**: Accessing files and instructions for printing the device casing.
-3.  **[Electronics Assembly](03-electronics-assembly.md)**: Step-by-step guide for soldering and assembling the hardware components.
-4.  **[Software Setup](04-software.md)**: Instructions for uploading code onto the microcontroller and setting up the smartphone application.
-5.  **[Final Assembly & Completion](05-completion.md)**: Integrating the electronics into the casing, attaching the headband, and final checks.
 
 ---
 *Current Version: V1.0.2*
