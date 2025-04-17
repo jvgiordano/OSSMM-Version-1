@@ -1,5 +1,7 @@
 # **O**pen-**S**ource **S**leep **M**onitor and **M**odulator (OSSMM)
 
+## THIS REPOSITORY IS A WORK IN PROGRESS! PLEASE REFRAIN FROM USAGE UNTIL THIS TEXT IS REMOVED (Aprl 17th, 2025)
+
 ## Introduction
 
 Welcome to OSSMM! This is the world's first **O**pen-**S**ource **S**leep **M**onitor and **M**odulator platform. The goal of OSSMM is to provide researchers and sleep enthusiasts with an affordable hardware and software platform for conducting sleep research across many participants within their natural home environment.
