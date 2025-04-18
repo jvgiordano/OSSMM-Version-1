@@ -20,7 +20,6 @@ by the electronic case.
   <img src="media/electronics-assembly/image5.jpeg" style="width: 30%;">
 </div>
 
-
 For first-time assembly, expect about 2 hours to complete.
 Otherwise, assembly can be comfortably done under 50 minutes. 
 
@@ -29,6 +28,7 @@ during the documentation process. Please be aware that these edges, like the sid
 of the electronic case, are actually straight.
 
 <br><br>
+
 ## Step 1. Gather Relevant Materials:
 
 <div align="center">
@@ -254,6 +254,7 @@ the electronic case lid's side tabs.
   <img src="media/electronics-assembly/image19.jpeg" style="width: 65%;">
 </div>
 <br>
+
 Position the electronic case over the corner such that the corner will
 support the male end of the snap fastener below but not touch the
 electronic case lid elsewhere. We do not want to break off any of the
@@ -261,9 +262,12 @@ four side tabs on the electronic case lid. Place the crimping tool on
 top and hammer down. Use the non-rubber side of the hammer. Do not be
 afraid to use force, or to strike multiple times.
 
+<br>
 <div align="center">
   <img src="media/electronics-assembly/image20.jpeg" style="width: 65%;">
 </div>
+<br>
+
 
 **Remember, the goal is to have a tight, secure fit that will not come
 undone and will make solid contact with the exposed wiring.** This is
@@ -274,9 +278,12 @@ Repeat the process for the other hole. Make sure the snap fasteners are
 secure. Below is a complete electronic case lid with attached
 snap-fasteners:
 
+<br>
 <div align="center">
   <img src="media/electronics-assembly/image21.jpeg" style="width: 65%;">
 </div>
+<br>
+
 
 It is okay to have a little gap as shown below if the connection is
 snug. Please note that overcrimping can lead to the wire being cut, but
