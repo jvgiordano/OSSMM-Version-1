@@ -1,3 +1,7 @@
+<meta http-equiv='cache-control' content='no-cache'> 
+<meta http-equiv='expires' content='0'> 
+<meta http-equiv='pragma' content='no-cache'>
+
 # **O**pen-**S**ource **S**leep **M**onitor and **M**odulator (OSSMM)
 
 ## THIS REPOSITORY IS A WORK IN PROGRESS! PLEASE REFRAIN FROM USAGE UNTIL THIS TEXT IS REMOVED (Aprl 17th, 2025)
