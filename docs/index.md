@@ -81,8 +81,8 @@ This documentation provides the necessary information to build, set up, and unde
 1.  **[Prerequisites](01-prerequisites.md)**: Detailed introduction and required software, tools, components, and background skills.
 2.  **[3D Printables](02-printables.md)**: Instructions for printing the device's 3D printed casing.
 3.  **[Electronics Assembly](03-electronics-assembly.md)**: Step-by-step guide for soldering and assembling the electronic hardware components.
-4.  **[Software Setup](04-software.md)**: Instructions for uploading code onto the microcontroller (MCU) and setting up the smartphone application.
-5.  **[Final Assembly & Completion](05-completion.md)**: Integrating the electronics into the casing, attaching the headband, and final checks.
+4.  **[Final Assembly & Completion](04-final-assembly.md)**: Integrating the electronics into the casing, and attaching the headband
+5.  **[Software Setup](05-software.md)**: Instructions for uploading code onto the microcontroller (MCU) and setting up the smartphone application and final checks.
 
 ## Safety Considerations
 
@@ -104,11 +104,11 @@ OSSMM was designed with data protection as a concern:
 
 * **Secure BLE connection**: The smartphone-to-device BLE connection requires verification of 3 unique UUIDs before data transmission occurs.
 
-* **User-customizable security**: Each user can modify these UUID values to create their own unique security profile.
+* **User-customizable security**: Each user can modify these UUID values to create their own unique security "profile".
 
 * **Local data storage**: All data collected by OSSMM is stored locally on your smartphone in a dedicated "/OSSMM" directory. No data is automatically transmitted to external servers or cloud services, unless you choose to do so.
 
-* **Device security recommendations**: Due to the sensitive nature of sleep and physiological data, we recommend that smartphones used with OSSMM be secured with PIN codes or other access controls.
+* **Device security recommendations**: Due to the nature of sleep and physiological data, we recommend that smartphones used with OSSMM be secured with PIN codes or other access controls.
 
 ---
 *Current Version: V1.0.2*
