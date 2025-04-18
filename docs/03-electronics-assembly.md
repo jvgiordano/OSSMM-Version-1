@@ -154,7 +154,7 @@ contained within the board dimensions.
 <br>
 
 <div align="center" style="display: flex; justify-content: center; gap: 10px;">
-  <img src="media/electronics-assembly/image11.jpg" style="width: 40%;">
+  <img src="media/electronics-assembly/image11.jpeg" style="width: 40%;">
   <img src="media/electronics-assembly/image12.jpg" style="width: 40%;">
 </div>
 
