@@ -73,27 +73,25 @@ User safety was a fundamental priority throughout the development of OSSMM. The 
 
 * **Low-voltage electronics**: All electronic components are commercially available, hobbyist-grade parts commonly used in wearable maker projects. The system operates entirely on low voltage, minimizing electrical risks.
 
-* **Limited battery capacity**: The small-capacity battery (120-150 mAh) significantly reduces potential risks associated with battery malfunctions or thermal issues.
+* **Limited battery capacity**: The small-capacity battery (120-220 mAh) significantly reduces potential risks associated with battery malfunctions.
 
-* **Non-invasive sensors**: With the exception of the pulse sensor, all measurement systems are passive and do not introduce any current into the body. The pulse sensor uses photoplethysmography (PPG) - the same light-based technology found in consumer smartwatches - which emits only low-intensity light to detect blood flow beneath the skin.
+* **Non-invasive sensors**: With the exception of the pulse sensor, all measurement systems are passive. The pulse sensor uses photoplethysmography (PPG) - the same light-based technology found in consumer smartwatches - which emits only low-intensity light to detect blood flow beneath the skin. At no point is current injected into the body
 
-* **Biocompatible materials**: We carefully selected specific 3D printing filament brands based on their published safety data to ensure skin contact compatibility. Safety data sheets for all components are included in this repository for your reference.
+* **Biocompatible materials**: We selected specific 3D printing filaments based on their published safety data to ensure skin contact compatibility. Safety data sheets for all components and filaments are included in this repository for your reference.
 
-While we've made every effort to design a safe system, users assume responsibility for their implementation. We cannot be held liable for any use, misuse, or adverse events resulting from the construction or operation of an OSSMM device. It remains the user's responsibility to properly assemble their device using appropriate components from reputable sources and to ensure proper operation.
+While we've made every effort to design a safe system, users assume responsibility for their implementation. We cannot be held liable for any use, misuse, or adverse events resulting from the construction or operation of an OSSMM device. It remains the user's responsibility to properly assemble their device using appropriate components from reputable sources and to ensure proper operation. This is not a medical device.
 
 ## Data Privacy and Security
 
-OSSMM was designed with data protection as a priority, incorporating multiple layers of security:
+OSSMM was designed with data protection as a concern: 
 
-* **Secure BLE connection**: The smartphone-to-device Bluetooth Low Energy connection implements a 3-unique-UUID verification protocol before any data transmission can occur. This significantly reduces the risk of unauthorized access to your physiological data.
+* **Secure BLE connection**: The smartphone-to-device BLE connection requires verification of 3 unique UUIDs before data transmission occurs.
 
-* **User-customizable security**: Each user can modify these UUID values to create their own unique security profile, providing an additional layer of personalization and protection.
+* **User-customizable security**: Each user can modify these UUID values to create their own unique security profile.
 
-* **Local data storage**: All data collected by OSSMM is stored locally on your smartphone in a dedicated "/OSSMM" directory. No data is automatically transmitted to external servers or cloud services.
+* **Local data storage**: All data collected by OSSMM is stored locally on your smartphone in a dedicated "/OSSMM" directory. No data is automatically transmitted to external servers or cloud services, unless you choose to do so.
 
-* **Device security recommendations**: Due to the sensitive nature of sleep and physiological data, we strongly recommend that smartphones used with OSSMM be secured with PIN codes, biometric authentication, or other access controls.
-
-To further enhance your data security, consider regularly backing up and then purging old sleep data that is no longer needed for your research or personal analysis. Remember that physiological data, including sleep patterns, is considered sensitive personal information in many jurisdictions.
+* **Device security recommendations**: Due to the sensitive nature of sleep and physiological data, we recommend that smartphones used with OSSMM be secured with PIN codes or other access controls.
 
 ---
 *Current Version: V1.0.2*
