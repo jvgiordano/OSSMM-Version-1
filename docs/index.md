@@ -8,7 +8,7 @@ Welcome! We present **OSSMM**, an **O**pen-**S**ource **S**leep **M**onitor and 
 
 The goal of OSSMM is to provide researchers and sleep enthusiasts with an affordable hardware and software platform for conducting sleep research which can be built at the "home" lab. This cost-effective solution and local assembly encourages research across numerous participants within their natural home environment.
 
-The target cost of OSSMM is below €40 (as of 12/2024) and we have achieved this! All components used are either commercially available at affordable prices, or 3D printed.
+The target cost of OSSMM is below €40 (as of 12/2024) and we have achieved this! All components used are either commercially available at affordable prices, or 3D printed. This cost does not include the required smartphone for data collection.
 
 This system aims to assess sleep staging more accurately than many commercially available devices, like smartwatches and rings, at a fraction of the cost. Importantly, OSSMM is designed to permit researchers and enthusiasts to conduct experiments requiring sleep modulation, addressing a gap where no comparable system is currently available off-the-shelf.
 
@@ -16,20 +16,29 @@ This system aims to assess sleep staging more accurately than many commercially 
 
 Key design considerations for OSSMM include:
 
-* Reusable and washable silicone wet-dry electrodes.
-* Quick-change parts for easy repair and hygiene.
-* Battery Powered with no exposed wiring
-* Fully open-source hardware designs and software code.
+* **Reusable silicone wet-dry electrodes.** (no conductive gel needed)
+* **Quick-change parts for easy repair and hygiene.**
+* **Battery powered with no exposed wiring.** (est. 15+ hour run-time)
+* **Fully open-source hardware designs and software code.**
   - Full access for user desired modification.
   - Full transparency of code and classification algorithms used for sleep staging.
-
+  
+  
 ## System Overview (V1.0.2)
 
 In short, OSSMM consists of a wearable headband that collects physiological data and transmits it wirelessly via Bluetooth Low Energy (BLE) to a dedicated smartphone application. Only Android is supported at this time.
 
-<img src="media/index/front.jpg" alt="Front view of OSSMM headband" width="45%" style="display:inline-block; margin-right:4%"> <img src="media/index/back.jpg" alt="Back view of OSSMM headband" width="50%" style="display:inline-block">
-
-The bounding dimensions of the headband, excluding the strap, are 79.1 x 45.2 x 30 mm (3.114 x 1.780 x 1.181 in). The headband weighs 76.5 grams (2.7 ounces) with a 150 mAh battery.
+<div style="display: flex; flex-direction: row; align-items: flex-start;">
+  <figure style="margin: 0; width: 45%;">
+    <img src="media/index/front.jpg" alt="Front view of OSSMM headband" style="width: 100%;">
+    <figcaption style="text-align: center; font-style: italic; margin-top: 5px;">Fig 1: Front of the OSSMM headband compared with a €1 coin.</figcaption>
+  </figure>
+  <figure style="margin: 0; width: 50%; margin-left: 4%;">
+    <img src="media/index/back.jpg" alt="Back view of OSSMM headband" style="width: 100%;">
+    <figcaption style="text-align: center; font-style: italic; margin-top: 5px;">Fig 2: Back of the OSSMM headband, with the silicone electrodes and PPG sensor visible.</figcaption>
+  </figure>
+</div>
+<br><br>
 
 The headband comprises:
 
@@ -37,7 +46,14 @@ The headband comprises:
 * **3D printed housing**
 * **Four COTS boards**
 * **Rechargeable battery**
-* **Electrode band** (Elastic band with integrated silicone wet-dry electrodes, commercially available as a 'heart rate monitor strap')
+* **Electrode head band** (Elastic band with integrated silicone wet-dry electrodes, commercially available as a 'heart rate monitor strap')
+
+Specifications:
+
+* **Dimensions: 79.1 x 45.2 x 30 mm** (3.114 x 1.780 x 1.181 in)
+* **Weight: 76.5 grams** ( or 2.7 ounces with a 150 mAh battery)
+* **Sampling Frequency: up to 250Hz** (produces 500MB for 8 hour recording)
+* **Battery: 120-220 mAh** (est. 15-27.5 hour run time of only sleep monitoring)
 
 The device currently collects the following data:
 
@@ -46,16 +62,17 @@ The device currently collects the following data:
 * **Brain signatures**: Frontal Electroencephalography (EEG)
 * **Heart rate**: Photoplethysmography (PPG)
 
-While the hardware supports sound data collection (microphone), this feature is not activated in version 1.0.2.
+Additional Notes:
 
-Collected data is transmitted via BLE to a smartphone running the OSSMM app. The app stores the raw data locally. Future versions aim to analyze data in near-real-time to potentially trigger sleep modulation if desired within the experimental protocol.
+While the hardware supports sound data collection via a microphone, this feature is not activated in version 1.0.2.
 
-OSSMM V1.0.2 uses a COTS vibration motor (similar to those in mobile phones) as a stimulus mechanism for sleep modification experiments. The Vibration Motor serves as an ideal example stimulus due to its heavy power demands. Since the system can successfully handle a vibration motor that consumes large amounts of current during operation, it can easily accommodate other stimulus methods: speaker, LEDs, tDCS, and tACS.
+Collected data is transmitted via BLE to a smartphone running the OSSMM app. The app stores the raw data locally. Future versions aim to analyze data in near-real-time (e.g. after 1-2 epochs, or 30-60seconds) to potentially trigger sleep modulation if desired within the experimental protocol.
 
-With the smallest recommended battery (120 mAh) and only sleep monitoring functionality enabled, the device's runtime should exceed 15 hours.
+OSSMM V1.0.2 uses a COTS vibration motor (similar to those in mobile phones) as a stimulus mechanism for sleep modification experiments. The vibration motor serves as an ideal example stimulus from an engineering perspective due to its heavy power demands. 
 
-The OSSMM device can sample at up to 250Hz. Recording 8 hours of sleep at this rate produces ~500 MB of data.
+In other words, since the system can successfully handle a vibration motor that consumes large amounts of current during operation (+60 mA), it can easily accommodate other stimulus methods: speaker, LEDs, tDCS, and tACS.
 
+Although we initially demonstrate support for Android smartphones via a dedicated app, any device which supports high priority BLE transmissions can be used to record data. Therefore it should be possible to work with iPhone, Raspberry Pi, etc.
 
 ## Documentation Guide
 
