@@ -85,8 +85,8 @@ This documentation provides the necessary information to build, set up, and unde
 1.  **[Prerequisites](01-prerequisites.md)**: Detailed introduction and required software, tools, components, and background skills.
 2.  **[3D Printables](02-printables.md)**: Instructions for printing the device's 3D printed casing.
 3.  **[Electronics Assembly](03-electronics-assembly.md)**: Step-by-step guide for soldering and assembling the electronic hardware components.
-4.  **[Final Assembly & Completion](04-final-assembly.md)**: Integrating the electronics into the casing, and attaching the headband
-5.  **[Software Setup](05-software.md)**: Instructions for uploading code onto the microcontroller (MCU) and setting up the smartphone application and final checks.
+4.  **[Final Assembly](04-final-assembly.md)**: Integrating the electronics into the casing, and attaching the headband
+5.  **[Software Setup & Completion](05-software.md)**: Instructions for uploading code onto the microcontroller (MCU) and setting up the smartphone application and final checks.
 
 ## Safety Considerations
 

@@ -1,13 +1,16 @@
 # Electronics Assembly
 
-Welcome to the Electronics Assembly section. The goal is to combine all
-the electronic components install them in the 3D
-printed electronic case.
+Welcome to the Electronics Assembly guide! In this section, you will learn how 
+to combine the electronic components and install them in the 3D printed case 
+to create the "electronic module." 
 
-To give you an idea of what we are hoping to achieve, here are some
-photos of the finished assembly. To demonstrate the interior, the lid is
-left open in some of the photos. Please note how the PulseSensor is not enclosed
-by the electronic case.
+The photos below show the completed assembly from different angles. Some images 
+display the case with the lid open to reveal the internal component arrangement.
+Please note that the PulseSensor intentionally remains outside the electronic 
+case in the final assembly.
+
+For first-time builders, expect to spend about 2 hours on this process. 
+Experienced builders can complete the assembly comfortably in under 50 minutes.
 
 <div align="center" style="display: flex; justify-content: center; gap: 10px;">
   <img src="media/electronics-assembly/image1.jpeg" style="width: 30%;">
@@ -20,16 +23,13 @@ by the electronic case.
   <img src="media/electronics-assembly/image5.jpeg" style="width: 30%;">
 </div>
 
-For first-time assembly, expect about 2 hours to complete.
-Otherwise, assembly can be comfortably done under 50 minutes. 
-
 **Note:** Edges may appear curved in some photos due to lens distortion 
 during the documentation process. Please be aware that these edges, like the sides
 of the electronic case, are actually straight.
 
 <br><br>
 
-## Step 1. Gather Relevant Materials:
+## Step 1. Gather Relevant Tools and Materials:
 
 <div align="center">
   <img src="media/electronics-assembly/image6.jpeg" style="width: 65%;">
@@ -119,8 +119,8 @@ installing components permanently.
 
 If components appear too large:
 1. Check if the case was printed to correct specifications
-2. If the case dimensions are correct, some PCBs* may need minor adjustments
-3. Carefully sand or trim edges of PCBs using sandpaper or wire cutters (use caution!)
+2. If the case dimensions are correct, then some PCBs* may need minor adjustments
+3. Carefully sand edges of PCBs using sandpaper or scrape with wire cutters (use caution!)
 
 **Important fit check:** The AD8232 and Vibration Motor boards have holes that 
 should align with the pegs in the case. This alignment should confirm proper case 
@@ -136,15 +136,15 @@ along with the designated positions for the battery and MCU.
   <img src="media/electronics-assembly/image10.jpg" style="width: 50%; transform: rotate(90deg);">
 </div>
 
-Please note that the Seeed Xiao Sense inserts bottom side facing up such that the
-USB port will align with the case's USB slot.
+Please note that the Seeed Xiao Sense inserts bottom-side facing up, so that the
+USB port insert into the electronic case's USB slot.
 
 The Vibration Motor Board may need minor adjustment to fit properly. The 
-vibration disk's orientation might cause wires to extend beyond the PCB 
-boundaries, preventing insertion into the electronic case. Simply lift the disk
-from the board (it's attached with double-sided adhesive) using wire cutters, 
-reorient it so wires stay within the board dimensions, and press it back down 
-gently to reattach.
+vibration disk's orientation might cause wires to extend beyond the board's 
+boundaries, preventing insertion into the electronic case. Simply lift the 
+vibration disk from the board (it's attached with double-sided adhesive) using 
+the wire cutters or your fingers, reorient it so wires stay within the board 
+dimensions, and press it back down gently to reattach.
 
 The following photos highlight this issue. The left image shows the problem: 
 the vibration disc orientation causes wiring to extend beyond the board's 
@@ -152,10 +152,12 @@ boundary. The right image shows the solution: rotating the disc keeps all wiring
 contained within the board dimensions.
 
 <br>
+
 <div align="center" style="display: flex; justify-content: center; gap: 10px;">
   <img src="media/electronics-assembly/image11.jpg" style="width: 40%;">
   <img src="media/electronics-assembly/image12.jpg" style="width: 40%;">
 </div>
+
 <br>
 
 The photo below shows the inclusion of the AD8232, which should sit
@@ -168,7 +170,7 @@ above the Vibration Motor Board.
 <br>
 
 If the components fit, move on to the next step. Otherwise, take the
-time to reprint the case or gently modify the components as needed.
+time to reprint the case or gently modify the PCBs as needed.
 
 <br><br>
 
@@ -187,7 +189,7 @@ Materials needed:
 - Thicker wire (22 AWG recommended) provides better electrical contact
 
 Preparation steps:
-1. Strip approximately 20mm of insulation from one end of each wire
+1. Strip approximately 20-25mm of insulation from one end of each wire
 2. Locate the internal face of the electronic lid (the non-smooth surface)
 3. With the internal face up, thread the exposed wire through one of the round holes
 4. Position the wire carefully in the notch as shown in the photo below:
@@ -251,16 +253,19 @@ them.
 </div>
 <br>
 
-Position the electronic case over the corner so that only the male end of the 
-snap fastener receives support from below, without the corner touching any other
-part of the case lid. This positioning will prevent any damage to the four side 
-tabs on the lid. 
+First, verify the wire remains in the notch on the internal face. Then position the 
+electronic case over the corner so that only the male end of the snap fastener
+receives support from below, without the corner touching any other part of the 
+case lid. This positioning will prevent any damage to the four side 
+tabs on the lid.
 
 Place the crimping tool directly on top of the snap fastener and strike firmly 
 with the non-rubber side of the hammer. Don't hesitate to use sufficient force 
 or multiple strikes to achieve a proper crimp—this connection needs to be secure.
-It is possible, but unlikely, to over crimp the snap fastener and cut the wire.
-Check the assembly after every few hits.
+
+While it is possible to over crimp the snap fastener and cut the wire, this is
+difficult to achieve if the wire is positioned in the notch from the start.
+
 
 <br>
 <div align="center">
@@ -304,7 +309,7 @@ if the wires are placed correctly in the notch this is unlikely.
 is the AD8232.**
 
 Before assembling all components together, each circuit board may require 
-specific preparation. We'll start with the AD8232 EKG board.
+some preparation. We'll start with the AD8232 EKG board.
 
 The AD8232 EKG board includes a 3.5mm headphone jack that we won't be using in
 our design. Since we'll connect directly to the board's RA and LA pins 
@@ -350,11 +355,16 @@ photo below:
 **Goal: Prepare the PulseSensor board.**
 
 PulseSensor units will either come soldered with pins or with wires. The
-OSSMM requires wires.\
-\
-Even if the unit comes with wires it is recommended to switch them to
-better quality silicone insulated ones. This will prolong the durability
+OSSMM requires wires.
+
+Even if the unit comes with wires it is recommended replacing them with 
+high-quality silicone-insulated wires. This will prolong the durability
 and longevity of the device, and make later assembly easier.
+
+Note: Future designs may permit the PulseSenor to only require pins. Wires coming
+from the MCU could terminate with female Dupont connectors which would mate with
+these pins. This would have several benefits. However, the current design does
+not lend itself to this. 
 
 <br>
 <div align="center">
@@ -371,16 +381,19 @@ desolder the pins one by one.
 </div>
 <br>
 
-**Before adding new rewires note that you have a choice to add the wires
-now or later.** Both options are viable, but **we found it easier to add
-the wires later.** Ultimately the PulseSensor will connect to the MCU,
-but the wiring must go through the rectangular slot in the electronic
-case lid. This make it slightly more challenging when adding the wires
-now.
+**Wiring Decision:** You can add wires to the PulseSensor nor or later.
 
-In any case we show the wiring in the photo below for demonstration.
-When rewiring please confirm that the order of the electrodes of S
-(Signal), + (3.3V), and -- (Ground, 0V):
+Both approaches work, but **we recommend adding the wires later.** The 
+PulseSensor's wires must pass through the rectangular slot in the electronic 
+case lid. Adding the wires earlier makes the soldering more challenging.  
+
+Regardless of when you choose to add the wires, the photo below shows the
+correct wiring configuration. When rewiring please confirm that the order of the
+electrodes of: 
+
+* **S** (Signal)
+* **+** (3.3V)
+* **--** (Ground, 0V):
 
 <br>
 <div align="center">
@@ -426,7 +439,7 @@ over the board's boundaries, and electrode pinholes ready for wires.
 
 <br><br>
 
-## Step 7. Solder the components together according to the Layman's schematic
+## Step 7. Solder Components Together According to the Layman's Schematic
 
 <br>
 
@@ -444,34 +457,34 @@ soldering photos further below:
 
 **Before proceeding, please note the following:**
 
-1.  Wires should come out of the bottom of the MCU board
+1.  **MCU:** All wires exit from the bottom face of the board.
 
-2.  Side connections of the AD8232 board (GND, 3.3v, Output) come out of
-    the bottom of the board, the side opposite that with the 3.5mm jack.
+2. **AD8232 Board**: 
+  - Side Pins (GND, 3.3V, Output): Wires exit from the bottom side (opposite face of the 3.5mm jack).
+  - Top Pins (RA, LA): Wires exit from the top side (face with 3.5mm jack).
 
-3.  Top connections of the AD8232 board (RA, LA) come out of the top,
-    the side that had the 3.5mm jack.
+3. **Vibration Motor Board**: Wires can exit from either side. Top side is preferred.
 
-4.  Wires can be soldered for either side of the Vibration Motor Board.
-    The top is prefered.
+4. **PulseSensor**: If you have soldered wires to the PulseSensor, remember to thread the wires through the rectangular slot in the electronic case lid before soldering to the MCU!
 
-5.  When soldering the PulseSensor to the MCU, **remember to insert the
-    wires through rectangular slot of the electronic case lid first!**
+We will remind you of these again later in the tutorial.
 
-All of these will be remphasized later.
+There are many ways to go about connecting the components with the schematic 
+above. We relate here the method we've found most reliable and efficient:
 
-There are many ways to go about the soldering process according to the
-schematic above. We relate here the method that we found easiest:
+Begin by soldering all required wires to the appropriate pins on the MCU board:
 
-First, start with the MCU and solder all wired connections to
-appropriate pin holes
+1. Thread each wire through its designated pin hole from the bottom side of the board
+2. Bend the wire on the top side to hold it in place
+3. Solder each connection securely
+4. Trim and clean off any excess
 
-. It is easiest to hang the wires through the MCU pin slots, then
-solder. Shown below is this process for connecting the triple ground
-wire for each of the boards, and a 3.3V wire for the Vibration Motor
-board. We highlight again, wires should come out of the bottom of the
-board:
 
+Shown below is the first and second step of this process. Here we have threaded
+a red wire through the 3.3V pin of the MCU which will later power the Vibration
+Motor. Already soldered are the three ground wires for the component PCBs.
+
+We highlight again, upon completion wires must emerge from bottom of the board:
 
 <br>
 <div align="center">
@@ -479,9 +492,8 @@ board:
 </div>
 <br>
 
-
-Once the connections are soldered, trim off any excess wires as shown
-below for the red 3.3V line.
+Now it is time to solder the bent wire, and trim off any excess. Resoldering may
+be done for a cleaner job.
 
 <br>
 <div align="center">
@@ -490,9 +502,9 @@ below for the red 3.3V line.
 <br>
 
 
-Now we connect the wiring for the other side of the board. Again we
-thread the wiring through the pin holes, bend the wires so they hold
-themselves.
+Now you should connect the wiring for the other side of the board as shown below.
+Refer to the schematic if there is any confusion. Again we have threaded the
+wiring through the pin holes and bent the wires so they hold themselves.
 
 <br>
 <div align="center">
@@ -502,16 +514,21 @@ themselves.
 
 Solder these connections then trim any excess.
 
+Now it is time to complete the connection between the MCU and the PulseSensor.
+
+
 We highlight again here that the wires for the PulseSensor must go
 through the rectangular slot in the electronic case lid. If you forget
-to do this, it simply requires desolder, moving the wires through the
-slot, then resoldering. We recommend doing this on the PulseSensor if
-needed as the pin holes on the MCU are very small and not conducive to
-easy resoldering.
+to do this, don't worry. Simply desolder the connections on the PulseSensor, 
+thread the wires correctly, then resolder.
 
-Here is an example photo of the PulseSensor with wires, not yet
-connected to the MCU, but with the wires properly slotted through the
-electronic case lid.
+We do not recommend resoldering the connection from the MCU side as the pins are
+very small and not conducive to easy resoldering.
+
+Below is an example demonstrating the PulseSensor with wires properly threaded
+through the rectangular slot in the electronic case lid. Again this photo is for
+illustrative purpose and we recommend connecting the PulseSensor to the wires
+after they have already been attached to the MCU.
 
 <br>
 <div align="center">
@@ -522,7 +539,7 @@ electronic case lid.
 
 Please fully connect the PulseSensor to the MCU now.
 
-Next we will connect the Vibration Motor Board as shown below:
+Now you will connect the Vibration Motor Board as shown below:
 
 <br>
 <div align="center">
@@ -530,11 +547,10 @@ Next we will connect the Vibration Motor Board as shown below:
 </div>
 <br>
 
-
-Finally, we will connect the AD8232 EKG Board. We sill start with the
-side connections for GND, 3.3V, and OUTPUT. Here we remind again that
-these wires should come out from the bottom of the board. We hang the
-wires through the pin holes.
+Finally, connect the AD8232 EKG Board. Start with the side connections 
+(GND, 3.3V, and OUTPUT). Remember that these wires must exit from the bottom of 
+the board (the side opposite where the 3.5mm jack was removed). Thread the wires
+through the pin holes as shown in the image below.
 
 <br>
 <div align="center">
@@ -543,8 +559,7 @@ wires through the pin holes.
 <br>
 
 
-Next we solder and clean the connections by snipping off any excess
-wire.
+Next solder then clean the connections by snipping off any excess.
 
 <br>
 <div align="center">
@@ -559,6 +574,14 @@ yelow and blue wires we used in this tutorial for this section. It does
 not matter which wire goes into LA or RA. We note here again that the
 wire from the top connections emerge from the top of the board.
 
+
+Now, solder the RA and LA connections using the two wires from the 
+electronic case lid. In this tutorial, we've used thicker yellow and blue wires 
+for these connections. Either wire can connect to LA or RA - the assignment 
+doesn't matter. Remember that these wires should exit from the top of the board 
+(the side where the 3.5mm jack was removed).
+
+
 <br>
 <div align="center">
   <img src="media/electronics-assembly/image39.jpeg" style="width: 65%; transform: rotate(180deg);">
@@ -572,41 +595,42 @@ wire from the top connections emerge from the top of the board.
 
 **Goal: Connect the Battery!**
 
-Now it's time to connect the battery.\
-\
+Now it's time to connect the battery.
+
+
 <div align="center">
   ⚠️ CRITICAL SAFETY CHECK ⚠️
-
+  <br>
   <b>IMPORTANT: YOU MUST VERIFY BATTERY LEAD POLARITY WITH MULTIMETER</b>
-
+  <br>
   - RED should be POSITIVE (+)
   - BLACK should be NEGATIVE (-)
-
+  <br>
   <b>CAUTION:</b> Some manufacturers reverse this standard color coding.
-
+  <br>
   <b>⚠️ CONNECTING INCORRECT POLARITY WILL PERMANENTLY DAMAGE THE MCU ⚠️</b>
-
+  <br>
   With the polarity of the battery leads verified, <b>carefully solder the leads to the MCU battery contacts</b> as shown in the photo below. Here RED is positive, and BLACK is negative.
 </div>
 
 <br>
 <div align="center">
-  <img src="media/electronics-assembly/image40.jpeg" style="width: 65%;">
+  <img src="media/electronics-assembly/image40.jpg" style="width: 65%;">
 </div>
 <br>
 
 Accidentally soldering the leads to the wrong location (such as positive
-to negative) will likelydamage your board. The extent of the damage may
+to negative) will likely damage your board. The extent of the damage may
 vary, but if this occurs the MCU should not be trusted even if it
-appears to function.\
-\
+appears to function.
+
 Our testing has shown that sometimes the MCU will semi-function, but
 other errors may present themselves in time, such as the MCU being
 incapable of charging the battery.
 
 <br><br>
 
-## Step 9. Install the components into the Electronic Case Bottom
+## Step 9. Install Components into the Electronic Case Bottom
 
 <br>
 
@@ -618,11 +642,12 @@ into the case bottom.
 
 First, position the case bottom so you're looking into it. Verify the
 version number (printed on the side) is in the upper left corner. The
-MCU slot should be in the upper right corner.\
-\
+MCU slot should be in the upper right corner.
+
 Install the MCU (upside down), the battery, and Vibration Motor Board.
 Loop the Vibration Motor Bord wires around the upper right peg as shown
-below:
+below. Likewise, the battery wires should thread through the bottom slot
+of the MCU enclosure. 
 
 <br>
 <div align="center">
@@ -643,7 +668,7 @@ pins should be towards the bottom left corner.
 If the MCU is overly loose in its slot, we recommend covering it with
 folded paper as shown in the figure below to ensure it remains in its
 slot during use. Please note the following photos show a separate OSSMM
-device printed in blue, and with 30AWG wiring for the EOG/EEG
+device printed in blue, and with thinner 30AWG wiring for the EOG/EEG
 electrodes.
 
 <br>
@@ -676,46 +701,41 @@ electronic case lid are asymmetrical. It can only be closed in one way!
 
 Before inserting, make sure the respective slots on the electronic case
 bottom are free and clear. Remove any debris or support material which
-may remain.\
-\
+may remain.
+
 Align the tabs, insert on one side, then insert on the other. This may
-require some slight bending of the electronic case base wall to all the
+require some slight bending of the electronic case walls to allow the
 tabs to slip into their slots.
 
 When it is finished it should look like the following:
 
-Back:
-
 <div align="center">
+  <p><strong>Back:</strong></p>
   <img src="media/electronics-assembly/image45.jpeg" style="width: 65%;">
 </div>
 
-Front:
-
 <div align="center">
+  <p><strong>Front:</strong></p>
   <img src="media/electronics-assembly/image46.jpeg" style="width: 65%;">
 </div>
 
-Side with USB-C:
-
 <div align="center">
+  <p><strong>Side with USB-C:</strong></p>
   <img src="media/electronics-assembly/image47.jpeg" style="width: 25%;">
 </div>
 
 <br><br>
 
-## Step 11. Now it's time for full assembly!
+## Step 11. Now Time for Full Assembly!
 
 <br>
 
-Refer to the assembly guide on how to combine the heart monitor strap,
-receiver and electronic case together! You're nearly finished!
+Refer to the assembly guide below on how to combine the heart monitor strap,
+receiver and electronics module together! You're nearly finished!
 
-**[Final Assembly & Completion](04-final-assembly.md)**: Integrating the electronics into the casing and attaching the headband.
+**[Final Assembly](04-final-assembly.md)**: Integrating the electronics into the casing and attaching the headband.
 
-or return to the main page:
-
-**[Main Page](index.md)**
+or alternatively, return to the main page: **[Main Page](index.md)**
 
 <br><br>
 
