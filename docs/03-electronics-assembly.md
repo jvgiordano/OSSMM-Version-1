@@ -105,43 +105,39 @@ for best practices and more information.
 
 <br><br>
 
-## Step 2. Verify that electronic components fit inside the 3D Printed Case Bottom
+## Step 2. Test-Fit Electronic Components in 3D Printed Case Bottom
 
 <br>
 
-**Goal: Ensure that the electronic case bottom and electronic components
-fit together.** It is possible the case was not printed correctly, or
-that components require minor modification to fit.
+**Goal: Verify that all electronic components properly fit into the 3D printed case bottom.**
 
-Refer to the photos below to determine component locations within the
-case. There is no need to force components into their final position. If
-the fit is tight, but you are confident the component will slot in later, then
-it suffices to determine this. We are not installing the components now, only
-checking sizing.
+In this step, you'll test if your components fit correctly in the case.
 
-If all the components are too large, it is likely the casing did not
-print to the correct dimensions and will need to be reprinted. However,
-it is also possible that the Printed Circuit Boards* (PCBs) may requiring some 
-trimming to fit. This can be done **carefully** with either sandpaper or the 
-sharp edge of the wire cutters.
+Refer to the photos directly below to identify the position of each component. 
+Don't force anything into place at this stage—we're only checking fit, not 
+installing components permanently.
 
-It is important that PCBs which have holes (AD8232 and Vibration Motor)
-mate with the 3D printed pegs in the casing. This is a strong indicator
-the electronic case bottom has printed to the correct dimensions. A
-properly inserted Vibration Motor is shown in the photo below, along with
-the locations of the battery and MCU.
+If components appear too large:
+1. Check if the case was printed to correct specifications
+2. If the case dimensions are correct, some PCBs* may need minor adjustments
+3. Carefully sand or trim edges of PCBs using sandpaper or wire cutters (use caution!)
 
+**Important fit check:** The AD8232 and Vibration Motor boards have holes that 
+should align with the pegs in the case. This alignment should confirm proper case 
+dimensions.
 
-*<u>Printed Circuit Board</u> - I use this term to refer to the components boards
-such as the Seeed Xiao Sense, Vibration Motor Board, AD8232, and Pulse Sensor.
+*PCBs (Printed Circuit Boards) refer to the component boards such as the Seeed 
+Xiao Sense, Vibration Motor Board, AD8232, and Pulse Sensor.
+
+The photo directly below shows a properly positioned Vibration Motor,
+along with the designated positions for the battery and MCU.
 
 <div align="center">
   <img src="media/electronics-assembly/image10.jpg" style="width: 50%; transform: rotate(90deg);">
 </div>
 
-Please note that the Seeed Xiao Sense inserts upside down such that the
-USB port will fit in the case's USB slot.
-
+Please note that the Seeed Xiao Sense inserts bottom side facing up such that the
+USB port will align with the case's USB slot.
 
 The Vibration Motor Board may need minor adjustment to fit properly. The 
 vibration disk's orientation might cause wires to extend beyond the PCB 
@@ -180,22 +176,21 @@ time to reprint the case or gently modify the components as needed.
 
 <br>
 
-**Goal: Crimp the metal-snap-fasteners with accompanying wire leads to
-the electronic case lid.** The snap-fasteners serve as the electrode
-connection point for the heart rate monitor strap which collects both
-EOG and EEG signals. This is essential for accurate sleep monitoring so
-be patient with this step.
+**Goal: Install Snap-Fasteners on the Electronic Case Lid with Wire Leads**
 
-Cut two strands of wire (between 22-30 AWG) at least 5" long. Expose at
-least 20 mm of the wires at one end. We recommend going with thicker
-wire for better connection, but it is not necessary. Using larger guage
-wire (here we used 22AWG) will ensure a tighter fit and better
-electrical contact between the wiring and the snap-fastener.
+The snap-fasteners function as electrode connection points for the heart rate 
+monitor strap, which collects EOG and EEG signals. This connection is essential
+for accurate sleep monitoring. Take your time with this step.
 
-Identify the internal face of the electronic lid. The internal face is
-the one that is not smooth. With the internal face up, insert the
-exposed wire through one of the round holes, keeping the wire in the
-notch as shown in the photo below:
+Materials needed:
+- Two wire strands (22-30 AWG), at least 5" (13cm) long
+- Thicker wire (22 AWG recommended) provides better electrical contact
+
+Preparation steps:
+1. Strip approximately 20mm of insulation from one end of each wire
+2. Locate the internal face of the electronic lid (the non-smooth surface)
+3. With the internal face up, thread the exposed wire through one of the round holes
+4. Position the wire carefully in the notch as shown in the photo below:
 
 <br>
 <div align="center">
@@ -220,10 +215,10 @@ fastener. Trim excess wire.
 </div>
 <br>
 
-Next, using a female snap-fastener, cover the male snap fastener **while
-keeping the exposed wiring in position.** Some of the strands may move,
-but if most of the wiring remains in place there should be no
-issues.
+Next, place a female snap-fastener over the male snap fastener **while 
+maintaining the exposed wire's position**. It's normal for some wire strands to
+shift slightly during this process—as long as most of the wiring stays in place, 
+the connection will function properly.
 
 <br>
 <div align="center">
@@ -231,10 +226,10 @@ issues.
 </div>
 <br>
 
-Squeeze by hand. This should result in a tight connection where the wire
-will not freely come away. Gaps between the snap-fastener and wiring
-will remain as shown in the photo below. These gaps will be addressed
-shortly.
+Press the snap-fastener assembly together firmly by hand. This creates an initial
+connection that prevents the wire from easily pulling free. You'll notice small
+gaps between the snap-fastener assembly (as shown in the photo below). Don't 
+worry — we'll address this in the next step.
 
 <br>
 <div align="center">
@@ -242,12 +237,13 @@ shortly.
 </div>
 <br>
 
-To eliminate the gaps and ensure a tight connection we will crimp the
-snap-fastener closed. Gather your installation tool and hammer.\
-\
-Find a corner of a hard flat surface. A corner is needed because it will
-provide support beneath the snap-fastener without potentially damaging
-the electronic case lid's side tabs.
+To close these gaps and create a secure electrical connection, we'll now properly
+crimp the snap-fastener. Gather your snap-fastener installation tool and hammer.
+
+Find a sturdy corner of a hard, flat surface for this step. Using a corner is 
+important as it provides targeted support directly under the snap-fastener while 
+keeping the electronic case lid's side tabs free from pressure that could damage
+them.
 
 <br>
 <div align="center">
@@ -255,12 +251,16 @@ the electronic case lid's side tabs.
 </div>
 <br>
 
-Position the electronic case over the corner such that the corner will
-support the male end of the snap fastener below but not touch the
-electronic case lid elsewhere. We do not want to break off any of the
-four side tabs on the electronic case lid. Place the crimping tool on
-top and hammer down. Use the non-rubber side of the hammer. Do not be
-afraid to use force, or to strike multiple times.
+Position the electronic case over the corner so that only the male end of the 
+snap fastener receives support from below, without the corner touching any other
+part of the case lid. This positioning will prevent any damage to the four side 
+tabs on the lid. 
+
+Place the crimping tool directly on top of the snap fastener and strike firmly 
+with the non-rubber side of the hammer. Don't hesitate to use sufficient force 
+or multiple strikes to achieve a proper crimp—this connection needs to be secure.
+It is possible, but unlikely, to over crimp the snap fastener and cut the wire.
+Check the assembly after every few hits.
 
 <br>
 <div align="center">
@@ -286,7 +286,7 @@ snap-fasteners:
 
 
 It is okay to have a little gap as shown below if the connection is
-snug. Please note that overcrimping can lead to the wire being cut, but
+snug. Again note that over crimping can lead to the wire being cut, but
 if the wires are placed correctly in the notch this is unlikely.
 
 <br>
@@ -303,30 +303,32 @@ if the wires are placed correctly in the notch this is unlikely.
 **Goal: Begin preparing the PCBs for connection with the MCU. First PCB to prepare
 is the AD8232.**
 
-Before connecting the electronic components some additional preparation
-is required. We will prepare the boards before connecting all the units
-together at one. The first component is the AD8232 EKG board.
+Before assembling all components together, each circuit board may require 
+specific preparation. We'll start with the AD8232 EKG board.
 
-The AD8232 EKG Board comes with a 3.5mm jack which is typically used for
-collecting signals. In this case, connections will be done directly to
-the board's RA and LA pins, and the RL pin will remain unused.
-Therefore, we will remove the 3.5mm jack otherwise the PCB will not fit
-into the confines of the electronic case. *For those interested in more
-information about this design choice, please refer to the section below
-titled, "Additional Information on the AD8232."*
+The AD8232 EKG board includes a 3.5mm headphone jack that we won't be using in
+our design. Since we'll connect directly to the board's RA and LA pins 
+(leaving the RL pin unused), this jack must be removed to allow the board to fit
+properly inside the electronic case.
+
+
+*For those interested in more information about this design choice, please refer
+to the section below titled, 
+[Additional Information on the AD8232](#additional-information-on-the-ad8232) below*
 
 <div align="center">
   <img src="media/electronics-assembly/image23.png" style="width: 65%;">
 </div>
 
-To remove the jack, use a pair of wire cutters to pry it off the board.
-Do not be afraid to use some force.
+**Quick Method:** Use wire cutters to firmly pry the jack off the board. Don't
+hesitate to apply reasonable force.
 
-You may desolder this if you wish as prying off the board can result in
-detached electrode contacts. This only matters if you wish to reuse the
-board for other uses later. After testing with multiple boards, prying
-off the 3.5mm jack has always been the fastest solution and we have yet
-to experience any board failures with this process.
+**Alternative Method:** If you plan to repurpose this board later, consider 
+desoldering the jack instead. Prying may occasionally detach electrode contacts,
+though this won't affect our current application.
+
+**Note on Reliability:** We've tested this removal method on numerous boards and
+found prying to be both quick and reliable, with no board failures to date.
 
 <div align="center">
   <img src="media/electronics-assembly/JackRemoval.gif" alt="3.5mm Jack Removal Process">
