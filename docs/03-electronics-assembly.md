@@ -9,8 +9,9 @@ display the case with the lid open to reveal the internal component arrangement.
 Please note that the PulseSensor intentionally remains outside the electronic 
 case in the final assembly.
 
-For first-time builders, expect to spend about 2 hours on this process. 
-Experienced builders can complete the assembly comfortably in under 50 minutes.
+**Build Time:**  
+\- First-time: expect 2-2.5 hours  
+\- Experienced: comfortably under 50 minute
 
 <div align="center" style="display: flex; justify-content: center; gap: 10px;">
   <img src="media/electronics-assembly/image1.jpeg" style="width: 30%;">
@@ -63,7 +64,7 @@ of the electronic case, are actually straight.
 
 1. **Soldering Iron**
 
-2. **Snap Fastener Hammer and Installation Tool**
+2. **Snap Fastener Hammer and Setter**
 
 3. **Wire Cutters**
 
@@ -240,7 +241,8 @@ worry — we'll address this in the next step.
 <br>
 
 To close these gaps and create a secure electrical connection, we'll now properly
-crimp the snap-fastener. Gather your snap-fastener installation tool and hammer.
+crimp the snap-fastener. Gather your snap-fastener setter and hammer. The setter
+is the metal rod with a concave end which is shaped to fit over the female end. 
 
 Find a sturdy corner of a hard, flat surface for this step. Using a corner is 
 important as it provides targeted support directly under the snap-fastener while 
@@ -259,7 +261,7 @@ receives support from below, without the corner touching any other part of the
 case lid. This positioning will prevent any damage to the four side 
 tabs on the lid.
 
-Place the crimping tool directly on top of the snap fastener and strike firmly 
+Place the setter tool directly on top of the female snap fastener and strike firmly 
 with the non-rubber side of the hammer. Don't hesitate to use sufficient force 
 or multiple strikes to achieve a proper crimp—this connection needs to be secure.
 
