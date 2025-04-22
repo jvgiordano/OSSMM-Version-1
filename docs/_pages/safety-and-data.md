@@ -2,8 +2,13 @@
 title: "Safety and Data Privacy"
 permalink: /safet-and-data/
 date: 2025-04-23T00:26:20+01:00
-class: wide
+
 ---
+
+```yaml
+classes: wide
+```
+
 
 ## Safety Considerations
 
