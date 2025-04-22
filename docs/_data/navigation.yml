@@ -20,8 +20,10 @@ foo:
 
 # main links
 main:
+  - title: "Quick Intro"
+    url: /quick-intro/
   - title: "Getting Started"
-    url: /introduction/
+    url: /getting-started/
   - title: "3D Printables"
     url: /printables/
   - title: "Electronics Assembly"
@@ -31,7 +33,7 @@ main:
   - title: "Software & Completion"
     url: /software/
   - title: "Safety & Data Privacy"
-    url: /safety/
+    url: /safety-and-data/
 
 
 # documentation links
