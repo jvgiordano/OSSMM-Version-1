@@ -17,7 +17,7 @@ feature_row:
     alt: "quick-intro"
     title: "Quick Intro"
     excerpt: "A Very Quick Introduction to OSSMM!"
-    url: "/pages/quick-intro/"
+    url: "/quick-intro/"
     btn_class: "btn--primary"
     btn_label: "Let's Go!"
     
@@ -25,7 +25,7 @@ feature_row:
     alt: "getting-started"
     title: "Getting Started Deep Dive"
     excerpt: "In depth introduction to OSSMM - capabilities, construction, cost. What you need to build one yourself."
-    url: "/pages/getting-started"
+    url: "/getting-started"
     btn_class: "btn--primary"
     btn_label: "Learn more"
 
@@ -33,7 +33,7 @@ feature_row:
     alt: "data-safety"
     title: "Safety and Data Privacy"
     excerpt: "Safety and Data Privacy information regarding OSSMM"
-    url: "/docs/safety-and-data/"
+    url: "/safety-and-data/"
     btn_class: "btn--primary"
     btn_label: "Learn more"      
 ---
