@@ -6,7 +6,19 @@
 
 ## THIS REPOSITORY IS A WORK IN PROGRESS! PLEASE REFRAIN FROM USAGE UNTIL THIS TEXT IS REMOVED (Aprl 17th, 2025)
 
-## Introduction
+### Table of Contents
+
+The full guide provides the necessary information to build, set up, and 
+understand the OSSMM System. Please follow the sections below in order:
+
+0.  **[Quick Intro (this page)](index.md)**
+1.  **[Full Introduction and Prerequisites](01-introduction.md)**: Detailed introduction and requirement list of software, tools, components, and background skills.
+2.  **[3D Printables](02-printables.md)**: Instructions for printing the device's 3D printed parts.
+3.  **[Electronics Assembly](03-electronics-assembly.md)**: Step-by-step guide for soldering and assembling the electronic hardware components.
+4.  **[Final Assembly](04-final-assembly.md)**: Integrating the electronics into the parts, and attaching the headband.
+5.  **[Software Setup & Completion](05-software.md)**: Instructions for uploading code onto the microcontroller (MCU), setting up the smartphone application and final checks.
+
+## Quick Intro
 
 Welcome! We present **OSSMM**, an **O**pen-**S**ource **S**leep **M**onitor and **M**odulator platform.
 The world's first open-source hardware and software system for sleep monitoring and modulation!
@@ -115,11 +127,12 @@ possible to work with iPhone, Raspberry Pi, etc.
 This documentation provides the necessary information to build, set up, and 
 understand the OSSMM V1.0.4. Please follow the sections below in order:
 
-1.  **[Full Introduction and Prerequisites](01-introduction.md)**: Detailed introduction and required software, tools, components, and background skills.
-2.  **[3D Printables](02-printables.md)**: Instructions for printing the device's 3D printed casing.
+0.  **[Quick Intro (this page)](index.md)**
+1.  **[Full Introduction and Prerequisites](01-introduction.md)**: Detailed introduction and requirement list of software, tools, components, and background skills.
+2.  **[3D Printables](02-printables.md)**: Instructions for printing the device's 3D printed parts.
 3.  **[Electronics Assembly](03-electronics-assembly.md)**: Step-by-step guide for soldering and assembling the electronic hardware components.
-4.  **[Final Assembly](04-final-assembly.md)**: Integrating the electronics into the casing, and attaching the headband
-5.  **[Software Setup & Completion](05-software.md)**: Instructions for uploading code onto the microcontroller (MCU) and setting up the smartphone application and final checks.
+4.  **[Final Assembly](04-final-assembly.md)**: Integrating the electronics into the parts, and attaching the headband.
+5.  **[Software Setup & Completion](05-software.md)**: Instructions for uploading code onto the microcontroller (MCU), setting up the smartphone application and final checks.
 
 ## Safety Considerations
 
