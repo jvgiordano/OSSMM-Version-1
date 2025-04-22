@@ -3,7 +3,7 @@ layout: splash
 permalink: /
 hidden: true
 header:
-  overlay_color: "#5e616c"
+  overlay_color: 
   overlay_image: /media/index/system_ai.jpg
   actions:
     - label: "<i class='fas fa-download'></i> Start Building!"
