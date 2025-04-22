@@ -4,7 +4,7 @@ permalink: /
 hidden: true
 header:
   overlay_color: 
-  overlay_image: /media/index/system-ai.JPG
+  overlay_image: /media/home/system-ai.JPG
   actions:
     - label: "<i class='fas fa-download'></i> Start Building!"
       url: "/docs/introduction/"
@@ -13,7 +13,7 @@ excerpt: >
   <small><a href="https://github.com/jvgiordano/OSSMM">Latest release v1.0.4</a></small>
 
 feature_row:
-  - image_path: /media/home/quick-intro.jpg
+  - image_path: /media/home/quick-intro-2.jpg
     alt: "quick-intro"
     title: "Quick Intro"
     excerpt: "A Very Quick Introduction to OSSMM!"
@@ -21,7 +21,7 @@ feature_row:
     btn_class: "btn--primary"
     btn_label: "Let's Go!"
     
-  - image_path: /media/home/getting-started.jpg
+  - image_path: /media/home/getting-started-2.jpg
     alt: "getting-started"
     title: "Getting Started"
     excerpt: "In depth introduction to OSSMM - capabilities, construction, cost. What you need to build one yourself."
@@ -29,7 +29,7 @@ feature_row:
     btn_class: "btn--primary"
     btn_label: "Learn more"
 
-  - image_path: /media/home/safety-data.jpg
+  - image_path: /media/home/safety-data-2.jpg
     alt: "data-safety"
     title: "Safety and Data Privacy"
     excerpt: "Safety and Data Privacy information regarding OSSMM"
