@@ -20,16 +20,16 @@ foo:
 
 # main links
 main:
-  - title: "Quick-Start Guide"
-    url: /docs/quick-start-guide/
-  - title: "About"
-    url: /about/
-  - title: "Sample Posts"
-    url: /year-archive/
-  - title: "Sample Collections"
-    url: /collection-archive/
-  - title: "Terms &amp; Privacy Policy"
-    url: /terms/
+  - title: "Getting Started"
+    url: /introduction/
+  - title: "3D Printables"
+    url: /printables/
+  - title: "Electronics Assembly"
+    url: /electronics-assembly/
+  - title: "Final Assembly"
+    url: /final-assembly/
+  - title: "Software & Completion"
+    url: /software/
 
 
 # documentation links

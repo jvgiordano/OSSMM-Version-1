@@ -11,9 +11,9 @@ minimal_mistakes_skin    : "default" # "air", "aqua", "contrast", "dark", "dirt"
 
 # Site Settings
 locale                   : "en-US"
-title                    : "OSSMM - Open Source Sleep Monitor and Modulator"
+title                    : "OSSMM"
 title_separator          : "-"
-subtitle                 : "A Jekyll theme"
+subtitle                 : "An Open-Source Sleep Monitor and Modulator"
 name                     : &name "Michael Rose" # &name is a YAML anchor which can be *referenced later
 description              : &description "A flexible Jekyll theme for your blog or site with a minimalist aesthetic."
 url                      : https://jvgiordano.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
