@@ -84,6 +84,56 @@ receiver made from soft filament.
 
 # Build Your Own - What You Need to Know
 
+The purpose of this section is to inform on the required knowledge for assembling
+a complete OSSMM system (headband and Android App). It is out of the scope of 
+this tutorial to explain all the background. Resources will be provided for some
+areas, but all of the knowledge required to assemble OSSMM can be learned with
+some patience and simple internet searches.
+
+
+Building your own OSSMM System requires 4 principal areas of knowledge:
+
+1. **Basic Electronics Knowledge (including how to solder)**
+2. **3D Printer Fundamentals**
+3. **Android System Familiarity**
+4. **Arduino or Microcontroller Programming Basics**
+
+If this seems like a lot, know these are the *general* areas of competency. 
+Specific knowledge within each of these areas with resources is listed below:
+
+## What you specifically need to know
+
+### 1. Basic Electronics Knowledge (including how to solder)
+
+1. What a microcontroller (MCU) and Printer Circuit Board (PCB) are:
+   - [MCU + PCB Resource](https://www.youtube.com/watch?v=yi29dbPnu28)
+   - [Arduino MCUs in 100 seconds](https://www.youtube.com/watch?v=1ENiVwk8idM)
+2. How to Solder
+   - [Soldering Instructional #1](https://www.youtube.com/watch?v=6rmErwU5E-k&t=256s) (Note: Excellent instructional. However, We prefer an easier method for pin-hole soldering. This is shown in the Electronics Assembly section.)
+   - [Soldering Instructional #2](https://www.youtube.com/watch?v=rK38rpUy568&t=167s)
+
+### 2. 3D Printer Fundamentals
+
+1. How 3D Printers work in principle
+   - [3D Printer General](https://www.youtube.com/watch?v=f94CnlQ0eq4)
+2. How to print a file if provided the .gcode files
+   - In short, how to put this file on the 3D printer and print it
+3. Difference in filament types: PLA and TPU
+   - [PLA vs TPU Description](https://youtu.be/dYPW5Rlwn8g?t=43)
+4. If your 3D printer is Direct-Drive or not
+
+### 3. Android System Familiarity
+
+1. What is Android and familiarity with the UI
+2. How to install an APK file (i.e., how to install an app)
+   - [Installing an APK on Android](https://www.youtube.com/watch?v=Ehlzt2OXI4c)
+  
+### 4. Arduino or Microcontroller Programming Basics
+1. As per the above, what is Arduino and what is an MCU
+2. How to upload a sketch from Arduino IDE to an Arduino (i.e., how to program an MCU with existing Arduino code)
+   - [Learn Arduino in 15 minutes](https://www.youtube.com/watch?v=nL34zDTPkcs&t=93s)
+
+
 # Build Your Own - What You Need to Have
 
 ## Required Tools:
@@ -217,7 +267,7 @@ pushes filament directly into the hot end (where filament melts for printing) an
 is the best method for printing flexible filaments (like the TPU used 
 in OSSMM). While not impossible, printing TPU with other 3D printer types will
 likely be challenging.
-
++98/
 The original target cost of OSSMM headband was $150. To our surprise, **we 
 achieved a cost of just €37.20 per unit ( and with some rounding up at that)**. 
 This value represents the marginal cost ("ingredient cost") of building one unit,
@@ -245,10 +295,12 @@ headband (i.e., heart rate monitor strap). This documentation requirement
 can affect costs. Currently, only one manufacturer—PolarCare—has provided 
 comprehensive safety information for their Pro Strap, which costs approximately 
 $37 or €36 (as of 04/2025). For comparison, generic commercial heart monitor 
-straps without documentation can be purchased for less than $6 or €5. 
-All pricing reflects actual marketplace offerings rather than currency 
-conversions.
+straps without documentation can be purchased for less than $6 or €5. They can 
+even be purchased for about $1 or €1 in some circumstances. All pricing 
+reflects actual marketplace offerings rather than currency conversions.
 
+The repository will be updated with additional brand headband data and safety 
+documentation as more manufacturers provide this information.
 
 <sup>a</sup> The Android device provides storage, time tracking, and processing
 capabilities for which it is well suited. Adding these functions directly to the 
