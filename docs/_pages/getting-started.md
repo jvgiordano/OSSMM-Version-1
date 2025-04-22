@@ -2,11 +2,9 @@
 title: "Getting Started - A Deep Dive Introduction"
 permalink: /getting-started/
 date: 2025-04-23T00:26:20+01:00
+classes: wide
 ---
 
-```yaml
-classes: wide
-```
 
 # Introduction to OSSMM and Pre-Requisites
 
