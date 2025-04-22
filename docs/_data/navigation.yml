@@ -30,6 +30,8 @@ main:
     url: /final-assembly/
   - title: "Software & Completion"
     url: /software/
+  - title: "Safety & Data Privacy"
+    url: /safety/
 
 
 # documentation links
