@@ -4,7 +4,7 @@ permalink: /
 hidden: true
 header:
   overlay_color: 
-  overlay_image: /media/index/system_ai.jpg
+  overlay_image: /media/index/system-ai.JPG
   actions:
     - label: "<i class='fas fa-download'></i> Start Building!"
       url: "/docs/introduction/"
