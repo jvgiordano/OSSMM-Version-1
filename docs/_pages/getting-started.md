@@ -24,7 +24,7 @@ The OSSMM system comprises 4 parts:
 
 <br>
 <div align="center">
-  <img src="{{ site.url }}/OSSMM/media/getting-started/system_ai.jpg" style="width: 75%;">
+  <img src="{{ site.url }}/OSSMM/media/getting-started/system_ai.JPG" style="width: 75%;">
   <figcaption style="text-align: center; font-style: italic; margin-top: 4px;">AI generated rendition of OSSMM System</figcaption>
 </div>
 <br>
