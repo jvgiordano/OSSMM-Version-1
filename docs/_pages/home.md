@@ -7,7 +7,7 @@ header:
   overlay_image: /media/home/system-ai.JPG
   actions:
     - label: "<i class='fas fa-download'></i> Start Building!"
-      url: "/docs/introduction/"
+      url: "/getting-started"
 excerpt: >
   An **O**pen-**S**ource **S**leep **M**onitor and **M**odulator <br />
   <small><a href="https://github.com/jvgiordano/OSSMM">Latest release v1.0.4</a></small>
