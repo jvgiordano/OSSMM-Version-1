@@ -21,7 +21,7 @@ case in the final assembly.
 \- Experienced: comfortably under 50 minute
 
 <div align="center" style="display: flex; justify-content: center; gap: 10px;">
-  <img src="{{ site.url }}/OSSMM/{{ site.url }}/OSSMM/media/electronics-assembly/image1.jpeg" style="width: 30%;">
+  <img src="{{ site.url }}/OSSMM/media/electronics-assembly/image1.jpeg" style="width: 30%;">
   <img src="{{ site.url }}/OSSMM/media/electronics-assembly/image2.jpeg" style="width: 30%;">
   <img src="{{ site.url }}/OSSMM/media/electronics-assembly/image3.jpeg" style="width: 17%;">
 </div>
@@ -624,7 +624,7 @@ Now it's time to connect the battery.
 
 <br>
 <div align="center">
-  <img src="{{ site.url }}/OSSMM/media/electronics-assembly/image40.jpg" style="width: 65%;">
+  <img src="{{ site.url }}/OSSMM/media/electronics-assembly/image40.JPG" style="width: 65%;">
 </div>
 <br>
 
