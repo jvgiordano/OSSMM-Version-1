@@ -25,7 +25,7 @@ case in the final assembly.
   <img src="{{ site.url }}/OSSMM/media/electronics-assembly/image2.jpeg" style="width: 30%;">
   <img src="{{ site.url }}/OSSMM/media/electronics-assembly/image3.jpeg" style="width: 17%;">
 </div>
-
+<br>
 <div align="center" style="display: flex; justify-content: center; gap: 10px;">
   <img src="{{ site.url }}/OSSMM/media/electronics-assembly/image4.jpeg" style="width: 30%;">
   <img src="{{ site.url }}/OSSMM/media/electronics-assembly/image5.jpeg" style="width: 30%;">
