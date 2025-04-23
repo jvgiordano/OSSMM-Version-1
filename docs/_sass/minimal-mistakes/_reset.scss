@@ -10,15 +10,15 @@ html {
   background-color: $background-color;
   font-size: 12px;
 
-  @include breakpoint($medium) {
+  @include breakpoint($small) {
     font-size: 18px;
   }
 
-  @include breakpoint($large) {
+  @include breakpoint($medium) {
     font-size: 20px;
   }
 
-  @include breakpoint($x-large) {
+  @include breakpoint($large) {
     font-size: 22px;
   }
 }
