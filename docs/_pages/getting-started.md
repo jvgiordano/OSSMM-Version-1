@@ -24,7 +24,7 @@ The OSSMM system comprises 4 parts:
 
 <br>
 <div align="center">
-  <img src="media/introduction/system_ai.jpg" style="width: 75%;">
+  <img src="{{ site.url }}/OSSMM/getting-startedmedia/system_ai.jpg" style="width: 75%;">
   <figcaption style="text-align: center; font-style: italic; margin-top: 4px;">AI generated rendition of OSSMM System</figcaption>
 </div>
 <br>
@@ -58,7 +58,7 @@ The OSSMM Headband comprises 3 principal components: An electronic case, a headb
 
 <br>
 <div align="center">
-  <img src="media/introduction/quick_pics.jpg" style="width: 75%;">
+  <img src="{{ site.url }}/OSSMM/getting-startedmedia/quick_pics.jpg" style="width: 75%;">
 </div>
 <br>
 
@@ -69,20 +69,20 @@ receiver made from soft filament.
 
 <br>
 <div align="center">
-  <img src="media/introduction/front_annotated.jpg" style="width: 65%;">
+  <img src="{{ site.url }}/OSSMM/getting-startedmedia/front_annotated.jpg" style="width: 65%;">
   <figcaption style="text-align: center; font-style: italic; margin-top: 4px;">Open view of the three major components, all disconnected: Headband, Receiver, and Electronic Case.</figcaption>
 </div>
 <br>
 
 <div align="center">
-  <img src="media/introduction/back_annotated.jpg" style="width: 65%;">
+  <img src="{{ site.url }}/OSSMM/getting-startedmedia/back_annotated.jpg" style="width: 65%;">
   <figcaption style="text-align: center; font-style: italic; margin-top: 4px;">Rear view of OSSMM headband.</figcaption>
 </div>
 <br>
 
 <br>
 <div align="center">
-  <img src="media/introduction/cad_parts_annotated.jpg" style="width: 75%;">
+  <img src="{{ site.url }}/OSSMM/getting-startedmedia/cad_parts_annotated.jpg" style="width: 75%;">
   <figcaption style="text-align: center; font-style: italic; margin-top: 4px;">Annotated Printables. TPE = Thermoplastic Elastomer, PLA = Polylactic Acid</figcaption>
 </div>
 <br>
@@ -148,7 +148,7 @@ Specific knowledge within each of these areas with resources is listed below:
 
 <br>
 <div align="center">
-  <img src="media/introduction/required_tools.jpg" style="width: 75%;">
+  <img src="{{ site.url }}/OSSMM/getting-startedmedia/required_tools.jpg" style="width: 75%;">
 </div>
 <br>
 
@@ -177,7 +177,7 @@ purchased separately but buying the kit together is easiest.
 
 <br>
 <div align="center">
-  <img src="media/introduction/required_expendables.jpg" style="width: 75%;">
+  <img src="{{ site.url }}/OSSMM/getting-startedmedia/required_expendables.jpg" style="width: 75%;">
 </div>
 <br>
 
@@ -205,7 +205,7 @@ bio-compatibility documentation should be used.
 
 <br>
 <div align="center">
-  <img src="media/introduction/recommended_tools.jpg" style="width: 75%;">
+  <img src="{{ site.url }}/OSSMM/getting-startedmedia/recommended_tools.jpg" style="width: 75%;">
 </div>
 <br>
 
@@ -231,7 +231,7 @@ rather than the harsher scraps or snips using wire cutters."
 
 <br>
 <div align="center">
-  <img src="media/introduction/required_parts.jpg" style="width: 75%;">
+  <img src="{{ site.url }}/OSSMM/getting-startedmedia/required_parts.jpg" style="width: 75%;">
 </div>
 <br>
 
@@ -293,7 +293,7 @@ This estimate will vary depending on country, suppliers, and brands
 
 <br>
 <div align="center">
-  <img src="media/introduction/cost.jpg" style="width: 75%;">
+  <img src="{{ site.url }}/OSSMM/getting-startedmedia/cost.jpg" style="width: 75%;">
 </div>
 <br>
 

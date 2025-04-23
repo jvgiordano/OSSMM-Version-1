@@ -50,18 +50,6 @@ In short, OSSMM consists of a wearable headband that collects physiological data
 and transmits it wirelessly via Bluetooth Low Energy (BLE) to a dedicated 
 smartphone application. Only Android is supported at this time.
 
-
-<div class="측면"> {# Optional wrapper div for better control, apply theme's grid/flex classes if available #}
-  <figure class="half">
-    <img src="{{ site.url }}/OSSMM/media/quick-intro/front.jpg" alt="Front view of OSSMM headband">
-    <figcaption>Fig 1: Front of the OSSMM headband compared with a €1 coin.</figcaption>
-  </figure>
-  <figure class="half">
-    <img src="{{ site.url }}/OSSMM/media/quick-intro/back.jpg" alt="Back view of OSSMM headband">
-    <figcaption>Fig 2: Back of the OSSMM headband, with the silicone electrodes and PPG sensor visible.</figcaption>
-  </figure>
-</div>
-
 <div style="display: flex; flex-direction: row; align-items: flex-start;">
   <figure style="margin: 0; width: 45%;">
     <img src="{{ site.url }}/OSSMM/media/quick-intro/front.jpg" alt="Front view of OSSMM headband" style="width: 100%;">
