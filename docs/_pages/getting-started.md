@@ -18,9 +18,9 @@ Pre-requisites for building your own are described towards the end.
 The OSSMM system comprises 4 parts:
 
 1. **The User (participant)**
-2. **The OSSMM Headband **
-3. **Android Device and Dedicated App **
-4. **You - The Researcher **
+2. **The OSSMM Headband**
+3. **Android Device and Dedicated App**
+4. **You - The Researcher**
 
 <br>
 <div align="center">
@@ -52,7 +52,7 @@ With future work it should be possible to:
 4. **Enable near-real time sleep staging.**
 5. **Use automated sleep staging or signal detection to activate stimuli for sleep modification.**
 
-# OSSMM Headband - How it works
+# OSSMM Headband - What Its Made Of
 
 The OSSMM Headband comprises 3 principal components: An electronic case, a headband, and a receiver.
 

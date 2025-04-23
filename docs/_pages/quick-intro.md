@@ -65,10 +65,10 @@ smartphone application. Only Android is supported at this time.
 The headband comprises:
 
 * **11 Components** (Total part count excluding wires)
-* **3D printed housing**
-* **Four Commercial-Off-The-Shelf boards**
-* **USB-C Rechargeable battery**
-* **Electrode head band** (Elastic band with integrated silicone wet-dry 
+* **3D Printed Housing**
+* **Four Commercial-Off-The-Shelf Boards**
+* **USB-C Rechargeable Battery**
+* **Electrode Head Band** (Elastic band with integrated silicone wet-dry 
 electrodes, commercially available as a 'heart rate monitor strap')
 
 Specifications:
@@ -76,14 +76,14 @@ Specifications:
 * **Dimensions: 79.1 x 45.2 x 30 mm** (3.114 x 1.780 x 1.181 in)
 * **Weight: 76.5 grams** ( or 2.7 ounces with a 150 mAh battery)
 * **Sampling Frequency: up to 250Hz** (produces 500MB for 8 hour recording)
-* **Battery: 120-220 mAh** (est. 15-27.5 hour run time of only sleep monitoring)
+* **Battery: 120-220 mAh** (est. 15-27+ hour run time, sleep monitoring only)
 
 The device currently collects the following data:
 
-* **Head movement**: Via onboard Inertial Measurement Unit (IMU)
-* **Eye movement**: Electrooculography (EOG)
-* **Brain signatures**: Frontal Electroencephalography (EEG)
-* **Heart rate**: Photoplethysmography (PPG)
+* **Brain Signatures**: Frontal Electroencephalography (EEG)
+* **Eye Movement**: Electrooculography (EOG)
+* **Head Movement**: Via onboard Inertial Measurement Unit (IMU)
+* **Pulse**: Photoplethysmography (PPG)
 
 Additional Notes:
 
