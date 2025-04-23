@@ -3,6 +3,9 @@ title: "Quick Introduction"
 permalink: /quick-intro/
 date: 2025-04-23T00:26:20+01:00
 classes: wide
+toc: true # Enable Table of Contents for this page
+sidebar:
+  nav: "pages_sidebar_nav"
 ---
 
 ## Quick Intro

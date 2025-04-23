@@ -3,6 +3,9 @@ title: "Safety and Data Privacy"
 permalink: /safety-and-data/
 date: 2025-04-23T00:26:20+01:00
 classes: wide
+toc: true # Enable Table of Contents for this page
+sidebar:
+  nav: "pages_sidebar_nav"
 ---
 
 

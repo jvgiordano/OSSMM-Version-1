@@ -3,6 +3,9 @@ title: "Electronics Assembly"
 permalink: /electronics-assembly/
 date: 2025-04-23T04:20:20+01:00
 classes: wide
+toc: true # Enable Table of Contents for this page
+sidebar:
+  nav: "pages_sidebar_nav"
 ---
 
 # Electronics Assembly

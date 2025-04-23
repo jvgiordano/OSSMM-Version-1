@@ -30,10 +30,65 @@ main:
     url: /electronics-assembly/
   - title: "Final Assembly"
     url: /final-assembly/
-  - title: "Software & Completion"
+  - title: "Software"
     url: /software/
+  - title: "Final Checks & Completion"
+    url: /final-checks/
   - title: "Safety & Data Privacy"
     url: /safety-and-data/
+
+
+# Sidebar navigation for specific pages
+pages_sidebar_nav:
+  - title: "Quick Intro"
+    url: /quick-intro/
+  - title: "Getting Started"
+    url: /getting-started/
+    children: # Children for "Getting Started" (using placeholder IDs, please verify these)
+      - title: "System Overview - How It All Works"
+        url: /getting-started/#system-overview # <-- Placeholder ID
+      - title: "OSSMM Headband - What Its Made Of"
+        url: /getting-started/#ossmm-headband # <-- Placeholder ID
+      - title: "Build Your Own - What You Need to Know"
+        url: /getting-started/#build-your-own-know # <-- Placeholder ID
+      - title: "Build Your Own - What You Need to Have"
+        url: /getting-started/#build-your-own-have # <-- Placeholder ID
+      - title: "The Cost"
+        url: /getting-started/#the-cost # <-- Placeholder ID
+  - title: "3D Printables"
+    url: /printables/
+  - title: "Electronics Assembly"
+    url: /electronics-assembly/
+    children: # Children for "Electronics Assembly" (predicted IDs based on pattern)
+      - title: "Step 1. Gather Relevant Tools and Materials:"
+        url: /electronics-assembly/#step-1-gather-relevant-tools-and-materials # Verified ID
+      - title: "Step 2. Test-Fit Electronic Components in 3D Printed Case Bottom"
+        url: /electronics-assembly/#step-2-test-fit-electronic-components-in-3d-printed-case-bottom" # Predicted ID
+      - title: "Step 3. Connect Snap-Fasters to the Electronic Case Lid"
+        url: /electronics-assembly/#step-3-connect-snap-fasters-to-the-electronic-case-lid" # Predicted ID
+      - title: "Step 4. Prepare the AD8232"
+        url: /electronics-assembly/#step-4-prepare-the-ad8232" # Predicted ID
+      - title: "Step 5. Prepare the PulseSensor"
+        url: /electronics-assembly/#step-5-prepare-the-pulsesensor" # Predicted ID
+      - title: "Step 6. Prepare the Vibration Motor"
+        url: /electronics-assembly/#step-6-prepare-the-vibration-motor" # Predicted ID
+      - title: "Step 7. Solder Components Together According to the Layman’s Schematic"
+        url: /electronics-assembly/#step-7-solder-components-together-according-to-the-laymans-schematic" # Predicted ID
+      - title: "Step 8. Connect the Battery"
+        url: /electronics-assembly/#step-8-connect-the-battery" # Predicted ID
+      - title: "Step 9. Install Components into the Electronic Case Bottom"
+        url: /electronics-assembly/#step-9-install-components-into-the-electronic-case-bottom" # Predicted ID
+      - title: "Step 10. Close the Electronic Case"
+        url: /electronics-assembly/#step-10-close-the-electronic-case" # Predicted ID
+  - title: "Final Assembly"
+    url: /final-assembly/
+  - title: "Software"
+    url: /software/
+  - title: "Final Checks & Completion"
+    url: /final-checks/
+  - title: "Safety & Data Privacy"
+    url: /safety-and-data/
+
 
 
 # documentation links
@@ -94,46 +149,3 @@ docs:
         url: /docs/license/
       - title: "Terms &amp; Privacy Policy"
         url: /terms/
-
-# sidebar navigation list sample
-sidebar-sample:
-  - title: "Parent Page A"
-    children:
-      - title: "Child Page A1"
-        url: /
-      - title: "Child Page A2"
-        url: /
-      - title: "Child Page A3"
-        url: /
-      - title: "Child Page A4"
-        url: /
-  - title: "Parent Page B"
-    children:
-      - title: "Child Page B1"
-        url: /
-      - title: "Child Page B2"
-        url: /
-      - title: "Child Page B3"
-        url: /
-      - title: "Child Page B4"
-        url: /
-      - title: "Child Page B5"
-        url: /
-  - title: "Parent Page C"
-    children:
-      - title: "Child Page C1"
-        url: /
-      - title: "Child Page C2"
-        url: /
-      - title: "Child Page C3"
-        url: /
-      - title: "Child Page C4"
-        url: /
-      - title: "Child Page C5"
-        url: /
-  - title: "Parent Page D"
-    children:
-      - title: "Child Page D1"
-        url: /
-      - title: "Child Page D2"
-        url: /
