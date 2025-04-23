@@ -29,12 +29,6 @@ on their published safety data to ensure skin contact compatibility. Safety
 data sheets for all components and filaments are included in this repository 
 for your reference.
 
-While we've made every effort to design a safe system, users assume 
-responsibility for their implementation. We cannot be held liable for any use,
-misuse, or adverse events resulting from the construction or operation of an 
-OSSMM system. It remains the user's responsibility to properly assemble their
-device using appropriate components from reputable sources and to ensure proper
-operation. This is not a medical device.
 
 ## Data Privacy and Security
 
@@ -55,5 +49,14 @@ choose to do so.
 physiological data, we recommend that companion devices used with OSSMM be 
 secured with PIN codes or other access controls.
 
+
+## User Notice
+
+While we've made every effort to design a safe system, users assume 
+responsibility for their implementation. We cannot be held liable for any use,
+misuse, or adverse events resulting from the construction or operation of an 
+OSSMM system. It remains the user's responsibility to properly assemble their
+device using appropriate components from reputable sources and to ensure proper
+operation. This is not a medical device.
 ---
 *Current Version: V1.0.4*
