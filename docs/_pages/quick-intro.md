@@ -3,7 +3,6 @@ title: "Quick Introduction"
 permalink: /quick-intro/
 date: 2025-04-23T00:26:20+01:00
 classes: wide
-toc: true # Enable Table of Contents for this page
 sidebar:
   nav: "pages_sidebar_nav"
 ---
@@ -34,7 +33,7 @@ home environment.
 
 The OSSMM headband can be built for below below €40 (as of 12/2024)! All 
 components are either commercially available at affordable prices, or 
-3D printed. However, this cost does not include the Android device* required
+3D printed. However, this cost does not include the Android device[^note1] required
 for data collection.
 
 This system aims to assess sleep staging more accurately than many commercially 
@@ -44,7 +43,7 @@ available devices, like smart watches and rings, at a fraction of the cost.
 sleep modulation experiments, addressing a gap where no comparable system is
 currently available off-the-shelf.**
 
-*The system currently requires an Android device for data collection. In theory,
+[^note1]: The system currently requires an Android device for data collection. In theory,
 any device which supports high priority BLE transmission can be made to work.
 
 *OSSMM is currently under assessment for 4-stage sleep classification accuracy.*
