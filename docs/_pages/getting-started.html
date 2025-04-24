@@ -370,6 +370,7 @@ for building your own.</p>
 <li><strong>Android Device and Dedicated App</strong></li>
 <li><strong>You - The Researcher</strong></li>
 </ol>
+ 
 <div align="center">
 <img role="img" src="{{ site.url }}/OSSMM/media/getting-started/system_ai.JPG" style="width: 75%;">
 <figcaption style="text-align: center; font-style: italic; margin-top: 4px;">
@@ -377,6 +378,7 @@ AI generated rendition of OSSMM System. 1) The User 2) OSSMM Headband 3)
 Android Device running OSSMM app
 </figcaption>
 </div>
+<p> </p>
 <p>Users wear the OSSMM headband each night during sleep. Version 1.0.4
 of the headband collects:</p>
 <ul>
@@ -385,6 +387,11 @@ of the headband collects:</p>
 <li>Frontal brain activity (EEG)</li>
 <li>Heart Rhythm data (PPG)</li>
 </ul>
+ 
+<div align="center">
+<p><img role="img" src="{{ site.url }}/OSSMM/media/getting-started/quick_pics.jpg" style="width: 75%;"></p>
+</div>
+<p> </p>
 <p>This data is streamed via Bluetooth Low Energy (BLE) to the OSSMM
 companion app on an Android device, which saves the data on local
 storage for later analysis. The system can be used repeatedly (e.g. 20
@@ -392,12 +399,8 @@ nights) as long as the headband is charged, and there is enough storage
 on the Android device.</p>
 <p>As a researcher, you can later collect the Android device and analyze
 the data as desired according to your study design.</p>
-<div align="center">
-<p><img role="img" src="{{ site.url }}/OSSMM/media/getting-started/quick_pics.jpg" style="width: 75%;"></p>
-</div>
-</div>
-<div id="modularity" class="section level2">
-<h2>Modularity</h2>
+<div id="modularity" class="section level3">
+<h3>Modularity</h3>
 <p>The OSSMM headband can be built locally with basic tools and basic
 electronics knowledge. It is possible to:</p>
 <ul>
@@ -407,8 +410,8 @@ electronics knowledge. It is possible to:</p>
 <li>Analyze the data with your own methods and algorithms</li>
 </ul>
 </div>
-<div id="future-possibilities" class="section level2">
-<h2>Future Possibilities</h2>
+<div id="future-possibilities" class="section level3">
+<h3>Future Possibilities</h3>
 <p>With future work it will be possible to have:</p>
 <ol style="list-style-type: decimal">
 <li>Near Real-Time Sleep Staging (on the Android device)</li>
@@ -419,11 +422,11 @@ or custom signal detection)</li>
 detection)</li>
 <li>Cloud Storage for remote collection and back-up (if desired)</li>
 </ol>
-</div>
-<div id="ossmm-headband---principal-components" class="section level1">
-<h1>OSSMM Headband - Principal Components</h1>
+<p> </p>
+<p>  # OSSMM Headband - Principal Components</p>
 <p>The OSSMM Headband comprises 3 principal components: An electronic
 case, a headband, and a receiver.</p>
+ 
 <div align="center">
 <img role="img" src="{{ site.url }}/OSSMM/media/getting-started/front_annotated.jpg" style="width: 65%;">
 <figcaption style="text-align: center; font-style: italic; margin-top: 4px;">
@@ -431,16 +434,20 @@ Open view of the three major components, all disconnected: Headband,
 Receiver, and Electronic Case.
 </figcaption>
 </div>
+<p> </p>
 <p>The electronic case consists of two 3D printed parts which houses the
 electronics. The headband is an adjustable strap with silicone
 electrodes for EOG/EEG signal collection. These two components connect
 through the 3D printed receiver made from soft filament.</p>
+ 
 <div align="center">
 <img role="img" src="{{ site.url }}/OSSMM/media/getting-started/back_annotated.jpg" style="width: 65%;">
 <figcaption style="text-align: center; font-style: italic; margin-top: 4px;">
 Rear view of OSSMM headband.
 </figcaption>
 </div>
+<p> </p>
+ 
 <div align="center">
 <img role="img" src="{{ site.url }}/OSSMM/media/getting-started/cad_parts_annotated.jpg" style="width: 75%;">
 <figcaption style="text-align: center; font-style: italic; margin-top: 4px;">
@@ -448,15 +455,16 @@ Annotated Printables. TPE = Thermoplastic Elastomer, PLA = Polylactic
 Acid
 </figcaption>
 </div>
-</div>
-<div id="ossmm-app-and-data" class="section level1">
-<h1>OSSMM App and Data</h1>
+<p> </p>
+<p>  # OSSMM App and Data</p>
 <p>The companion app serves multiple purposes:</p>
 <ul>
 <li>Stores data collected by the headband</li>
 <li>Provides accurate date-time information</li>
 <li>Will support near real-time sleep staging in future versions</li>
 </ul>
+</div>
+</div>
 <div id="v0.9.0-app-features" class="section level2">
 <h2>v0.9.0 App Features</h2>
 <div id="buttons-toggles-and-connections" class="section level3">
@@ -470,12 +478,14 @@ even if the connection is temporarily lost.</p>
 Android device to the headband. Once enabled, the “Test Modulation”
 button can be used during an established connection to activated the
 headband’s vibration motor in a double-blink pattern.</p>
+ 
 <div align="center">
-<img role="img" src="{{ site.url }}/OSSMM/media/getting-started/app-main.jpg" style="width: 75%;">
+<img role="img" src="{{ site.url }}/OSSMM/media/getting-started/app-main.jpg" style="width: 25%;">
 <figcaption style="text-align: center; font-style: italic; margin-top: 4px;">
 Main page of OSSMM app
 </figcaption>
 </div>
+<p> </p>
 </div>
 <div id="real-time-data-visualization" class="section level3">
 <h3>Real-Time Data Visualization</h3>
@@ -487,12 +497,14 @@ signal, only the EOG component can be reliably identified visually in
 real-time. Along with the other signals like head movement and pulse,
 eyemovement can be used to confirm that the headband is properly
 functioning.</p>
+ 
 <div align="center">
-<img role="img" src="{{ site.url }}/OSSMM/media/getting-started/app-data.jpg" style="width: 75%;">
+<img role="img" src="{{ site.url }}/OSSMM/media/getting-started/app-data.jpg" style="width: 25%;">
 <figcaption style="text-align: center; font-style: italic; margin-top: 4px;">
 Real Time Graph of EOG Data with several eye movements (spikes)
 </figcaption>
 </div>
+<p> </p>
 </div>
 <div id="data-collection" class="section level3">
 <h3>Data Collection</h3>
@@ -501,63 +513,86 @@ Hz, approximately 500 MB of storage is required for an 8-hour sleep
 recording.</p>
 <p>Each data sample collected by the headband and sent to the companion
 app includes ten columns:</p>
-<table>
-<colgroup>
-<col width="38%" />
-<col width="61%" />
-</colgroup>
+<!-- HTML Table instead of Markdown Table -->
+<table align="center">
 <thead>
-<tr class="header">
-<th>Column</th>
-<th>Description</th>
+<tr>
+<th>
+Column
+</th>
+<th>
+Description
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td>Datetime</td>
-<td>Precise timestamp when the sample was recorded by the app (down to
-millisecond)</td>
+<tr>
+<td>
+Datetime
+</td>
+<td>
+Precise timestamp when the sample was recorded by the app (down to
+millisecond)
+</td>
 </tr>
-<tr class="even">
-<td>transNum</td>
-<td>Transmission number sequence (0-65,535) sent by the headband</td>
+<tr>
+<td>
+transNum
+</td>
+<td>
+Transmission number sequence (0-65,535) sent by the headband
+</td>
 </tr>
-<tr class="odd">
-<td>eog</td>
-<td>Combined EOG/EEG signal</td>
+<tr>
+<td>
+eog
+</td>
+<td>
+Combined EOG/EEG signal
+</td>
 </tr>
-<tr class="even">
-<td>hr</td>
-<td>Heart rhythm/pulse data</td>
+<tr>
+<td>
+hr
+</td>
+<td>
+Heart rhythm/pulse data
+</td>
 </tr>
-<tr class="odd">
-<td>accX, accY, accZ</td>
-<td>Acceleration in three axes</td>
+<tr>
+<td>
+accX, accY, accZ
+</td>
+<td>
+Acceleration in three axes
+</td>
 </tr>
-<tr class="even">
-<td>gyroX, gyroY, gyroZ</td>
-<td>Angular velocity in three axes</td>
+<tr>
+<td>
+gyroX, gyroY, gyroZ
+</td>
+<td>
+Angular velocity in three axes
+</td>
 </tr>
 </tbody>
 </table>
 <p>Note: The transmission number resets to 0 after reaching 65,535 (the
 maximum value for a 2-byte unsigned integer) and helps identify if BLE
 updates are being lost.</p>
+ 
 <div align="center">
-<img role="img" src="{{ site.url }}/OSSMM/media/getting-started/data.jpg" style="width: 75%;">
+<img role="img" src="{{ site.url }}/OSSMM/media/getting-started/data.jpg" style="width: 65%;">
 <figcaption style="text-align: center; font-style: italic; margin-top: 4px;">
 Portion of a sample CSV file
 </figcaption>
 </div>
+<p> </p>
 <p>Advanced note: Accelerometer and Gyroscope values have been shifted
 so that only unsigned integers are used during BLE transmission. This
 ensures high speed BLE transmission rates by decreasing the memory
 required for each update.</p>
-</div>
-</div>
-</div>
-<div id="build-your-own---what-you-need-to-know" class="section level1">
-<h1>Build Your Own - What You Need to Know</h1>
+<p>  # Build Your Own - What You Need to Know</p>
 <p>The purpose of this section is to inform on the required knowledge
 for assembling a complete OSSMM system (headband and Android App). It is
 out of the scope of this tutorial to explain all the background.
@@ -576,6 +611,8 @@ solder)</strong></li>
 <p>If this seems like a lot, know these are the <em>general</em> areas
 of competency. Specific knowledge within each of these areas with
 resources is listed below:</p>
+</div>
+</div>
 <div id="what-you-specifically-need-to-know" class="section level2">
 <h2>What you specifically need to know</h2>
 <div id="basic-electronics-knowledge-including-how-to-solder" class="section level3">
@@ -619,6 +656,7 @@ General</a> (Video)</li>
 Description</a> (Video)</li>
 </ul></li>
 <li>If your 3D printer is Direct-Drive or not</li>
+<li>How to adjust your printer to print TPU</li>
 </ol>
 </div>
 <div id="android-system-familiarity" class="section level3">
@@ -643,16 +681,16 @@ program an MCU with existing Arduino code)
 Arduino in 15 minutes</a> (Video)</li>
 </ul></li>
 </ol>
+<p>  # Build Your Own - What You Need to Have</p>
 </div>
 </div>
-</div>
-<div id="build-your-own---what-you-need-to-have" class="section level1">
-<h1>Build Your Own - What You Need to Have</h1>
 <div id="required-tools" class="section level2">
 <h2>Required Tools:</h2>
+ 
 <div align="center">
 <p><img role="img" src="{{ site.url }}/OSSMM/media/getting-started/required_tools.jpg" style="width: 75%;"></p>
 </div>
+<p> </p>
 <p><strong>Tools:</strong></p>
 <ol style="list-style-type: decimal">
 <li><strong>3D Printer</strong> (Direct Drive Preferred)</li>
@@ -668,9 +706,11 @@ snap-fasteners)</li>
 </div>
 <div id="required-expendables" class="section level2">
 <h2>Required Expendables:</h2>
+ 
 <div align="center">
 <p><img role="img" src="{{ site.url }}/OSSMM/media/getting-started/required_expendables.jpg" style="width: 75%;"></p>
 </div>
+<p> </p>
 <p><strong>Expendables:</strong></p>
 <ol style="list-style-type: decimal">
 <li><strong>Wires (22-30 AWG)<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a></strong></li>
@@ -682,9 +722,11 @@ Thermoplastic Polyurethane)</li>
 </div>
 <div id="recommended-tools-and-expendables" class="section level2">
 <h2>Recommended Tools and Expendables:</h2>
+ 
 <div align="center">
 <p><img role="img" src="{{ site.url }}/OSSMM/media/getting-started/recommended_tools.jpg" style="width: 75%;"></p>
 </div>
+<p> </p>
 <p><strong>Recommended Tools and Expendables:</strong></p>
 <ol style="list-style-type: decimal">
 <li><strong>Helping Hands</strong> (with Magnifier)</li>
@@ -696,9 +738,11 @@ environment)</li>
 </div>
 <div id="ossmm-headband-required-parts" class="section level2">
 <h2>OSSMM Headband Required Parts:</h2>
+ 
 <div align="center">
 <p><img role="img" src="{{ site.url }}/OSSMM/media/getting-started/required_parts.jpg" style="width: 75%;"></p>
 </div>
+<p> </p>
 <p><strong>Parts:</strong></p>
 <ol style="list-style-type: decimal">
 <li><strong>Heart Rate Monitor Strap</strong></li>
@@ -714,10 +758,7 @@ generally come with the snap-fastener kit mentioned above)</strong></li>
 </ol>
 <p>Note: If you are only interested in sleep monitoring, the Vibration
 Motor Board is not needed.</p>
-</div>
-</div>
-<div id="the-cost" class="section level1">
-<h1>The Cost</h1>
+<p>  # The Cost</p>
 <p><strong>One of the priorities in designing OSSMM was to address the
 prohibitive costs of sleep research by providing an affordable
 solution.</strong> By leveraging the capabilities of an external Android
@@ -749,9 +790,11 @@ comparison shopping, the total expenditure should still not exceed the
 original $150 target cost within the USA (shipping included).</p>
 <p>This estimate will vary depending on country, suppliers, and brands
 (and it seems political changes).</p>
+ 
 <div align="center">
 <p><img role="img" src="{{ site.url }}/OSSMM/media/getting-started/cost.jpg" style="width: 75%;"></p>
 </div>
+<p> </p>
 <p>When using the OSSMM in formal research settings, regulatory
 compliance may require technical and safety documentation for all
 components, including the headband (i.e., heart rate monitor strap).

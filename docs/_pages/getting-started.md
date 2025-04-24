@@ -127,7 +127,7 @@ motor in a double-blink pattern.
 
 &nbsp;
 <div align="center">
-  <img src="{{ site.url }}/OSSMM/media/getting-started/app-main.jpg" style="width: 20%;">
+  <img src="{{ site.url }}/OSSMM/media/getting-started/app-main.jpg" style="width: 25%;">
   <figcaption style="text-align: center; font-style: italic; margin-top: 4px;">Main page of OSSMM app</figcaption>
 </div>
 &nbsp;
@@ -145,7 +145,7 @@ confirm that the headband is properly functioning.
 
 &nbsp;
 <div align="center">
-  <img src="{{ site.url }}/OSSMM/media/getting-started/app-data.jpg" style="width: 20%;">
+  <img src="{{ site.url }}/OSSMM/media/getting-started/app-data.jpg" style="width: 25%;">
   <figcaption style="text-align: center; font-style: italic; margin-top: 4px;">Real Time Graph of EOG Data with several eye movements (spikes)</figcaption>
 </div>
 &nbsp;
@@ -158,18 +158,41 @@ approximately 500 MB of storage is required for an 8-hour sleep recording.
 Each data sample collected by the headband and sent to the companion app includes
 ten columns:
 
-<div style="text-align: center; width: 100%;">
-
-| Column | Description |
-|--------|-------------|
-| Datetime | Precise timestamp when the sample was recorded by the app (down to millisecond) |
-| transNum | Transmission number sequence (0-65,535) sent by the headband |
-| eog | Combined EOG/EEG signal |
-| hr | Heart rhythm/pulse data |
-| accX, accY, accZ | Acceleration in three axes |
-| gyroX, gyroY, gyroZ | Angular velocity in three axes |
-
-</div>
+<!-- HTML Table instead of Markdown Table -->
+<table align="center">
+  <thead>
+    <tr>
+      <th>Column</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Datetime</td>
+      <td>Precise timestamp when the sample was recorded by the app (down to millisecond)</td>
+    </tr>
+    <tr>
+      <td>transNum</td>
+      <td>Transmission number sequence (0-65,535) sent by the headband</td>
+    </tr>
+    <tr>
+      <td>eog</td>
+      <td>Combined EOG/EEG signal</td>
+    </tr>
+    <tr>
+      <td>hr</td>
+      <td>Heart rhythm/pulse data</td>
+    </tr>
+    <tr>
+      <td>accX, accY, accZ</td>
+      <td>Acceleration in three axes</td>
+    </tr>
+    <tr>
+      <td>gyroX, gyroY, gyroZ</td>
+      <td>Angular velocity in three axes</td>
+    </tr>
+  </tbody>
+</table>
 
 Note: The transmission number resets to 0 after reaching 65,535 
 (the maximum value for a 2-byte unsigned integer) and helps identify if BLE 
