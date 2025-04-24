@@ -20,12 +20,12 @@ The OSSMM system consists of 4 parts:
 3. **Android Device and Dedicated App**
 4. **You - The Researcher**
 
+&nbsp;
 <div align="center">
   <img src="{{ site.url }}/OSSMM/media/getting-started/system_ai.JPG" style="width: 75%;">
   <figcaption style="text-align: center; font-style: italic; margin-top: 4px;">AI generated rendition of OSSMM System. 1) The User 2) OSSMM Headband 3) Android Device running OSSMM app</figcaption>
 </div>
 &nbsp;
-
 
 Users wear the OSSMM headband each night during sleep. Version 1.0.4 of the 
 headband collects:
@@ -35,9 +35,11 @@ headband collects:
 * Frontal brain activity (EEG)
 * Heart Rhythm data (PPG)
 
+&nbsp;
 <div align="center">
   <img src="{{ site.url }}/OSSMM/media/getting-started/quick_pics.jpg" style="width: 75%;">
 </div>
+&nbsp;
 
 This data is streamed via Bluetooth Low Energy (BLE) to the OSSMM companion app
 on an Android device, which saves the data on local storage for later analysis.
@@ -68,30 +70,38 @@ With future work it will be possible to have:
 
 &nbsp;
 
+&nbsp;
 # OSSMM Headband - Principal Components
 
 The OSSMM Headband comprises 3 principal components: An electronic case, a headband, and a receiver.
 
+&nbsp;
 <div align="center">
   <img src="{{ site.url }}/OSSMM/media/getting-started/front_annotated.jpg" style="width: 65%;">
   <figcaption style="text-align: center; font-style: italic; margin-top: 4px;">Open view of the three major components, all disconnected: Headband, Receiver, and Electronic Case.</figcaption>
 </div>
+&nbsp;
 
 The electronic case consists of two 3D printed parts which houses the electronics.
 The headband is an adjustable strap with silicone electrodes for
 EOG/EEG signal collection. These two components connect through the 3D printed
 receiver made from soft filament.
 
+&nbsp;
 <div align="center">
   <img src="{{ site.url }}/OSSMM/media/getting-started/back_annotated.jpg" style="width: 65%;">
   <figcaption style="text-align: center; font-style: italic; margin-top: 4px;">Rear view of OSSMM headband.</figcaption>
 </div>
+&nbsp;
 
+&nbsp;
 <div align="center">
   <img src="{{ site.url }}/OSSMM/media/getting-started/cad_parts_annotated.jpg" style="width: 75%;">
   <figcaption style="text-align: center; font-style: italic; margin-top: 4px;">Annotated Printables. TPE = Thermoplastic Elastomer, PLA = Polylactic Acid</figcaption>
 </div>
+&nbsp;
 
+&nbsp;
 # OSSMM App and Data
 
 The companion app serves multiple purposes:
@@ -115,10 +125,12 @@ device to the headband. Once enabled, the "Test Modulation" button can be used
 during an established connection to activated the headband's vibration 
 motor in a double-blink pattern.
 
+&nbsp;
 <div align="center">
   <img src="{{ site.url }}/OSSMM/media/getting-started/app-main.jpg" style="width: 35%;">
   <figcaption style="text-align: center; font-style: italic; margin-top: 4px;">Main page of OSSMM app</figcaption>
 </div>
+&nbsp;
 
 ### Real-Time Data Visualization
 
@@ -131,10 +143,12 @@ the EOG component can be reliably identified visually in real-time. Along with
 the other signals like head movement and pulse, eyemovement can be used to
 confirm that the headband is properly functioning.
 
+&nbsp;
 <div align="center">
   <img src="{{ site.url }}/OSSMM/media/getting-started/app-data.jpg" style="width: 35%;">
   <figcaption style="text-align: center; font-style: italic; margin-top: 4px;">Real Time Graph of EOG Data with several eye movements (spikes)</figcaption>
 </div>
+&nbsp;
 
 ### Data Collection
 
@@ -143,6 +157,8 @@ approximately 500 MB of storage is required for an 8-hour sleep recording.
 
 Each data sample collected by the headband and sent to the companion app includes
 ten columns:
+
+<div align="center">
 
 | Column | Description |
 |--------|-------------|
@@ -153,19 +169,24 @@ ten columns:
 | accX, accY, accZ | Acceleration in three axes |
 | gyroX, gyroY, gyroZ | Angular velocity in three axes |
 
+</div>
+
 Note: The transmission number resets to 0 after reaching 65,535 
 (the maximum value for a 2-byte unsigned integer) and helps identify if BLE 
 updates are being lost.
 
+&nbsp;
 <div align="center">
   <img src="{{ site.url }}/OSSMM/media/getting-started/data.jpg" style="width: 65%;">
   <figcaption style="text-align: center; font-style: italic; margin-top: 4px;">Portion of a sample CSV file</figcaption>
 </div>
+&nbsp;
 
 Advanced note: Accelerometer and Gyroscope values have been shifted so that only
 unsigned integers are used during BLE transmission. This ensures high speed BLE
 transmission rates by decreasing the memory required for each update.
 
+&nbsp;
 # Build Your Own - What You Need to Know
 
 The purpose of this section is to inform on the required knowledge for assembling
@@ -218,13 +239,16 @@ Specific knowledge within each of these areas with resources is listed below:
 2. How to upload a sketch from Arduino IDE to an Arduino (i.e., how to program an MCU with existing Arduino code)
    - [Learn Arduino in 15 minutes](https://www.youtube.com/watch?v=nL34zDTPkcs&t=93s) (Video)
 
+&nbsp;
 # Build Your Own - What You Need to Have
 
 ## Required Tools:
 
+&nbsp;
 <div align="center">
   <img src="{{ site.url }}/OSSMM/media/getting-started/required_tools.jpg" style="width: 75%;">
 </div>
+&nbsp;
 
 **Tools:**
 
@@ -240,9 +264,11 @@ Specific knowledge within each of these areas with resources is listed below:
 
 ## Required Expendables:
 
+&nbsp;
 <div align="center">
   <img src="{{ site.url }}/OSSMM/media/getting-started/required_expendables.jpg" style="width: 75%;">
 </div>
+&nbsp;
 
 **Expendables:**
 
@@ -257,9 +283,11 @@ Specific knowledge within each of these areas with resources is listed below:
 
 ## Recommended Tools and Expendables:
 
+&nbsp;
 <div align="center">
   <img src="{{ site.url }}/OSSMM/media/getting-started/recommended_tools.jpg" style="width: 75%;">
 </div>
+&nbsp;
 
 **Recommended Tools and Expendables:**
 
@@ -272,9 +300,11 @@ Specific knowledge within each of these areas with resources is listed below:
 
 ## OSSMM Headband Required Parts:
 
+&nbsp;
 <div align="center">
   <img src="{{ site.url }}/OSSMM/media/getting-started/required_parts.jpg" style="width: 75%;">
 </div>
+&nbsp;
 
 **Parts:**
 
@@ -290,6 +320,7 @@ Specific knowledge within each of these areas with resources is listed below:
 Note: If you are only interested in sleep monitoring, the Vibration Motor Board
 is not needed.
 
+&nbsp;
 # The Cost
 
 **One of the priorities in designing OSSMM was to address the prohibitive costs of sleep
@@ -325,9 +356,11 @@ $150 target cost within the USA (shipping included).
 This estimate will vary depending on country, suppliers, and brands 
 (and it seems political changes). 
 
+&nbsp;
 <div align="center">
   <img src="{{ site.url }}/OSSMM/media/getting-started/cost.jpg" style="width: 75%;">
 </div>
+&nbsp;
 
 When using the OSSMM in formal research settings, regulatory compliance may 
 require technical and safety documentation for all components, including the 
