@@ -6,6 +6,9 @@ classes: wide
 toc: true # Enable Table of Contents for this page
 sidebar:
   nav: "pages_sidebar_nav"
+header:
+  overlay_color: "#000"
+  overlay_filter: "0.5"
 ---
 
 This guide provides an in-depth introduction to the OSSMM system, explaining its
@@ -20,12 +23,10 @@ The OSSMM system consists of 4 parts:
 3. **Android Device and Dedicated App**
 4. **You - The Researcher**
 
-<br>
 <div align="center">
   <img src="{{ site.url }}/OSSMM/media/getting-started/system_ai.JPG" style="width: 75%;">
   <figcaption style="text-align: center; font-style: italic; margin-top: 4px;">AI generated rendition of OSSMM System. 1) The User 2) OSSMM Headband 3) Android Device running OSSMM app</figcaption>
 </div>
-<br>
 
 Users wear the OSSMM headband each night during sleep. Version 1.0.4 of the 
 headband collects:
@@ -43,11 +44,9 @@ charged, and there is enough storage on the Android device.
 As a researcher, you can later collect the Android device and analyze the data as 
 desired according to your study design.
 
-<br>
 <div align="center">
   <img src="{{ site.url }}/OSSMM/media/getting-started/quick_pics.jpg" style="width: 75%;">
 </div>
-<br>
 
 ## Modularity
 
@@ -68,18 +67,14 @@ With future work it will be possible to have:
 4. Audio Data Collection for additional analyses (e.g., sleep apnea detection)
 5. Cloud Storage for remote collection and back-up (if desired)
 
-<br>
-
 # OSSMM Headband - Principal Components
 
 The OSSMM Headband comprises 3 principal components: An electronic case, a headband, and a receiver.
 
-<br>
 <div align="center">
   <img src="{{ site.url }}/OSSMM/media/getting-started/front_annotated.jpg" style="width: 65%;">
   <figcaption style="text-align: center; font-style: italic; margin-top: 4px;">Open view of the three major components, all disconnected: Headband, Receiver, and Electronic Case.</figcaption>
 </div>
-<br>
 
 The electronic case consists of two 3D printed parts which houses the electronics.
 The headband is an adjustable strap with silicone electrodes for
@@ -90,14 +85,11 @@ receiver made from soft filament.
   <img src="{{ site.url }}/OSSMM/media/getting-started/back_annotated.jpg" style="width: 65%;">
   <figcaption style="text-align: center; font-style: italic; margin-top: 4px;">Rear view of OSSMM headband.</figcaption>
 </div>
-<br>
 
-<br>
 <div align="center">
   <img src="{{ site.url }}/OSSMM/media/getting-started/cad_parts_annotated.jpg" style="width: 75%;">
   <figcaption style="text-align: center; font-style: italic; margin-top: 4px;">Annotated Printables. TPE = Thermoplastic Elastomer, PLA = Polylactic Acid</figcaption>
 </div>
-<br>
 
 # OSSMM App and Data
 
@@ -122,12 +114,10 @@ device to the headband. Once enabled, the "Test Modulation" button can be used
 during an established connection to activated the headband's vibration 
 motor in a double-blink pattern.
 
-<br>
 <div align="center">
   <img src="{{ site.url }}/OSSMM/media/getting-started/app-main.jpg" style="width: 75%;">
   <figcaption style="text-align: center; font-style: italic; margin-top: 4px;">Main page of OSSMM app</figcaption>
 </div>
-<br>
 
 ### Real-Time Data Visualization
 
@@ -140,12 +130,10 @@ the EOG component can be reliably identified visually in real-time. Along with
 the other signals like head movement and pulse, eyemovement can be used to
 confirm that the headband is properly functioning.
 
-<br>
 <div align="center">
   <img src="{{ site.url }}/OSSMM/media/getting-started/app-data.jpg" style="width: 75%;">
   <figcaption style="text-align: center; font-style: italic; margin-top: 4px;">Real Time Graph of EOG Data with several eye movements (spikes)</figcaption>
 </div>
-<br>
 
 ### Data Collection
 
@@ -168,19 +156,14 @@ Note: The transmission number resets to 0 after reaching 65,535
 (the maximum value for a 2-byte unsigned integer) and helps identify if BLE 
 updates are being lost.
 
-
-<br>
 <div align="center">
   <img src="{{ site.url }}/OSSMM/media/getting-started/data.jpg" style="width: 75%;">
   <figcaption style="text-align: center; font-style: italic; margin-top: 4px;">Portion of a sample CSV file</figcaption>
 </div>
-<br>
 
 Advanced note: Accelerometer and Gyroscope values have been shifted so that only
 unsigned integers are used during BLE transmission. This ensures high speed BLE
 transmission rates by decreasing the memory required for each update.
-
-<br>
 
 # Build Your Own - What You Need to Know
 
@@ -189,7 +172,6 @@ a complete OSSMM system (headband and Android App). It is out of the scope of
 this tutorial to explain all the background. Resources will be provided for some
 areas, but all of the knowledge required to assemble OSSMM can be learned with
 some patience and simple internet searches.
-
 
 Building your own OSSMM System requires 4 principal areas of knowledge:
 
@@ -234,134 +216,83 @@ Specific knowledge within each of these areas with resources is listed below:
 2. How to upload a sketch from Arduino IDE to an Arduino (i.e., how to program an MCU with existing Arduino code)
    - [Learn Arduino in 15 minutes](https://www.youtube.com/watch?v=nL34zDTPkcs&t=93s) (Video)
 
-<br>
-
 # Build Your Own - What You Need to Have
 
 ## Required Tools:
 
-<br>
 <div align="center">
   <img src="{{ site.url }}/OSSMM/media/getting-started/required_tools.jpg" style="width: 75%;">
 </div>
-<br>
 
 **Tools:**
 
 1. **3D Printer** (Direct Drive Preferred)
-
 2. **Soldering Iron Kit**
-
 3. **Android Device** (which supports BLE, e.g. smartphone)
-
 4. **Computer** (Mac, Linux, or Windows)
-
-5. **12mm Snap Fastener Kit with Setter and Hammer[^1]** (with metal snap-fasteners)
-
+5. **12mm Snap Fastener Kit with Setter and Hammer[^snapfastener]** (with metal snap-fasteners)
 6. **Multimeter**
-
 7. **Wirecutters**
 
----
-
-[^1]: We recommend purchasing the 12mm snap-fastener kit as a whole.
-The installation tools (setter and hammer) and 12 mm snap-fasteners can be 
-purchased separately but buying the kit together is easiest. 
-
+[^snapfastener]: We recommend purchasing the 12mm snap-fastener kit as a whole. The installation tools (setter and hammer) and 12 mm snap-fasteners can be purchased separately but buying the kit together is easiest.
 
 ## Required Expendables:
 
-<br>
 <div align="center">
   <img src="{{ site.url }}/OSSMM/media/getting-started/required_expendables.jpg" style="width: 75%;">
 </div>
-<br>
 
 **Expendables:**
 
-1. **Wires (22-30 AWG)[^1]**
-
-2. **PLA 3D Printer Filament[^2]>** (PLA = Polylactic Acid)
-
-3. **TPU 3D Printer Filament[^2]** (TPU-95 or TPU-85, TPU = Thermoplastic Polyurethane)
-
+1. **Wires (22-30 AWG)[^wires]**
+2. **PLA 3D Printer Filament[^filaments]** (PLA = Polylactic Acid)
+3. **TPU 3D Printer Filament[^filaments]** (TPU-95 or TPU-85, TPU = Thermoplastic Polyurethane)
 4. **Solder (lead free, with flux recommended)**
 
----
+[^wires]: We recommend 30 AWG wire that is color coded and silicone insulated. Silicone coatings do not melt at normal soldering temperatures and make assembly cleaner, easier, and safer. Two 5" (13cm) thicker strands, no thicker than 22AWG are recommended but not needed. The whole project can be completed with 30AWG.
 
-[^1]: We recommend  30 AWG wire that is color coded and silicone insulated.
-Silicone coatings do not melt at normal soldering temperatures and make assembly 
-cleaner, easier, and safer. Two 5" (13cm) thicker strands, no thicker than 22AWG
-are recommended but not needed. The whole project can be completed with 30AWG.
-
-[^2]: Filaments should be chosen based on their safety and data profiles.
-Only the TPU filament will make prolonged dermal contact. Therefore, TPU materials with
-bio-compatibility documentation should be used.
+[^filaments]: Filaments should be chosen based on their safety and data profiles. Only the TPU filament will make prolonged dermal contact. Therefore, TPU materials with bio-compatibility documentation should be used.
 
 ## Recommended Tools and Expendables:
 
-<br>
 <div align="center">
   <img src="{{ site.url }}/OSSMM/media/getting-started/recommended_tools.jpg" style="width: 75%;">
 </div>
-<br>
-
 
 **Recommended Tools and Expendables:**
 
-**1.  Helping Hands** (with Magnifier)
+1. **Helping Hands** (with Magnifier)
+2. **Fume Extractor** (if not working in a ventilated environment)
+3. **Flux**
+4. **Sandpaper[^sandpaper]**
 
-**2.  Fume Extractor** (if not working in a ventilated environment)
-
-**3. Flux**
-
-**4. Sandpaper[^1]**
-
----
-
-[^1]: Sandpaper is recommended for individuals using entry-level or older
-3D printers who desire a more refined finish on their prints. Sandpaper may also
-be beneficial for those who prefer a more forgiving approach to possible 
-electronic component fitting, as sandpaper allows for gradual material removal
-rather than the harsher scraps or snips using wire cutters."
-
+[^sandpaper]: Sandpaper is recommended for individuals using entry-level or older 3D printers who desire a more refined finish on their prints. Sandpaper may also be beneficial for those who prefer a more forgiving approach to possible electronic component fitting, as sandpaper allows for gradual material removal rather than the harsher scraps or snips using wire cutters.
 
 ## OSSMM Headband Required Parts:
 
-<br>
 <div align="center">
   <img src="{{ site.url }}/OSSMM/media/getting-started/required_parts.jpg" style="width: 75%;">
 </div>
-<br>
 
 **Parts:**
 
 1. **Heart Rate Monitor Strap**
-
 2. **Seeed Xiao nRF52840 Sense**
-
 3. **Pulse Sensor**
-
 4. **AD8232 EKG Board**
-
 5. **3.7V LiPo Battery (120 -- 220mAh, not exceeding: L=32, W=15, H=6 mm)**
-
 6. **Vibration Motor Board**
-
-7. **x2 Pair of 12mm Metal Snap-Fastener (not shown, these generally come with the snap-fastener kit mentioned above**
-
+7. **x2 Pair of 12mm Metal Snap-Fastener (not shown, these generally come with the snap-fastener kit mentioned above)**
 8. **Sheet of paper (not shown)**
 
 Note: If you are only interested in sleep monitoring, the Vibration Motor Board
 is not needed.
 
-<br>
-
 # The Cost
 
 **One of the priorities in designing OSSMM was to address the prohibitive costs of sleep
 research by providing an affordable solution.** By leveraging the capabilities of
-an external Android device[^1] it was possible to significantly lower the device 
+an external Android device[^android] it was possible to significantly lower the device 
 cost of the OSSMM headband.
 
 Most tools needed to build the OSSMM are standard equipment found in university 
@@ -380,10 +311,10 @@ likely be challenging.
 The original target cost of OSSMM headband was $150. To our surprise, **we 
 achieved a cost of just €37.20 per unit ( and with some rounding up at that)**. 
 This value represents the marginal cost ("ingredient cost") of building one unit,
-not the total overhead cost ("shopping list cost")[^2]. 
+not the total overhead cost ("shopping list cost")[^marginal]. 
 
 **We estimate the typical marginal cost of building a single unit 
-at €40-60[^3][^4].**
+at €40-60[^bulk][^fixed].**
 
 When utilizing "premium" components from established brands without comparison 
 shopping, the total expenditure should still not exceed the original 
@@ -392,11 +323,9 @@ $150 target cost within the USA (shipping included).
 This estimate will vary depending on country, suppliers, and brands 
 (and it seems political changes). 
 
-<br>
 <div align="center">
   <img src="{{ site.url }}/OSSMM/media/getting-started/cost.jpg" style="width: 75%;">
 </div>
-<br>
 
 When using the OSSMM in formal research settings, regulatory compliance may 
 require technical and safety documentation for all components, including the 
@@ -411,28 +340,10 @@ reflects actual marketplace offerings rather than currency conversions.
 The repository will be updated with additional brand headband data and safety 
 documentation as more manufacturers provide this information.
 
----
+[^android]: The Android device provides storage, time tracking, and processing capabilities for which it is well suited. Adding these functions directly to the headband would significantly increase the price, size, and weight. As previously mentioned, lower cost alternatives like a Raspberry Pi could be used in lieu of Android devices as a separate standalone "base station" providing these capabilities. We selected Android smartphones due to their widespread availability and familiar user interfaces.
 
-[^1]: The Android device provides storage, time tracking, and processing
-capabilities for which it is well suited. Adding these functions directly to the 
-headband would significantly increase the price, size, and weight. As previously mentioned,
-lower cost alternatives like a Raspberry Pi could be used in lieu of Android devices
-as a separate standalone "base station" providing these capabilities. We selected
-Android smartphones due to their widespread availability and familiar 
-user interfaces.
+[^marginal]: Marginal costs refer to the expense of producing one additional unit. For example, we calculate the filament cost per OSSMM headband by multiplying the cost per gram by the grams used in a single headband—not by the cost of the entire filament roll. For a familiar analogy: when calculating the cost of a batch of cookies, we count only the portion of butter used (e.g., half a stick), not the full stick that had to be purchased to make the cookies in the first place.
 
-[^2] Marginal costs refer to the expense of producing one additional unit.
-For example, we calculate the filament cost per OSSMM headband by multiplying the
-cost per gram by the grams used in a single headband—not by the cost of the entire
-filament roll. For a familiar analogy: when calculating the cost of a batch of cookies,
-we count only the portion of butter used (e.g., half a stick), not the full 
-stick that had to be purchased to make the cookies in the first place.
+[^bulk]: Purchasing some items in bulk quantities may result in lower prices. Our price involved "bulk" quantities where some items were purchased in quantities greater than 10. However, for some market places we have found day-to-day pricing to have a greater effect on pricing than bulk purchasing. It is not necessary to buy in bulk for low-cost pricing.
 
-[^3]: Purchasing some items in bulk quantities may result in
-lower prices. Our price involved "bulk" quantities where some items were purchased
-in quantities greater than 10. However, for some market places we have found 
-day-to-day pricing to have a greater effect on pricing than bulk purchasing. It
-is not necessary to buy in bulk for low-cost pricing. 
-
-[^4]: This does not account for fixed costs: equipment, full rolls of 
-solder, filament, etc.
+[^fixed]: This does not account for fixed costs: equipment, full rolls of solder, filament, etc.
