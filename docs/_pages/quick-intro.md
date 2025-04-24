@@ -7,6 +7,7 @@ sidebar:
   nav: "pages_sidebar_nav"
 ---
 
+<br>
 <div style="display: flex; flex-direction: row; align-items: flex-start;">
   <figure style="margin: 0; width: 40%;">
     <img src="{{ site.url }}/OSSMM/media/quick-intro/stretch.jpg" alt="Front view of OSSMM headband" style="width: 100%;">
@@ -17,7 +18,7 @@ sidebar:
     <figcaption style="text-align: center; font-style: italic; margin-top: 5px;">Upclose of OSSMM Headband</figcaption>
   </figure>
 </div>
-<br><br>
+<br>
 
 ## Welcome to OSSMM!
 
@@ -82,9 +83,9 @@ Android application. Only Android is supported at this time.
     <figcaption style="text-align: center; font-style: italic; margin-top: 5px;">Fig 2: Back of the OSSMM headband, with the silicone electrodes and PPG sensor visible.</figcaption>
   </figure>
 </div>
-<br><br>
+<br>
 
-**The headband comprises:**
+The headband comprises:
 
 * **Minimal Design**: Just 11 components (excluding wires) for simplicity
 * **Comfortable Electrodes**: Elastic band with integrated silicone wet-dry electrodes (commercial heart rate monitor strap)
@@ -93,14 +94,14 @@ Android application. Only Android is supported at this time.
 * **Convenient Power**: USB-C rechargeable battery for easy charging
 
 
-**Technical Specifications:**
+Technical Specifications:
 
 * **Dimensions: 79.1 x 45.2 x 30 mm** (3.114 x 1.780 x 1.181 in)
 * **Weight: 76.5 grams** ( or 2.7 ounces with a 150 mAh battery)
 * **Sampling Frequency: up to 250Hz** (produces 500MB for 8 hour recording)
 * **Battery: 120-220 mAh** (est. 15-27+ hour run time, sleep monitoring only)
 
-**Physiological Measurements:**
+Physiological Measurements:
 
 * **Brain Activity**: Frontal Electroencephalography (EEG)
 * **Eye Movement**: Electrooculography (EOG)
