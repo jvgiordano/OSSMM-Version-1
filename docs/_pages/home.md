@@ -27,7 +27,15 @@ feature_row:
     excerpt: "In depth introduction to OSSMM - capabilities, construction, cost. What you need to build one yourself."
     url: "/getting-started"
     btn_class: "btn--primary"
-    btn_label: "Learn more"
+    btn_label: "Start Now!"
+    
+  - image_path: /media/home/safety-data-2.jpg
+    alt: "performance"
+    title: "Sleep Staging Performance"
+    excerpt: "Automatic Sleep Staging Performance - Under Assessment for 4-Stage Sleep Classification"
+    url: "/performance/"
+    btn_class: "btn--primary"
+    btn_label: "Learn more" 
 
   - image_path: /media/home/safety-data-2.jpg
     alt: "data-safety"
