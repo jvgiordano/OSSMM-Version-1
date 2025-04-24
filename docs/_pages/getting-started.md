@@ -158,48 +158,18 @@ approximately 500 MB of storage is required for an 8-hour sleep recording.
 Each data sample collected by the headband and sent to the companion app includes
 ten columns:
 
-<style type="text/css">
-.tg  {border-collapse:collapse;border-spacing:0;margin:0 auto;}
-.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
-  overflow:hidden;padding:10px 5px;word-break:normal;}
-.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
-  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
-.tg .tg-0lax{text-align:left;vertical-align:top}
-</style>
-<table class="tg">
-<thead>
-  <tr>
-    <th class="tg-0lax">Column</th>
-    <th class="tg-0lax">Description</th>
-  </tr>
-</thead>
-<tbody>
-  <tr>
-    <td class="tg-0lax">Datetime</td>
-    <td class="tg-0lax">Precise timestamp when the sample was recorded by the app (down to millisecond)</td>
-  </tr>
-  <tr>
-    <td class="tg-0lax">transNum</td>
-    <td class="tg-0lax">Transmission number sequence (0-65,535) sent by the headband</td>
-  </tr>
-  <tr>
-    <td class="tg-0lax">eog</td>
-    <td class="tg-0lax">Combined EOG/EEG signal</td>
-  </tr>
-  <tr>
-    <td class="tg-0lax">hr</td>
-    <td class="tg-0lax">Heart rhythm/pulse data</td>
-  </tr>
-  <tr>
-    <td class="tg-0lax">accX, accY, accZ</td>
-    <td class="tg-0lax">Acceleration in three axes</td>
-  </tr>
-  <tr>
-    <td class="tg-0lax">gyroX, gyroY, gyroZ</td>
-    <td class="tg-0lax">Angular velocity in three axes</td>
-  </tr>
-</tbody>
-</table>
+<div style="text-align: right; margin-right: 25%;">
+
+| Column | Description |
+|--------|-------------|
+| Datetime | Precise timestamp when the sample was recorded by the app (down to millisecond) |
+| transNum | Transmission number sequence (0-65,535) sent by the headband |
+| eog | Combined EOG/EEG signal |
+| hr | Heart rhythm/pulse data |
+| accX, accY, accZ | Acceleration in three axes |
+| gyroX, gyroY, gyroZ | Angular velocity in three axes |
+
+</div>
 
 Note: The transmission number resets to 0 after reaching 65,535 
 (the maximum value for a 2-byte unsigned integer) and helps identify if BLE 
