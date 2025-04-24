@@ -90,6 +90,9 @@ receiver made from soft filament.
 </div>
 <br>
 
+# What does the data look like?
+
+ WIP
 
 # System Requirements
 
@@ -278,7 +281,7 @@ pushes filament directly into the hot end (where filament melts for printing) an
 is the best method for printing flexible filaments (like the TPU used 
 in OSSMM). While not impossible, printing TPU with other 3D printer types will
 likely be challenging.
-+98/
+
 The original target cost of OSSMM headband was $150. To our surprise, **we 
 achieved a cost of just €37.20 per unit ( and with some rounding up at that)**. 
 This value represents the marginal cost ("ingredient cost") of building one unit,

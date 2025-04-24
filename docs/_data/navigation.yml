@@ -34,6 +34,8 @@ main:
     url: /software/
   - title: "Final Checks & Completion"
     url: /final-checks/
+  - title: "Performance - Sleep Staging"
+    url: /performance/
   - title: "Safety & Data Privacy"
     url: /safety-and-data/
 
