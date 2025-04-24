@@ -6,9 +6,6 @@ classes: wide
 toc: true # Enable Table of Contents for this page
 sidebar:
   nav: "pages_sidebar_nav"
-header:
-  overlay_color: "#000"
-  overlay_filter: "0.5"
 ---
 
 This guide provides an in-depth introduction to the OSSMM system, explaining its
@@ -27,6 +24,8 @@ The OSSMM system consists of 4 parts:
   <img src="{{ site.url }}/OSSMM/media/getting-started/system_ai.JPG" style="width: 75%;">
   <figcaption style="text-align: center; font-style: italic; margin-top: 4px;">AI generated rendition of OSSMM System. 1) The User 2) OSSMM Headband 3) Android Device running OSSMM app</figcaption>
 </div>
+&nbsp;
+
 
 Users wear the OSSMM headband each night during sleep. Version 1.0.4 of the 
 headband collects:
@@ -36,6 +35,10 @@ headband collects:
 * Frontal brain activity (EEG)
 * Heart Rhythm data (PPG)
 
+<div align="center">
+  <img src="{{ site.url }}/OSSMM/media/getting-started/quick_pics.jpg" style="width: 75%;">
+</div>
+
 This data is streamed via Bluetooth Low Energy (BLE) to the OSSMM companion app
 on an Android device, which saves the data on local storage for later analysis.
 The system can be used repeatedly (e.g. 20 nights) as long as the headband is 
@@ -43,10 +46,6 @@ charged, and there is enough storage on the Android device.
 
 As a researcher, you can later collect the Android device and analyze the data as 
 desired according to your study design.
-
-<div align="center">
-  <img src="{{ site.url }}/OSSMM/media/getting-started/quick_pics.jpg" style="width: 75%;">
-</div>
 
 ## Modularity
 
@@ -66,6 +65,8 @@ With future work it will be possible to have:
 3. App support beyond Android (iPhone, Raspberry Pi)
 4. Audio Data Collection for additional analyses (e.g., sleep apnea detection)
 5. Cloud Storage for remote collection and back-up (if desired)
+
+&nbsp;
 
 # OSSMM Headband - Principal Components
 
@@ -115,7 +116,7 @@ during an established connection to activated the headband's vibration
 motor in a double-blink pattern.
 
 <div align="center">
-  <img src="{{ site.url }}/OSSMM/media/getting-started/app-main.jpg" style="width: 75%;">
+  <img src="{{ site.url }}/OSSMM/media/getting-started/app-main.jpg" style="width: 35%;">
   <figcaption style="text-align: center; font-style: italic; margin-top: 4px;">Main page of OSSMM app</figcaption>
 </div>
 
@@ -131,7 +132,7 @@ the other signals like head movement and pulse, eyemovement can be used to
 confirm that the headband is properly functioning.
 
 <div align="center">
-  <img src="{{ site.url }}/OSSMM/media/getting-started/app-data.jpg" style="width: 75%;">
+  <img src="{{ site.url }}/OSSMM/media/getting-started/app-data.jpg" style="width: 35%;">
   <figcaption style="text-align: center; font-style: italic; margin-top: 4px;">Real Time Graph of EOG Data with several eye movements (spikes)</figcaption>
 </div>
 
@@ -157,7 +158,7 @@ Note: The transmission number resets to 0 after reaching 65,535
 updates are being lost.
 
 <div align="center">
-  <img src="{{ site.url }}/OSSMM/media/getting-started/data.jpg" style="width: 75%;">
+  <img src="{{ site.url }}/OSSMM/media/getting-started/data.jpg" style="width: 65%;">
   <figcaption style="text-align: center; font-style: italic; margin-top: 4px;">Portion of a sample CSV file</figcaption>
 </div>
 
@@ -204,6 +205,7 @@ Specific knowledge within each of these areas with resources is listed below:
 3. Difference in filament types: PLA and TPU
    - [PLA vs TPU Description](https://youtu.be/dYPW5Rlwn8g?t=43) (Video)
 4. If your 3D printer is Direct-Drive or not
+5. How to adjust your printer to print TPU
 
 ### 3. Android System Familiarity
 
