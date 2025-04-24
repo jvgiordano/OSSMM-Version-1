@@ -158,7 +158,6 @@ approximately 500 MB of storage is required for an 8-hour sleep recording.
 Each data sample collected by the headband and sent to the companion app includes
 ten columns:
 
-<div style="text-align: right; margin-right: 25%;">
 
 | Column | Description |
 |--------|-------------|
@@ -169,7 +168,6 @@ ten columns:
 | accX, accY, accZ | Acceleration in three axes |
 | gyroX, gyroY, gyroZ | Angular velocity in three axes |
 
-</div>
 
 Note: The transmission number resets to 0 after reaching 65,535 
 (the maximum value for a 2-byte unsigned integer) and helps identify if BLE 
