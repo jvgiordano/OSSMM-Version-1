@@ -19,49 +19,58 @@ sidebar:
 </div>
 <br><br>
 
-## Quick Intro
+## Welcome to OSSMM!
 
-Welcome! We present **OSSMM**, an **O**pen-**S**ource **S**leep **M**onitor and **M**odulator platform.
-The world's first open-source hardware and software system for sleep monitoring and modulation!
+**OSSMM** (Open-Source Sleep Monitor and Modulator) is the world's first 
+open-source hardware and software system designed for both sleep monitoring 
+and modulation
 
-The goal of OSSMM is to provide researchers and sleep enthusiasts with an 
-affordable platform for conducting sleep research which can be built in the 
-"home" lab. This cost-effective solution and local assembly encourages larger and
-longer scale sleep research.  It is a cost-effective solution for reaching 
-numerous participants, while permitting data collection within their natural 
-home environment.
+<br>
 
-The OSSMM headband can be built for below below €40 (as of 12/2024)! All 
-components are either commercially available at affordable prices, or 
-3D printed. However, this cost does not include the Android device[^note1] required
-for data collection.
+**The Goal:** OSSMM was created to address the prohibitive entry cost into 
+quality sleep research. By providing researchers and sleep enthusiasts with an
+affordable platform that can be assembled locally, we enable:
 
-This system aims to assess sleep staging more accurately than many commercially 
-available devices, like smart watches and rings, at a fraction of the cost. 
+This accessible system promotes:
 
-**Importantly, OSSMM is designed to permit researchers and enthusiasts to conduct
-sleep modulation experiments, addressing a gap where no comparable system is
-currently available off-the-shelf.**
+- Cost-effective large-scale, long-term sleep studies
+- Data collection in participants' natural home environments
+- Effective monitoring for under €40 per unit (as of 12/2024)
 
-[^note1]: The system currently requires an Android device for data collection. In theory, any device which supports high priority BLE transmission can be made to work.
+**Most importantly, OSSMM enables sleep modulation experiments — filling a gap 
+where no comparable off-the-shelf system currently exists.**
 
-*OSSMM is currently under assessment for 4-stage sleep classification accuracy.*
+<br>
 
-Key design considerations for OSSMM include:
+**Performance:** 
 
-* **Reusable silicone wet-dry electrodes.** (no conductive gel needed)
-* **Quick-change parts for easy repair and hygiene.**
-* **Battery powered with no exposed wiring.** (est. 15+ hour run-time)
+OSSMM offers more accurate sleep staging than many commercial wearables 
+(smart watches, rings) at a fraction of the price. 
+
+
+*Note: OSSMM is currently under assessment for 4-stage sleep classification accuracy.*
+
+<br>
+
+**Key Design Features:**
+
+* **Reusable silicone wet-dry electrodes.** - no conductive gel needed
+* **Quick-change parts** - easy repair and hygiene
+* **Battery powered with no exposed wiring.** - 15+ hour run-time
 * **Fully open-source hardware designs and software code.**
-  - Full access for researcher desired modification.
-  - Full transparency of code and classification algorithms used for sleep staging.
+  - Complete access for researcher modifications
+  - Full transparency of sleep staging algorithms and hardware code
   
-  
+
+*Note: An Android device[^note1] is required for data collection and is not included in the cost estimate.*
+
+<br>
+
 ## Device Overview (V1.0.4)
 
 In short, OSSMM consists of a wearable headband that collects physiological data
 and transmits it wirelessly via Bluetooth Low Energy (BLE) to a dedicated 
-smartphone application. Only Android is supported at this time.
+Android application. Only Android is supported at this time.
 
 <div style="display: flex; flex-direction: row; align-items: flex-start;">
   <figure style="margin: 0; width: 45%;">
@@ -75,49 +84,51 @@ smartphone application. Only Android is supported at this time.
 </div>
 <br><br>
 
-The headband comprises:
+**The headband comprises:**
 
-* **11 Components** (Total part count excluding wires)
-* **3D Printed Housing**
-* **Four Commercial-Off-The-Shelf Boards**
-* **USB-C Rechargeable Battery**
-* **Electrode Head Band** (Elastic band with integrated silicone wet-dry 
-electrodes, commercially available as a 'heart rate monitor strap')
+* **Minimal Design**: Just 11 components (excluding wires) for simplicity
+* **Comfortable Electrodes**: Elastic band with integrated silicone wet-dry electrodes (commercial heart rate monitor strap)
+* **Standard Electronics**: Four readily available off-the-shelf circuit boards
+* **Locally Manufacturable Housing**: 3D printable design that can be produced anywhere with basic equipment
+* **Convenient Power**: USB-C rechargeable battery for easy charging
 
-Specifications:
+
+**Technical Specifications:**
 
 * **Dimensions: 79.1 x 45.2 x 30 mm** (3.114 x 1.780 x 1.181 in)
 * **Weight: 76.5 grams** ( or 2.7 ounces with a 150 mAh battery)
 * **Sampling Frequency: up to 250Hz** (produces 500MB for 8 hour recording)
 * **Battery: 120-220 mAh** (est. 15-27+ hour run time, sleep monitoring only)
 
-The device currently collects the following data:
+**Physiological Measurements:**
 
-* **Brain Signatures**: Frontal Electroencephalography (EEG)
+* **Brain Activity**: Frontal Electroencephalography (EEG)
 * **Eye Movement**: Electrooculography (EOG)
 * **Head Movement**: Via onboard Inertial Measurement Unit (IMU)
-* **Pulse**: Photoplethysmography (PPG)
+* **Heart Rhythm**: Photoplethysmography (PPG)
 
-Additional Notes:
+*Note: While the hardware includes a microphone for sound data collection, 
+this feature is not activated in version 1.0.4.*
 
-While the hardware supports sound data collection via a microphone, this feature 
-is not activated in version 1.0.4.
+<br>
 
-Collected data is transmitted via BLE to a smartphone running the OSSMM app. 
-The app stores the raw data locally. Future versions aim to analyze data in 
-near-real-time (e.g. after 1-2 epochs, or 30-60seconds) to potentially trigger 
-sleep modulation if desired within the experimental protocol.
+**Sleep Modulation Capabilities:**
 
-OSSMM V1.0.4 uses a COTS vibration motor (similar to those in mobile phones) as 
-a stimulus mechanism for sleep modification experiments. The vibration motor 
-serves as an ideal example stimulus from an engineering perspective due to its 
-heavy power demands. 
+OSSMM V1.0.4 incorporates a commercial off-the-shelf vibration motor 
+(similar to those in mobile phones) as a stimulus mechanism for sleep 
+modification experiments. The vibration motor was chosen as the reference 
+stimulus because:
 
-In other words, since the system can successfully handle a vibration motor that 
-consumes large amounts of current during operation (+60 mA), it can easily 
-accommodate other stimulus methods: speaker, LEDs, tDCS, and tACS.
+1. It demonstrates the system's robust power handling (60+ mA during operation)
+2. It proves the platform can easily accommodate other stimulus methods 
+including speakers, LEDs, tDCS, and tACS
 
-Although we initially demonstrate support for Android devices 
-(smartphones, tablets) via a dedicated app, any device which supports high 
-priority BLE transmissions can be used to record data. Therefore it should be
-possible to work with iPhone, Raspberry Pi, etc.
+Future versions aim to analyze sleep data in near-real-time 
+(within 30-60 seconds) to potentially trigger sleep modulation 
+based on detected sleep stages.
+
+**Additional Notes:**
+
+[^note1]: V1.0.4 requires an Android device with the dedicated companion app
+to work. While currently requiring an Android device, any platform supporting 
+high-priority BLE transmission could potentially work (iPhone, Raspberry Pi, etc.)
