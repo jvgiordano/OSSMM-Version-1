@@ -43,8 +43,7 @@ available devices, like smart watches and rings, at a fraction of the cost.
 sleep modulation experiments, addressing a gap where no comparable system is
 currently available off-the-shelf.**
 
-[^note1]: The system currently requires an Android device for data collection. In theory,
-any device which supports high priority BLE transmission can be made to work.
+[^note1]: The system currently requires an Android device for data collection. In theory, any device which supports high priority BLE transmission can be made to work.
 
 *OSSMM is currently under assessment for 4-stage sleep classification accuracy.*
 
