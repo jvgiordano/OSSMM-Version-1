@@ -16,7 +16,7 @@ feature_row:
   - image_path: /media/home/quick-intro.jpg
     alt: "quick-intro"
     title: "Quick Intro"
-    excerpt: "A Very Quick Introduction to OSSMM!"
+    excerpt: "A very quick introduction to OSSMM!"
     url: "/quick-intro/"
     btn_class: "btn--primary"
     btn_label: "Let's Go!"
@@ -24,7 +24,7 @@ feature_row:
   - image_path: /media/home/getting-started.jpg
     alt: "getting-started"
     title: "Getting Started"
-    excerpt: "In depth introduction to OSSMM - capabilities, construction, cost. What you need to build one yourself."
+    excerpt: "An in depth introduction to OSSMM - \n capabilities, construction, cost. What you need to build one yourself."
     url: "/getting-started"
     btn_class: "btn--primary"
     btn_label: "Start Now!"
@@ -32,7 +32,7 @@ feature_row:
   - image_path: /media/home/performance.jpg
     alt: "performance"
     title: "Sleep Staging Performance"
-    excerpt: "Automatic Sleep Staging Performance - Currently under Assessment for 4-Stage Sleep Classification"
+    excerpt: "*Currently under Assessment for 4-Stage Sleep Classification*"
     url: "/performance/"
     btn_class: "btn--primary"
     btn_label: "Learn more" 

@@ -9,7 +9,7 @@ sidebar:
 
 <br>
 <div style="display: flex; flex-direction: row; align-items: flex-start;">
-  <figure style="margin: 0; width: 42%;">
+  <figure style="margin: 0; width: 43%;">
     <img src="{{ site.url }}/OSSMM/media/quick-intro/stretch.jpg" alt="Front view of OSSMM headband" style="width: 100%;">
     <figcaption style="text-align: center; font-style: italic; margin-top: 5px;">OSSMM Headband on display with strap fully stretched out</figcaption>
   </figure>

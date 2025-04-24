@@ -8,17 +8,12 @@ sidebar:
   nav: "pages_sidebar_nav"
 ---
 
+This guide provides an in-depth introduction to the OSSMM system, explaining its
+functionality, capabilities, cost, and the prerequisites for building your own.
 
-# Introduction to OSSMM and Pre-Requisites
+## How It All Works
 
-On this page, the OSSMM system is introduced in depth. The system and headband's
-functionality and capabilities are explained.
-
-Pre-requisites for building your own are described towards the end.
-
-# System Overview - How It All Works
-
-The OSSMM system comprises 4 parts:
+The OSSMM system consists of 4 parts:
 
 1. **The User (participant)**
 2. **The OSSMM Headband**
@@ -28,36 +23,25 @@ The OSSMM system comprises 4 parts:
 <br>
 <div align="center">
   <img src="{{ site.url }}/OSSMM/media/getting-started/system_ai.JPG" style="width: 75%;">
-  <figcaption style="text-align: center; font-style: italic; margin-top: 4px;">AI generated rendition of OSSMM System</figcaption>
+  <figcaption style="text-align: center; font-style: italic; margin-top: 4px;">AI generated rendition of OSSMM System. 1) The User 2) OSSMM Headband 3) Android Device running OSSMM app</figcaption>
 </div>
 <br>
 
 Users wear the OSSMM headband each night during sleep. Version 1.0.4 of the 
-headband collects head movement, eye movement (EOG), frontal brain signatures 
-(EEG), and pulse (PPG) data. This data is transmitted to the dedicated OSSMM 
-companion app built for Android devices. The app continually saves this data 
-to local storage.
+headband collects:
 
-You the researcher can then collect the smartphone device and analyze the collected 
-data as desired.
+* Head movement
+* Eye movement (EOG)
+* Frontal brain activity (EEG)
+* Heart Rhythm data (PPG)
 
-The OSSMM headband can be built locally with limited tools and basic electronics
-knowledge. The hardware design can be modified using CAD software, and the code
-for the dedicated Android app or headband can be adjusted for your use. Refer
-to the [Build Your Own - What You Need to Know](#build-your-own---what-you-need-to-know)
-below.
+This data is streamed via Bluetooth Low Energy (BLE) to the OSSMM companion app
+on an Android device, which saves the data on local storage for later analysis.
+The system can be used repeatedly (e.g. 20 nights) as long as the headband is 
+charged, and there is enough storage on the Android device.
 
-With future work it should be possible to:
-
-1. **Have sleep data uploaded securely to the cloud for remote collection and/or backup.**
-2. **Use other BLE supporting devices such as iPhone and Raspberry Pi computers.**
-3. **Enable sound data collection for improved sleep analysis.**
-4. **Enable near-real time sleep staging.**
-5. **Use automated sleep staging or signal detection to activate stimuli for sleep modification.**
-
-# OSSMM Headband - What Its Made Of
-
-The OSSMM Headband comprises 3 principal components: An electronic case, a headband, and a receiver.
+As a researcher, you can later collect the Android device and analyze the data as 
+desired according to your study design.
 
 <br>
 <div align="center">
@@ -65,10 +49,30 @@ The OSSMM Headband comprises 3 principal components: An electronic case, a headb
 </div>
 <br>
 
-The electronic case consists of 2 3D printed parts which houses the electronics.
-The headband is an adjustable strap with silicone electrodes for
-EOG/EEG signal collection. These two components connect through the 3D printed
-receiver made from soft filament.
+## Modularity
+
+The OSSMM headband can be built locally with basic tools and basic electronics
+knowledge. It is possible to:
+
+* Modify the hardware design using free, browser based CAD software (OnShape)
+* Customize the Android app code or headband software
+* Analyze the data with your own methods and algorithms
+
+##  Future Possibilities
+
+With future work it will be possible to have:
+
+1. Near Real-Time Sleep Staging (on the Android device)
+2. Automated Sleep Modulation Stimulus Delivery (based on sleep stage or custom signal detection)
+3. App support beyond Android (iPhone, Raspberry Pi)
+4. Audio Data Collection for additional analyses (e.g., sleep apnea detection)
+5. Cloud Storage for remote collection and back-up (if desired)
+
+<br>
+
+# OSSMM Headband - Principal Components
+
+The OSSMM Headband comprises 3 principal components: An electronic case, a headband, and a receiver.
 
 <br>
 <div align="center">
@@ -76,6 +80,11 @@ receiver made from soft filament.
   <figcaption style="text-align: center; font-style: italic; margin-top: 4px;">Open view of the three major components, all disconnected: Headband, Receiver, and Electronic Case.</figcaption>
 </div>
 <br>
+
+The electronic case consists of two 3D printed parts which houses the electronics.
+The headband is an adjustable strap with silicone electrodes for
+EOG/EEG signal collection. These two components connect through the 3D printed
+receiver made from soft filament.
 
 <div align="center">
   <img src="{{ site.url }}/OSSMM/media/getting-started/back_annotated.jpg" style="width: 65%;">
@@ -90,11 +99,88 @@ receiver made from soft filament.
 </div>
 <br>
 
-# What does the data look like?
+# OSSMM App and Data
 
- WIP
+The companion app serves multiple purposes:
 
-# System Requirements
+* Stores data collected by the headband
+* Provides accurate date-time information
+* Will support near real-time sleep staging in future versions
+
+## v0.9.0 App Features
+
+### Buttons, Toggles, and Connections
+
+The app allows a scan of nearby Bluetooth devices with the 
+"Select Device and Start Recording" button. Once the headband is selected,
+the app establishes a establishes a BLE connection with the headband, initiates 
+data collection upon connection, and stores data continuously, even if the
+connection is temporarily lost.
+
+The "Sleep Modulation" toggle enables BLE signals to be sent from the Android 
+device to the headband. Once enabled, the "Test Modulation" button can be used
+during an established connection to activated the headband's vibration 
+motor in a double-blink pattern.
+
+<br>
+<div align="center">
+  <img src="{{ site.url }}/OSSMM/media/getting-started/app-main.jpg" style="width: 75%;">
+  <figcaption style="text-align: center; font-style: italic; margin-top: 4px;">Main page of OSSMM app</figcaption>
+</div>
+<br>
+
+### Real-Time Data Visualization
+
+Selecting "View Current Data" once a connection is established will open to a 
+new page with live graphs of the accelerometer, gyroscope, eye movement (EOG), 
+and pulse sensors (PPG) data. 
+
+While both eye movement and brain activity are captured in the same signal, only
+the EOG component can be reliably identified visually in real-time. Along with
+the other signals like head movement and pulse, eyemovement can be used to
+confirm that the headband is properly functioning.
+
+<br>
+<div align="center">
+  <img src="{{ site.url }}/OSSMM/media/getting-started/app-data.jpg" style="width: 75%;">
+  <figcaption style="text-align: center; font-style: italic; margin-top: 4px;">Real Time Graph of EOG Data with several eye movements (spikes)</figcaption>
+</div>
+<br>
+
+### Data Collection
+
+Data is continuously saved in CSV format. At a sampling rate of 250 Hz, 
+approximately 500 MB of storage is required for an 8-hour sleep recording.
+
+Each data sample collected by the headband and sent to the companion app includes
+ten columns:
+
+| Column | Description |
+|--------|-------------|
+| Datetime | Precise timestamp when the sample was recorded by the app (down to millisecond) |
+| transNum | Transmission number sequence (0-65,535) sent by the headband |
+| eog | Combined EOG/EEG signal |
+| hr | Heart rhythm/pulse data |
+| accX, accY, accZ | Acceleration in three axes |
+| gyroX, gyroY, gyroZ | Angular velocity in three axes |
+
+Note: The transmission number resets to 0 after reaching 65,535 
+(the maximum value for a 2-byte unsigned integer) and helps identify if BLE 
+updates are being lost.
+
+
+<br>
+<div align="center">
+  <img src="{{ site.url }}/OSSMM/media/getting-started/data.jpg" style="width: 75%;">
+  <figcaption style="text-align: center; font-style: italic; margin-top: 4px;">Portion of a sample CSV file</figcaption>
+</div>
+<br>
+
+Advanced note: Accelerometer and Gyroscope values have been shifted so that only
+unsigned integers are used during BLE transmission. This ensures high speed BLE
+transmission rates by decreasing the memory required for each update.
+
+<br>
 
 # Build Your Own - What You Need to Know
 
@@ -120,33 +206,35 @@ Specific knowledge within each of these areas with resources is listed below:
 ### 1. Basic Electronics Knowledge (including how to solder)
 
 1. What a microcontroller (MCU) and Printer Circuit Board (PCB) are:
-   - [MCU + PCB Resource](https://www.youtube.com/watch?v=yi29dbPnu28)
-   - [Arduino MCUs in 100 seconds](https://www.youtube.com/watch?v=1ENiVwk8idM)
+   - [MCU + PCB Resource](https://www.youtube.com/watch?v=yi29dbPnu28) (Video)
+   - [Arduino MCUs in 100 seconds](https://www.youtube.com/watch?v=1ENiVwk8idM) (Video)
 2. How to Solder
-   - [Soldering Instructional #1](https://www.youtube.com/watch?v=6rmErwU5E-k&t=256s) (Note: Excellent instructional. However, We prefer an easier method for pin-hole soldering. This is shown in the Electronics Assembly section.)
-   - [Soldering Instructional #2](https://www.youtube.com/watch?v=rK38rpUy568&t=167s)
+   - [Soldering Instructional #1](https://www.youtube.com/watch?v=6rmErwU5E-k&t=256s) (Video, Note: Excellent instructional. However, We prefer an easier method for pin-hole soldering. This is shown in the Electronics Assembly section.)
+   - [Soldering Instructional #2](https://www.youtube.com/watch?v=rK38rpUy568&t=167s) (Video)
+   - [Arduino Guide to Soldering](https://docs.arduino.cc/learn/electronics/soldering-basics/) (Non-video)
 
 ### 2. 3D Printer Fundamentals
 
 1. How 3D Printers work in principle
-   - [3D Printer General](https://www.youtube.com/watch?v=f94CnlQ0eq4)
+   - [3D Printer General](https://www.youtube.com/watch?v=f94CnlQ0eq4) (Video)
 2. How to print a file if provided the .gcode files
    - In short, how to put this file on the 3D printer and print it
 3. Difference in filament types: PLA and TPU
-   - [PLA vs TPU Description](https://youtu.be/dYPW5Rlwn8g?t=43)
+   - [PLA vs TPU Description](https://youtu.be/dYPW5Rlwn8g?t=43) (Video)
 4. If your 3D printer is Direct-Drive or not
 
 ### 3. Android System Familiarity
 
 1. What is Android and familiarity with the UI
 2. How to install an APK file (i.e., how to install an app)
-   - [Installing an APK on Android](https://www.youtube.com/watch?v=Ehlzt2OXI4c)
+   - [Installing an APK on Android](https://www.youtube.com/watch?v=Ehlzt2OXI4c) (Video)
   
 ### 4. Arduino or Microcontroller Programming Basics
 1. As per the above, what is Arduino and what is an MCU
 2. How to upload a sketch from Arduino IDE to an Arduino (i.e., how to program an MCU with existing Arduino code)
-   - [Learn Arduino in 15 minutes](https://www.youtube.com/watch?v=nL34zDTPkcs&t=93s)
+   - [Learn Arduino in 15 minutes](https://www.youtube.com/watch?v=nL34zDTPkcs&t=93s) (Video)
 
+<br>
 
 # Build Your Own - What You Need to Have
 
@@ -168,13 +256,15 @@ Specific knowledge within each of these areas with resources is listed below:
 
 4. **Computer** (Mac, Linux, or Windows)
 
-5. **12mm Snap Fastener Kit with Setter and Hammer<sup>a</sup>** (with metal snap-fasteners)
+5. **12mm Snap Fastener Kit with Setter and Hammer[^1]** (with metal snap-fasteners)
 
 6. **Multimeter**
 
 7. **Wirecutters**
 
-<sup>a</sup>Note: We recommend purchasing the 12mm snap-fastener kit as a whole.
+---
+
+[^1]: We recommend purchasing the 12mm snap-fastener kit as a whole.
 The installation tools (setter and hammer) and 12 mm snap-fasteners can be 
 purchased separately but buying the kit together is easiest. 
 
@@ -189,21 +279,22 @@ purchased separately but buying the kit together is easiest.
 
 **Expendables:**
 
-1. **Wires (22-30 AWG)<sup>a</sup>**
+1. **Wires (22-30 AWG)[^1]**
 
-2. **PLA 3D Printer Filament<sup>b</sup>** (PLA = Polylactic Acid)
+2. **PLA 3D Printer Filament[^2]>** (PLA = Polylactic Acid)
 
-3. **TPU 3D Printer Filament<sup>b</sup>** (TPU-95 or TPU-85, TPU = Thermoplastic Polyurethane)
+3. **TPU 3D Printer Filament[^2]** (TPU-95 or TPU-85, TPU = Thermoplastic Polyurethane)
 
 4. **Solder (lead free, with flux recommended)**
 
+---
 
-<sup>a</sup> We recommend  30 AWG wire that is color coded and silicone insulated.
+[^1]: We recommend  30 AWG wire that is color coded and silicone insulated.
 Silicone coatings do not melt at normal soldering temperatures and make assembly 
 cleaner, easier, and safer. Two 5" (13cm) thicker strands, no thicker than 22AWG
 are recommended but not needed. The whole project can be completed with 30AWG.
 
-<sup>b</sup> Filaments should be chosen based on their safety and data profiles.
+[^2]: Filaments should be chosen based on their safety and data profiles.
 Only the TPU filament will make prolonged dermal contact. Therefore, TPU materials with
 bio-compatibility documentation should be used.
 
@@ -224,9 +315,11 @@ bio-compatibility documentation should be used.
 
 **3. Flux**
 
-**4. Sandpaper<sup>a</sup>**
+**4. Sandpaper[^1]**
 
-<sup>b</sup> Sandpaper is recommended for individuals using entry-level or older
+---
+
+[^1]: Sandpaper is recommended for individuals using entry-level or older
 3D printers who desire a more refined finish on their prints. Sandpaper may also
 be beneficial for those who prefer a more forgiving approach to possible 
 electronic component fitting, as sandpaper allows for gradual material removal
@@ -262,11 +355,13 @@ rather than the harsher scraps or snips using wire cutters."
 Note: If you are only interested in sleep monitoring, the Vibration Motor Board
 is not needed.
 
+<br>
+
 # The Cost
 
 **One of the priorities in designing OSSMM was to address the prohibitive costs of sleep
 research by providing an affordable solution.** By leveraging the capabilities of
-an external Android device it was possible to significantly lower the device 
+an external Android device[^1] it was possible to significantly lower the device 
 cost of the OSSMM headband.
 
 Most tools needed to build the OSSMM are standard equipment found in university 
@@ -285,10 +380,10 @@ likely be challenging.
 The original target cost of OSSMM headband was $150. To our surprise, **we 
 achieved a cost of just €37.20 per unit ( and with some rounding up at that)**. 
 This value represents the marginal cost ("ingredient cost") of building one unit,
-not the total overhead cost ("shopping list cost")<sup>b</sup>. 
+not the total overhead cost ("shopping list cost")[^2]. 
 
 **We estimate the typical marginal cost of building a single unit 
-at €40-60<sup>cd</sup>.**
+at €40-60[^3][^4].**
 
 When utilizing "premium" components from established brands without comparison 
 shopping, the total expenditure should still not exceed the original 
@@ -316,7 +411,9 @@ reflects actual marketplace offerings rather than currency conversions.
 The repository will be updated with additional brand headband data and safety 
 documentation as more manufacturers provide this information.
 
-<sup>a</sup> The Android device provides storage, time tracking, and processing
+---
+
+[^1]: The Android device provides storage, time tracking, and processing
 capabilities for which it is well suited. Adding these functions directly to the 
 headband would significantly increase the price, size, and weight. As previously mentioned,
 lower cost alternatives like a Raspberry Pi could be used in lieu of Android devices
@@ -324,18 +421,18 @@ as a separate standalone "base station" providing these capabilities. We selecte
 Android smartphones due to their widespread availability and familiar 
 user interfaces.
 
-<sup>b</sup> Marginal costs refer to the expense of producing one additional unit.
+[^2] Marginal costs refer to the expense of producing one additional unit.
 For example, we calculate the filament cost per OSSMM headband by multiplying the
 cost per gram by the grams used in a single headband—not by the cost of the entire
 filament roll. For a familiar analogy: when calculating the cost of a batch of cookies,
 we count only the portion of butter used (e.g., half a stick), not the full 
 stick that had to be purchased to make the cookies in the first place.
 
-<sup>c</sup> Purchasing some items in bulk quantities may result in
-lower prices. Our price involved "bulk" quantities were some items were purchased
+[^3]: Purchasing some items in bulk quantities may result in
+lower prices. Our price involved "bulk" quantities where some items were purchased
 in quantities greater than 10. However, for some market places we have found 
 day-to-day pricing to have a greater effect on pricing than bulk purchasing. It
 is not necessary to buy in bulk for low-cost pricing. 
 
-<sup>d</sup> This does not account for fixed costs: equipment, full rolls of 
+[^4]: This does not account for fixed costs: equipment, full rolls of 
 solder, filament, etc.
