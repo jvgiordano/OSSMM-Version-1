@@ -49,7 +49,7 @@ charged, and there is enough storage on the Android device.
 As a researcher, you can later collect the Android device and analyze the data as 
 desired according to your study design.
 
-## Modularity
+### Modularity
 
 The OSSMM headband can be built locally with basic tools and basic electronics
 knowledge. It is possible to:
@@ -58,7 +58,7 @@ knowledge. It is possible to:
 * Customize the Android app code or headband software
 * Analyze the data with your own methods and algorithms
 
-##  Future Possibilities
+###  Future Possibilities
 
 With future work it will be possible to have:
 
@@ -127,7 +127,7 @@ motor in a double-blink pattern.
 
 &nbsp;
 <div align="center">
-  <img src="{{ site.url }}/OSSMM/media/getting-started/app-main.jpg" style="width: 35%;">
+  <img src="{{ site.url }}/OSSMM/media/getting-started/app-main.jpg" style="width: 20%;">
   <figcaption style="text-align: center; font-style: italic; margin-top: 4px;">Main page of OSSMM app</figcaption>
 </div>
 &nbsp;
@@ -145,7 +145,7 @@ confirm that the headband is properly functioning.
 
 &nbsp;
 <div align="center">
-  <img src="{{ site.url }}/OSSMM/media/getting-started/app-data.jpg" style="width: 35%;">
+  <img src="{{ site.url }}/OSSMM/media/getting-started/app-data.jpg" style="width: 20%;">
   <figcaption style="text-align: center; font-style: italic; margin-top: 4px;">Real Time Graph of EOG Data with several eye movements (spikes)</figcaption>
 </div>
 &nbsp;
@@ -158,7 +158,7 @@ approximately 500 MB of storage is required for an 8-hour sleep recording.
 Each data sample collected by the headband and sent to the companion app includes
 ten columns:
 
-<div align="center">
+<div style="text-align: center; width: 100%;">
 
 | Column | Description |
 |--------|-------------|
