@@ -68,7 +68,7 @@ folder.
 &nbsp;
 
 The STL files will need to be sliced by your slicing software of choice, and 
-then the output Gcode loaded to your 3D printer for printing. 
+then the Gcode loaded to your 3D printer for printing. 
 
 &nbsp;
 <div align="center">
@@ -126,7 +126,7 @@ breaking.
 &nbsp;
 <div align="center">
   <img src="{{ site.url }}/OSSMM/media/printables/receiver.jpg" style="width: 75%;">
-  <figcaption style="text-align: center; font-style: italic; margin-top: 4px;">Printed Receiver on MK3S+ with a print time of nearly 7 hours.</figcaption>
+  <figcaption style="text-align: center; font-style: italic; margin-top: 4px;">Printed Receiver on MK3S+ using Siraya Tech TPU-85A with a print time of nearly 7 hours.</figcaption>
 </div>
 &nbsp;
 
@@ -140,10 +140,6 @@ We used Prusament PLA for both its fine printing quality, and its safety
 considerations. Although PLA material does not make any prolong dermal contact,
 safety is still a priority and Prusament provides suitable safety information.
 
-
-filament because of safety considerations. 
-Since the receiver makes prolonged dermal contact, we prioritized Siraya Tech
-
 ## Slicer Settings
 The electronics case is a typical 3D print and there are no required slicing 
 parameters. Because of the fine structures within the case we recommend 
@@ -152,59 +148,25 @@ printing at the highest printing quality possible.
 &nbsp;
 <div align="center">
   <img src="{{ site.url }}/OSSMM/media/printables/electronic-case-black.jpg" style="width: 75%;">
-  <figcaption style="text-align: center; font-style: italic; margin-top: 4px;">AI generated rendition of OSSMM System. 1) The User 2) OSSMM Headband 3) Android Device running OSSMM app</figcaption>
+  <figcaption style="text-align: center; font-style: italic; margin-top: 4px;">Printed Electronic Case on a MKS3+ in Prusament Galaxy Black with a print time of nearly 3 hours</figcaption>
 </div>
 &nbsp;
 
 &nbsp;
 <div align="center">
   <img src="{{ site.url }}/OSSMM/media/printables/electronic-case-black-2.jpg" style="width: 75%;">
-  <figcaption style="text-align: center; font-style: italic; margin-top: 4px;">AI generated rendition of OSSMM System. 1) The User 2) OSSMM Headband 3) Android Device running OSSMM app</figcaption>
-</div>
-&nbsp;
-
-
-
-## Best Practices
-
-We recommend the best practices when doing 3D print...such as print towers for
-each filament type...
-
-## Printing Time
-
-&nbsp;
-<div align="center">
-  <img src="{{ site.url }}/OSSMM/media/printables/electronic-case-black.jpg" style="width: 75%;">
-  <figcaption style="text-align: center; font-style: italic; margin-top: 4px;">AI generated rendition of OSSMM System. 1) The User 2) OSSMM Headband 3) Android Device running OSSMM app</figcaption>
-</div>
-&nbsp;
-
-&nbsp;
-<div align="center">
-  <img src="{{ site.url }}/OSSMM/media/printables/electronic-case-black-2.jpg" style="width: 75%;">
-  <figcaption style="text-align: center; font-style: italic; margin-top: 4px;">AI generated rendition of OSSMM System. 1) The User 2) OSSMM Headband 3) Android Device running OSSMM app</figcaption>
-</div>
-&nbsp;
-
-&nbsp;
-<div align="center">
-  <img src="{{ site.url }}/OSSMM/media/printables/electronic-case-blue.jpg" style="width: 75%;">
-  <figcaption style="text-align: center; font-style: italic; margin-top: 4px;">AI generated rendition of OSSMM System. 1) The User 2) OSSMM Headband 3) Android Device running OSSMM app</figcaption>
-</div>
-&nbsp;
-
-&nbsp;
-<div align="center">
-  <img src="{{ site.url }}/OSSMM/media/printables/receiver.jpg" style="width: 75%;">
-  <figcaption style="text-align: center; font-style: italic; margin-top: 4px;">AI generated rendition of OSSMM System. 1) The User 2) OSSMM Headband 3) Android Device running OSSMM app</figcaption>
+  <figcaption style="text-align: center; font-style: italic; margin-top: 4px;">Close Up of Print Electronic Case</figcaption>
 </div>
 &nbsp;
 
 # Finishing 3D Prints
 
-The 3D prints should be inspect, and any support material or printing burrs
-removed. Light sanding with sandpaper may be used to improve the finish of 
+The 3D prints should be inspected, and any support material, stringing, or printing
+burrs removed. Light sanding with sandpaper may be used to improve the finish of 
 prints. In particular, the rear of the receiver should be smooth.
+
+If glue was used for bed adhesion, make sure to properly clean any residue off
+the prints. We recommend avoiding glue for bed adhesion where possible.
 
 # Time for the Electronics Assembly!
 
