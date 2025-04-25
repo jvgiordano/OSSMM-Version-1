@@ -8,46 +8,120 @@ sidebar:
   nav: "pages_sidebar_nav"
 ---
 
+Welcome to the 3D Printable Guide! Here the basics of creating the 3D prints
+for the OSSMM are covered.
+
+Please note, this is not a general "How To" guide for 3D printing. Because of
+significant variation in printers, slicing software, and filament choices, it's
+not possible to create a straightforward, "cookbook" guide. Some information, 
+such as optimal printing temperatures, will need to be determined by yourself.
+
+We recommend following best printing practices. This includes printing a 
+[Temperature Tower](https://www.youtube.com/watch?v=NEnVQKX-_N8) to determine 
+the optimal slicing parameters for your specific setup. This step is 
+particularly important if you're working with TPU filament and don't have 
+previous experience with this material in your printer. Other best practices 
+include ensuring filament is kept dried and choosing appropriate supports.
+
 # Printables Overview
 
-THIS IS A WIP
-
-There are 3 printable parts for the OSSMM: the receiver, the electronic case 
-lid, and the electronic case bottom.
+The OSSMM requires three 3D-printed components: the receiver, the electronic
+case lid, and the electronic case bottom. A labeled CAD image of these is shown
+below:
 
 &nbsp;
 <div align="center">
   <img src="{{ site.url }}/OSSMM/media/printables/cad-parts.jpg" style="width: 75%;">
-  <figcaption style="text-align: center; font-style: italic; margin-top: 4px;">AI generated rendition of OSSMM System. 1) The User 2) OSSMM Headband 3) Android Device running OSSMM app</figcaption>
+  <figcaption style="text-align: center; font-style: italic; margin-top: 4px;">Labeled OnShape CAD for the OSSMM 3D Printables</figcaption>
 </div>
 &nbsp;
 
-The receiver is printed from TPU. We recommend TPU-85, but TPU-95 also works.
+As denoted in the image, and previously mentioned, the receiver is printed using
+TPU (Thermoplastic Polyurethane), a flexible filament. The electronic case is 
+printed in using PLA (Polylactic Acid).
 
-The electronic case parts are both printed from PLA.
 
-The receiver and electronic case must be printed separately, unless you have a
-printer multi-filament 3D printer with independent extrudes. Still, if building
-multiple OSSMM units, it is recommend to print all the receivers during one
-print job, then all the electronic case parts in another.
+Because these components use different filament types, the receiver must be
+printed on a separate print run from the electronic case's top and bottom 
+(unless you have a multi-filament 3D printer with independent extruders). 
+Therefore, there is one STL file for the receiver, and one STL file for the
+electronic case. 
 
-The appropriate files for the 3D Printing can be found under [OSSMM - V1.0.4 Printables](https://github.com/jvgiordano/OSSMM/tree/main/OSSMM%20V1.0.4%20Printables)
+All three parts are drawn in a publicly available 
+[OnShape Document located here](https://cad.onshape.com/documents/9770a63668febc8c28355357/w/080415be9bd2ce05fb700580/e/ca5bfcf86b2d6d5dd97a01c1?renderMode=0&uiState=680bf8be89fa246ebf943572_).
+You can fork this CAD document and modify as needed.
 
-For convenience, we have provided the GCode from Prusa Slicer that we used with
-Prusa MKS3+ 3D printer. However, it is still recommended to go through the proper
-3D printing best practices and starting with the STL files and adjusting the
-slicer to your own printer (even if a MKS3+)
 
-Along with the required STL files for printing, we have provided a link to the
-OnShape repository with both receiver and electronic case should one want to 
-investigate or modify the design.
+&nbsp;
+# 3D Print File - STLs and GCODE
+
+The STL file for the receiver and electronic case is located in the OSSMM Github
+repository under "STL Files" within the 
+[OSSMM - V1.0.4 Printables](https://github.com/jvgiordano/OSSMM/tree/main/OSSMM%20V1.0.4%20Printables)
+folder. 
 
 &nbsp;
 <div align="center">
   <img src="{{ site.url }}/OSSMM/media/printables/location.jpg" style="width: 75%;">
-  <figcaption style="text-align: center; font-style: italic; margin-top: 4px;">AI generated rendition of OSSMM System. 1) The User 2) OSSMM Headband 3) Android Device running OSSMM app</figcaption>
+  <figcaption style="text-align: center; font-style: italic; margin-top: 4px;">3D Printing Files in the OSSMM Github Repo</figcaption>
 </div>
 &nbsp;
+
+The STL files will need to be sliced by your slicing software of choice, and 
+then the output Gcode loaded to your 3D printer for printing. 
+
+&nbsp;
+<div align="center">
+  <img src="{{ site.url }}/OSSMM/media/printables/PrusaSlicer.jpg" style="width: 75%;">
+  <figcaption style="text-align: center; font-style: italic; margin-top: 4px;">Receiver in PrusaSlicer with "snug" supports and 8% infill.</figcaption>
+</div>
+&nbsp;
+
+For (possible) convenience, we have provided the GCode from Prusa Slicer that 
+we used on a Prusa MKS3+ 3D printer. However, it is still recommended to go 
+through the proper 3D printing best practices and starting with the STL files 
+and adjusting the slicer parameters to your own printer (even if you own a MKS3+ 
+and use the same filament as us).
+
+&nbsp;
+# Printing the Receiver
+
+## Filament
+Print the receiver with TPU grades from 85 to 95 shore A hardness 
+(TPU-85 to TPU-95). Softer filaments may work but have not been tested.
+
+We recommend TPU-85 for optimal comfort, though TPU-95 works sufficiently well. 
+Be aware that TPU-85 is more challenging to print due to its softness 
+compared to TPU-95.
+
+We used Siraya Tech Flex TPU85A filament because of safety considerations. 
+Since the receiver makes prolonged dermal contact, we prioritized Siraya Tech 
+for their multiple biocompatibility certifications. These certifications can be 
+found on the company's website or in the 
+[OSSMM - Data and Safety docs](https://github.com/jvgiordano/OSSMM/tree/main/OSSMM%20-%20Data%20and%20Safety%20docs)
+folder in the OSSMM repository.
+
+## Slicer Settings
+
+**Important: When printing with TPU, two critical slicer settings must be configured:**
+
+1. **Set "Infill Density" to 8%**
+2. **Set "Infill Pattern" to "Gyroid"**
+
+&nbsp;
+<div align="center">
+  <img src="{{ site.url }}/OSSMM/media/printables/infill.JPG" style="width: 75%;">
+  <figcaption style="text-align: center; font-style: italic; margin-top: 4px;">Required Infill Settings for TPU-85</figcaption>
+</div>
+&nbsp;
+
+The receiver was specifically designed using TPU with these infill settings to 
+create an "air cushion" effect that comfortably distributes pressure. If 
+printing with TPU-95 (higher hardness), we recommend reducing the infill 
+percentage to 7%. Optimal values may vary depending on your specific printer, 
+filament brand, and slicer parameters such as flow rate. The goal is to create 
+a receiver that provides soft cushioning for comfort without collapsing or 
+breaking.
 
 &nbsp;
 <div align="center">
