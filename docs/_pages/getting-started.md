@@ -388,4 +388,4 @@ documentation as more manufacturers provide this information.
 
 The first physical step to building your OSSMM device is creating the 3D prints.
 Head over to the [3D Printables](https://jvgiordano.github.io/OSSMM/printables)
-page to begin!"
+page to begin!
