@@ -1,5 +1,5 @@
 ---
-title: "Electronics Assembly"
+title: "Electronics Assembly Guide"
 permalink: /electronics-assembly/
 date: 2025-04-23T04:20:20+01:00
 classes: wide

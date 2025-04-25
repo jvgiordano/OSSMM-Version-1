@@ -24,12 +24,13 @@ significantly reduces potential risks associated with battery malfunctions.
 measurement systems are passive. The pulse sensor uses photoplethysmography 
 (PPG) - the same light-based technology found in consumer smartwatches - which
 emits only low-intensity light to detect blood flow beneath the skin. At no
-point is current injected into the body
+point is current injected into the body.
 
 * **Biocompatible materials**: We selected specific 3D printing filaments based 
 on their published safety data to ensure skin contact compatibility. Safety 
 data sheets for all components and filaments are included in this repository 
-for your reference.
+for your reference. You may use your own filaments of choice, but we recommend
+verifying their respective safety information before usage.
 
 
 ## Data Privacy and Security

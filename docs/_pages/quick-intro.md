@@ -128,6 +128,21 @@ Future versions aim to analyze sleep data in near-real-time
 (within 30-60 seconds) to potentially trigger sleep modulation 
 based on detected sleep stages.
 
+# Start Building Now
+
+We recommend reviewing the 
+[Getting Started](https://jvgiordano.github.io/OSSMM/getting-started/) before
+beginning your OSSMM build. This page contains detailed information about OSSMM
+and all the pre-requisites.
+
+To build your own OSSMM system, follow these pages in order:
+
+1. [3D Printables](https://jvgiordano.github.io/OSSMM/printables) - Print out the printable components
+2. [Electronics Assembly Guide](https://jvgiordano.github.io/OSSMM/electronics-assembly/) - Combine the electronics and 3D printed case
+3. [Final Assembly](https://jvgiordano.github.io/OSSMM/final-assembly/) - Assemble the 3 principal components: headband, receiver, electronic case
+4. [Software](https://jvgiordano.github.io/OSSMM/software/) - Upload OSSMM code to the MCU, and install the OSSMM apk on your Android device
+5. [Final Checks & Completion](https://jvgiordano.github.io/OSSMM/final-checks) - Verify your OSSMM system collects data as intended
+
 **Additional Notes:**
 
 [^note1]: V1.0.4 requires an Android device with the dedicated companion app

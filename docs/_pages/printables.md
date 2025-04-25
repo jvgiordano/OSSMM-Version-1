@@ -1,5 +1,5 @@
 ---
-title: "printables"
+title: "3D Printables"
 permalink: /printables/
 date: "2025-04-23"
 classes: wide
