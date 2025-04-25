@@ -23,6 +23,8 @@ particularly important if you're working with TPU filament and don't have
 previous experience with this material in your printer. Other best practices 
 include ensuring filament is kept dried and choosing appropriate supports.
 
+We remind users that direct-drive 3D printers are highly recommended.
+
 # Printables Overview
 
 The OSSMM requires three 3D-printed components: the receiver, the electronic
