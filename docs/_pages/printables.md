@@ -14,7 +14,7 @@ lid, and the electronic case bottom.
 
 &nbsp;
 <div align="center">
-  <img src="{{ site.url }}/OSSMM/media/getting-started/cad-parts.jpg" style="width: 75%;">
+  <img src="{{ site.url }}/OSSMM/media/printables/cad-parts.jpg" style="width: 75%;">
   <figcaption style="text-align: center; font-style: italic; margin-top: 4px;">AI generated rendition of OSSMM System. 1) The User 2) OSSMM Headband 3) Android Device running OSSMM app</figcaption>
 </div>
 &nbsp
@@ -41,14 +41,14 @@ investigate or modify the design.
 
 &nbsp;
 <div align="center">
-  <img src="{{ site.url }}/OSSMM/media/getting-started/location.jpg" style="width: 75%;">
+  <img src="{{ site.url }}/OSSMM/media/printables/location.jpg" style="width: 75%;">
   <figcaption style="text-align: center; font-style: italic; margin-top: 4px;">AI generated rendition of OSSMM System. 1) The User 2) OSSMM Headband 3) Android Device running OSSMM app</figcaption>
 </div>
 &nbsp;
 
 &nbsp;
 <div align="center">
-  <img src="{{ site.url }}/OSSMM/media/getting-started/PrusaSlicer.jpg" style="width: 75%;">
+  <img src="{{ site.url }}/OSSMM/media/printables/PrusaSlicer.jpg" style="width: 75%;">
   <figcaption style="text-align: center; font-style: italic; margin-top: 4px;">AI generated rendition of OSSMM System. 1) The User 2) OSSMM Headband 3) Android Device running OSSMM app</figcaption>
 </div>
 &nbsp;
@@ -62,28 +62,28 @@ each filament type...
 
 &nbsp;
 <div align="center">
-  <img src="{{ site.url }}/OSSMM/media/getting-started/electronic-case-black.jpg" style="width: 75%;">
+  <img src="{{ site.url }}/OSSMM/media/printables/electronic-case-black.jpg" style="width: 75%;">
   <figcaption style="text-align: center; font-style: italic; margin-top: 4px;">AI generated rendition of OSSMM System. 1) The User 2) OSSMM Headband 3) Android Device running OSSMM app</figcaption>
 </div>
 &nbsp;
 
 &nbsp;
 <div align="center">
-  <img src="{{ site.url }}/OSSMM/media/getting-started/electronic-case-black-2.jpg" style="width: 75%;">
+  <img src="{{ site.url }}/OSSMM/media/printables/electronic-case-black-2.jpg" style="width: 75%;">
   <figcaption style="text-align: center; font-style: italic; margin-top: 4px;">AI generated rendition of OSSMM System. 1) The User 2) OSSMM Headband 3) Android Device running OSSMM app</figcaption>
 </div>
 &nbsp;
 
 &nbsp;
 <div align="center">
-  <img src="{{ site.url }}/OSSMM/media/getting-started/electronic-case-blue.jpg" style="width: 75%;">
+  <img src="{{ site.url }}/OSSMM/media/printables/electronic-case-blue.jpg" style="width: 75%;">
   <figcaption style="text-align: center; font-style: italic; margin-top: 4px;">AI generated rendition of OSSMM System. 1) The User 2) OSSMM Headband 3) Android Device running OSSMM app</figcaption>
 </div>
 &nbsp;
 
 &nbsp;
 <div align="center">
-  <img src="{{ site.url }}/OSSMM/media/getting-started/receiver.jpg" style="width: 75%;">
+  <img src="{{ site.url }}/OSSMM/media/printables/receiver.jpg" style="width: 75%;">
   <figcaption style="text-align: center; font-style: italic; margin-top: 4px;">AI generated rendition of OSSMM System. 1) The User 2) OSSMM Headband 3) Android Device running OSSMM app</figcaption>
 </div>
 &nbsp;
