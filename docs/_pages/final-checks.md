@@ -1,5 +1,5 @@
 ---
-title: "final-checks"
+title: "Final Checks"
 permalink: /final-checks/
 date: "2025-04-23"
 classes: wide
@@ -7,7 +7,13 @@ sidebar:
   nav: "pages_sidebar_nav"
 ---
 
-# THIS IS A WIP
+# OSSMM System Verification
+
+THIS IS A WIP
+
+You've assembled the OSSMM system! Now let's verify that it works as intended:
+
+## Procedure
 
 Requisites:
 1. Android Device with OSSMM App

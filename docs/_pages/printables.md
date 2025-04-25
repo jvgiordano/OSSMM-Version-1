@@ -9,6 +9,8 @@ sidebar:
 
 # Printables Overview
 
+THIS IS A WIP
+
 There are 3 printable parts for the OSSMM: the receiver, the electronic case 
 lid, and the electronic case bottom.
 
@@ -17,7 +19,7 @@ lid, and the electronic case bottom.
   <img src="{{ site.url }}/OSSMM/media/printables/cad-parts.jpg" style="width: 75%;">
   <figcaption style="text-align: center; font-style: italic; margin-top: 4px;">AI generated rendition of OSSMM System. 1) The User 2) OSSMM Headband 3) Android Device running OSSMM app</figcaption>
 </div>
-&nbsp
+&nbsp;
 
 The receiver is printed from TPU. We recommend TPU-85, but TPU-95 also works.
 
