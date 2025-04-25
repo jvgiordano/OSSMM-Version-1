@@ -13,6 +13,8 @@ functionality, capabilities, cost, and the prerequisites for building your own.
 
 ## How It All Works
 
+### Major System Parts
+
 The OSSMM system consists of 4 parts:
 
 1. **The User (participant)**
@@ -127,7 +129,7 @@ motor in a double-blink pattern.
 
 &nbsp;
 <div align="center">
-  <img src="{{ site.url }}/OSSMM/media/getting-started/app-main.jpg" style="width: 30%;">
+  <img src="{{ site.url }}/OSSMM/media/getting-started/app-main.jpg" style="width: 25%;">
   <figcaption style="text-align: center; font-style: italic; margin-top: 4px;">Main page of OSSMM app</figcaption>
 </div>
 &nbsp;
@@ -145,7 +147,7 @@ confirm that the headband is properly functioning.
 
 &nbsp;
 <div align="center">
-  <img src="{{ site.url }}/OSSMM/media/getting-started/app-data.jpg" style="width: 30%;">
+  <img src="{{ site.url }}/OSSMM/media/getting-started/app-data.jpg" style="width: 25%;">
   <figcaption style="text-align: center; font-style: italic; margin-top: 4px;">Real Time Graph of EOG Data with several eye movements (spikes)</figcaption>
 </div>
 &nbsp;

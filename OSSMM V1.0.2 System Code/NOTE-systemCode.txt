@@ -1,5 +1,0 @@
-This folder contains the code used for the Xiao Feather Sense nRF52840 microcontroller
-that is part of the OSSMM headband and determined data capture.
-
-This folder also contains the code for the OSSMM Android application which recorded
-the captured data.
