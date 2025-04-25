@@ -14,7 +14,7 @@ functionality, capabilities, cost, and the prerequisites for building your own.
 
 # How It All Works
 
-### Major System Parts
+## Major System Parts
 
 The OSSMM system consists of 4 parts:
 
@@ -52,7 +52,7 @@ charged, and there is enough storage on the Android device.
 As a researcher, you can later collect the Android device and analyze the data as 
 desired according to your study design.
 
-### Modularity
+## Modularity
 
 The OSSMM headband can be built locally with basic tools and basic electronics
 knowledge. It is possible to:
@@ -61,7 +61,7 @@ knowledge. It is possible to:
 * Customize the Android app code or headband software
 * Analyze the data with your own methods and algorithms
 
-###  Future Possibilities
+##  Future Possibilities
 
 With future work it will be possible to have:
 
