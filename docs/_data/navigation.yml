@@ -22,17 +22,17 @@ foo:
 main:
   - title: "Quick Intro"
     url: /quick-intro/
-  - title: "Getting Started"
+  - title: " Getting Started"
     url: /getting-started/
-  - title: "3D Printables"
+  - title: "1. 3D Printables"
     url: /printables/
-  - title: "Electronics Assembly Guide"
+  - title: "2. Electronics Assembly Guide"
     url: /electronics-assembly/
-  - title: "Final Assembly"
+  - title: "3. Final Assembly"
     url: /final-assembly/
-  - title: "Software"
+  - title: "4. Software"
     url: /software/
-  - title: "Final Checks & Completion"
+  - title: "5. Final Checks & Completion"
     url: /final-checks/
   - title: "Performance - Sleep Staging"
     url: /performance/
@@ -46,42 +46,48 @@ pages_sidebar_nav:
     url: /quick-intro/
   - title: "Getting Started"
     url: /getting-started/
-    children: # Children for "Getting Started" (using placeholder IDs, please verify these)
-      - title: "System Overview - How It All Works"
-        url: /getting-started/#system-overview # <-- Placeholder ID
-      - title: "OSSMM Headband - What Its Made Of"
-        url: /getting-started/#ossmm-headband # <-- Placeholder ID
+    children:
+      - title: "How It All Works"
+        url: /getting-started/#how-it-all-works
+      - title: "OSSMM Headband - Principal Components"
+        url: /getting-started/#ossmm-headband---principal-components
+      - title: "OSSMM App and Data"
+        url: /getting-started/#ossmm-app-and-data
       - title: "Build Your Own - What You Need to Know"
-        url: /getting-started/#build-your-own-know # <-- Placeholder ID
+        url: /getting-started/#build-your-own---what-you-need-to-know
       - title: "Build Your Own - What You Need to Have"
-        url: /getting-started/#build-your-own-have # <-- Placeholder ID
+        url: /getting-started/#build-your-own---what-you-need-to-have
       - title: "The Cost"
-        url: /getting-started/#the-cost # <-- Placeholder ID
+        url: /getting-started/#the-cost
   - title: "3D Printables"
     url: /printables/
   - title: "Electronics Assembly"
     url: /electronics-assembly/
-    children: # Children for "Electronics Assembly" (predicted IDs based on pattern)
-      - title: "Step 1. Gather Relevant Tools and Materials:"
-        url: /electronics-assembly/#step-1-gather-relevant-tools-and-materials # Verified ID
+    children:
+      - title: "Electronics Assembly"
+        url: /electronics-assembly/#electronics-assembly
+      - title: "Step 1. Gather Relevant Tools and Materials"
+        url: /electronics-assembly/#step-1-gather-relevant-tools-and-materials
       - title: "Step 2. Test-Fit Electronic Components in 3D Printed Case Bottom"
-        url: /electronics-assembly/#step-2-test-fit-electronic-components-in-3d-printed-case-bottom" # Predicted ID
+        url: /electronics-assembly/#step-2-test-fit-electronic-components-in-3d-printed-case-bottom
       - title: "Step 3. Connect Snap-Fasters to the Electronic Case Lid"
-        url: /electronics-assembly/#step-3-connect-snap-fasters-to-the-electronic-case-lid" # Predicted ID
+        url: /electronics-assembly/#step-3-connect-snap-fasters-to-the-electronic-case-lid
       - title: "Step 4. Prepare the AD8232"
-        url: /electronics-assembly/#step-4-prepare-the-ad8232" # Predicted ID
+        url: /electronics-assembly/#step-4-prepare-the-ad8232
       - title: "Step 5. Prepare the PulseSensor"
-        url: /electronics-assembly/#step-5-prepare-the-pulsesensor" # Predicted ID
+        url: /electronics-assembly/#step-5-prepare-the-pulsesensor
       - title: "Step 6. Prepare the Vibration Motor"
-        url: /electronics-assembly/#step-6-prepare-the-vibration-motor" # Predicted ID
-      - title: "Step 7. Solder Components Together According to the Layman’s Schematic"
-        url: /electronics-assembly/#step-7-solder-components-together-according-to-the-laymans-schematic" # Predicted ID
+        url: /electronics-assembly/#step-6-prepare-the-vibration-motor
+      - title: "Step 7. Solder Components Together According to the Layman's Schematic"
+        url: /electronics-assembly/#step-7-solder-components-together-according-to-the-laymans-schematic
       - title: "Step 8. Connect the Battery"
-        url: /electronics-assembly/#step-8-connect-the-battery" # Predicted ID
+        url: /electronics-assembly/#step-8-connect-the-battery
       - title: "Step 9. Install Components into the Electronic Case Bottom"
-        url: /electronics-assembly/#step-9-install-components-into-the-electronic-case-bottom" # Predicted ID
+        url: /electronics-assembly/#step-9-install-components-into-the-electronic-case-bottom
       - title: "Step 10. Close the Electronic Case"
-        url: /electronics-assembly/#step-10-close-the-electronic-case" # Predicted ID
+        url: /electronics-assembly/#step-10-close-the-electronic-case
+      - title: "Additional Information on the AD8232"
+        url: /electronics-assembly/#additional-information-on-the-ad8232
   - title: "Final Assembly"
     url: /final-assembly/
   - title: "Software"

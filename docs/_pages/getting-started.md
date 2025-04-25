@@ -4,6 +4,7 @@ permalink: /getting-started/
 date: 2025-04-23T00:26:20+01:00
 classes: wide
 toc: true # Enable Table of Contents for this page
+read_time: true
 sidebar:
   nav: "pages_sidebar_nav"
 ---
@@ -11,7 +12,7 @@ sidebar:
 This guide provides an in-depth introduction to the OSSMM system, explaining its
 functionality, capabilities, cost, and the prerequisites for building your own.
 
-## How It All Works
+# How It All Works
 
 ### Major System Parts
 
@@ -382,3 +383,9 @@ documentation as more manufacturers provide this information.
 [^bulk]: Purchasing some items in bulk quantities may result in lower prices. Our price involved "bulk" quantities where some items were purchased in quantities greater than 10. However, for some market places we have found day-to-day pricing to have a greater effect on pricing than bulk purchasing. It is not necessary to buy in bulk for low-cost pricing.
 
 [^fixed]: This does not account for fixed costs: equipment, full rolls of solder, filament, etc.
+
+# I'm ready - let's begin!
+
+The first physical step to building your OSSMM device is creating the 3D prints.
+Head over to the [3D Printables](https://jvgiordano.github.io/OSSMM/printables)
+page to begin!"

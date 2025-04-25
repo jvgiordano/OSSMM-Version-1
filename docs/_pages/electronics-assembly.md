@@ -4,6 +4,7 @@ permalink: /electronics-assembly/
 date: 2025-04-23T04:20:20+01:00
 classes: wide
 toc: true # Enable Table of Contents for this page
+read_time: true
 sidebar:
   nav: "pages_sidebar_nav"
 ---
@@ -738,16 +739,15 @@ When it is finished it should look like the following:
 
 <br><br>
 
-## Step 11. Now Time for Full Assembly!
+## Step 11. Time for Full Assembly!
 
 <br>
 
 Refer to the assembly guide below on how to combine the heart monitor strap,
-receiver and electronics module together! You're nearly finished!
+receiver and electronics module together! The biggest challenge is over!
 
-**[Final Assembly](04-final-assembly.md)**: Integrating the electronics into the casing and attaching the headband.
+**[Final Assembly](https://jvgiordano.github.io/OSSMM/final-assembly/)**
 
-or alternatively, return to the main page: **[Main Page](index.md)**
 
 <br><br>
 

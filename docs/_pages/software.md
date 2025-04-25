@@ -2,6 +2,7 @@
 title: "Software"
 permalink: /software/
 date: "2025-04-23"
+read_time: true
 classes: wide
 ---
 

@@ -3,6 +3,7 @@ title: "Final Assembly"
 permalink: /final-assembly/
 date: "2025-04-23"
 classes: wide
+read_time: true
 sidebar:
   nav: "pages_sidebar_nav"
 ---
