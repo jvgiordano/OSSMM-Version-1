@@ -110,7 +110,7 @@ folder in the OSSMM repository.
 
 &nbsp;
 <div align="center">
-  <img src="{{ site.url }}/OSSMM/media/printables/infill.JPG" style="width: 75%;">
+  <img src="{{ site.url }}/OSSMM/media/printables/infill.jpg" style="width: 75%;">
   <figcaption style="text-align: center; font-style: italic; margin-top: 4px;">Required Infill Settings for TPU-85</figcaption>
 </div>
 &nbsp;
@@ -125,10 +125,45 @@ breaking.
 
 &nbsp;
 <div align="center">
-  <img src="{{ site.url }}/OSSMM/media/printables/PrusaSlicer.jpg" style="width: 75%;">
+  <img src="{{ site.url }}/OSSMM/media/printables/receiver.jpg" style="width: 75%;">
+  <figcaption style="text-align: center; font-style: italic; margin-top: 4px;">Printed Receiver on MK3S+ with a print time of nearly 7 hours.</figcaption>
+</div>
+&nbsp;
+
+
+# Printing the Electronic Case
+
+## Filament
+Print the receiver PLA.
+
+We used Prusament PLA for both its fine printing quality, and its safety
+considerations. Although PLA material does not make any prolong dermal contact,
+safety is still a priority and Prusament provides suitable safety information.
+
+
+filament because of safety considerations. 
+Since the receiver makes prolonged dermal contact, we prioritized Siraya Tech
+
+## Slicer Settings
+The electronics case is a typical 3D print and there are no required slicing 
+parameters. Because of the fine structures within the case we recommend 
+printing at the highest printing quality possible.
+
+&nbsp;
+<div align="center">
+  <img src="{{ site.url }}/OSSMM/media/printables/electronic-case-black.jpg" style="width: 75%;">
   <figcaption style="text-align: center; font-style: italic; margin-top: 4px;">AI generated rendition of OSSMM System. 1) The User 2) OSSMM Headband 3) Android Device running OSSMM app</figcaption>
 </div>
 &nbsp;
+
+&nbsp;
+<div align="center">
+  <img src="{{ site.url }}/OSSMM/media/printables/electronic-case-black-2.jpg" style="width: 75%;">
+  <figcaption style="text-align: center; font-style: italic; margin-top: 4px;">AI generated rendition of OSSMM System. 1) The User 2) OSSMM Headband 3) Android Device running OSSMM app</figcaption>
+</div>
+&nbsp;
+
+
 
 ## Best Practices
 
@@ -165,7 +200,15 @@ each filament type...
 </div>
 &nbsp;
 
-## Finishing 3D Prints
+# Finishing 3D Prints
 
+The 3D prints should be inspect, and any support material or printing burrs
+removed. Light sanding with sandpaper may be used to improve the finish of 
+prints. In particular, the rear of the receiver should be smooth.
 
+# Time for the Electronics Assembly!
+
+The next step to building your OSSMM device is assembling the electronics.
+Head over to the [Electronics Assembly](https://jvgiordano.github.io/OSSMM/electronics-assembly)
+page to begin!
 
