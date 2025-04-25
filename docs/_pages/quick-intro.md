@@ -11,11 +11,11 @@ sidebar:
 <div style="display: flex; flex-direction: row; align-items: flex-start;">
   <figure style="margin: 0; width: 42%;">
     <img src="{{ site.url }}/OSSMM/media/quick-intro/stretch.jpg" alt="Front view of OSSMM headband" style="width: 100%;">
-    <figcaption style="text-align: center; font-style: italic; margin-top: 5px;">OSSMM Headband on display with strap fully stretched out</figcaption>
+    <figcaption style="text-align: center; font-style: italic; margin-top: 5px;">OSSMM Headband on display with strap fully stretched out.</figcaption>
   </figure>
   <figure style="margin: 0; width: 50%; margin-left: 4%;">
     <img src="{{ site.url }}/OSSMM/media/quick-intro/ports.jpg" alt="Back view of OSSMM headband" style="width: 100%;">
-    <figcaption style="text-align: center; font-style: italic; margin-top: 5px;">Upclose of OSSMM Headband</figcaption>
+    <figcaption style="text-align: center; font-style: italic; margin-top: 5px;">Macro photo of OSSMM Headband. USB-C, LED port, ON/Reset switch, and Microhone port are visible. €1 euro coin for size reference.</figcaption>
   </figure>
 </div>
 <br>
