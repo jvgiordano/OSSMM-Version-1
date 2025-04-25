@@ -5,6 +5,7 @@ date: 2025-04-23T00:26:20+01:00
 classes: wide
 sidebar:
   nav: "pages_sidebar_nav"
+read_time: true
 ---
 
 
