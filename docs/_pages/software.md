@@ -6,29 +6,39 @@ read_time: true
 classes: wide
 ---
 
-# Software
+# Software Installation
 
-You've assembled the OSSMM headband. Not let's install the software to use it!
+Congratulations on assembling your OSSMM headband! Now let's set up the software 
+needed to bring it to life.
 
-The OSSMM system requires two pieces of software to work. The software that
-controls the headband, and the software which controls the Android device.
+The OSSMM system requires two software components:
 
-We provide instructions using Windows 11, however both Mac and Linux should
-have similar set-ups.
+1. **Arduino Code for Headband** - Manages the sensors, data collection, and Bluetooth communication on the Seeed Xiao nRF52840 Sense microcontroller (MCU)
+2. **Android Application** - Software that receives and stores the data Bluetooth stream while providing a user interface (UI) for system control
+
+These instructions are provided using Windows 11, but the process follows the
+same principles on macOS and Linux.
+
 
 # Microcontroller Code
 
-OSSMM uses a Seeed Xiao nRF52840 Sense microcontroller unit (MCU) to manage 
-operations. These operations are primarily to regulate power to other components,
-digitize analog signals from the sensors, and transmit this information over BLE.
-To perform these operations, the MCU requires dedicated software, and this 
-software must be loaded onto the MCU before it can be used. This software is 
-written using Arduino code, a variant of C++, and uses a library from the 
-manufacturer Seeed. 
 
-In this section directions are provided on how to upload this software from 
-scratch. However, if you already have the Arduino IDE installed, please skip 
-below to “Install the Seeed Board Library.”
+# Arduino Code for the OSSMM Headband
+
+The OSSMM headband is powered by a Seeed Xiao nRF52840 Sense MCU, which performs
+three critical functions:
+
+1. Regulates power to all components
+2. Digitizes analog sensor signals
+3. Transmits collected data via Bluetooth Low Energy (BLE)
+
+Before the headband can function, you must install the necessary Arduino 
+code (a C++ variant) on the MCU. 
+
+This section provides step-by-step instructions for setting up the Arduino 
+development environment and uploading the code. If you already have the Arduino
+IDE installed, you can 
+[skip directly to "Install the Seeed Board Library"](https://jvgiordano.github.io/OSSMM/software/#install-the-seeed-nrf52-library).
 
 ## Install Arduino IDE
 
@@ -44,7 +54,7 @@ Please install the latest version from the [Arduino Website](https://www.arduino
 
 <div align="center">
   <p><strong>Side with USB-C:</strong></p>
-  <img src="{{ site.url }}/OSSMM/media/electronics-assembly/arduino-pref.jpeg" style="width: 50%;">
+  <img src="{{ site.url }}/OSSMM/media/electronics-assembly/arduino-pref.jpg" style="width: 50%;">
 </div>
 
 2. Go to go “Additional Boards Manager URLS” Section and paste in the following:
@@ -64,16 +74,17 @@ Exit the preferences window.
 Type in the search bar at the top, ‘seeed nrf52’. Two board manager options 
 should appear. Install the one that says “Seeed nRF52 Boards."
 
+Note: Under Tools, "Board: " may be empty or contain other names. It does not matter.
+
 <div align="center">
   <p><strong>Side with USB-C:</strong></p>
-  <img src="{{ site.url }}/OSSMM/media/electronics-assembly/arduino-boards.jpeg" style="width: 50%;">
+  <img src="{{ site.url }}/OSSMM/media/electronics-assembly/arduino-boards.jpg" style="width: 50%;">
 </div>
 
 <div align="center">
   <p><strong>Side with USB-C:</strong></p>
-  <img src="{{ site.url }}/OSSMM/media/electronics-assembly/arduino-search.jpeg" style="width: 50%;">
+  <img src="{{ site.url }}/OSSMM/media/electronics-assembly/arduino-search.jpg" style="width: 50%;">
 </div>
-
 
 
 

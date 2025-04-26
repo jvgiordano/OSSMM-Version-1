@@ -136,7 +136,7 @@ breaking.
 # Printing the Electronic Case
 
 ## Filament
-Print the receiver PLA.
+Print the receiver with standard PLA.
 
 We used Prusament PLA for both its fine printing quality, and its safety
 considerations. Although PLA material does not make any prolong dermal contact,
