@@ -20,9 +20,6 @@ These instructions are provided using Windows 11, but the process follows the
 same principles on macOS and Linux.
 
 
-# Microcontroller Code
-
-
 # Arduino Code for the OSSMM Headband
 
 The OSSMM headband is powered by a Seeed Xiao nRF52840 Sense MCU, which performs
@@ -50,14 +47,14 @@ Please install the latest version from the [Arduino Website](https://www.arduino
 
 ## Install the Seeed nRF52 Library
 
-1. With the Arduino IDE installed, go to 'File >> Preferences’
+### Step 1. With the Arduino IDE installed, go to 'File >> Preferences’
 
 <div align="center">
   <p><strong>Side with USB-C:</strong></p>
   <img src="{{ site.url }}/OSSMM/media/software/arduino-pref.jpg" style="width: 50%;">
 </div>
 
-2. Go to go “Additional Boards Manager URLS” Section and paste in the following:
+### Step 2. Go to go “Additional Boards Manager URLS” Section and paste in the following:
 
 https://files.seeedstudio.com/arduino/package_seeeduino_boards_index.json
 
@@ -65,12 +62,13 @@ If you already have another Board Manager URL for a different library, use a ‘
 
 <div align="center">
   <p><strong>Side with USB-C:</strong></p>
-  <img src="{{ site.url }}/OSSMM/media/software/arduino-json.jpeg" style="width: 50%;">
+  <img src="{{ site.url }}/OSSMM/media/software/arduino-json.jpg" style="width: 50%;">
 </div>
+&nbsp;
 
 Exit the preferences window.
 
-3. 'Tools >> Board: "HelloWorld" >>  Board's Manager' to the ‘Boards Manager’. 
+Step 3. Go to 'Tools >> Board: "HelloWorld" >>  Board's Manager' to the ‘Boards Manager’. 
 Type in the search bar at the top, ‘seeed nrf52’. Two board manager options 
 should appear. Install the one that says “Seeed nRF52 Boards."
 
@@ -86,6 +84,66 @@ Note: Under Tools, "Board: " may be empty or contain other names. It does not ma
   <img src="{{ site.url }}/OSSMM/media/software/arduino-search.jpg" style="width: 50%;">
 </div>
 
+### Step 4. Select 'Tools >> Board: "HelloWorld" >>  Seeed nRF52 Boards >> Seeed XIAO nRF52840 Sense'
 
+<div align="center">
+  <p><strong>Side with USB-C:</strong></p>
+  <img src="{{ site.url }}/OSSMM/media/software/arduino-seeed.jpg" style="width: 60%;">
+</div>
+
+### Step 5. Download (or Clone) the Arduino Code from the OSSMM Repository
+
+The code is located under "Micronctroller Code" in the
+[OSSMM - System Code](https://github.com/jvgiordano/OSSMM/tree/main/OSSMM%20-%20V1.0.4%20System%20Code) folder.
+
+<div align="center">
+  <p><strong>Side with USB-C:</strong></p>
+  <img src="{{ site.url }}/OSSMM/media/software/arduino-location.jpg" style="width: 60%;">
+</div>
+
+<div align="center">
+  <p><strong>Side with USB-C:</strong></p>
+  <img src="{{ site.url }}/OSSMM/media/software/arduino-mcu.jpg" style="width: 60%;">
+</div>
+
+### Step 6. Open the Arduino File with the Arduino IDE
+
+<div align="center">
+  <p><strong>Side with USB-C:</strong></p>
+  <img src="{{ site.url }}/OSSMM/media/software/arduino-code.jpg" style="width: 60%;">
+</div>
+
+### Step 7. Connect the OSSMM Headband to your PC using a USB-C cable
+
+### Step 8. Select 'Tools >> Port >>  COM_X_ (Seeed Xiao nRF52840 Sense)'
+
+Where COM_X_ will be some port number (e.g., COM7)
+
+<div align="center">
+  <p><strong>Side with USB-C:</strong></p>
+  <img src="{{ site.url }}/OSSMM/media/software/arduino-port.jpg" style="width: 60%;">
+</div>
+
+### Step 9. Click "Upload"
+
+This will take some time as the code compiles, and then uploads to the MCU.
+
+<div align="center">
+  <p><strong>Side with USB-C:</strong></p>
+  <img src="{{ site.url }}/OSSMM/media/software/arduino-port.jpg" style="width: 60%;">
+</div>
+
+### Step 10. Confirm Upload
+
+Succesful code upload will show the following response in the Arduino IDE:
+
+<div align="center">
+  <p><strong>Side with USB-C:</strong></p>
+  <img src="{{ site.url }}/OSSMM/media/software/arduino-complete.jpg" style="width: 60%;">
+</div>
+
+
+Congratulations! You're OSSMM headband is complete. Now it's time to install the
+Android companion app!
 
 ## Android App Code

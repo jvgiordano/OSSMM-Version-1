@@ -1,7 +1,7 @@
 /*
 *******************************************************************************
   Notes:
-  Program: OSSMM V0.9.0
+  Program: OSSMM V1.0.0
   By: Jonny Giordano
 
   Created: Friday July 15th, 2022
@@ -9,24 +9,19 @@
   Switch to Adafruit Feather Sense: Friday October 25th, 2022
   Working BLE on Adafruit: Monday November 14th, 2022
   Change to Prototype 2L with one EOG sensor
-  Last Modified: Monday March 4th, 2024
-  Updated:
+  Switch to Seeed Xiao Sense: Sometime April, 2024?
 
-
-  Added: April 21st, 2024
-  -"Xiao_Sense_LSM6DS3.h" and associated files was taken from the
+   Added: April 21st, 2024
+  -"Xiao_Sense_LSM6DS3.h" and associated files were taken from the
   Arduino LSM6DS3 library and modified by Github user 'aovestdipaperino'
 
   Update: November 2nd, 2024
   - Merged Code version with hardware version numbering, to keep things simple
-  - Updating script to work with WakeLift 5V0.4.0
+
+  Update: April 25th, 2025
+  - Added easily adjustable sampling frequency
 
   Other:
-  -
-
-  Things that *must* get done:
-  - Fix the time to better set the sampling frequency
-
   Things that would be *nice* to do:
   - Temperature Sensor check, and automatic shut down
   on preset temperature limt, with warning alarm warning
@@ -42,7 +37,18 @@
    - OSSMM VX.X.X
   -----------------------------------------------------------------
 */
-char DeviceName[] = "OSSMM V0.9.0";  // Version
+char DeviceName[] = "OSSMM V1.0.0";  // Version
+
+
+/* ------------------------------------------------------------------------
+   Set the Sampling Frequency
+  -------------------------------------------------------------------------
+*/
+
+unsigned int SamplingFrequency = 250;                        // Set Sampling Frequency (Hz)
+unsigned int sampling_interval = 1000 / SamplingFrequency;   // Calculate samping interval in milliseconds ( (1 / Sampling Frequency)*1000 )
+
+unsigned long lastSampleTime = 0;
 
 /* ----------------------------------------------------------------
    Load Libraries
@@ -50,7 +56,7 @@ char DeviceName[] = "OSSMM V0.9.0";  // Version
 */
 #include <bluefruit.h>           // Adafruit Bluetooth Library
 #include "Xiao_Sense_LSM6DS3.h"  // Modified LSM6DS3 IMU Library (accelerometer, gyroscope)
-//#include <PDM.h>                                              // microphone (not yet used)
+//#include <PDM.h>                                              // microphone library (not yet used)
 
 /* ------------------------------------------------------------------------
    Initialize Variables for Sensors (Accelerometer, Gyroscope, EOG), Timers, and Transmission
@@ -62,8 +68,8 @@ unsigned long TransmitStart;  // timer variable for measuring measurement+transm
 unsigned long Start2;         // timer variable for measuring code
 unsigned long End2;           // timer variable for measuring code
 
-bool isConnected = false;  // If device is connected
-bool initial = false;      // If this is the 1st sampling loop on connection/disconnection
+bool isConnected = false;     // If device is connected
+bool initial = false;         // If this is the 1st sampling loop on connection/disconnection
 
 uint16_t update_num = 0;      // Transmission number
 uint16_t loop_count = 0;      // Number of messages added to a BLE packet, resets at = X
@@ -72,11 +78,11 @@ char mySleepDataPacket[181];  // Create 'c string' for one transmission, 180 byt
 float gyroData[3] = { 0.0, 0.0, 0.0 };  // Gyroscope data, [x,y,z] format, range = [-2000,+2000]
 float accData[3] = { 0.0, 0.0, 0.0 };   // Accelerometer, [x,y,z] format, range = [-8.0,+8.0]
 
-uint16_t gyroVals[3];  // Formated gyroscope data to [0,+4000], [x,y,z] format
-uint16_t accVals[3];   // Formated accelerometer data to [0, 1600], [x,y,z] format
+uint16_t gyroVals[3];         // Formated gyroscope data to [0,+4000], [x,y,z] format
+uint16_t accVals[3];          // Formated accelerometer data to [0, 1600], [x,y,z] format
 
-uint16_t eog = 0;  // EOG measurement
-uint16_t hr = 0;   // Heart Rate (pulse) measurement
+uint16_t eog = 0;             // EOG measurement
+uint16_t hr = 0;              // Heart Rate (pulse) measurement
 
 
 /* ----------------------------------------------------------------
@@ -104,7 +110,7 @@ void connect_callback(uint16_t conn_handle) {
   char central_name[32] = { 0 };
   connection->getPeerName(central_name, sizeof(central_name));  // Get name of client device (i.e. Android device w/ OSSMM app)
 
-  //Serial.println("Request to change MTU size to 184 bytes");
+  //Serial.println("Request to change MTU size to 184 bytes");   // Deprecated: MTU request is performed from Android App
   //connection->requestMtuExchange(184);                         // Request MTU of 184
 
   Serial.print("Connected to ");
@@ -163,13 +169,13 @@ void nowConnected() {
 
 void nowDisconnected() {
   for (int i = 0; i < 8; i++) {
-    digitalWrite(LED_BUILTIN, LOW);   // Turn the RED LED on
-    delay(500);                       // Wait for a quarter second
-    digitalWrite(LED_BUILTIN, HIGH);  // Turn the RED LED off
+    digitalWrite(LED_BUILTIN, LOW);                           // Turn the RED LED on
+    delay(500);                                               // Wait for a quarter second
+    digitalWrite(LED_BUILTIN, HIGH);                          // Turn the RED LED off
     delay(250);
   }
 
-  digitalWrite(LED_BUILTIN, HIGH);  // Ensure LED is off to save power (Xiao nRF52840 Sense has reverse logic, so HIGH=>LOW)
+  digitalWrite(LED_BUILTIN, HIGH);                            // Ensure LED is off to save power (Xiao nRF52840 Sense has reverse logic, so HIGH=>LOW)
 }
 
 
@@ -180,7 +186,7 @@ void setup() {
     ----------------------------------------------------------------
   */
   Serial.begin(115200);
-  delay(2000);                                                    // Give device time to connect to Serial 
+  delay(2000);                                                    // Give device time to connect to Serial
   Serial.println("Xiao Sense nRF52840 - OSSMM Application");
 
   if (!IMU.begin()) {  // Initialize IMU (Accelerometer, Gyroscope)
@@ -188,9 +194,8 @@ void setup() {
   }
   Serial.println("IMU initialized!");
 
-  Wire.setClock(400000);  // Increase I2C speed to 400 Khz
+  Wire.setClock(400000);                                          // Increase I2C speed to 400 Khz
   //IMU.begin_I2C();
-  //Wire.setClock(400000);                                        // Increase I2C speed to 400 Khz
   //IMU.setAccelRange(LSM6DS_ACCEL_RANGE_4_G);                    // Set Accelerometer Range, Options: 2, 4, 8, 16 G/s, Standard: 4G
   //IMU.setAccelDataRate(LSM6DS_RATE_416_HZ);                     // Set Accelerometer Data Rate, Options: 12.5, 26, 52, 104, 208, 416 Hz, Standard: 104 Hz
   //IMU.setGyroRange(LSM6DS_GYRO_RANGE_2000_DPS);                 // Set Gyroscope Range, Options: 125, 250, 500, 1000, 2000 DPS, Standard: 2000 DPS
@@ -209,14 +214,14 @@ void setup() {
 
   // AD8232 PINS
   pinMode(A0, INPUT);                                         // Set A0 pin for INPUT, EOG/EEG analog signal
-  
+
   // Heartrate Sensor
   pinMode(A1, INPUT);                                         // Set A1 pin for INPUT, Heartrate monitor analog signal
 
   // Power pin (Delivers power to AD8232 and HR Sensor)
   pinMode(A5, OUTPUT);
-  digitalWrite(A5, LOW);                                   // Set A5 pin to ON (Commented: Don't turn on until BLE Connection)
-  
+  digitalWrite(A5, LOW);                                      // Set A5 pin to ON (Commented: Don't turn on until BLE Connection)
+
   // Vibration Disc
   pinMode(A4, OUTPUT);                                        // Set A4 pin for OUTPUT for Vibration disc
   digitalWrite(A4, LOW);                                      // Set A4 pin to OFF (Xiao Sense HIGH/LOW is reversed, i.e. active low)
@@ -278,10 +283,6 @@ void setup() {
 }
 
 void loop() {
-
-  //#// Timer Start //#//
-  //Start = millis();
-
   /*-----------------------------------------------------------------
      Check if BLE is connected, and if initial loop
     -----------------------------------------------------------------
@@ -290,70 +291,61 @@ void loop() {
     if (initial == true) {    // Check if on connection this is the 1st measurement loop
       nowConnected();         // Signal device connection with LEDs ### NOTE: nowConnected() should be incorporated into the connect_callback, not a separate function
       initial = false;        // Change as no longer 'initial' connection phase
+
+      // Initialize timing system at connection start
+      lastSampleTime = micros();
     }
 
     while (isConnected == true) {
       /*-----------------------------------------------------------------
-          Collect Measurements, Transmit Updates for 60s
+          Collect Measurements using precise timing at set frequency
         -----------------------------------------------------------------
       */
-      Start = millis();
+      unsigned long currentTime = micros();
 
-      // Get IMU Data
-      IMU.readAcceleration(accData[0], accData[1], accData[2]);  // Collect Accelerometer values
-      IMU.readGyroscope(gyroData[0], gyroData[1], gyroData[2]);  // Collect Gyroscope values
+      // Determine if it is time to sample again
+      if (currentTime - lastSampleTime >= sampling_interval) {
+        
+        lastSampleTime = currentTime;                              // Update time by 1 interval
+      
 
-      // Convert IMU Data (data conversion is for efficient BLE transmission)
-      for (int i = 0; i < 3; i++) {
-        gyroVals[i] = (uint16_t)(gyroData[i] + 2000);       // Convert range from [-2000,+2000] to above zero, int only range of [0, 4000]
-        accVals[i] = (uint16_t)((accData[i] + 8.0) * 100);  // Convert range from [-8.0,+8.0] to above zero, int only range of [0, 1600]
+        if (currentTime - lastSampleTime >= 2*sampling_interval) {
+          lastSampleTime = currentTime;                            // Reset if too far behind
+
+        }
+
+        // Get IMU Data
+        IMU.readAcceleration(accData[0], accData[1], accData[2]);  // Collect Accelerometer values
+        IMU.readGyroscope(gyroData[0], gyroData[1], gyroData[2]);  // Collect Gyroscope values
+
+        // Convert IMU Data (data conversion is for efficient BLE transmission)
+        for (int i = 0; i < 3; i++) {
+          gyroVals[i] = (uint16_t)(gyroData[i] + 2000);       // Convert range from [-2000,+2000] to above zero, int only range of [0, 4000]
+          accVals[i] = (uint16_t)((accData[i] + 8.0) * 100);  // Convert range from [-8.0,+8.0] to above zero, int only range of [0, 1600]
+        }
+
+        // Get ADC data
+        eog = analogRead(A0);
+        hr = analogRead(A1);
+
+        /* ----------------------------------------------------------------
+            BLE Update
+           ----------------------------------------------------------------
+        */
+        updateBLE();
       }
 
-      // Get ADC data
-      eog = analogRead(A0);
-      hr = analogRead(A1);
-
-      /* ----------------------------------------------------------------
-          BLE Update
-         ----------------------------------------------------------------
-      */
-      //Start = millis();
-
-      updateBLE();
-
-      delay(1);  // Delay to control sampling rate
-
-      //End = millis();
-      //Serial.print("BLE Update measuring time is: ");
-      //Serial.println(End - Start);
-
-
-      // Test and Debug Commands
-      //Serial.print("MTU Size: ");
-      //Serial.println(Bluefruit.Connection(0)->getMtu());
-      //Serial.print("Transmit Loop time is: ");
-      //Serial.println(End2 - Start2);
-
-      //End = millis();
-      //Serial.print("Loop time is: ");
-      //Serial.println(End - Start);
+      yield();                                                 // Give other system tasks a chance to run
 
     }  // End of Transmit-Loop Timer
-
 
   } else {                  // if NOT connected, then:
     if (initial == true) {  // Check if 1st loop after device disconnect
       nowDisconnected();
       initial = false;
     }
-    delay(100);
+    delay(100);  // This delay is fine when not connected
   }
-
-
-  #// Timer End - NOT CONNECTED //#//
-  //End = millis();
-  //Serial.print("Loop time is: ");
-  //Serial.println(End - Start);
 }
 
 
@@ -369,11 +361,7 @@ void updateBLE() {
   //Serial.println(loop_count);
 
   if (loop_count >= 9) {
-    //Start2 = millis();
     SleepData.notify(mySleepDataPacket, 180);  // Set characteristic message, and notify client
-    //End2 = millis();
-    //Serial.print("Transmit Loop time is: ");
-    //Serial.println(End2 - Start2);
     loop_count = 0;
   } else {
     mySleepDataPacket[(18 * loop_count) + 0] = (char)(update_num & 0xff);         // Lower byte of update number (byte string on right)
@@ -397,9 +385,14 @@ void updateBLE() {
 
     update_num++;  // Update the 'Update' number
     loop_count++;  // Update look count
-    delay(3);      // Delay to reduce sampling rate and pace out measurements
   }
 }
+
+/* ----------------------------------------------------------------
+    Sleep Modulator Callback
+     - Function controls Vibration Motor Patten
+   ----------------------------------------------------------------
+*/
 
 void sleep_modulator_callback(uint16_t conn_hdl, BLECharacteristic* chr, uint8_t* data, uint16_t len) {
   Serial.println("Arrived at Sleep Modulator Callback");
@@ -426,17 +419,4 @@ void sleep_modulator_callback(uint16_t conn_hdl, BLECharacteristic* chr, uint8_t
       delay(125);
     }
   }
-}
-
-//Function no longer used
-void power_callback(uint16_t conn_hdl, BLECharacteristic* chr, uint8_t* data, uint16_t len) {
-  Serial.println("Arrived at Sleep Modulator Callback");
-  (void)conn_hdl;
-  (void)chr;
-  (void)len;  // len should be 1
-
-  if (data[0]) {
-      NRF_POWER->SYSTEMOFF = 1;
-  }
-
 }
