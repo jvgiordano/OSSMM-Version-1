@@ -54,7 +54,7 @@ Please install the latest version from the [Arduino Website](https://www.arduino
 
 <div align="center">
   <p><strong>Side with USB-C:</strong></p>
-  <img src="{{ site.url }}/OSSMM/media/electronics-assembly/arduino-pref.jpg" style="width: 50%;">
+  <img src="{{ site.url }}/OSSMM/media/software/arduino-pref.jpg" style="width: 50%;">
 </div>
 
 2. Go to go “Additional Boards Manager URLS” Section and paste in the following:
@@ -65,7 +65,7 @@ If you already have another Board Manager URL for a different library, use a ‘
 
 <div align="center">
   <p><strong>Side with USB-C:</strong></p>
-  <img src="{{ site.url }}/OSSMM/media/electronics-assembly/arduino-json.jpeg" style="width: 50%;">
+  <img src="{{ site.url }}/OSSMM/media/software/arduino-json.jpeg" style="width: 50%;">
 </div>
 
 Exit the preferences window.
@@ -78,12 +78,12 @@ Note: Under Tools, "Board: " may be empty or contain other names. It does not ma
 
 <div align="center">
   <p><strong>Side with USB-C:</strong></p>
-  <img src="{{ site.url }}/OSSMM/media/electronics-assembly/arduino-boards.jpg" style="width: 50%;">
+  <img src="{{ site.url }}/OSSMM/media/software/arduino-boards.jpg" style="width: 50%;">
 </div>
 
 <div align="center">
   <p><strong>Side with USB-C:</strong></p>
-  <img src="{{ site.url }}/OSSMM/media/electronics-assembly/arduino-search.jpg" style="width: 50%;">
+  <img src="{{ site.url }}/OSSMM/media/software/arduino-search.jpg" style="width: 50%;">
 </div>
 
 
