@@ -47,10 +47,9 @@ Please install the latest version from the [Arduino Website](https://www.arduino
 
 ## Install the Seeed nRF52 Library
 
-### Step 1. With the Arduino IDE installed, go to 'File >> Preferences’
+### Step 1. With the Arduino IDE open, go to 'File >> Preferences’
 
 <div align="center">
-  <p><strong>Side with USB-C:</strong></p>
   <img src="{{ site.url }}/OSSMM/media/software/arduino-pref.jpg" style="width: 50%;">
 </div>
 
@@ -61,7 +60,6 @@ https://files.seeedstudio.com/arduino/package_seeeduino_boards_index.json
 If you already have another Board Manager URL for a different library, use a ‘,’ to separate the URLS.
 
 <div align="center">
-  <p><strong>Side with USB-C:</strong></p>
   <img src="{{ site.url }}/OSSMM/media/software/arduino-json.jpg" style="width: 50%;">
 </div>
 &nbsp;
@@ -75,19 +73,16 @@ should appear. Install the one that says “Seeed nRF52 Boards."
 Note: Under Tools, "Board: " may be empty or contain other names. It does not matter.
 
 <div align="center">
-  <p><strong>Side with USB-C:</strong></p>
   <img src="{{ site.url }}/OSSMM/media/software/arduino-boards.jpg" style="width: 50%;">
 </div>
 
 <div align="center">
-  <p><strong>Side with USB-C:</strong></p>
   <img src="{{ site.url }}/OSSMM/media/software/arduino-search.jpg" style="width: 50%;">
 </div>
 
 ### Step 4. Select 'Tools >> Board: "HelloWorld" >>  Seeed nRF52 Boards >> Seeed XIAO nRF52840 Sense'
 
 <div align="center">
-  <p><strong>Side with USB-C:</strong></p>
   <img src="{{ site.url }}/OSSMM/media/software/arduino-seeed.jpg" style="width: 60%;">
 </div>
 
@@ -97,19 +92,16 @@ The code is located under "Micronctroller Code" in the
 [OSSMM - System Code](https://github.com/jvgiordano/OSSMM/tree/main/OSSMM%20-%20V1.0.4%20System%20Code) folder.
 
 <div align="center">
-  <p><strong>Side with USB-C:</strong></p>
   <img src="{{ site.url }}/OSSMM/media/software/arduino-location.jpg" style="width: 60%;">
 </div>
 
 <div align="center">
-  <p><strong>Side with USB-C:</strong></p>
   <img src="{{ site.url }}/OSSMM/media/software/arduino-mcu.jpg" style="width: 60%;">
 </div>
 
 ### Step 6. Open the Arduino File with the Arduino IDE
 
 <div align="center">
-  <p><strong>Side with USB-C:</strong></p>
   <img src="{{ site.url }}/OSSMM/media/software/arduino-code.jpg" style="width: 60%;">
 </div>
 
@@ -120,7 +112,6 @@ The code is located under "Micronctroller Code" in the
 Where COM_X_ will be some port number (e.g., COM7)
 
 <div align="center">
-  <p><strong>Side with USB-C:</strong></p>
   <img src="{{ site.url }}/OSSMM/media/software/arduino-port.jpg" style="width: 60%;">
 </div>
 
@@ -129,8 +120,7 @@ Where COM_X_ will be some port number (e.g., COM7)
 This will take some time as the code compiles, and then uploads to the MCU.
 
 <div align="center">
-  <p><strong>Side with USB-C:</strong></p>
-  <img src="{{ site.url }}/OSSMM/media/software/arduino-port.jpg" style="width: 60%;">
+  <img src="{{ site.url }}/OSSMM/media/software/arduino-upload.jpg" style="width: 60%;">
 </div>
 
 ### Step 10. Confirm Upload
@@ -138,10 +128,9 @@ This will take some time as the code compiles, and then uploads to the MCU.
 Succesful code upload will show the following response in the Arduino IDE:
 
 <div align="center">
-  <p><strong>Side with USB-C:</strong></p>
   <img src="{{ site.url }}/OSSMM/media/software/arduino-complete.jpg" style="width: 60%;">
 </div>
-
+nbsp;
 
 Congratulations! You're OSSMM headband is complete. Now it's time to install the
 Android companion app!
