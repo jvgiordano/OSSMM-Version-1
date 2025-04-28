@@ -310,9 +310,7 @@ void loop() {
           lastSampleTime = currentTime;                            // Reset if too far behind
         }
        else {
-        
         lastSampleTime = lastSampleTime + sampling_interval;       // Update by sampling_interval to avoid processing delay effects
-       
        }
        
 
