@@ -66,7 +66,7 @@ https://files.seeedstudio.com/arduino/package_seeeduino_boards_index.json
 If you already have another Board Manager URL for a different library, use a ‘,’ to separate the URLS.
 
 <div align="center">
-  <img src="{{ site.url }}/OSSMM/media/software/arduino-json.JPG" style="width: 65%;">
+  <img src="{{ site.url }}/OSSMM/media/software/arduino-json.jpg" style="width: 65%;">
 </div>
 &nbsp;
 
@@ -125,7 +125,7 @@ The code is located under "Micronctroller Code" in the
 ### Step 3. Connect the OSSMM Headband to your PC using a USB-C cable
 
 <div align="center">
-  <img src="{{ site.url }}/OSSMM/media/software/ports.JPG" style="width: 50%;">
+  <img src="{{ site.url }}/OSSMM/media/software/ports.jpg style="width: 50%;">
 </div>
 &nbsp;
 
