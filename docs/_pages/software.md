@@ -159,6 +159,27 @@ Succesful code upload will show the following response in the Arduino IDE:
 Congratulations! You're OSSMM headband is complete. Now it's time to install the
 Android companion app!
 
-## Android App Code
+# Android App Code
 
+The OSSMM system requires a companion app, designed for Android devices, to
+function. The application performs three critical functions:
+
+1. Provides a User Interface
+2. Records data to storage
+3. Provides Date-Time information 
+
+This section provides step-by-step instructions for installing the Arduino apk
+file onto an Android device.
+
+##
+
+
+# (Advanced) Editing Android Application
+
+If you are interested in editing the Android application for your own research
+requirements, here is how to do so:
+
+## Step 1 - Install Android Studio IDE
+
+You can install the latest version of [Android Studio here](https://developer.android.com/studio)
 
