@@ -1,0 +1,6 @@
+Android 15 App is meant to work with newer devices.
+It has been tested on an Google Pixel 9.
+
+Android 9 Ap  was the original app, and should work
+with older devices.
+It has been tested on a Huawei Mate 10 Pro.

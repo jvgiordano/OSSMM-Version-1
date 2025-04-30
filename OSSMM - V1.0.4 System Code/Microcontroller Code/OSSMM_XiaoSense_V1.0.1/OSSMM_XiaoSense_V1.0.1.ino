@@ -37,7 +37,7 @@
    - OSSMM VX.X.X
   -----------------------------------------------------------------
 */
-char DeviceName[] = "OSSMM V1.0.0";  // Version
+char DeviceName[] = "OSSMM V1.0.1";  // Version
 
 
 /* ------------------------------------------------------------------------
@@ -46,7 +46,7 @@ char DeviceName[] = "OSSMM V1.0.0";  // Version
 */
 
 unsigned int SamplingFrequency = 250;                        // Set Sampling Frequency (Hz)
-unsigned int sampling_interval = 1000 / SamplingFrequency;   // Calculate samping interval in milliseconds ( (1 / Sampling Frequency)*1000 )
+unsigned int sampling_interval = 1.10 * 1000000  / SamplingFrequency;   // Calculate samping interval in microseconds ( Adustment Factor * (1 / Sampling Frequency)* 1000000 microseconds ) Note: The Xiao Sense nRF52840 does not have a crystal, so timing will drift (e.g., due to temeprature). We add an adjustment factor to get *at least* the desired sampling frequency.
 
 unsigned long lastSampleTime = 0;
 
@@ -360,7 +360,7 @@ void updateBLE() {
   //Serial.print("Loop number: ");
   //Serial.println(loop_count);
 
-  if (loop_count >= 9) {
+  if (loop_count >= 10) {
     SleepData.notify(mySleepDataPacket, 180);  // Set characteristic message, and notify client
     loop_count = 0;
   } else {

@@ -1,0 +1,53 @@
+# pubspec.yaml
+
+name: ossmm
+description: A Flutter project for OSSMM.
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '^3.7.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # Core BLE functionality
+  flutter_blue_plus: ^1.35.0
+
+  # State Management
+  provider: ^6.1.2
+
+  # CSV Handling
+  csv: ^6.0.0
+  path_provider: ^2.1.3
+
+  # Permissions
+  permission_handler: ^12.0.0+1
+
+  # Date Formatting
+  intl: ^0.20.2 # Or latest compatible version
+
+  cupertino_icons: ^1.0.8
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0 # Or latest compatible version
+  flutter_launcher_icons: ^0.14.3
+
+flutter:
+  uses-material-design: true
+  # assets:
+  # fonts:
+
+flutter_launcher_icons:
+  android: true # Generate icons for Android (can be "launcher_icon" to keep default name)
+  ios: true # Set to false if you don't need iOS icons yet
+  image_path: "lib/assets/app_icon.jpg" # Path to YOUR source icon
+  min_sdk_android: 21 # Optional: Android minimum SDK, default is 21
+
+  # Optional: Configuration for Adaptive Icons (Android 8.0+)
+  # adaptive_icon_background: "#FFFFFF" # Hex color for background
+  # adaptive_icon_foreground: "assets/icon/app_icon_foreground.png" # Path to foreground layer
+
