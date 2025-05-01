@@ -62,7 +62,7 @@ pages_sidebar_nav:
 
 
 # Sidebar navigation for specific pages (extended, not currently shown)
-pages_sidebar_nav_extended
+pages_sidebar_nav_extended:
   - title: "Quick Intro"
     url: /quick-intro/
   - title: "Getting Started"
