@@ -9,6 +9,9 @@ import 'package:ossmm/src/features/device_scan/screens/find_devices_screen.dart'
 import 'dart:async';
 import 'package:ossmm/src/core/models/data_sample.dart';
 
+// Add this for global context access
+final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
+
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
   @override
@@ -176,17 +179,16 @@ class _HomeScreenState extends State<HomeScreen> {
           Consumer<OssmmBluetoothService>( builder: (context, service, child) { return ListTile( leading: const Icon(Icons.bluetooth), title: Text('Status: ${service.connectionState.name}'), subtitle: Text('Device: ${service.selectedDeviceName}'), ); } ),
 
           // --- Start/Stop with Connection Toggle ---
-          // MODIFICATION: Changed toggle label and variable name
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 0.0),
             child: SwitchListTile(
-              title: const Text("Start/Stop with Connection"), // Changed label
-              value: _startStopWithConnection, // Use renamed state variable
+              title: const Text("Start/Stop with Connection"),
+              value: _startStopWithConnection,
               // Disable toggle while connecting/disconnecting
               onChanged: (_bluetoothService.isConnecting || _bluetoothService.connectionState == DeviceConnectionState.disconnecting)
                   ? null
                   : (bool value) {
-                setState(() { _startStopWithConnection = value; }); // Update renamed state variable
+                setState(() { _startStopWithConnection = value; });
               },
               dense: true,
               contentPadding: EdgeInsets.zero,
@@ -232,56 +234,57 @@ class _HomeScreenState extends State<HomeScreen> {
 
           // --- Recording Section ---
           _buildSectionTitle(context, 'Recording'),
-          Consumer<OssmmBluetoothService>( builder: (context, service, child) { return ListTile( leading: Icon(service.isRecording ? Icons.stop_circle_outlined : Icons.play_circle_outline), title: Text(service.isRecording ? 'Recording Active' : 'Recording Stopped'), subtitle: Text(service.isRecording ? 'Saving to: ${service.csvFilePath ?? "..."}' : 'Press Start to begin recording'), ); } ), // Adjusted subtitle
-          Consumer<OssmmBluetoothService>( builder: (context, service, child) {
-            // Determine button text based on recording state AND toggle state
-            String buttonText;
-            VoidCallback? onPressedAction;
+          Consumer<OssmmBluetoothService>(
+              builder: (context, service, child) {
+                return Column(
+                  children: [
+                    ListTile(
+                      leading: Icon(service.isRecording ? Icons.stop_circle_outlined : Icons.play_circle_outline),
+                      title: Text(service.isRecording ? 'Recording Active' : 'Recording Stopped'),
+                      subtitle: Text(service.isRecording ? 'Saving to: ${service.csvFilePath ?? "..."}' : 'Press Start to begin recording'),
+                    ),
 
-            if (service.isRecording) {
-              if (_startStopWithConnection) {
-                buttonText = "Stop Recording and Turn Off OSSMM";
-                // Action: Disconnect and turn off (which also stops recording)
-                onPressedAction = (service.isRecording && !service.isConnecting && service.connectionState != DeviceConnectionState.disconnecting)
-                    ? () async {
-                  await context.read<OssmmBluetoothService>().disconnectAndTurnOffDevice();
-                }
-                    : null;
-              } else {
-                buttonText = "Stop Recording";
-                // Action: Show save dialog and stop recording only
-                onPressedAction = (service.isRecording && !service.isConnecting && service.connectionState != DeviceConnectionState.disconnecting)
-                    ? () async {
-                  bool? saveData = await _showSaveDataDialog(context);
-                  if (saveData != null && mounted) {
-                    await context.read<OssmmBluetoothService>().stopRecording(saveData: saveData);
-                  }
-                }
-                    : null;
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+                      child: ElevatedButton.icon(
+                        icon: Icon(service.isRecording ? Icons.stop : Icons.play_arrow),
+                        label: Text(service.isRecording
+                            ? (_startStopWithConnection
+                            ? "Stop Recording and Turn Off OSSMM"
+                            : "Stop Recording")
+                            : "Start Recording"),
+                        style: ElevatedButton.styleFrom(
+                            backgroundColor: service.isRecording ? Colors.orange : Colors.green
+                        ),
+                        onPressed: service.isRecording
+                            ? (_startStopWithConnection
+                            ? (service.isRecording && !service.isConnecting && service.connectionState != DeviceConnectionState.disconnecting)
+                            ? () async {
+                          await context.read<OssmmBluetoothService>().disconnectAndTurnOffDevice();
+                        }
+                            : null
+                            : (service.isRecording && !service.isConnecting && service.connectionState != DeviceConnectionState.disconnecting)
+                            ? () async {
+                          bool? saveData = await _showSaveDataDialog(context);
+                          if (saveData != null && mounted) {
+                            await context.read<OssmmBluetoothService>().stopRecording(saveData: saveData);
+                          }
+                        }
+                            : null)
+                            : (service.isConnected && !service.isRecording && !service.isConnecting && service.connectionState != DeviceConnectionState.disconnecting)
+                            ? () async {
+                          bool success = await context.read<OssmmBluetoothService>().startRecording();
+                          if(!success && mounted) {
+                            _showErrorDialog(context, "Recording Failed", "Could not start recording. Check permissions/connection/device.");
+                          }
+                        }
+                            : null,
+                      ),
+                    ),
+                  ],
+                );
               }
-            } else {
-              buttonText = "Start Recording";
-              // Action: Start recording
-              onPressedAction = (service.isConnected && !service.isRecording && !service.isConnecting && service.connectionState != DeviceConnectionState.disconnecting)
-                  ? () async {
-                bool success = await context.read<OssmmBluetoothService>().startRecording();
-                if(!success && mounted) {
-                  _showErrorDialog(context, "Recording Failed", "Could not start recording. Check permissions/connection/device.");
-                }
-              }
-                  : null;
-            }
-
-            return Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-              child: ElevatedButton.icon(
-                icon: Icon(service.isRecording ? Icons.stop : Icons.play_arrow),
-                label: Text(buttonText), // Use dynamic button text
-                style: ElevatedButton.styleFrom( backgroundColor: service.isRecording ? Colors.orange : Colors.green),
-                onPressed: onPressedAction, // Use dynamic action
-              ),
-            );
-          }),
+          ),
           const Divider(),
 
           // --- Modulation Section ---
@@ -311,7 +314,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ExpansionTile(
             title: _buildSectionTitle(context, 'Live Data'),
             leading: const Icon(Icons.auto_graph),
-            initiallyExpanded: false, // Keep collapsed initially
+            initiallyExpanded: true, // Keep collapsed initially
             children: <Widget>[
               Consumer<OssmmBluetoothService>(
                   builder: (context, service, child) {
@@ -341,7 +344,42 @@ class _HomeScreenState extends State<HomeScreen> {
               )
             ],
           ),
-          const SizedBox(height: 20), // Footer spacing
+          const Divider(),
+
+          // --- Changed to ExpansionTile for Data Protection Section ---
+          ExpansionTile(
+            title: _buildSectionTitle(context, 'Data Protection'),
+            leading: const Icon(Icons.security),
+            initiallyExpanded: false, // Start expanded for visibility
+            children: <Widget>[
+              Consumer<OssmmBluetoothService>(
+                  builder: (context, service, child) {
+                    return Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const Padding(
+                            padding: EdgeInsets.only(bottom: 12.0),
+                            child: Text(
+                              "Data is encrypted with a password when stored. You'll need this password to access recorded files.",
+                            ),
+                          ),
+                          ElevatedButton.icon(
+                            icon: const Icon(Icons.password),
+                            label: const Text('View Data Access Password'),
+                            onPressed: () => service.showDataAccessPassword(context),
+                          ),
+                        ],
+                      ),
+                    );
+                  }
+              ),
+            ],
+          ),
+
+          // Added extra padding at the bottom for navigation bar clearance
+          const SizedBox(height: 80),
         ],
       ),
     );
@@ -360,5 +398,4 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     );
   }
-
-} // End of HomeScreen class
+}

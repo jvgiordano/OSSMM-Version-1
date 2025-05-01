@@ -3,10 +3,12 @@
 import 'dart:async';
 import 'dart:io' show Platform;
 import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';  // Add this import
 import 'package:flutter_blue_plus/flutter_blue_plus.dart' as fbp; // Use alias for FlutterBluePlus
 import 'package:permission_handler/permission_handler.dart';
 import 'package:ossmm/src/core/models/data_sample.dart'; // Assuming this path is correct
 import 'package:ossmm/src/core/utils/csv_writer.dart'; // Assuming this path is correct
+import 'package:ossmm/src/features/home/screens/home_screen.dart';
 
 // Merged BleConstants
 class _BleConstants {
@@ -56,6 +58,11 @@ class OssmmBluetoothService with ChangeNotifier {
   bool get isRecording => _isRecording;
   String? get csvFilePath => _csvWriter.currentFilePath;
   List<DataSample> get currentRawSamples => List.unmodifiable(_currentSamples); // Keep this if needed elsewhere
+
+  // Added public method to show the data access password
+  Future<void> showDataAccessPassword(BuildContext context) async {
+    await _csvWriter.showDataAccessPassword(context);
+  }
 
   // --- Initialization & Disposal ---
   OssmmBluetoothService() { _initialize(); }
@@ -655,6 +662,11 @@ class OssmmBluetoothService with ChangeNotifier {
         final savedPath = _csvWriter.currentFilePath;
         await _csvWriter.close(); // Flush and close the file
         print("Recording stopped. Data saved to: ${savedPath ?? 'path not available'}");
+
+        // Show data access password dialog if saving data
+        if (navigatorKey.currentContext != null) {
+          await _csvWriter.showDataAccessPassword(navigatorKey.currentContext!);
+        }
       } else {
         await _csvWriter.deleteCurrentFile(); // Close and delete the file
         print("Recording stopped. Data discarded.");
@@ -665,6 +677,7 @@ class OssmmBluetoothService with ChangeNotifier {
       print("CSV writer closed unexpectedly.");
     }
   }
+
 
   // --- Modulation Logic ---
   Future<void> testModulate() async {
