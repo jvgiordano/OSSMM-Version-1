@@ -140,7 +140,7 @@ To build your own OSSMM system, follow these pages in order:
 
 1. [3D Printables](https://jvgiordano.github.io/OSSMM/printables) - Print out the printable components
 2. [Electronics Assembly Guide](https://jvgiordano.github.io/OSSMM/electronics-assembly/) - Combine the electronics and 3D printed case
-3. [Final Assembly](https://jvgiordano.github.io/OSSMM/final-assembly/) - Assemble the 3 principal components: headband, receiver, electronic case
+3. [Major Parts Assembly](https://jvgiordano.github.io/OSSMM/final-assembly/) - Assemble the 3 principal components: headband, receiver, electronic case
 4. [Software](https://jvgiordano.github.io/OSSMM/software/) - Upload OSSMM code to the MCU, and install the OSSMM apk on your Android device
 5. [Final Checks & Completion](https://jvgiordano.github.io/OSSMM/final-checks) - Verify your OSSMM system collects data as intended
 

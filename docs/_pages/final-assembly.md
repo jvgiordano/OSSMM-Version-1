@@ -1,5 +1,5 @@
 ---
-title: "Final Assembly"
+title: "Major Parts Assembly"
 permalink: /final-assembly/
 date: "2025-04-23"
 classes: wide
