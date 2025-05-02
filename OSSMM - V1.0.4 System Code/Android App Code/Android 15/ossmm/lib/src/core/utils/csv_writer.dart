@@ -73,7 +73,7 @@ class CsvWriterUtil {
           content: SingleChildScrollView(
             child: ListBody(
               children: <Widget>[
-                const Text('Use this password to open your encrypted data files (ZIP) when transferring them off this device:'),
+                const Text('se this password to access the data files when connecting the device to a computer:'),
                 const SizedBox(height: 16),
                 Container(
                   color: Colors.grey[200],
@@ -89,13 +89,13 @@ class CsvWriterUtil {
                   ),
                 ),
                 const SizedBox(height: 16),
-                const Text('Store this password securely. It cannot be recovered if lost. It is needed to access ALL data files created by this app.'),
+                const Text('This password protects all your recorded data files.'),
               ],
             ),
           ),
           actions: <Widget>[
             TextButton(
-              child: const Text('OK - I HAVE SAVED THIS PASSWORD'),
+              child: const Text('I\'ve Noted This Password'),
               onPressed: () {
                 Navigator.of(context).pop();
               },
