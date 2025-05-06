@@ -73,7 +73,7 @@ class CsvWriterUtil {
           content: SingleChildScrollView(
             child: ListBody(
               children: <Widget>[
-                const Text('se this password to access the data files when connecting the device to a computer:'),
+                const Text('Use this password to access the data files when connecting the device to a computer:'),
                 const SizedBox(height: 16),
                 Container(
                   color: Colors.grey[200],

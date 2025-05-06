@@ -15,6 +15,9 @@ dependencies:
   # Core BLE functionality
   flutter_blue_plus: ^1.35.0
 
+  # BLUE Bond State
+  shared_preferences: ^2.5.3  # For storing bonded device information
+
   # State Management
   provider: ^6.1.2
 

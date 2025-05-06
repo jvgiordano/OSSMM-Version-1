@@ -3,12 +3,13 @@
 import 'dart:async';
 import 'dart:io' show Platform;
 import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';  // Add this import
-import 'package:flutter_blue_plus/flutter_blue_plus.dart' as fbp; // Use alias for FlutterBluePlus
+import 'package:flutter/material.dart';
+import 'package:flutter_blue_plus/flutter_blue_plus.dart' as fbp;
 import 'package:permission_handler/permission_handler.dart';
-import 'package:ossmm/src/core/models/data_sample.dart'; // Assuming this path is correct
-import 'package:ossmm/src/core/utils/csv_writer.dart'; // Assuming this path is correct
+import 'package:ossmm/src/core/models/data_sample.dart';
+import 'package:ossmm/src/core/utils/csv_writer.dart';
 import 'package:ossmm/src/features/home/screens/home_screen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 // Merged BleConstants
 class _BleConstants {
@@ -16,10 +17,14 @@ class _BleConstants {
   static final fbp.Guid serviceUuid = fbp.Guid("5aee1a8a-08de-11ed-861d-0242ac120002");
   static final fbp.Guid characteristicUuidData = fbp.Guid("405992d6-0cf2-11ed-861d-0242ac120002");
   static final fbp.Guid characteristicUuidMod = fbp.Guid("018ec2b5-7c82-7773-95e2-a5f374275f0b");
-  static const String deviceDirectory = "OSSMM"; // Keep name consistent if needed
+  static const String deviceDirectory = "OSSMM";
+
+  // Add constants for bond status storage
+  static const String bondedDevicesKey = "ossmm_bonded_devices";
 }
 
 enum DeviceConnectionState { disconnected, connecting, connected, disconnecting }
+enum DeviceBondState { none, bonding, bonded }
 
 class OssmmBluetoothService with ChangeNotifier {
 
@@ -39,12 +44,24 @@ class OssmmBluetoothService with ChangeNotifier {
   final CsvWriterUtil _csvWriter = CsvWriterUtil();
   List<DataSample> _currentSamples = [];
   bool _isRecording = false;
-  static const int _maxLiveSamples = 7500; // Keep a buffer for live plotting
+  static const int _maxLiveSamples = 7500;
+
+  // --- Bonding State Variables ---
+  DeviceBondState _bondState = DeviceBondState.none;
+  StreamSubscription? _bondStateSubscription;
+  Set<String> _bondedDevices = {};
+  bool _autoReconnectToBonded = true;
+
+  // --- Auto-reconnection variables ---
+  bool _isAttemptingAutoReconnect = false;
+  int _reconnectAttemptCount = 0;
+  Timer? _reconnectTimer;
+  bool _appInForeground = true;
 
   // --- Constants based on OBSERVED packet size ---
-  static const int _samplesPerPacket = 10; // CORRECTED: 180 bytes / 18 bytes/sample
+  static const int _samplesPerPacket = 10;
   static const int _bytesPerSample = 18;
-  static const int _expectedPacketSize = _samplesPerPacket * _bytesPerSample; // CORRECTED: 180 bytes
+  static const int _expectedPacketSize = _samplesPerPacket * _bytesPerSample;
 
   // --- Public Getters ---
   fbp.BluetoothAdapterState get adapterState => _adapterState;
@@ -57,21 +74,48 @@ class OssmmBluetoothService with ChangeNotifier {
   bool get isConnecting => _isConnecting;
   bool get isRecording => _isRecording;
   String? get csvFilePath => _csvWriter.currentFilePath;
-  List<DataSample> get currentRawSamples => List.unmodifiable(_currentSamples); // Keep this if needed elsewhere
+  List<DataSample> get currentRawSamples => List.unmodifiable(_currentSamples);
 
-  // Added public method to show the data access password
-  Future<void> showDataAccessPassword(BuildContext context) async {
-    await _csvWriter.showDataAccessPassword(context);
-  }
+  // --- Bond State Getters ---
+  DeviceBondState get bondState => _bondState;
+  bool get isBonded => _bondState == DeviceBondState.bonded;
+  bool get isBonding => _bondState == DeviceBondState.bonding;
+  Set<String> get bondedDevices => Set.unmodifiable(_bondedDevices);
+  bool get autoReconnectToBonded => _autoReconnectToBonded;
+  bool get isAttemptingAutoReconnect => _isAttemptingAutoReconnect;
+  int get reconnectAttemptCount => _reconnectAttemptCount;
 
   // --- Initialization & Disposal ---
-  OssmmBluetoothService() { _initialize(); }
+  OssmmBluetoothService() {
+    _initialize();
+    _loadBondedDevices();
+  }
 
   void _initialize() {
     _adapterStateSubscription?.cancel();
     _adapterStateSubscription = fbp.FlutterBluePlus.adapterState.listen((state) {
+      final bool wasOff = _adapterState != fbp.BluetoothAdapterState.on;
       _adapterState = state;
-      if (state != fbp.BluetoothAdapterState.on) { _handleBluetoothOff(); }
+
+      if (state != fbp.BluetoothAdapterState.on) {
+        _handleBluetoothOff();
+      } else if (wasOff && state == fbp.BluetoothAdapterState.on) {
+        // Bluetooth just turned on
+        print("Bluetooth turned ON. Checking for auto-reconnection eligibility...");
+
+        // Delay to allow adapter to fully initialize
+        Future.delayed(const Duration(milliseconds: 1000), () {
+          if (_autoReconnectToBonded &&
+              _bondedDevices.isNotEmpty &&
+              _connectionState == DeviceConnectionState.disconnected &&
+              !_isConnecting &&
+              !_isAttemptingAutoReconnect) {
+            print("Auto-reconnection criteria met. Attempting reconnection.");
+            _scheduleReconnectionAttempt(immediate: true);
+          }
+        });
+      }
+
       print("Adapter State Updated: $state");
       notifyListeners();
     }, onError: (e) => print("Error listening to adapter state: $e"));
@@ -84,9 +128,10 @@ class OssmmBluetoothService with ChangeNotifier {
     _scanResultsSubscription?.cancel();
     _connectionStateSubscription?.cancel();
     _dataSubscription?.cancel();
+    _bondStateSubscription?.cancel();
+    _reconnectTimer?.cancel();
     _csvWriter.close();
     final device = _selectedDevice;
-    // Use `device.isConnected` getter which checks platform state
     if (device != null && device.isConnected == true) {
       device.disconnect().catchError((e) { print("Error during dispose disconnect: $e"); });
     }
@@ -95,22 +140,473 @@ class OssmmBluetoothService with ChangeNotifier {
 
   void _handleBluetoothOff() {
     print("Handling Bluetooth Off event");
+    _cancelReconnectionAttempts();
     if (_isScanning) { _stopScanInternal(); }
     _scanResults = [];
     if (_connectionState != DeviceConnectionState.disconnected) { _handleDisconnect(showError: false); }
     _connectionState = DeviceConnectionState.disconnected;
-    _isConnecting = false; _isRecording = false;
-    _dataSubscription?.cancel(); _dataSubscription = null;
-    _connectionStateSubscription?.cancel(); _connectionStateSubscription = null;
+    _isConnecting = false;
+    _isRecording = false;
+    _bondState = DeviceBondState.none;
+    _bondStateSubscription?.cancel();
+    _bondStateSubscription = null;
+    _dataSubscription?.cancel();
+    _dataSubscription = null;
+    _connectionStateSubscription?.cancel();
+    _connectionStateSubscription = null;
     _csvWriter.close();
-    _selectedDevice = null; _dataCharacteristic = null; _modCharacteristic = null;
+    _selectedDevice = null;
+    _dataCharacteristic = null;
+    _modCharacteristic = null;
     _currentSamples = [];
     notifyListeners();
   }
 
-  // --- Permissions ---
+  // --- App Lifecycle Management ---
+  void setAppLifecycleState(bool isInForeground) {
+    _appInForeground = isInForeground;
+    if (isInForeground &&
+        _autoReconnectToBonded &&
+        _bondedDevices.isNotEmpty &&
+        _connectionState == DeviceConnectionState.disconnected &&
+        !_isConnecting &&
+        !_isAttemptingAutoReconnect) {
+      print("App returned to foreground. Checking for bonded devices...");
+      _scheduleReconnectionAttempt(immediate: false);
+    } else if (!isInForeground) {
+      // App going to background, cancel any pending reconnection attempts
+      _cancelReconnectionAttempts();
+    }
+  }
 
-  // Requests only permissions needed for BLE scanning and connecting
+  // --- Bonding Functions ---
+
+  // Load bonded devices from persistent storage
+  Future<void> _loadBondedDevices() async {
+    try {
+      final prefs = await SharedPreferences.getInstance();
+      final bondedDevicesList = prefs.getStringList(_BleConstants.bondedDevicesKey) ?? [];
+      _bondedDevices = bondedDevicesList.toSet();
+      print("Loaded ${_bondedDevices.length} bonded devices from storage");
+
+      // Check if we should auto-connect to any of these devices
+      if (_autoReconnectToBonded &&
+          _bondedDevices.isNotEmpty &&
+          _adapterState == fbp.BluetoothAdapterState.on &&
+          _connectionState == DeviceConnectionState.disconnected) {
+
+        // Delay to ensure the app is fully initialized
+        Future.delayed(const Duration(seconds: 2), () {
+          _scheduleReconnectionAttempt(immediate: true);
+        });
+      }
+
+    } catch (e) {
+      print("Error loading bonded devices: $e");
+      _bondedDevices = {};
+    }
+  }
+
+  // Save bonded devices to persistent storage
+  Future<void> _saveBondedDevices() async {
+    try {
+      final prefs = await SharedPreferences.getInstance();
+      await prefs.setStringList(_BleConstants.bondedDevicesKey, _bondedDevices.toList());
+      print("Saved ${_bondedDevices.length} bonded devices to storage");
+    } catch (e) {
+      print("Error saving bonded devices: $e");
+    }
+  }
+
+  // Add a device to the bonded devices list
+  Future<void> _addBondedDevice(String deviceId) async {
+    if (!_bondedDevices.contains(deviceId)) {
+      _bondedDevices.add(deviceId);
+      await _saveBondedDevices();
+      notifyListeners();
+    }
+  }
+
+  // Remove a device from the bonded devices list
+  Future<void> _removeBondedDevice(String deviceId) async {
+    if (_bondedDevices.contains(deviceId)) {
+      _bondedDevices.remove(deviceId);
+      await _saveBondedDevices();
+      notifyListeners();
+    }
+  }
+
+  // Clear all bonded devices
+  Future<void> clearAllBondedDevices() async {
+    _bondedDevices.clear();
+    await _saveBondedDevices();
+    notifyListeners();
+  }
+
+  // Set auto-reconnect preference
+  void setAutoReconnectToBonded(bool value) {
+    if (_autoReconnectToBonded == value) return;
+
+    _autoReconnectToBonded = value;
+
+    if (value &&
+        _bondedDevices.isNotEmpty &&
+        _adapterState == fbp.BluetoothAdapterState.on &&
+        _connectionState == DeviceConnectionState.disconnected &&
+        !_isConnecting &&
+        !_isAttemptingAutoReconnect) {
+      print("Auto-reconnect turned ON. Scheduling reconnection attempt.");
+      _scheduleReconnectionAttempt(immediate: false);
+    } else if (!value) {
+      // Cancel any pending reconnect attempts
+      _cancelReconnectionAttempts();
+    }
+
+    notifyListeners();
+  }
+
+  // --- Enhanced Auto-Reconnection Logic ---
+
+  void _scheduleReconnectionAttempt({required bool immediate}) {
+    // Cancel any existing timer
+    _cancelReconnectionAttempts();
+
+    if (immediate) {
+      _tryReconnectToBondedDevice();
+    } else {
+      // Schedule a reconnection attempt after a short delay
+      _reconnectTimer = Timer(const Duration(seconds: 2), () {
+        _tryReconnectToBondedDevice();
+      });
+    }
+  }
+
+  // Make this method public so it can be called from outside the class
+  void cancelReconnectionAttempts() {
+    _cancelReconnectionAttempts();
+  }
+
+  void _cancelReconnectionAttempts() {
+    _reconnectTimer?.cancel();
+    _reconnectTimer = null;
+
+    if (_isAttemptingAutoReconnect) {
+      _isAttemptingAutoReconnect = false;
+      _reconnectAttemptCount = 0;
+
+      // If we're in the middle of scanning, stop it
+      if (_isScanning && fbp.FlutterBluePlus.isScanningNow) {
+        fbp.FlutterBluePlus.stopScan().catchError((e) {
+          print("Error stopping scan during reconnection cancellation: $e");
+        });
+      }
+
+      notifyListeners();
+    }
+  }
+
+  // Public method to manually trigger reconnection
+  Future<bool> triggerBondedDeviceReconnection({bool isManualAttempt = true}) async {
+    if (_bondedDevices.isEmpty ||
+        _isConnecting ||
+        _connectionState != DeviceConnectionState.disconnected) {
+      return false;
+    }
+
+    // If there's already an auto-reconnect in progress, cancel it first
+    if (_isAttemptingAutoReconnect) {
+      _cancelReconnectionAttempts();
+    }
+
+    return await _tryReconnectToBondedDevice(isManualAttempt: isManualAttempt);
+  }
+
+  // Enhanced reconnection logic with multiple attempts and better error handling
+  Future<bool> _tryReconnectToBondedDevice({bool isManualAttempt = false}) async {
+    if (_bondedDevices.isEmpty ||
+        _isConnecting ||
+        _connectionState != DeviceConnectionState.disconnected ||
+        _adapterState != fbp.BluetoothAdapterState.on) {
+      return false;
+    }
+
+    // Reset counters and set state
+    _isAttemptingAutoReconnect = true;
+    _reconnectAttemptCount = 0;
+    notifyListeners();
+
+    print("Starting reconnection process to bonded device" + (isManualAttempt ? " (manual attempt)" : ""));
+
+    bool reconnectSuccess = false;
+    const int maxAttempts = 3;
+
+    try {
+      // Request BLE permissions
+      bool permissionsGranted = await _requestBlePermissions();
+      if (!permissionsGranted) {
+        print("Cannot reconnect: BLE permissions not granted");
+        _isAttemptingAutoReconnect = false;
+        notifyListeners();
+        return false;
+      }
+
+      // Multiple reconnection attempts with exponential backoff
+      for (int attempt = 1; attempt <= maxAttempts; attempt++) {
+        if (_connectionState == DeviceConnectionState.connected) {
+          reconnectSuccess = true;
+          break;
+        }
+
+        if (!_isAttemptingAutoReconnect) {
+          print("Reconnection process was cancelled.");
+          break;
+        }
+
+        // For auto-reconnect: only continue if auto-reconnect is enabled
+        // For manual reconnect: continue regardless of auto-reconnect setting
+        if (!isManualAttempt && !_autoReconnectToBonded) {
+          print("Auto-reconnect disabled. Stopping automatic reconnection attempts.");
+          break;
+        }
+
+        if (!_appInForeground) {
+          print("App in background. Stopping reconnection attempts.");
+          break;
+        }
+
+        _reconnectAttemptCount = attempt;
+        notifyListeners();
+
+        print("Reconnection attempt $attempt of $maxAttempts");
+
+        // Increasing scan duration for each attempt
+        int scanDuration = 5 + (attempt * 2); // 7, 9, 11 seconds
+
+        print("Scanning for $scanDuration seconds...");
+
+        try {
+          // Start BLE scan
+          await _stopScanInternal(); // Ensure no existing scan is running
+
+          _isScanning = true;
+          _scanResults = [];
+          notifyListeners();
+
+          // Start scan with timeout
+          await fbp.FlutterBluePlus.startScan(
+            timeout: Duration(seconds: scanDuration),
+            androidUsesFineLocation: true,
+          );
+
+          bool deviceFound = false;
+          fbp.BluetoothDevice? targetDevice;
+
+          // Subscribe to scan results and look for our bonded device
+          await for (final results in fbp.FlutterBluePlus.scanResults) {
+            if (!_isAttemptingAutoReconnect) {
+              print("Reconnection process cancelled.");
+              break;
+            }
+
+            for (final result in results) {
+              final device = result.device;
+              if (_bondedDevices.contains(device.remoteId.toString())) {
+                print("Found bonded device: ${device.platformName} (${device.remoteId})");
+                deviceFound = true;
+                targetDevice = device;
+                break;
+              }
+            }
+
+            if (deviceFound) break;
+          }
+
+          // Stop scanning
+          await _stopScanInternal();
+
+          // If device found, attempt to connect
+          if (deviceFound && targetDevice != null) {
+            print("Attempting to connect to bonded device: ${targetDevice.platformName}");
+            bool connected = await connectToDevice(targetDevice);
+
+            if (connected) {
+              print("Successfully reconnected to bonded device!");
+              reconnectSuccess = true;
+              break;
+            } else {
+              print("Failed to connect to bonded device on attempt $attempt");
+            }
+          } else {
+            print("Bonded device not found in scan attempt $attempt");
+          }
+
+        } catch (e) {
+          print("Error during reconnection scan attempt $attempt: $e");
+          await _stopScanInternal();
+        }
+
+        // If this wasn't the last attempt, wait before trying again
+        if (attempt < maxAttempts) {
+          // Exponential backoff
+          int delaySeconds = 2 * attempt; // 2, 4, 6 seconds
+          print("Waiting $delaySeconds seconds before next reconnection attempt...");
+
+          bool shouldContinue = await Future.delayed(Duration(seconds: delaySeconds), () {
+            return (isManualAttempt || _autoReconnectToBonded) &&
+                _appInForeground &&
+                _isAttemptingAutoReconnect &&
+                _connectionState == DeviceConnectionState.disconnected;
+          });
+
+          if (!shouldContinue) {
+            print("Reconnection process interrupted during delay.");
+            break;
+          }
+        }
+      }
+    } catch (e) {
+      print("Error in reconnection process: $e");
+    } finally {
+      // Clean up
+      _isAttemptingAutoReconnect = false;
+      _reconnectAttemptCount = 0;
+      notifyListeners();
+    }
+
+    return reconnectSuccess;
+  }
+
+  // --- Pairing Handling ---
+  Future<void> _setupBondStateListener(fbp.BluetoothDevice device) async {
+    _bondStateSubscription?.cancel();
+    _bondStateSubscription = null;
+
+    if (Platform.isAndroid) {
+      try {
+        // Check if device already appears to be bonded
+        if (_bondedDevices.contains(device.remoteId.toString())) {
+          _bondState = DeviceBondState.bonded;
+          notifyListeners();
+        } else {
+          _bondState = DeviceBondState.none;
+          notifyListeners();
+        }
+
+        // Instead of listening to bond state changes (which seems to cause type issues),
+        // we'll infer bond state from connection events and our stored list
+        print("Bond state monitoring set up (using connection status and stored list)");
+      } catch (e) {
+        print("Error setting up bond state monitoring: $e");
+        _bondState = DeviceBondState.none;
+        notifyListeners();
+      }
+    } else {
+      // For iOS, bond state is managed differently
+      // Assume a successful connection means bonded for iOS
+      _bondState = DeviceBondState.bonded;
+      if (_selectedDevice != null) {
+        await _addBondedDevice(_selectedDevice!.remoteId.toString());
+      }
+      notifyListeners();
+    }
+  }
+
+  // Explicitly request bonding (normally triggered automatically during secure connection)
+  Future<bool> createBond() async {
+    if (_selectedDevice == null || !isConnected) {
+      print("Cannot create bond: No device connected");
+      return false;
+    }
+
+    if (_bondState == DeviceBondState.bonded) {
+      print("Device is already bonded");
+      return true;
+    }
+
+    try {
+      print("Initiating bond with ${_selectedDevice!.platformName}");
+      _bondState = DeviceBondState.bonding;
+      notifyListeners();
+
+      if (Platform.isAndroid) {
+        // Call createBond but don't try to capture a return value
+        // Instead, we'll assume success if no exception is thrown
+        try {
+          // The method returns void, so don't try to assign it
+          await _selectedDevice!.createBond();
+
+          // If we get here without an exception, consider it successful
+          print("Bond creation completed without exceptions");
+          _bondState = DeviceBondState.bonded;
+          notifyListeners();
+
+          // Store the device in our bonded list
+          if (_selectedDevice != null) {
+            await _addBondedDevice(_selectedDevice!.remoteId.toString());
+          }
+
+          return true;
+        } catch (e) {
+          print("Error in createBond method: $e");
+          _bondState = DeviceBondState.none;
+          notifyListeners();
+          return false;
+        }
+      } else {
+        // iOS handles bonding internally during secure connections
+        // Just mark as bonded for iOS
+        _bondState = DeviceBondState.bonded;
+        notifyListeners();
+        await _addBondedDevice(_selectedDevice!.remoteId.toString());
+        return true;
+      }
+    } catch (e) {
+      print("Error creating bond: $e");
+      _bondState = DeviceBondState.none;
+      notifyListeners();
+      return false;
+    }
+  }
+
+  // Remove bond with the current device
+  Future<bool> removeBond() async {
+    if (_selectedDevice == null) {
+      print("Cannot remove bond: No device selected");
+      return false;
+    }
+
+    try {
+      final deviceId = _selectedDevice!.remoteId.toString();
+
+      if (Platform.isAndroid) {
+        print("Removing bond with $deviceId");
+        try {
+          // Call removeBond but don't try to capture a return value
+          await _selectedDevice!.removeBond();
+
+          // If we get here without exception, consider it successful
+          await _removeBondedDevice(deviceId);
+          _bondState = DeviceBondState.none;
+          notifyListeners();
+          return true;
+        } catch (e) {
+          print("Error in removeBond method: $e");
+          return false;
+        }
+      } else {
+        // iOS doesn't have direct bond removal, but we can remove from our storage
+        await _removeBondedDevice(deviceId);
+        _bondState = DeviceBondState.none;
+        notifyListeners();
+        return true;
+      }
+    } catch (e) {
+      print("Error removing bond: $e");
+      return false;
+    }
+  }
+
+  // --- Permissions ---
   Future<bool> _requestBlePermissions() async {
     print("Requesting Bluetooth Scan/Connect/Location Permissions...");
     Map<Permission, PermissionStatus> statuses = {};
@@ -119,14 +615,13 @@ class OssmmBluetoothService with ChangeNotifier {
       statuses = await [
         Permission.bluetoothScan,
         Permission.bluetoothConnect,
-        Permission.locationWhenInUse, // Recommended for reliable scan
+        Permission.locationWhenInUse,
       ].request();
 
       statuses.forEach((p, s) => print('$p : $s'));
 
       final bool scanGranted = statuses[Permission.bluetoothScan]?.isGranted ?? false;
       final bool connectGranted = statuses[Permission.bluetoothConnect]?.isGranted ?? false;
-      // Location is recommended but scan might work without it on some OS versions
       final bool locationGranted = statuses[Permission.locationWhenInUse]?.isGranted ?? false;
       if (!locationGranted) { print('Warning: Location permission not granted. BLE scanning might be unreliable.'); }
 
@@ -135,43 +630,34 @@ class OssmmBluetoothService with ChangeNotifier {
       return true;
 
     } else if (Platform.isIOS) {
-      // iOS permissions (Bluetooth usage description) configured in Info.plist
       print("iOS Permissions should be configured in Info.plist"); return true;
     }
     print("Unsupported platform for BLE permissions or check failed.");
     return false;
   }
 
-  // Requests only permissions needed for storage (writing CSV)
   Future<bool> _requestStoragePermissions() async {
     print("Requesting Storage Permissions...");
     PermissionStatus status;
     if (Platform.isAndroid) {
-      // Using Permission.photos as CsvWriterUtil uses it. Adjust if CsvWriterUtil changes.
       status = await Permission.photos.request();
       print('Storage (Photos) Permission status: $status');
       return status.isGranted;
     }
-    // Add iOS specific storage permission logic if needed
-    return true; // Assume granted or not needed on other platforms
+    return true;
   }
-
 
   // --- Scanning Logic ---
   Future<void> startScan() async {
     if (_isScanning) { print("Scan already in progress."); return; }
     if (_adapterState != fbp.BluetoothAdapterState.on) { print("Cannot scan, Bluetooth is off."); return; }
 
-    // Request ONLY BLE permissions before scanning
     bool blePermissionsGranted = await _requestBlePermissions();
     if (!blePermissionsGranted) { print("BLE permissions not granted, cannot start scan."); return; }
 
     _isScanning = true; _scanResults = []; notifyListeners(); print("Starting BLE scan...");
     try {
-      // Start scanning - adjust filters if needed
       await fbp.FlutterBluePlus.startScan(
-        // Ensure no filters are applied unless intended
-        // withServices: [_BleConstants.serviceUuid], // Keep commented unless needed
           timeout: const Duration(seconds: 5));
 
       _scanResultsSubscription?.cancel();
@@ -180,14 +666,12 @@ class OssmmBluetoothService with ChangeNotifier {
           onError: (e) { print("Scan Error: $e"); _stopScanInternal(); }
       );
 
-      // Wait until scanning stops
       await fbp.FlutterBluePlus.isScanning.where((val) => val == false).first;
       print("Scan automatically stopped or was stopped manually.");
-      _stopScanInternal(); // Ensure state is updated even if stopped automatically
+      _stopScanInternal();
 
     } catch (e) {
       print("Error starting scan: $e");
-      // Handle specific errors like platform exceptions if needed
       _stopScanInternal();
     }
   }
@@ -195,12 +679,10 @@ class OssmmBluetoothService with ChangeNotifier {
   Future<void> stopScan() async { await _stopScanInternal(); }
 
   Future<void> _stopScanInternal() async {
-    // Check library's state first
     if (!fbp.FlutterBluePlus.isScanningNow && !_isScanning) return;
 
     _scanResultsSubscription?.cancel(); _scanResultsSubscription = null;
     try {
-      // Check again before stopping, might have stopped automatically
       if (fbp.FlutterBluePlus.isScanningNow) {
         await fbp.FlutterBluePlus.stopScan();
         print("Scan stopped via FlutterBluePlus.");
@@ -208,7 +690,6 @@ class OssmmBluetoothService with ChangeNotifier {
     }
     catch(e) { print("Error stopping scan via FlutterBluePlus: $e"); }
     finally {
-      // Update our internal state only if it was true
       if (_isScanning) {
         _isScanning = false;
         notifyListeners();
@@ -217,7 +698,7 @@ class OssmmBluetoothService with ChangeNotifier {
     }
   }
 
-  // --- Connection Logic ---
+  // --- Connection Logic with Bond Support ---
   Future<bool> connectToDevice(fbp.BluetoothDevice device) async {
     if (_isConnecting || (_connectionState != DeviceConnectionState.disconnected && _selectedDevice?.remoteId == device.remoteId)) {
       print("Warning: Connection attempt already in progress or already connected/connecting. Request ignored."); return isConnected;
@@ -234,14 +715,12 @@ class OssmmBluetoothService with ChangeNotifier {
           print("Device $deviceId Connection State Stream Update: $state");
           if (state == fbp.BluetoothConnectionState.disconnected) {
             print("Device $deviceId reported disconnected state via stream.");
-            // Only handle unexpected disconnects here
             if (_connectionState != DeviceConnectionState.disconnecting && !_isConnecting) {
               _handleDisconnect(showError: true);
             }
           }
         }, onError: (e) {
       print("Error in connection state stream for $deviceId: $e");
-      // Treat stream errors as disconnects if we weren't already disconnecting
       if (_connectionState != DeviceConnectionState.disconnecting) {
         _handleDisconnect(showError: true);
       }
@@ -249,16 +728,23 @@ class OssmmBluetoothService with ChangeNotifier {
     );
 
     try {
+      // Check if this device is already bonded
+      if (Platform.isAndroid && _bondedDevices.contains(deviceId)) {
+        print("Device is already bonded, using secure connection");
+      }
+
       // Connect with timeout
       await device.connect(timeout: const Duration(seconds: 15));
 
       // Check connection status immediately after connect returns
       if (device.isConnected == false) {
         print("Device $deviceId disconnected immediately after connect() call. Aborting.");
-        // Ensure cleanup happens, don't show error as connect itself failed clearly
         await _handleDisconnect(showError: false);
         return false;
       }
+
+      // Setup bond state listener
+      await _setupBondStateListener(device);
 
       print("Platform connection seems established for $deviceId, proceeding to setup...");
       bool setupOk = await _postConnectionSetup(device);
@@ -266,7 +752,6 @@ class OssmmBluetoothService with ChangeNotifier {
       // Check connection status again after setup attempt
       if (device.isConnected == false || _connectionState == DeviceConnectionState.disconnected || _selectedDevice?.remoteId != device.remoteId) {
         print("Device $deviceId disconnected during or immediately after setup. Aborting.");
-        // If setup failed, it likely caused the disconnect, show error context
         await _handleDisconnect(showError: !setupOk);
         return false;
       }
@@ -274,22 +759,26 @@ class OssmmBluetoothService with ChangeNotifier {
       if (setupOk) {
         _connectionState = DeviceConnectionState.connected; _isConnecting = false;
         print("✅ Device $deviceId setup complete and connected.");
+
+        // If device isn't bonded yet, try to create a bond
+        if (_bondState == DeviceBondState.none && Platform.isAndroid) {
+          print("Attempting to create bond with device");
+          await createBond();
+        }
+
         notifyListeners();
         return true;
       } else {
         print("❌ Post-connection setup failed for $deviceId.");
-        // Disconnect if setup failed but connection somehow remained
         await _handleDisconnect(showError: true);
         return false;
       }
     } catch (e) {
       print("❌ Error during connect() or setup for device $deviceId: $e");
-      // Ensure cleanup on error
       await _handleDisconnect(showError: true);
       return false;
     }
     finally {
-      // If connection didn't reach 'connected' state, ensure 'isConnecting' is false
       if (_connectionState != DeviceConnectionState.connected && _isConnecting) {
         _isConnecting = false;
         notifyListeners();
@@ -299,23 +788,22 @@ class OssmmBluetoothService with ChangeNotifier {
 
   Future<bool> _postConnectionSetup(fbp.BluetoothDevice device) async {
     try {
-      print("PostConnect: Requesting MTU 184 for ${device.remoteId}..."); // Keep MTU 184
+      print("PostConnect: Requesting MTU 184 for ${device.remoteId}...");
       await device.requestMtu(184);
-      await Future.delayed(const Duration(milliseconds: 100)); // Small delay
+      await Future.delayed(const Duration(milliseconds: 100));
 
       print("PostConnect: Requesting Connection Priority High for ${device.remoteId}...");
       await device.requestConnectionPriority(connectionPriorityRequest: fbp.ConnectionPriority.high);
-      await Future.delayed(const Duration(milliseconds: 100)); // Small delay
+      await Future.delayed(const Duration(milliseconds: 100));
 
       print("PostConnect: Discovering services for ${device.remoteId}...");
       List<fbp.BluetoothService> services = await device.discoverServices();
       print("PostConnect: Found ${services.length} services.");
-      await Future.delayed(const Duration(milliseconds: 100)); // Small delay
+      await Future.delayed(const Duration(milliseconds: 100));
 
       _dataCharacteristic = null; _modCharacteristic = null;
       fbp.BluetoothService? targetService;
 
-      // Find the target service
       for (var s in services) {
         if (s.uuid == _BleConstants.serviceUuid) {
           targetService = s;
@@ -329,7 +817,6 @@ class OssmmBluetoothService with ChangeNotifier {
       }
       print("PostConnect: ✅ Found Required Service: ${targetService.uuid}");
 
-      // Find characteristics within the target service
       for (fbp.BluetoothCharacteristic c in targetService.characteristics) {
         if (c.uuid == _BleConstants.characteristicUuidData) {
           _dataCharacteristic = c;
@@ -340,24 +827,21 @@ class OssmmBluetoothService with ChangeNotifier {
         }
       }
 
-      // Validate characteristics
       if (_dataCharacteristic == null) {
         print("PostConnect: ❌ Error: Data characteristic ${_BleConstants.characteristicUuidData} not found.");
         return false;
       }
       if (_modCharacteristic == null) {
         print("PostConnect: ❌ Error: Modulation characteristic ${_BleConstants.characteristicUuidMod} not found.");
-        return false; // Or make this optional if modulation isn't critical
+        return false;
       }
 
-      // Check properties (Notify for data, Write for mod)
       if (!_dataCharacteristic!.properties.notify) {
         print("PostConnect: ❌ Error: Data characteristic does NOT support Notify.");
-        _dataCharacteristic = null; // Invalidate it
+        _dataCharacteristic = null;
         return false;
       }
       if (!_modCharacteristic!.properties.write) {
-        // Warning only, maybe modulation isn't always needed
         print("PostConnect: ⚠️ Warning: Modulation characteristic does NOT support Write.");
       }
 
@@ -374,7 +858,7 @@ class OssmmBluetoothService with ChangeNotifier {
     final deviceToDisconnect = _selectedDevice;
     if (deviceToDisconnect == null || _connectionState == DeviceConnectionState.disconnected) {
       print("Not connected or no device selected.");
-      _isConnecting = false; // Ensure connecting flag is false
+      _isConnecting = false;
       if (_connectionState != DeviceConnectionState.disconnected) {
         _connectionState = DeviceConnectionState.disconnected;
         notifyListeners();
@@ -384,42 +868,38 @@ class OssmmBluetoothService with ChangeNotifier {
 
     print("Disconnecting & Turning Off ${deviceToDisconnect.platformName}...");
 
-    // Ensure we are not trying to connect while disconnecting
     if (_isConnecting) _isConnecting = false;
+
+    // Cancel any reconnection attempts
+    _cancelReconnectionAttempts();
 
     final wasRecording = _isRecording;
     _connectionState = DeviceConnectionState.disconnecting;
-    notifyListeners(); // Notify UI about disconnecting state
+    notifyListeners();
 
-    // Attempt to send turn off command *before* stopping recording/disconnecting
     if (_modCharacteristic != null && _modCharacteristic!.properties.write) {
       try {
         print("Sending Turn Off command (0x02)...");
-        // Use write without response for potentially faster execution if device supports it
         await _modCharacteristic!.write([0x02], withoutResponse: _modCharacteristic!.properties.writeWithoutResponse);
         print("Turn Off command sent.");
-        await Future.delayed(const Duration(milliseconds: 200)); // Give time for command processing
+        await Future.delayed(const Duration(milliseconds: 200));
       } catch (e) {
         print("Error writing Turn Off command: $e");
-        // Continue disconnection even if command fails
       }
     } else {
       print("Modulation characteristic unavailable or unwritable, skipping Turn Off command.");
     }
 
-    // Stop recording and handle CSV file *before* full disconnect cleanup
     if (wasRecording) {
-      await stopRecording(saveData: true); // Assume save data on manual disconnect
+      await stopRecording(saveData: true);
     } else {
-      // Ensure subscription is cancelled and CSV closed even if not recording formally
       await _dataSubscription?.cancel(); _dataSubscription = null;
       if (_csvWriter.isInitialized) { await _csvWriter.close();}
     }
 
-    // Cancel connection state listener *before* calling disconnect
     await _connectionStateSubscription?.cancel(); _connectionStateSubscription = null;
+    await _bondStateSubscription?.cancel(); _bondStateSubscription = null;
 
-    // Perform platform disconnect
     try {
       print("Calling platform disconnect for ${deviceToDisconnect.remoteId}...");
       if (deviceToDisconnect.isConnected == true) {
@@ -430,11 +910,8 @@ class OssmmBluetoothService with ChangeNotifier {
       }
     } catch (e) {
       print("Error during disconnect call: $e");
-      // Ensure cleanup still happens
-      _handleDisconnect(showError: showError || true); // Show error if disconnect call failed
+      _handleDisconnect(showError: showError || true);
     } finally {
-      // Final cleanup, regardless of disconnect success/failure
-      // Use showError flag passed initially OR true if disconnect call threw error
       if (_connectionState != DeviceConnectionState.disconnected) {
         print("Manually ensuring disconnected state after disconnect attempt.");
         _handleDisconnect(showError: showError);
@@ -442,57 +919,66 @@ class OssmmBluetoothService with ChangeNotifier {
     }
   }
 
-
-  // Centralized disconnect cleanup logic
   Future<void> _handleDisconnect({required bool showError}) async {
-    // Prevent multiple cleanup runs if called rapidly
     if (_connectionState == DeviceConnectionState.disconnected && !_isConnecting) return;
 
     print("Executing disconnection cleanup logic...");
     final deviceId = _selectedDevice?.remoteId.toString() ?? "Unknown";
 
     final wasRecording = _isRecording;
-    // Update state immediately to prevent race conditions
     _connectionState = DeviceConnectionState.disconnected;
-    _isRecording = false; // Recording stops on disconnect
-    _isConnecting = false; // Cannot be connecting if disconnected
+    _isRecording = false;
+    _isConnecting = false;
 
-    // Stop recording tasks if it was active
+    // Keep bond state - do not reset to none on disconnect
+    // Only clear bond state-related listeners
+    await _bondStateSubscription?.cancel();
+    _bondStateSubscription = null;
+
     if (wasRecording) {
       print("Stopping recording tasks due to disconnect...");
       await _dataSubscription?.cancel(); _dataSubscription = null;
-      // Decide whether to save data on unexpected disconnect (showError=true)
-      // Defaulting to false (discard) on error, true otherwise might be safer
-      await _csvWriter.close(); // Close first
+      await _csvWriter.close();
       if (!showError) {
         print("Data possibly saved (check CSV writer close log).");
       } else {
-        // Consider deleting or renaming the file to indicate partial data
         print("Data saving aborted due to error. Check file state.");
-        // await _csvWriter.deleteCurrentFile(); // Uncomment to discard on error
       }
     } else {
-      // Ensure resources are cleaned even if not formally recording
       await _dataSubscription?.cancel(); _dataSubscription = null;
       if (_csvWriter.isInitialized) { await _csvWriter.close();}
     }
 
-    // Clean up BLE resources
     await _connectionStateSubscription?.cancel(); _connectionStateSubscription = null;
     _dataCharacteristic = null;
     _modCharacteristic = null;
 
-    // Clear local data and state
     _currentSamples = [];
-    _selectedDevice = null; // Clear selected device
+    _selectedDevice = null;
 
     print("Cleanup after disconnect for device $deviceId complete.");
     if (showError) {
       print("Disconnect reason: Error or unexpected device disconnection.");
-      // Potentially show a user-facing message here or via state change
     }
 
-    notifyListeners(); // Notify UI about the final disconnected state
+    // If auto-reconnect is enabled and we didn't purposely disconnect,
+    // schedule a reconnection attempt
+    if (_autoReconnectToBonded &&
+        _bondedDevices.isNotEmpty &&
+        _adapterState == fbp.BluetoothAdapterState.on &&
+        !_isAttemptingAutoReconnect &&
+        showError) { // Only reconnect on errors, not manual disconnects
+
+      print("Unexpected disconnect detected. Scheduling reconnection attempt.");
+      _scheduleReconnectionAttempt(immediate: false);
+    }
+
+    notifyListeners();
+  }
+
+  // --- Added public method to show the data access password
+  Future<void> showDataAccessPassword(BuildContext context) async {
+    await _csvWriter.showDataAccessPassword(context);
   }
 
   // --- Recording & Data Handling ---
@@ -505,47 +991,37 @@ class OssmmBluetoothService with ChangeNotifier {
 
     print("Attempting to start recording...");
 
-    // Request STORAGE permissions just before initializing CSV writer
     bool storagePermissionsGranted = await _requestStoragePermissions();
     if (!storagePermissionsGranted) {
       print("Storage permissions not granted, cannot start recording.");
-      // Show error to user
       return false;
     }
 
     bool csvReady = await _csvWriter.initialize();
     if (!csvReady) {
       print("Failed to initialize CSV writer. Check permissions and storage path.");
-      // Show error to user
       return false;
     }
 
-    _currentSamples = []; // Clear previous live samples
+    _currentSamples = [];
 
     try {
-      // Ensure notifications are enabled
       if (!_dataCharacteristic!.isNotifying) {
         await _dataCharacteristic!.setNotifyValue(true);
         print("Subscribed to data characteristic notifications.");
-        // Add a small delay after enabling notifications if needed
         await Future.delayed(const Duration(milliseconds: 100));
       } else {
         print("Data characteristic notifications already enabled.");
       }
 
-
-      await _dataSubscription?.cancel(); // Cancel any previous subscription
+      await _dataSubscription?.cancel();
       _dataSubscription = _dataCharacteristic!.onValueReceived.listen(
               (data) {
-            // --- Start: Data Processing Logic ---
-            // Check if packet has the CORRECTED expected size (180 bytes)
             if (data.length == _expectedPacketSize) {
               bool samplesAddedForPlotting = false;
-              // Loop the CORRECTED number of times (10)
               for (int i = 0; i < _samplesPerPacket; i++) {
                 int offset = i * _bytesPerSample;
                 try {
-                  // Create DataSample directly using byte offsets
                   final sample = DataSample(
                     transNum: data[offset + 0] + (256 * data[offset + 1]),
                     eog:      data[offset + 2] + (256 * data[offset + 3]),
@@ -556,14 +1032,11 @@ class OssmmBluetoothService with ChangeNotifier {
                     gyroX:    data[offset + 12] + (256 * data[offset + 13]),
                     gyroY:    data[offset + 14] + (256 * data[offset + 15]),
                     gyroZ:    data[offset + 16] + (256 * data[offset + 17]),
-                    timestamp: DateTime.now(), // Timestamp when sample is processed
+                    timestamp: DateTime.now(),
                   );
 
-                  // Append to CSV immediately
                   _csvWriter.appendSample(sample);
 
-                  // Add first sample of packet to live data list for plotting
-                  // NO CHANGE HERE - Keep adding only 1 sample per packet based on user request
                   if (i == 0) {
                     _currentSamples.add(sample);
                     samplesAddedForPlotting = true;
@@ -571,76 +1044,65 @@ class OssmmBluetoothService with ChangeNotifier {
 
                 } catch (e) {
                   print("Error parsing sample $i from packet at offset $offset: $e");
-                  // Consider adding more details like packet bytes on error
-                  break; // Stop processing this packet on error
+                  break;
                 }
               }
 
-              // Manage live samples buffer size
               if (samplesAddedForPlotting && _currentSamples.length > _maxLiveSamples) {
                 _currentSamples.removeRange(0, _currentSamples.length - _maxLiveSamples);
               }
 
-              // Notify listeners *once* per processed packet if a sample was added
               if (samplesAddedForPlotting) {
                 notifyListeners();
               }
 
             } else {
-              // Log the differing size
               print("Warning: Received data packet with unexpected size. Expected $_expectedPacketSize, got ${data.length}. Ignoring packet.");
             }
-            // --- End: Data Processing Logic ---
           },
           onError: (error) {
             print("Error in data subscription stream: $error");
-            // Treat stream errors as disconnects
             _handleDisconnect(showError: true);
           },
           onDone: () {
             print("Data subscription stream closed by peripheral.");
-            // Peripheral closed the stream, treat as disconnect
-            _handleDisconnect(showError: false); // Not necessarily an error
+            _handleDisconnect(showError: false);
           },
-          cancelOnError: true // Cancel subscription on error
+          cancelOnError: true
       );
 
       _isRecording = true;
       print("✅ Recording started. Saving data to: ${csvFilePath ?? 'N/A'}");
-      notifyListeners(); // Notify UI that recording has started
+      notifyListeners();
       return true;
 
     } catch (e, stacktrace) {
       print("❌ Error starting recording or setting notifications: $e");
       print(stacktrace);
-      _isRecording = false; // Ensure recording state is false on error
+      _isRecording = false;
       await _dataSubscription?.cancel(); _dataSubscription = null;
-      await _csvWriter.close(); // Close CSV writer on error
-      // Attempt to disable notifications, ignore errors
+      await _csvWriter.close();
       if (_dataCharacteristic != null && _dataCharacteristic!.properties.notify) {
         await _dataCharacteristic?.setNotifyValue(false).catchError((err) {
           print("Error disabling notifications after failed start: $err");
         });
       }
-      notifyListeners(); // Notify UI about the failed state
+      notifyListeners();
       return false;
     }
   }
 
-
   Future<void> stopRecording({required bool saveData}) async {
-    if (!_isRecording) return; // Only stop if recording
+    if (!_isRecording) return;
 
     print("Stopping recording...");
-    final wasRecording = _isRecording; // Should be true here
-    _isRecording = false; // Update state immediately
-    notifyListeners(); // Notify UI recording stopped
+    final wasRecording = _isRecording;
+    _isRecording = false;
+    notifyListeners();
 
-    // Cancel the data stream subscription first
     await _dataSubscription?.cancel();
     _dataSubscription = null;
 
-    // Attempt to unsubscribe from notifications (best effort)
     if (_dataCharacteristic != null && _selectedDevice?.isConnected == true) {
       try {
         if (_dataCharacteristic!.properties.notify && _dataCharacteristic!.isNotifying) {
@@ -650,34 +1112,29 @@ class OssmmBluetoothService with ChangeNotifier {
         }
       } catch (e) {
         print("Error unsubscribing from data characteristic: $e");
-        // Continue cleanup even if unsubscribing fails
       }
     } else {
       print("Not connected or characteristic invalid, cannot unsubscribe.");
     }
 
-    // Handle the CSV file based on saveData flag
-    if (wasRecording) { // Redundant check, but safe
+    if (wasRecording) {
       if (saveData) {
         final savedPath = _csvWriter.currentFilePath;
-        await _csvWriter.close(); // Flush and close the file
+        await _csvWriter.close();
         print("Recording stopped. Data saved to: ${savedPath ?? 'path not available'}");
 
-        // Show data access password dialog if saving data
         if (navigatorKey.currentContext != null) {
           await _csvWriter.showDataAccessPassword(navigatorKey.currentContext!);
         }
       } else {
-        await _csvWriter.deleteCurrentFile(); // Close and delete the file
+        await _csvWriter.deleteCurrentFile();
         print("Recording stopped. Data discarded.");
       }
     } else if (_csvWriter.isInitialized) {
-      // If somehow stopRecording is called when not recording, ensure file is closed
       await _csvWriter.close();
       print("CSV writer closed unexpectedly.");
     }
   }
-
 
   // --- Modulation Logic ---
   Future<void> testModulate() async {
@@ -692,57 +1149,35 @@ class OssmmBluetoothService with ChangeNotifier {
 
     try {
       print("Sending Modulation command (0x01)...");
-      // Use withoutResponse based on characteristic property for potentially faster send
       await _modCharacteristic!.write([0x01], withoutResponse: _modCharacteristic!.properties.writeWithoutResponse);
       print("Modulation command sent.");
     } catch (e) {
       print("Error writing modulation command: $e");
-      // Consider showing feedback to the user
     }
   }
 
-
   // --- Helpers for Plotting ---
-
-  // MODIFICATION START: Made public
-  // Get raw samples within the specified duration from the end of the list
   Iterable<DataSample> getRawSamplesInWindow(Duration duration) {
-    // MODIFICATION END: Made public (removed leading underscore)
     if (_currentSamples.isEmpty) return [];
-    // Ensure duration isn't negative or zero
     if (duration.isNegative || duration == Duration.zero) return [];
 
     final DateTime cutoffTime = DateTime.now().subtract(duration);
 
-    // Optimization: If all samples are newer than cutoff, return all
     if (_currentSamples.isNotEmpty && !_currentSamples.first.timestamp.isBefore(cutoffTime)) {
       return List.unmodifiable(_currentSamples);
     }
 
-    // Find the first index whose timestamp is NOT before the cutoff
-    // Use binary search if _currentSamples is always sorted by timestamp (which it should be)
-    // For simplicity, using indexWhere for now. Replace with binary search for performance if needed.
     int startIndex = _currentSamples.indexWhere((sample) => !sample.timestamp.isBefore(cutoffTime));
 
-    // If no samples are within the window (all are too old), return empty
     if (startIndex == -1) return [];
 
-    // Return the range from the start index to the end
-    // Use sublist for safety if _currentSamples might be modified elsewhere concurrently (unlikely here)
-    // return _currentSamples.sublist(startIndex);
-    // Using getRange for potentially better performance if sublist creates copies
     return _currentSamples.getRange(startIndex, _currentSamples.length);
   }
 
-  // Returns the raw samples within the specified time window.
-  // The downsampleFactor parameter is ignored as downsampling is removed.
-  List<DataSample> getDownsampledSamples(Duration duration) { // Removed downsampleFactor parameter
-    // Get only the samples within the display window first
+  List<DataSample> getDownsampledSamples(Duration duration) {
     final List<DataSample> relevantSamples = getRawSamplesInWindow(duration).toList();
     if (relevantSamples.isEmpty) return [];
 
-    // Return all samples within the window (no downsampling)
     return relevantSamples;
   }
-
-} // End of OssmmBluetoothService class
+}

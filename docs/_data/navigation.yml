@@ -34,6 +34,8 @@ main:
     url: /software/
   - title: "5. Final Checks & Completion"
     url: /final-checks/
+  - title: "Demo"
+    url: /demo/
   - title: "Performance - Sleep Staging"
     url: /performance/
   - title: "Safety & Data Privacy"
@@ -56,6 +58,8 @@ pages_sidebar_nav:
     url: /software/
   - title: "5. Final Checks & Completion"
     url: /final-checks/
+  - title: "Demo"
+    url: /demo/
   - title: "Safety & Data Privacy"
     url: /safety-and-data/
 

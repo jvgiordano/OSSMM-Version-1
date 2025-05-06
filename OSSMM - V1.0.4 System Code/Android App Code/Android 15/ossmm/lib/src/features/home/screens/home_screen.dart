@@ -6,6 +6,7 @@ import 'package:provider/provider.dart';
 import 'package:ossmm/src/core/services/bluetooth_service.dart';
 import 'package:ossmm/src/features/data_display/widgets/live_data_chart.dart';
 import 'package:ossmm/src/features/device_scan/screens/find_devices_screen.dart';
+import 'package:ossmm/src/core/utils/app_lifecycle_observer.dart';
 import 'dart:async';
 import 'package:ossmm/src/core/models/data_sample.dart';
 
@@ -21,65 +22,85 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   // Local UI state
   bool _modulationEnabled = false;
-  // Renamed variable to reflect its new purpose (controls both start and stop behavior)
-  bool _startStopWithConnection = true; // Default to true
+  bool _startStopWithConnection = false; // Default to false
 
-  // To manage the "Connecting..." dialog presentation logic
-  bool _isConnectingDialogShowing = false;
   // Store the service instance for easy access in listeners
   late OssmmBluetoothService _bluetoothService;
+
+  // Add this variable for lifecycle management
+  late AppLifecycleObserver _lifecycleObserver;
+
+  // Added state variable to track if device was intentionally turned off
+  bool _deviceIntentionallyTurnedOff = false;
+  // Add state variable to track manual reconnection attempts
+  bool _isPerformingManualReconnect = false;
+
+  // *** ADDED: Track previous connection state for auto-start logic ***
+  DeviceConnectionState? _previousConnectionState;
 
   @override
   void initState() {
     super.initState();
     // Get service instance (don't listen here, use Consumer/watch elsewhere)
     _bluetoothService = Provider.of<OssmmBluetoothService>(context, listen: false);
+
+    // *** ADDED: Initialize previous connection state ***
+    _previousConnectionState = _bluetoothService.connectionState;
+
+    // Ensure Auto-Reconnect in service defaults to false on init
+    // _bluetoothService.setAutoReconnectToBonded(false); // Uncomment if needed
+
     // Add listener to react to service state changes
     _bluetoothService.addListener(_handleServiceStateChange);
-    // Initial check in case state is already 'connecting' when screen loads
-    _handleServiceStateChange();
+
+    // Initialize app lifecycle observer
+    _lifecycleObserver = AppLifecycleObserver(context);
+
+    // Reset the turn-off flag initially
+    _deviceIntentionallyTurnedOff = false;
   }
 
   @override
   void dispose() {
     // Remove listener to prevent memory leaks
     _bluetoothService.removeListener(_handleServiceStateChange);
-    // Dismiss dialog if it's showing when screen is disposed
-    if (_isConnectingDialogShowing && Navigator.of(context, rootNavigator: true).canPop()) {
-      Navigator.of(context, rootNavigator: true).pop();
-      _isConnectingDialogShowing = false;
-    }
+    // Dispose lifecycle observer
+    _lifecycleObserver.dispose();
     super.dispose();
   }
 
   // Listener callback for service state changes
   void _handleServiceStateChange() {
-    // --- Manage Connecting Dialog ---
-    final bool shouldShowDialog = _bluetoothService.isConnecting &&
-        _bluetoothService.connectionState == DeviceConnectionState.connecting;
+    // Get the current state *before* any potential setState calls
+    final currentState = _bluetoothService.connectionState;
 
-    if (shouldShowDialog && !_isConnectingDialogShowing) {
-      // Show dialog if connecting and not already showing
-      _showConnectingDialog(context);
-    } else if (!shouldShowDialog && _isConnectingDialogShowing) {
-      // Hide dialog if not connecting anymore and dialog is showing
-      if (Navigator.of(context, rootNavigator: true).canPop()) {
-        Navigator.of(context, rootNavigator: true).pop();
+    // Reset the intentional turn-off flag ONLY when device connects.
+    if (currentState == DeviceConnectionState.connected) {
+      if (_deviceIntentionallyTurnedOff) { // Only update state if it changes
+        // Use WidgetsBinding to ensure setState is called safely after build
+        WidgetsBinding.instance.addPostFrameCallback((_) {
+          if (mounted) {
+            setState(() {
+              _deviceIntentionallyTurnedOff = false;
+            });
+          }
+        });
       }
-      // _isConnectingDialogShowing flag is reset in the dialog's .then() clause
     }
 
     // --- Handle Auto-Start Recording (if toggle is enabled) ---
-    if (_bluetoothService.connectionState == DeviceConnectionState.connected &&
-        _startStopWithConnection && // Check the toggle state
-        !_bluetoothService.isRecording) {
-      print("Auto-start condition met. Attempting to start recording...");
+    // *** MODIFIED: Check for transition TO connected state ***
+    if (currentState == DeviceConnectionState.connected && // Check NEW state is connected
+        _previousConnectionState != DeviceConnectionState.connected && // Ensure previous state was NOT connected
+        _startStopWithConnection && // Check toggle is enabled AT THE TIME of connection
+        !_bluetoothService.isRecording) { // Check not already recording
+      print("Auto-start condition met (transitioned to connected with toggle enabled). Attempting to start recording...");
       // Use a short delay to ensure state propagation before starting recording
       Future.delayed(const Duration(milliseconds: 100), () {
         // Check connection state again inside the delayed future
-        if (_bluetoothService.isConnected && !_bluetoothService.isRecording) {
+        if (mounted && _bluetoothService.isConnected && !_bluetoothService.isRecording) { // Check mounted
           _bluetoothService.startRecording().then((success) {
-            if (!success && mounted) {
+            if (!success && mounted) { // Check mounted again
               _showErrorDialog(context, "Auto-Recording Failed", "Could not automatically start recording.");
             } else if (success) {
               print("Auto-recording started successfully.");
@@ -91,39 +112,114 @@ class _HomeScreenState extends State<HomeScreen> {
       });
     }
     // Note: Auto-stopping based on disconnect is handled implicitly by the service's _handleDisconnect logic.
-  }
 
-  // Helper to track if the *last known user action* was trying to connect
-  bool _wasAttemptingConnect() {
-    return _bluetoothService.isConnecting;
-  }
+    // Update previous state *after* processing the current change
+    _previousConnectionState = currentState;
 
-
-  // --- Dialog Functions ---
-  void _showConnectingDialog(BuildContext context) {
-    if (!mounted || _isConnectingDialogShowing) return;
-    _isConnectingDialogShowing = true;
-    showDialog<void>(
-      context: context,
-      barrierDismissible: false,
-      builder: (BuildContext dialogContext) {
-        return const PopScope(
-          canPop: false,
-          child: AlertDialog(
-            content: Row(
-              children: [
-                CircularProgressIndicator(),
-                SizedBox(width: 20),
-                Text("Connecting..."),
-              ],
-            ),
-          ),
-        );
-      },
-    ).then((_) {
-      // Reset flag when dialog is closed
-      if(mounted) _isConnectingDialogShowing = false;
+    // Trigger rebuild if connection state changes to update button/toggle states
+    // Use WidgetsBinding to ensure setState is called safely after build if needed
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (mounted) {
+        setState(() {});
+      }
     });
+  }
+
+  // Enhanced reconnect function with timeout and active scanning
+  Future<void> _triggerReconnect() async {
+    // Use context before async gap
+    final service = Provider.of<OssmmBluetoothService>(context, listen: false);
+    final scaffoldMessenger = ScaffoldMessenger.of(context); // Capture ScaffoldMessenger
+
+    // If we're already in manual reconnect mode, treat this as a cancel action
+    if (_isPerformingManualReconnect) {
+      setState(() {
+        _isPerformingManualReconnect = false;
+      });
+
+      // Tell the service to cancel any reconnection attempts
+      if (service.isAttemptingAutoReconnect) {
+        service.cancelReconnectionAttempts();
+      }
+
+      print("Manual reconnection attempt cancelled by user.");
+      if (scaffoldMessenger.mounted) {
+        scaffoldMessenger.showSnackBar(
+            const SnackBar(
+              content: Text("Reconnection attempt cancelled."),
+              duration: Duration(seconds: 2),
+            )
+        );
+      }
+      return;
+    }
+
+    // Already attempting reconnection or connecting (but not by us)
+    if (service.isConnecting || service.isAttemptingAutoReconnect) {
+      print("Reconnect trigger ignored: Already connecting or reconnecting via another process.");
+      return;
+    }
+
+    // If user presses reconnect, they no longer intend for it to stay off
+    // Also indicate manual reconnect is starting
+    setState(() {
+      _deviceIntentionallyTurnedOff = false;
+      _isPerformingManualReconnect = true; // Show spinner
+    });
+
+    try {
+      print("Triggering manual reconnection...");
+      // Trigger reconnection attempt with the manual flag
+      final bool initialTriggerSuccess = await service.triggerBondedDeviceReconnection(isManualAttempt: true);
+
+      // Wait a short period to allow connection state to potentially update
+      await Future.delayed(const Duration(milliseconds: 500)); // Adjust delay if needed
+
+      // Check the actual connection state *after* the delay
+      // Show error only if the initial trigger reported failure AND we are still not connected/connecting
+      if (!initialTriggerSuccess && mounted && !service.isConnected && !service.isConnecting) { // Check mounted and connection states
+        print("Manual reconnection trigger reported failure and still not connected.");
+        // Check context is still valid before showing SnackBar
+        if (scaffoldMessenger.mounted) {
+          scaffoldMessenger.showSnackBar(
+              const SnackBar(
+                content: Text("Reconnection failed. Device may be turned off or out of range."),
+                duration: Duration(seconds: 3),
+              )
+          );
+        }
+      } else if (initialTriggerSuccess) {
+        print("Manual reconnection trigger successful (connection may still be in progress).");
+      } else if (service.isConnected) {
+        print("Manual reconnection successful (already connected after trigger).");
+      }
+
+    } catch (e) {
+      // Handle any errors during the trigger or delay
+      print("Error during manual reconnection: $e");
+      if (mounted && scaffoldMessenger.mounted) { // Check mounted and scaffold messenger validity
+        scaffoldMessenger.showSnackBar(
+            SnackBar(
+              content: Text("Reconnection error: ${e.toString()}"),
+              duration: const Duration(seconds: 3),
+            )
+        );
+      }
+    } finally {
+      // IMPORTANT: Only reset visual indicator if we're not still connecting
+      // This allows the Cancel button to appear during the connection process
+      if (mounted && !service.isAttemptingAutoReconnect && !service.isConnecting) {
+        setState(() {
+          _isPerformingManualReconnect = false; // Hide spinner
+        });
+      }
+      print("Manual reconnection attempt finished.");
+    }
+  }
+
+  // We're intentionally leaving this method empty to remove the "Reconnecting..." box
+  void _showConnectingDialog(BuildContext context) {
+    // Intentionally left empty as per requirements
   }
 
   Future<bool?> _showSaveDataDialog(BuildContext context) async {
@@ -143,13 +239,46 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  Future<void> _showErrorDialog(BuildContext context, String title, String content) async {
+  Future<void> _showConfirmForgetDevicesDialog(BuildContext context) async {
     if (!mounted) return;
-    // Ensure connecting dialog is closed BEFORE showing error dialog
-    if (_isConnectingDialogShowing && Navigator.of(context, rootNavigator: true).canPop()) {
-      Navigator.of(context, rootNavigator: true).pop();
-      _isConnectingDialogShowing = false;
+    final service = context.read<OssmmBluetoothService>(); // Read service before async gap
+
+    final bool? result = await showDialog<bool>(
+      context: context,
+      builder: (dialogContext) {
+        return AlertDialog(
+          title: const Text("Forget All Paired Devices?"),
+          content: const Text(
+              "This will remove all bonded devices from the app. "
+                  "You will need to reconnect and pair with devices again. "
+                  "Are you sure you want to continue?"
+          ),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.of(dialogContext).pop(false),
+              child: const Text("Cancel"),
+            ),
+            TextButton(
+              style: TextButton.styleFrom(foregroundColor: Colors.red),
+              onPressed: () => Navigator.of(dialogContext).pop(true),
+              child: const Text("Forget All"),
+            ),
+          ],
+        );
+      },
+    );
+
+    // If user confirmed, call the service method to clear all bonded devices
+    if (result == true && mounted) { // Check mounted again after await
+      await service.clearAllBondedDevices();
+      // After forgetting devices, reset the intentional disconnect flag
+      setState(() {
+        _deviceIntentionallyTurnedOff = false;
+      });
     }
+  }
+
+  Future<void> _showErrorDialog(BuildContext context, String title, String content) async {
     if (!mounted) return;
     await showDialog<void>(
       context: context,
@@ -166,222 +295,446 @@ class _HomeScreenState extends State<HomeScreen> {
   // --- Widget Build Method ---
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('OSSMM Dashboard'),
-        actions: [ Consumer<OssmmBluetoothService>( builder: (context, service, child) { return Padding( padding: const EdgeInsets.only(right: 16.0), child: Icon( service.isConnected ? Icons.bluetooth_connected : service.isConnecting ? Icons.bluetooth_searching : Icons.bluetooth_disabled, color: service.isConnected ? Colors.white : service.isConnecting ? Colors.yellow : Colors.white54, ), ); } ) ],
-      ),
-      body: ListView(
-        padding: const EdgeInsets.all(8.0),
-        children: <Widget>[
-          // --- Connection Section ---
-          _buildSectionTitle(context, 'Connection'),
-          Consumer<OssmmBluetoothService>( builder: (context, service, child) { return ListTile( leading: const Icon(Icons.bluetooth), title: Text('Status: ${service.connectionState.name}'), subtitle: Text('Device: ${service.selectedDeviceName}'), ); } ),
+    return Consumer<OssmmBluetoothService>(
+      builder: (context, service, child) {
+        // --- Determine UI States ---
 
-          // --- Start/Stop with Connection Toggle ---
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 0.0),
-            child: SwitchListTile(
-              title: const Text("Start/Stop with Connection"),
-              value: _startStopWithConnection,
-              // Disable toggle while connecting/disconnecting
-              onChanged: (_bluetoothService.isConnecting || _bluetoothService.connectionState == DeviceConnectionState.disconnecting)
-                  ? null
-                  : (bool value) {
-                setState(() { _startStopWithConnection = value; });
-              },
-              dense: true,
-              contentPadding: EdgeInsets.zero,
-            ),
-          ),
+        // Reconnect Button Visibility Logic
+        // Show if: Bonded device exists AND not connected AND not actively connecting AND not manually reconnecting
+        bool showReconnectButton = service.bondedDevices.isNotEmpty &&
+            !service.isConnected &&
+            !service.isConnecting &&
+            !_isPerformingManualReconnect;
 
-          // --- Connect / Disconnect Buttons ---
-          Consumer<OssmmBluetoothService>( builder: (context, service, child) { return Padding( padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0), child: Row( mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
-            // Find Device Button
-            ElevatedButton.icon( icon: const Icon(Icons.search), label: const Text('Find Device'),
-              onPressed: (service.isConnected || service.isConnecting || service.connectionState == DeviceConnectionState.disconnecting) ? null : () async {
-                final selectedDevice = await Navigator.of(context).push<fbp.BluetoothDevice?>( MaterialPageRoute(builder: (ctx) => const FindDevicesScreen()), );
-                if (selectedDevice != null && mounted) {
-                  bool success = await context.read<OssmmBluetoothService>().connectToDevice(selectedDevice);
-                  if (!success && mounted && !_isConnectingDialogShowing) {
-                    _showErrorDialog(context, "Connection Failed", "Could not connect to ${selectedDevice.platformName}. Please check device.");
-                  }
-                }
-              },
-            ),
-            // Connect / Disconnect Button
-            ElevatedButton.icon(
-              icon: Icon(service.isConnected ? Icons.power_settings_new : Icons.link),
-              label: Text(service.isConnected ? 'Disconnect & Turn Off' : 'Connect'), // Disconnect always turns off now
-              style: ElevatedButton.styleFrom( backgroundColor: service.isConnected ? Colors.red : null),
-              // Enable Connect only if NOT connected and a device IS selected and NOT already connecting/disconnecting
-              onPressed: (!service.isConnected && service.selectedDevice != null && !service.isConnecting && service.connectionState != DeviceConnectionState.disconnecting) ? () async {
-                final deviceToConnect = service.selectedDevice;
-                if (deviceToConnect != null) {
-                  bool success = await context.read<OssmmBluetoothService>().connectToDevice(deviceToConnect);
-                  if (!success && mounted && !_isConnectingDialogShowing) {
-                    _showErrorDialog(context, "Connection Failed", "Could not connect to ${service.selectedDeviceName}. Please check device.");
-                  }
-                }
-              } : (service.isConnected && !service.isConnecting && service.connectionState != DeviceConnectionState.disconnecting) ? () async {
-                // Always call disconnectAndTurnOffDevice when disconnecting via this button
-                await context.read<OssmmBluetoothService>().disconnectAndTurnOffDevice();
-              } : null,
-            ),
-          ], ), ); }
-          ),
-          const Divider(),
+        // Determine if stopping recording should also turn off device
+        bool stopAndTurnOff = service.autoReconnectToBonded || _startStopWithConnection;
 
-          // --- Recording Section ---
-          _buildSectionTitle(context, 'Recording'),
-          Consumer<OssmmBluetoothService>(
-              builder: (context, service, child) {
-                return Column(
-                  children: [
-                    ListTile(
-                      leading: Icon(service.isRecording ? Icons.stop_circle_outlined : Icons.play_circle_outline),
-                      title: Text(service.isRecording ? 'Recording Active' : 'Recording Stopped'),
-                      subtitle: Text(service.isRecording ? 'Saving to: ${service.csvFilePath ?? "..."}' : 'Press Start to begin recording'),
-                    ),
+        // Determine if Auto-Reconnect Toggle should be enabled
+        // Enable if: Not actively connecting AND not manually reconnecting
+        bool isAutoReconnectToggleEnabled = !service.isConnecting && !_isPerformingManualReconnect;
 
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-                      child: ElevatedButton.icon(
-                        icon: Icon(service.isRecording ? Icons.stop : Icons.play_arrow),
-                        label: Text(service.isRecording
-                            ? (_startStopWithConnection
-                            ? "Stop Recording and Turn Off OSSMM"
-                            : "Stop Recording")
-                            : "Start Recording"),
-                        style: ElevatedButton.styleFrom(
-                            backgroundColor: service.isRecording ? Colors.orange : Colors.green
-                        ),
-                        onPressed: service.isRecording
-                            ? (_startStopWithConnection
-                            ? (service.isRecording && !service.isConnecting && service.connectionState != DeviceConnectionState.disconnecting)
-                            ? () async {
-                          await context.read<OssmmBluetoothService>().disconnectAndTurnOffDevice();
-                        }
-                            : null
-                            : (service.isRecording && !service.isConnecting && service.connectionState != DeviceConnectionState.disconnecting)
-                            ? () async {
-                          bool? saveData = await _showSaveDataDialog(context);
-                          if (saveData != null && mounted) {
-                            await context.read<OssmmBluetoothService>().stopRecording(saveData: saveData);
-                          }
-                        }
-                            : null)
-                            : (service.isConnected && !service.isRecording && !service.isConnecting && service.connectionState != DeviceConnectionState.disconnecting)
-                            ? () async {
-                          bool success = await context.read<OssmmBluetoothService>().startRecording();
-                          if(!success && mounted) {
-                            _showErrorDialog(context, "Recording Failed", "Could not start recording. Check permissions/connection/device.");
-                          }
-                        }
-                            : null,
-                      ),
-                    ),
-                  ],
-                );
-              }
-          ),
-          const Divider(),
+        // Determine if other connection/action buttons should be enabled
+        // Enable if: Not connecting, not disconnecting, and not manually reconnecting
+        bool canInitiateConnectionActions = !service.isConnecting &&
+            service.connectionState != DeviceConnectionState.disconnecting &&
+            !_isPerformingManualReconnect;
 
-          // --- Modulation Section ---
-          _buildSectionTitle(context, 'Sleep Modulation'),
-          Consumer<OssmmBluetoothService>( builder: (context, service, child) { return SwitchListTile(
-            secondary: const Icon(Icons.bedtime_outlined),
-            title: const Text("Modulation Mode"),
-            subtitle: Text(_modulationEnabled ? "Enabled (Test button active)" : "Disabled"),
-            value: _modulationEnabled,
-            onChanged: (service.isConnecting || service.connectionState == DeviceConnectionState.disconnecting)
-                ? null
-                : (bool value) { setState(() { _modulationEnabled = value; }); },
-          );
-          }
-          ),
-          Consumer<OssmmBluetoothService>( builder: (context, service, child) { return Padding( padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0), child: ElevatedButton.icon(
-            icon: const Icon(Icons.send_outlined),
-            label: const Text('Test Modulation'),
-            onPressed: service.isConnected && _modulationEnabled && !service.isConnecting && service.connectionState != DeviceConnectionState.disconnecting
-                ? () => context.read<OssmmBluetoothService>().testModulate()
-                : null,
-          ), ); }
-          ),
-          const Divider(),
 
-          // --- Live Data Section ---
-          ExpansionTile(
-            title: _buildSectionTitle(context, 'Live Data'),
-            leading: const Icon(Icons.auto_graph),
-            initiallyExpanded: true, // Keep collapsed initially
-            children: <Widget>[
-              Consumer<OssmmBluetoothService>(
-                  builder: (context, service, child) {
-                    final List<DataSample> chartSamples = service.getDownsampledSamples(
-                        const Duration(seconds: 20)); // Pass only the duration
-
-                    bool hasChartData = chartSamples.isNotEmpty;
-                    bool showChart = service.isConnected && hasChartData;
-
-                    if (!service.isConnected && !service.isConnecting) {
-                      return const Padding( padding: EdgeInsets.all(16.0), child: Text("Connect to a device to see live data."), );
-                    } else if (service.isConnecting) {
-                      return const Padding( padding: EdgeInsets.all(16.0), child: Row( mainAxisAlignment: MainAxisAlignment.center, children: [ CircularProgressIndicator(), SizedBox(width: 15), Text("Connecting..."), ],), );
-                    } else if (!service.isRecording && !hasChartData && service.isConnected) {
-                      return const Padding( padding: EdgeInsets.all(16.0), child: Text("Start recording to view live data."), );
-                    } else if (!hasChartData && service.isRecording) {
-                      return const Padding( padding: EdgeInsets.all(16.0), child: Row( mainAxisAlignment: MainAxisAlignment.center, children: [ CircularProgressIndicator(), SizedBox(width: 15), Text("Waiting for data..."), ],),);
-                    } else if (showChart) {
-                      return LiveDataChart(
-                        samples: chartSamples,
-                        displayDuration: const Duration(seconds: 20),
-                      );
-                    } else {
-                      return const Padding( padding: EdgeInsets.all(16.0), child: Text("Connect and start recording to view live data."), );
-                    }
-                  }
+        return Scaffold(
+          appBar: AppBar(
+            title: const Text('OSSMM Dashboard'),
+            actions: [
+              Padding(
+                padding: const EdgeInsets.only(right: 16.0),
+                child: Icon(
+                  service.isConnected ? Icons.bluetooth_connected :
+                  service.isConnecting ? Icons.bluetooth_searching :
+                  Icons.bluetooth_disabled,
+                  color: service.isConnected ? Colors.white :
+                  service.isConnecting ? Colors.yellow : Colors.white54,
+                ),
               )
             ],
           ),
-          const Divider(),
-
-          // --- Changed to ExpansionTile for Data Protection Section ---
-          ExpansionTile(
-            title: _buildSectionTitle(context, 'Data Protection'),
-            leading: const Icon(Icons.security),
-            initiallyExpanded: false, // Start expanded for visibility
+          body: ListView(
+            padding: const EdgeInsets.all(8.0),
             children: <Widget>[
-              Consumer<OssmmBluetoothService>(
-                  builder: (context, service, child) {
-                    return Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-                      child: Column(
+              // --- Connection Section ---
+              _buildSectionTitle(context, 'Connection'),
+              Row(
+                children: [
+                  Expanded(
+                    child: ListTile(
+                      leading: const Icon(Icons.bluetooth),
+                      title: Text('Status: ${service.connectionState.name}'),
+                      subtitle: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          const Padding(
-                            padding: EdgeInsets.only(bottom: 12.0),
-                            child: Text(
-                              "Data is encrypted with a password when stored. You'll need this password to access recorded files.",
-                            ),
-                          ),
-                          ElevatedButton.icon(
-                            icon: const Icon(Icons.password),
-                            label: const Text('View Data Access Password'),
-                            onPressed: () => service.showDataAccessPassword(context),
-                          ),
+                          // Changed text from "Bonded Device:" to "Bonded to Device:" with "Yes" or "No" response
+                          Text('Bonded to Device: ${service.bondedDevices.isNotEmpty ? "Yes" : "No"}'),
+                          Text('Device: ${service.selectedDeviceName}'), // Name of currently connected/selected device
                         ],
                       ),
-                    );
-                  }
+                    ),
+                  ),
+                  // Reconnect button - uses updated visibility logic
+                  if (showReconnectButton)
+                    Padding(
+                      padding: const EdgeInsets.only(right: 16.0),
+                      child: ElevatedButton(
+                        // Disable if other connection actions are disabled
+                        onPressed: canInitiateConnectionActions ? () => _triggerReconnect() : null,
+                        style: ElevatedButton.styleFrom(
+                          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                        ),
+                        child: const Text("Reconnect"), // Original Text
+                      ),
+                    ),
+                  // Show spinner within the button area if manually reconnecting
+                  if (_isPerformingManualReconnect)
+                    Padding(
+                      padding: const EdgeInsets.only(right: 16.0),
+                      child: ElevatedButton(
+                        onPressed: () => _triggerReconnect(), // Call same method, but it will act as cancel
+                        style: ElevatedButton.styleFrom(
+                          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                          backgroundColor: Colors.red.shade600,
+                        ),
+                        child: const Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            SizedBox(
+                              width: 16, height: 16,
+                              child: CircularProgressIndicator(strokeWidth: 2, valueColor: AlwaysStoppedAnimation<Color>(Colors.white)),
+                            ),
+                            SizedBox(width: 8),
+                            Text("Cancel", style: TextStyle(color: Colors.white)),
+                          ],
+                        ),
+                      ),
+                    ),
+                ],
               ),
+              const Divider(),
+
+              // --- Recording Section ---
+              _buildSectionTitle(context, 'Recording'),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  ListTile(
+                    leading: Icon(service.isRecording ? Icons.stop_circle_outlined : Icons.play_circle_outline),
+                    title: Text(service.isRecording ? 'Recording Active' : 'Recording Stopped'),
+                    subtitle: Text(service.isRecording ? 'Saving to: ${service.csvFilePath ?? "..."}' : 'Press Start to begin recording'),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+                    child: SizedBox(
+                      width: double.infinity,
+                      child: ElevatedButton.icon(
+                        icon: Icon(service.isRecording ? Icons.stop : Icons.play_arrow),
+                        // Updated button text to show "Stop Recording and Turn Off" when either toggle is enabled
+                        label: Text(service.isRecording
+                            ? (stopAndTurnOff ? "Stop Recording and Turn Off" : "Stop Recording")
+                            : "Start Recording"),
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: service.isRecording
+                              ? (stopAndTurnOff ? Colors.red : Colors.orange)
+                              : Colors.green,
+                          minimumSize: const Size(double.infinity, 48),
+                        ),
+                        // Disable based on connection state and recording status
+                        onPressed: service.isRecording
+                            ? (canInitiateConnectionActions // Can we interact?
+                            ? (stopAndTurnOff // Condition for turning off device
+                            ? () async { // Action: Disconnect and Turn Off
+                          final service = context.read<OssmmBluetoothService>();
+                          // User intends to turn off if they press this button
+                          setState(() { _deviceIntentionallyTurnedOff = true; });
+                          await service.disconnectAndTurnOffDevice();
+                        }
+                            : () async { // Action: Stop Recording Only
+                          final service = context.read<OssmmBluetoothService>();
+                          bool? saveData = await _showSaveDataDialog(context);
+                          if (saveData != null && mounted) {
+                            await service.stopRecording(saveData: saveData);
+                          }
+                        }
+                        )
+                            : null // Disabled if cannot initiate actions
+                        )
+                            : (canInitiateConnectionActions && service.isConnected && !service.isRecording // Can we start?
+                            ? () async { // Action: Start Recording
+                          final service = context.read<OssmmBluetoothService>();
+                          bool success = await service.startRecording();
+                          if (!success && mounted) {
+                            _showErrorDialog(context, "Recording Failed", "Could not start recording. Check permissions/connection/device.");
+                          }
+                        }
+                            : null // Disabled otherwise
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              const Divider(),
+
+              // --- Modulation Section ---
+              _buildSectionTitle(context, 'Sleep Modulation'),
+              SwitchListTile(
+                secondary: const Icon(Icons.bedtime_outlined),
+                title: const Text("Modulation Mode"),
+                subtitle: Text(_modulationEnabled ? "Enabled (Test button active)" : "Disabled"),
+                value: _modulationEnabled,
+                // Disable if cannot initiate actions
+                onChanged: canInitiateConnectionActions
+                    ? (bool value) { setState(() { _modulationEnabled = value; }); }
+                    : null,
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+                child: SizedBox(
+                  width: double.infinity,
+                  child: ElevatedButton.icon(
+                    icon: const Icon(Icons.send_outlined),
+                    label: const Text('Test Modulation'), // Original Text
+                    style: ElevatedButton.styleFrom(
+                      minimumSize: const Size(double.infinity, 48),
+                    ),
+                    // Disable if cannot initiate actions, not connected, or modulation disabled
+                    onPressed: canInitiateConnectionActions && service.isConnected && _modulationEnabled
+                        ? () => context.read<OssmmBluetoothService>().testModulate()
+                        : null,
+                  ),
+                ),
+              ),
+              const Divider(),
+
+              // --- Live Data Section ---
+              ExpansionTile(
+                title: _buildSectionTitle(context, 'Live Data'),
+                leading: const Icon(Icons.auto_graph),
+                initiallyExpanded: true,
+                children: <Widget>[
+                  Builder(
+                      builder: (context) {
+                        final List<DataSample> chartSamples = service.getDownsampledSamples(
+                            const Duration(seconds: 20));
+
+                        bool hasChartData = chartSamples.isNotEmpty;
+                        bool showChart = service.isConnected && hasChartData;
+
+                        if (!service.isConnected && !service.isConnecting) {
+                          return const Padding( padding: EdgeInsets.all(16.0), child: Text("Connect to a device to see live data."), );
+                        } else if (service.isConnecting) {
+                          return const Padding( padding: EdgeInsets.all(16.0), child: Row( mainAxisAlignment: MainAxisAlignment.center, children: [ CircularProgressIndicator(), SizedBox(width: 15), Text("Connecting..."), ],), );
+                        } else if (!service.isRecording && !hasChartData && service.isConnected) {
+                          return const Padding( padding: EdgeInsets.all(16.0), child: Text("Start recording to view live data."), );
+                        } else if (!hasChartData && service.isRecording) {
+                          return const Padding( padding: EdgeInsets.all(16.0), child: Row( mainAxisAlignment: MainAxisAlignment.center, children: [ CircularProgressIndicator(), SizedBox(width: 15), Text("Waiting for data..."), ],),);
+                        } else if (showChart) {
+                          return LiveDataChart(
+                            samples: chartSamples,
+                            displayDuration: const Duration(seconds: 20),
+                          );
+                        } else {
+                          // Fallback case
+                          return const Padding( padding: EdgeInsets.all(16.0), child: Text("Connect and start recording to view live data."), );
+                        }
+                      }
+                  )
+                ],
+              ),
+              const Divider(),
+
+              // --- Settings Section (Collapsible) ---
+              ExpansionTile(
+                title: _buildSectionTitle(context, 'Settings'),
+                leading: const Icon(Icons.settings),
+                initiallyExpanded: false, // Start collapsed
+                children: <Widget>[
+                  // Auto-Reconnect Toggle
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 0.0),
+                    child: SwitchListTile(
+                      title: const Text("Auto-Reconnect Bonded Device"), // Original Text
+                      subtitle: const Text("Automatically reconnect when device is available"), // Original Text
+                      value: service.autoReconnectToBonded,
+                      // Disable only if actively connecting or manually reconnecting
+                      onChanged: isAutoReconnectToggleEnabled
+                          ? (bool value) {
+                        service.setAutoReconnectToBonded(value);
+                        // If enabling auto-reconnect, disable start/stop with connection
+                        if (value && _startStopWithConnection) {
+                          setState(() {
+                            _startStopWithConnection = false;
+                          });
+                        } else {
+                          // Ensure UI rebuilds even if only service state changed
+                          setState(() {});
+                        }
+                      }
+                          : null, // Disabled
+                      dense: true,
+                      contentPadding: EdgeInsets.zero,
+                    ),
+                  ),
+
+                  // Start/Stop with Connection Toggle
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 0.0),
+                    child: SwitchListTile(
+                      title: const Text("Start/Stop with Connection"), // Original Text
+                      subtitle: const Text("Starts recording on connection. Stops recording and shuts off headband on disconnect."), // Original Text
+                      value: _startStopWithConnection,
+                      // Disable if cannot initiate actions
+                      onChanged: canInitiateConnectionActions
+                          ? (bool value) {
+                        setState(() {
+                          _startStopWithConnection = value;
+                          // If enabling this, disable auto-reconnect
+                          if (value && service.autoReconnectToBonded) {
+                            service.setAutoReconnectToBonded(false);
+                          }
+                        });
+                      }
+                          : null,
+                      dense: true,
+                      contentPadding: EdgeInsets.zero,
+                    ),
+                  ),
+
+                  // Connection buttons
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        // Find Device Button
+                        Expanded(
+                          child: Padding(
+                            padding: const EdgeInsets.only(right: 8.0),
+                            child: ElevatedButton.icon(
+                              icon: const Icon(Icons.search),
+                              label: const Text('Find Device'), // Original Text
+                              style: ElevatedButton.styleFrom(minimumSize: const Size(0, 48)),
+                              // Disable if cannot initiate actions OR if connected
+                              onPressed: canInitiateConnectionActions && !service.isConnected
+                                  ? () async {
+                                final service = context.read<OssmmBluetoothService>();
+                                final navigator = Navigator.of(context);
+
+                                final selectedDevice = await navigator.push<fbp.BluetoothDevice?>(
+                                  MaterialPageRoute(builder: (ctx) => const FindDevicesScreen()),
+                                );
+                                if (selectedDevice != null && mounted) {
+                                  // Reset intentional flag before connecting
+                                  if (_deviceIntentionallyTurnedOff) {
+                                    setState(() { _deviceIntentionallyTurnedOff = false; });
+                                  }
+                                  bool success = await service.connectToDevice(selectedDevice);
+                                  if (!success && mounted) {
+                                    // Use platformName here as selectedDevice is fbp.BluetoothDevice
+                                    _showErrorDialog(context, "Connection Failed",
+                                        "Could not connect to ${selectedDevice.platformName}. Please check device.");
+                                  }
+                                }
+                              }
+                                  : null,
+                            ),
+                          ),
+                        ),
+                        // Connect / Disconnect Button
+                        Expanded(
+                          child: Padding(
+                            padding: const EdgeInsets.only(left: 8.0),
+                            child: ElevatedButton.icon(
+                              icon: Icon(
+                                // Show cancel icon when reconnection is in progress
+                                  _isPerformingManualReconnect ? Icons.cancel :
+                                  // Otherwise show power icon for disconnect or link icon for connect
+                                  (service.isConnected ? Icons.power_settings_new : Icons.link)
+                              ),
+                              // Update the label based on the current state
+                              label: Text(
+                                  _isPerformingManualReconnect ? 'Cancel' :
+                                  (service.isConnected ? 'Disconnect' : 'Connect')
+                              ),
+                              style: ElevatedButton.styleFrom(
+                                // Use red for disconnect or cancel, otherwise default color
+                                backgroundColor: (_isPerformingManualReconnect || service.isConnected) ? Colors.red : null,
+                                minimumSize: const Size(0, 48),
+                              ),
+                              // Update action based on current state
+                              onPressed:
+                              // If we're reconnecting, allow cancellation regardless of other states
+                              _isPerformingManualReconnect ? () => _triggerReconnect() :
+                              // Otherwise use normal action disabling logic
+                              (canInitiateConnectionActions
+                                  ? (!service.isConnected && service.bondedDevices.isNotEmpty)
+                              // Call _triggerReconnect for bonded devices
+                                  ? () => _triggerReconnect()
+                                  : (service.isConnected)
+                              // Logic to Disconnect
+                                  ? () async {
+                                final service = context.read<OssmmBluetoothService>();
+                                setState(() {
+                                  _deviceIntentionallyTurnedOff = true; // User initiated disconnect
+                                });
+                                await service.disconnectAndTurnOffDevice(); // Or just disconnect()
+                              }
+                                  : null
+                                  : null), // Disabled if cannot initiate actions
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+
+                  // Forget Paired Devices Button
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+                    child: ElevatedButton.icon(
+                      icon: const Icon(Icons.delete_outline),
+                      label: const Text('Forget All Paired Devices'), // Original Text
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.red.shade50,
+                        foregroundColor: Colors.red,
+                        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12), // Adjusted padding
+                      ),
+                      // Disable if cannot initiate actions OR no bonded devices
+                      onPressed: canInitiateConnectionActions && service.bondedDevices.isNotEmpty
+                          ? () => _showConfirmForgetDevicesDialog(context)
+                          : null,
+                    ),
+                  ),
+                ],
+              ),
+              const Divider(),
+
+              // --- Data Protection Section ---
+              ExpansionTile(
+                title: _buildSectionTitle(context, 'Data Protection'),
+                leading: const Icon(Icons.security),
+                initiallyExpanded: false, // Start collapsed
+                children: <Widget>[
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Padding(
+                          padding: EdgeInsets.only(bottom: 12.0),
+                          child: Text(
+                            "Data is encrypted with a password when stored. You'll need this password to access recorded files.", // Original Text
+                            style: TextStyle(fontSize: 14),
+                          ),
+                        ),
+                        // Centered the button
+                        Center(
+                          child: ElevatedButton.icon(
+                            icon: const Icon(Icons.password),
+                            label: const Text('View Data Access Password'), // Original Text
+                            style: ElevatedButton.styleFrom(
+                              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12), // Adjusted padding
+                            ),
+                            onPressed: () => context.read<OssmmBluetoothService>().showDataAccessPassword(context),
+                          ),
+                        ),
+                      ],
+                    ),
+                  )
+                ],
+              ),
+
+              // Added extra padding at the bottom for navigation bar clearance
+              const SizedBox(height: 80),
             ],
           ),
-
-          // Added extra padding at the bottom for navigation bar clearance
-          const SizedBox(height: 80),
-        ],
-      ),
+        );
+      },
     );
   }
 
