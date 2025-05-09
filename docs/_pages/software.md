@@ -177,17 +177,29 @@ file onto an Android device.
 # (Advanced) Editing Android Application
 
 If you are interested in editing the Android application for your own research, 
-we describe here how to do so. Please note, these are the general steps which 
-must be undertaken and not a step-by-step guide. 
+we briefly the set-up requirements for doing so. Please note, these are the general steps
+which must be undertaken and not a step-by-step guide on how to modify the files.
 
 ## Step 1 - Install Android Studio IDE
 
 You can install the latest version of [Android Studio here](https://developer.android.com/studio)
 
-## Step 2 - Install Flutter SDK and Flutter Plugin for Android Studio
+## Step 2 - Install Flutter SDK
 
-## Step  3- Install Java
+Go to [this link](https://docs.flutter.dev/get-started/install) for Flutter Installation.
 
-## Step 3 - 
+## Step 3 - Install Java
 
-## Step 2 - Download (or pull) the OSSMM app files
+Go to [this link](https://www.java.com/en/download/help/download_options.html)) for Java Installation instructions.
+
+## Step 5 - Configure Flutter and Dart Plugin for Android Studio in Settings
+
+## Step 6 - Download (or pull) the OSSMM app files
+
+## Step 7 - Open the Project with Android Studio
+
+## Step 8 - Locate modifiable Android app code: 
+
+For Android 15 and above, pertinent files are located here:
+
+"OSSMM\OSSMM - V1.0.4 System Code\Android App Code\Android 15\ossmm\lib"

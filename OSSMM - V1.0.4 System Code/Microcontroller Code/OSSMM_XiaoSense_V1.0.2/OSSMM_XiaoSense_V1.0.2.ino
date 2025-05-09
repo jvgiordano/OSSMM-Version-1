@@ -103,7 +103,7 @@ BLECharacteristic SleepData = BLECharacteristic(OSSMM_CHAR_UUID);      // Charac
 BLECharacteristic SleepModulator = BLECharacteristic(OSSMM_MOD_UUID);  // Characteristic ID for Sleep Modulator (In Version 1 Vibration Disc), generated with random UUID generator
 
 /* ----------------------------------------------------------------
-  Security and Connection Callbacks
+  Security and Connection Callbacks (BLE Bonding)
   ----------------------------------------------------------------
 */
 // Callback when a connection is secured with encryption

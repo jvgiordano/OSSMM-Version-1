@@ -15,6 +15,9 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 // Define a constant for the subdirectory name
 const String _deviceDirectoryName = "OSSMM";
 
+// Define the correct CSV header as a constant
+const List<String> _correctCsvHeader = ['DateTime', 'transNum', 'eog', 'hr', 'accX', 'accY', 'accZ', 'gyroX', 'gyroY', 'gyroZ'];
+
 class CsvWriterUtil {
   String? _currentFilePath; // Stores the path of the final output file (ZIP or CSV on failure)
   IOSink? _sink;
@@ -27,14 +30,16 @@ class CsvWriterUtil {
   String? get currentFilePath => _currentFilePath; // Returns the path of the final ZIP file (or temp CSV if zip failed)
   bool get isInitialized => _isInitialized;
 
+  // _requestStoragePermission() is now deprecated for OSSMM
   // Request necessary permissions for Android
+  /*
   Future<bool> _requestStoragePermission() async {
     if (Platform.isAndroid) {
-      var photosStatus = await Permission.photos.request();
-      print("Photos (Media) permission request status: $photosStatus");
+      // var photosStatus = await Permission.photos.request(); (unused)
+      // print("Photos (Media) permission request status: $photosStatus"); (unused)
       var storageStatus = await Permission.storage.request();
       print("Storage permission request status: $storageStatus");
-      if (photosStatus.isGranted || storageStatus.isGranted) {
+      if (storageStatus.isGranted) {
         print("Sufficient permissions granted.");
         return true;
       } else {
@@ -45,6 +50,7 @@ class CsvWriterUtil {
       return true;
     }
   }
+   */
 
   // Generate or retrieve the encryption password
   Future<String> _getEncryptionPassword() async {
@@ -123,11 +129,14 @@ class CsvWriterUtil {
 
   // Prepare storage - ensures the target directory exists
   Future<bool> _prepareStorage() async {
+    // Storage Permission deprecated in OSSMM app
+    /*
     bool permissionsGranted = await _requestStoragePermission();
     if (!permissionsGranted) {
       print("Storage permissions not granted. Cannot prepare storage.");
       return false;
     }
+    */
     try {
       final String securePath = await _getSecureDirectoryPath();
       final Directory dir = Directory(securePath);
@@ -194,9 +203,15 @@ class CsvWriterUtil {
       }
       _sink = file.openWrite();
       print("Opened temporary CSV file for writing: $_tempCsvPath");
-      _writeRow(DataSample.csvHeader);
+
+      // FIXED BUG: Set these flags BEFORE writing the header
       _hasWrittenHeader = true;
       _isInitialized = true;
+
+      // Now write the header with the correct flags set
+      _writeRow(_correctCsvHeader);
+      print("Written correct CSV header: $_correctCsvHeader");
+
       _currentFilePath = null;
       print("CSV Writer Initialized successfully.");
       return true;
@@ -311,7 +326,8 @@ class CsvWriterUtil {
 
 
   // Close the current CSV writer, create the protected ZIP, and clean up.
-  Future<void> close() async {
+  // Added deleteUnencryptedCsv parameter with default value true
+  Future<void> close({bool deleteUnencryptedCsv = true}) async {
     if (!_isInitialized || _sink == null) {
       print("Close called but writer was not initialized or already closed.");
       return;
@@ -354,11 +370,17 @@ class CsvWriterUtil {
       if (zipPath != null && zipPath.isNotEmpty) {
         print("Successfully created protected ZIP: $zipPath");
         _currentFilePath = zipPath;
-        try {
-          await tempFile.delete();
-          print("Deleted temporary CSV file: $tempCsvPathToProcess");
-        } catch (e) {
-          print("Error deleting temporary CSV file $tempCsvPathToProcess after zipping: $e");
+
+        // Only delete if specified by parameter
+        if (deleteUnencryptedCsv) {
+          try {
+            await tempFile.delete();
+            print("Deleted temporary CSV file: $tempCsvPathToProcess");
+          } catch (e) {
+            print("Error deleting temporary CSV file $tempCsvPathToProcess after zipping: $e");
+          }
+        } else {
+          print("Keeping unencrypted CSV file as requested: $tempCsvPathToProcess");
         }
       } else {
         print("Failed to create protected ZIP. The temporary CSV file $tempCsvPathToProcess has been kept.");

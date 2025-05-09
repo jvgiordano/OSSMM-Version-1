@@ -22,7 +22,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   // Local UI state
   bool _modulationEnabled = false;
-  bool _startStopWithConnection = false; // Default to false
+  bool _startStopWithConnection = true; // Default to true
 
   // Store the service instance for easy access in listeners
   late OssmmBluetoothService _bluetoothService;
@@ -47,8 +47,15 @@ class _HomeScreenState extends State<HomeScreen> {
     // *** ADDED: Initialize previous connection state ***
     _previousConnectionState = _bluetoothService.connectionState;
 
-    // Ensure Auto-Reconnect in service defaults to false on init
-    // _bluetoothService.setAutoReconnectToBonded(false); // Uncomment if needed
+    // Schedule state modifications for after the current build completes
+    // This prevents the "setState during build" error
+    Future.microtask(() {
+      // Set deleteUnencryptedCsv to true by default
+      _bluetoothService.setDeleteUnencryptedCsv(true);
+
+      // Ensure Auto-Reconnect in service defaults to false on init
+      _bluetoothService.setAutoReconnectToBonded(false);
+    });
 
     // Add listener to react to service state changes
     _bluetoothService.addListener(_handleServiceStateChange);
@@ -367,7 +374,12 @@ class _HomeScreenState extends State<HomeScreen> {
                         style: ElevatedButton.styleFrom(
                           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                         ),
-                        child: const Text("Reconnect"), // Original Text
+                        child: Text(
+                          _startStopWithConnection
+                              ? "Reconnect\nand\nRecord"
+                              : "Reconnect",
+                          textAlign: TextAlign.center,
+                        ), // Changed from const Text("Reconnect")
                       ),
                     ),
                   // Show spinner within the button area if manually reconnecting
@@ -426,21 +438,21 @@ class _HomeScreenState extends State<HomeScreen> {
                         // Disable based on connection state and recording status
                         onPressed: service.isRecording
                             ? (canInitiateConnectionActions // Can we interact?
-                            ? (stopAndTurnOff // Condition for turning off device
-                            ? () async { // Action: Disconnect and Turn Off
-                          final service = context.read<OssmmBluetoothService>();
-                          // User intends to turn off if they press this button
-                          setState(() { _deviceIntentionallyTurnedOff = true; });
-                          await service.disconnectAndTurnOffDevice();
-                        }
-                            : () async { // Action: Stop Recording Only
+                            ? () async { // Modified to always show save dialog first
                           final service = context.read<OssmmBluetoothService>();
                           bool? saveData = await _showSaveDataDialog(context);
                           if (saveData != null && mounted) {
-                            await service.stopRecording(saveData: saveData);
+                            if (stopAndTurnOff) {
+                              // Set flag indicating user intentionally turning off device
+                              setState(() { _deviceIntentionallyTurnedOff = true; });
+                              // Pass the saveData choice to the disconnect method
+                              await service.disconnectAndTurnOffDevice(saveData: saveData);
+                            } else {
+                              // Just stop recording but don't disconnect
+                              await service.stopRecording(saveData: saveData);
+                            }
                           }
                         }
-                        )
                             : null // Disabled if cannot initiate actions
                         )
                             : (canInitiateConnectionActions && service.isConnected && !service.isRecording // Can we start?
@@ -457,37 +469,6 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
                 ],
-              ),
-              const Divider(),
-
-              // --- Modulation Section ---
-              _buildSectionTitle(context, 'Sleep Modulation'),
-              SwitchListTile(
-                secondary: const Icon(Icons.bedtime_outlined),
-                title: const Text("Modulation Mode"),
-                subtitle: Text(_modulationEnabled ? "Enabled (Test button active)" : "Disabled"),
-                value: _modulationEnabled,
-                // Disable if cannot initiate actions
-                onChanged: canInitiateConnectionActions
-                    ? (bool value) { setState(() { _modulationEnabled = value; }); }
-                    : null,
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-                child: SizedBox(
-                  width: double.infinity,
-                  child: ElevatedButton.icon(
-                    icon: const Icon(Icons.send_outlined),
-                    label: const Text('Test Modulation'), // Original Text
-                    style: ElevatedButton.styleFrom(
-                      minimumSize: const Size(double.infinity, 48),
-                    ),
-                    // Disable if cannot initiate actions, not connected, or modulation disabled
-                    onPressed: canInitiateConnectionActions && service.isConnected && _modulationEnabled
-                        ? () => context.read<OssmmBluetoothService>().testModulate()
-                        : null,
-                  ),
-                ),
               ),
               const Divider(),
 
@@ -524,6 +505,47 @@ class _HomeScreenState extends State<HomeScreen> {
                         }
                       }
                   )
+                ],
+              ),
+              const Divider(),
+
+              // --- Modulation Section (Now Collapsible) ---
+              ExpansionTile(
+                title: _buildSectionTitle(context, 'Sleep Modulation'),
+                leading: const Icon(Icons.bedtime_outlined),
+                initiallyExpanded: false, // Start collapsed
+                children: <Widget>[
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 0.0),
+                    child: SwitchListTile(
+                      title: const Text("Modulation Mode"),
+                      subtitle: Text(_modulationEnabled ? "Enabled (Test button active)" : "Disabled"),
+                      value: _modulationEnabled,
+                      // Disable if cannot initiate actions
+                      onChanged: canInitiateConnectionActions
+                          ? (bool value) { setState(() { _modulationEnabled = value; }); }
+                          : null,
+                      dense: true,
+                      contentPadding: EdgeInsets.zero,
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+                    child: SizedBox(
+                      width: double.infinity,
+                      child: ElevatedButton.icon(
+                        icon: const Icon(Icons.send_outlined),
+                        label: const Text('Test Modulation'), // Original Text
+                        style: ElevatedButton.styleFrom(
+                          minimumSize: const Size(double.infinity, 48),
+                        ),
+                        // Disable if cannot initiate actions, not connected, or modulation disabled
+                        onPressed: canInitiateConnectionActions && service.isConnected && _modulationEnabled
+                            ? () => context.read<OssmmBluetoothService>().testModulate()
+                            : null,
+                      ),
+                    ),
+                  ),
                 ],
               ),
               const Divider(),
@@ -578,6 +600,23 @@ class _HomeScreenState extends State<HomeScreen> {
                             service.setAutoReconnectToBonded(false);
                           }
                         });
+                      }
+                          : null,
+                      dense: true,
+                      contentPadding: EdgeInsets.zero,
+                    ),
+                  ),
+
+                  // Delete Unencrypted CSV Toggle - FIXED
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 0.0),
+                    child: SwitchListTile(
+                      title: const Text("Delete Unencrypted CSV Recording"),
+                      subtitle: const Text("Keep only encrypted ZIP files after recording"),
+                      value: service.deleteUnencryptedCsv,
+                      onChanged: canInitiateConnectionActions
+                          ? (bool value) {
+                        service.setDeleteUnencryptedCsv(value);
                       }
                           : null,
                       dense: true,

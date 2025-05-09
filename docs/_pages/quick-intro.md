@@ -12,7 +12,7 @@ sidebar:
 
 **OSSMM** (Open-Source Sleep Monitor and Modulator) is the world's first 
 open-source hardware and software system designed for both sleep monitoring 
-and modulation
+and modulation.
 
 <br>
 

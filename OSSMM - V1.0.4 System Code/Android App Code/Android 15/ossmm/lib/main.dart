@@ -1,5 +1,25 @@
 // lib/main.dart
 
+/*
+  ******************************************************************************
+    Notes:
+    Program: OSSMM App for Android 15+
+    By: Jonny Giordano
+
+    Compared with the OSSMM version this:
+    * Implements bonding/pairing with OSSMM headband
+    * Encrypted CSV files after data recording
+    * Various Connection Settings
+      * Auto-Reconnect to Bonded Device
+      * Auto-Record upon pairing to Bonded Device
+      * Keep unecrypted CSV files
+    * Collapsible sections with all items under one "Dashboard" main page
+    *
+  ******************************************************************************
+
+ */
+
+
 import 'package:flutter/material.dart';
 import 'package:flutter_blue_plus/flutter_blue_plus.dart' as fbp; // Use alias
 import 'package:provider/provider.dart';
