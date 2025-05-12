@@ -12,6 +12,9 @@ dependencies:
   flutter:
     sdk: flutter
 
+  # Enable Location
+  location: ^7.0.0  # Add this new dependency
+
   # Core BLE functionality
   flutter_blue_plus: ^1.35.0
 

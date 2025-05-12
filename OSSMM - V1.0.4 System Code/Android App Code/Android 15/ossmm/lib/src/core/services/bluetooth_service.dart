@@ -1088,6 +1088,8 @@ class OssmmBluetoothService with ChangeNotifier {
 
   // --- Connection Logic with Bond Support ---
 
+// Update the connectToDevice method in bluetooth_service.dart
+
   Future<bool> connectToDevice(fbp.BluetoothDevice device) async {
     if (_isConnecting ||
         (_connectionState != DeviceConnectionState.disconnected &&
@@ -1119,7 +1121,7 @@ class OssmmBluetoothService with ChangeNotifier {
     _connectionStateSubscription = null;
 
     _connectionStateSubscription = device.connectionState.listen(
-      (state) {
+          (state) {
         print("Device $deviceId Connection State Stream Update: $state");
 
         if (state == fbp.BluetoothConnectionState.disconnected) {
@@ -1141,114 +1143,122 @@ class OssmmBluetoothService with ChangeNotifier {
     );
 
     try {
-      // Check if this device is already bonded
+      // Check if device is already bonded
+      bool isBonded = _bondedDevices.contains(deviceId);
 
-      if (Platform.isAndroid && _bondedDevices.contains(deviceId)) {
-        print("Device is already bonded, using secure connection");
-      }
-
-      // Connect with timeout
-
-      await device.connect(timeout: const Duration(seconds: 15));
-
-      // Check connection status immediately after connect returns
-
-      if (device.isConnected == false) {
-        print(
-          "Device $deviceId disconnected immediately after connect() call. Aborting.",
-        );
-
-        await _handleDisconnect(showError: false);
-
-        return false;
-      }
-
-      // Setup bond state listener
-
-      await _setupBondStateListener(device);
-
-      print(
-        "Platform connection seems established for $deviceId, proceeding to setup...",
+      // Connect with bonding if needed
+      await device.connect(
+        timeout: const Duration(seconds: 30),
+        autoConnect: false, // Direct connection
       );
 
+      // Verify connection before proceeding
+      await Future.delayed(const Duration(milliseconds: 500));
+
+      if (!device.isConnected) {
+        print("Device not connected after connect() call");
+        await _handleDisconnect(showError: true);
+        return false;
+      }
+
+      // If not bonded, create bond before MTU request
+      if (!isBonded && Platform.isAndroid) {
+        print("Device not bonded. Creating bond first...");
+        try {
+          await device.createBond();
+          // Wait for bond to establish
+          await Future.delayed(const Duration(seconds: 2));
+          print("Bond creation initiated");
+        } catch (e) {
+          print("Bond creation error (may be normal if already bonding): $e");
+        }
+      }
+
+      // Now attempt the setup
       bool setupOk = await _postConnectionSetup(device);
 
-      // Check connection status again after setup attempt
-
-      if (device.isConnected == false ||
-          _connectionState == DeviceConnectionState.disconnected ||
-          _selectedDevice?.remoteId != device.remoteId) {
-        print(
-          "Device $deviceId disconnected during or immediately after setup. Aborting.",
-        );
-
-        await _handleDisconnect(showError: !setupOk);
-
-        return false;
-      }
-
-      if (setupOk) {
-        _connectionState = DeviceConnectionState.connected;
-        _isConnecting = false;
-
-        print("✅ Device $deviceId setup complete and connected.");
-
-        // If device isn't bonded yet, try to create a bond
-
-        if (_bondState == DeviceBondState.none && Platform.isAndroid) {
-          print("Attempting to create bond with device");
-
-          await createBond();
-        }
-
-        notifyListeners();
-
-        return true;
-      } else {
+      if (!setupOk) {
         print("❌ Post-connection setup failed for $deviceId.");
-
         await _handleDisconnect(showError: true);
-
         return false;
       }
+
+      _connectionState = DeviceConnectionState.connected;
+      _isConnecting = false;
+      print("✅ Device $deviceId setup complete and connected.");
+
+      // Update bond state after successful connection
+      if (Platform.isAndroid && !_bondedDevices.contains(deviceId)) {
+        await _addBondedDevice(deviceId);
+      }
+
+      notifyListeners();
+      return true;
+
     } catch (e) {
       print("❌ Error during connect() or setup for device $deviceId: $e");
-
       await _handleDisconnect(showError: true);
-
       return false;
     } finally {
       if (_connectionState != DeviceConnectionState.connected &&
           _isConnecting) {
         _isConnecting = false;
-
         notifyListeners();
       }
     }
   }
 
+// Also update the _postConnectionSetup method to handle errors more gracefully:
+
   Future<bool> _postConnectionSetup(fbp.BluetoothDevice device) async {
     try {
-      print("PostConnect: Requesting MTU 184 for ${device.remoteId}...");
+      print("PostConnect: Starting setup for ${device.remoteId}...");
 
-      await device.requestMtu(184);
+      // Add retry logic for MTU request
+      int mtuRetries = 3;
+      int mtuSize = 0;
 
-      await Future.delayed(const Duration(milliseconds: 100));
+      for (int i = 0; i < mtuRetries; i++) {
+        try {
+          print("PostConnect: Requesting MTU 184 (attempt ${i + 1})...");
+          mtuSize = await device.requestMtu(184);
+          print("PostConnect: MTU successfully set to $mtuSize");
+          break;
+        } catch (e) {
+          print("PostConnect: MTU request failed (attempt ${i + 1}): $e");
+          if (i == mtuRetries - 1) {
+            // On last retry, try a smaller MTU
+            try {
+              print("PostConnect: Trying smaller MTU of 23...");
+              mtuSize = await device.requestMtu(23);
+              print("PostConnect: MTU set to minimum: $mtuSize");
+            } catch (e2) {
+              print("PostConnect: Even minimum MTU failed: $e2");
+              // Continue without MTU change
+            }
+          } else {
+            await Future.delayed(const Duration(milliseconds: 500));
+          }
+        }
+      }
 
-      print(
-        "PostConnect: Requesting Connection Priority High for ${device.remoteId}...",
-      );
+      await Future.delayed(const Duration(milliseconds: 200));
 
-      await device.requestConnectionPriority(
-        connectionPriorityRequest: fbp.ConnectionPriority.high,
-      );
+      // Request connection priority with error handling
+      try {
+        print("PostConnect: Requesting Connection Priority High...");
+        await device.requestConnectionPriority(
+          connectionPriorityRequest: fbp.ConnectionPriority.high,
+        );
+      } catch (e) {
+        print("PostConnect: Connection priority request failed: $e");
+        // Not critical, continue
+      }
 
-      await Future.delayed(const Duration(milliseconds: 100));
+      await Future.delayed(const Duration(milliseconds: 200));
 
-      print("PostConnect: Discovering services for ${device.remoteId}...");
-
+      print("PostConnect: Discovering services...");
       List<fbp.BluetoothService> services = await device.discoverServices();
-
       print("PostConnect: Found ${services.length} services.");
 
       await Future.delayed(const Duration(milliseconds: 100));
@@ -1261,7 +1271,6 @@ class OssmmBluetoothService with ChangeNotifier {
       for (var s in services) {
         if (s.uuid == _BleConstants.serviceUuid) {
           targetService = s;
-
           break;
         }
       }
@@ -1270,7 +1279,6 @@ class OssmmBluetoothService with ChangeNotifier {
         print(
           "PostConnect: ❌ Error: Required service ${_BleConstants.serviceUuid} not found.",
         );
-
         return false;
       }
 
@@ -1279,11 +1287,9 @@ class OssmmBluetoothService with ChangeNotifier {
       for (fbp.BluetoothCharacteristic c in targetService.characteristics) {
         if (c.uuid == _BleConstants.characteristicUuidData) {
           _dataCharacteristic = c;
-
           print("PostConnect:     * ✅ Found Data Characteristic: ${c.uuid}");
         } else if (c.uuid == _BleConstants.characteristicUuidMod) {
           _modCharacteristic = c;
-
           print(
             "PostConnect:     * ✅ Found Modulation Characteristic: ${c.uuid}",
           );
@@ -1294,7 +1300,6 @@ class OssmmBluetoothService with ChangeNotifier {
         print(
           "PostConnect: ❌ Error: Data characteristic ${_BleConstants.characteristicUuidData} not found.",
         );
-
         return false;
       }
 
@@ -1302,7 +1307,6 @@ class OssmmBluetoothService with ChangeNotifier {
         print(
           "PostConnect: ❌ Error: Modulation characteristic ${_BleConstants.characteristicUuidMod} not found.",
         );
-
         return false;
       }
 
@@ -1310,9 +1314,7 @@ class OssmmBluetoothService with ChangeNotifier {
         print(
           "PostConnect: ❌ Error: Data characteristic does NOT support Notify.",
         );
-
         _dataCharacteristic = null;
-
         return false;
       }
 
@@ -1329,7 +1331,7 @@ class OssmmBluetoothService with ChangeNotifier {
       return true;
     } catch (e) {
       print("PostConnect: ❌ Error during post-connection setup: $e");
-
+      print("PostConnect: Stack trace: ${StackTrace.current}");
       return false;
     }
   }

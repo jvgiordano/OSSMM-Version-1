@@ -4,8 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_blue_plus/flutter_blue_plus.dart' as fbp;
 import 'package:provider/provider.dart';
 import 'package:ossmm/src/core/services/bluetooth_service.dart';
+import 'package:ossmm/src/core/services/location_service.dart';
 import 'package:ossmm/src/features/data_display/widgets/live_data_chart.dart';
 import 'package:ossmm/src/features/device_scan/screens/find_devices_screen.dart';
+import 'package:ossmm/src/features/system_requirements/screens/system_requirements_screen.dart';
 import 'package:ossmm/src/core/utils/app_lifecycle_observer.dart';
 import 'dart:async';
 import 'package:ossmm/src/core/models/data_sample.dart';
@@ -26,6 +28,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   // Store the service instance for easy access in listeners
   late OssmmBluetoothService _bluetoothService;
+  late LocationService _locationService; // Store location service reference
 
   // Add this variable for lifecycle management
   late AppLifecycleObserver _lifecycleObserver;
@@ -41,8 +44,9 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     super.initState();
-    // Get service instance (don't listen here, use Consumer/watch elsewhere)
+    // Get service instances (don't listen here, use Consumer/watch elsewhere)
     _bluetoothService = Provider.of<OssmmBluetoothService>(context, listen: false);
+    _locationService = Provider.of<LocationService>(context, listen: false);
 
     // *** ADDED: Initialize previous connection state ***
     _previousConnectionState = _bluetoothService.connectionState;
@@ -61,23 +65,54 @@ class _HomeScreenState extends State<HomeScreen> {
     _bluetoothService.addListener(_handleServiceStateChange);
 
     // Initialize app lifecycle observer
-    _lifecycleObserver = AppLifecycleObserver(context);
+    _lifecycleObserver = AppLifecycleObserver(_bluetoothService);
 
     // Reset the turn-off flag initially
     _deviceIntentionallyTurnedOff = false;
+
+    // Monitor location service status
+    _locationService.addListener(_checkSystemRequirements);
   }
 
   @override
   void dispose() {
-    // Remove listener to prevent memory leaks
+    // Remove listeners BEFORE anything else
     _bluetoothService.removeListener(_handleServiceStateChange);
+    _locationService.removeListener(_checkSystemRequirements);
+
     // Dispose lifecycle observer
     _lifecycleObserver.dispose();
     super.dispose();
   }
 
+  // Add this new method to handle system requirements checking
+  void _checkSystemRequirements() {
+    // Check if widget is still mounted
+    if (!mounted) return;
+
+    bool bluetoothEnabled = _bluetoothService.adapterState == fbp.BluetoothAdapterState.on;
+    bool locationEnabled = _locationService.isLocationEnabled;
+
+    // If either requirement is not met, navigate back to system requirements screen
+    if (!bluetoothEnabled || !locationEnabled) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (mounted) {
+          Navigator.of(context).pushAndRemoveUntil(
+            MaterialPageRoute(
+              builder: (_) => const SystemRequirementsScreen(),
+            ),
+                (route) => false,
+          );
+        }
+      });
+    }
+  }
+
   // Listener callback for service state changes
   void _handleServiceStateChange() {
+    // Check if widget is still mounted
+    if (!mounted) return;
+
     // Get the current state *before* any potential setState calls
     final currentState = _bluetoothService.connectionState;
 

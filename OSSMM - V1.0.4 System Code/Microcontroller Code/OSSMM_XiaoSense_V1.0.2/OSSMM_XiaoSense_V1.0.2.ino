@@ -63,16 +63,16 @@ unsigned long lastSampleTime = 0;
 //#include <PDM.h>               // microphone library (not yet used)
 
 /* ------------------------------------------------------------------------
-   Initialize Variables for Sensors (Accelerometer, Gyroscope, EOG), Timers, and Transmission
+   Initialize Variables for Sensors (Accelerometer, Gyroscope, EOG), Timers, BLE Transmission, and Power/Serial Connections
   -------------------------------------------------------------------------
 */
-unsigned long Start;          // timer variable for measuring code
-unsigned long End;            // timer variable for measuring code
-unsigned long TransmitStart;  // timer variable for measuring measurement+transmission time
-unsigned long Start2;         // timer variable for measuring code
-unsigned long End2;           // timer variable for measuring code
+unsigned long Start;            // timer variable for measuring code
+unsigned long End;              // timer variable for measuring code
+unsigned long TransmitStart;    // timer variable for measuring measurement+transmission time
+unsigned long Start2;           // timer variable for measuring code
+unsigned long End2;             // timer variable for measuring code
 
-bool isConnected = false;     // If device is connected
+bool isConnected = false;     // If device is connected through BLE
 bool initial = false;         // If this is the 1st sampling loop on connection/disconnection
 
 uint16_t update_num = 0;      // Transmission number
@@ -87,6 +87,15 @@ uint16_t accVals[3];          // Formated accelerometer data to [0, 1600], [x,y,
 
 uint16_t eog = 0;             // EOG measurement
 uint16_t hr = 0;              // Heart Rate (pulse) measurement
+
+/* ----------------------------------------------------------------
+   USB Power and Serial Connection
+   -----------------------------------------------------------------
+*/
+
+bool powerUSB = (NRF_POWER->USBREGSTATUS) & POWER_USBREGSTATUS_VBUSDETECT_Msk;    // Determine if receiving power via USB
+bool resetButtonLaunch = (NRF_POWER->RESETREAS) & POWER_RESETREAS_RESETPIN_Msk;   // Determine if Start-up was due to Reset button ("ON" Button)
+
 
 /* ----------------------------------------------------------------
     Initialize BLE Variables, Service, and Characteristics
@@ -112,10 +121,10 @@ void connection_secured_callback(uint16_t conn_handle) {
 
   if (connection->secured()) {
     Serial.println("Connection secured: Role = Peripheral");
-    
+
     // Get information about the bonded peer
     ble_gap_addr_t peer_addr = connection->getPeerAddr();
-    
+
     // Print bonded peer address
     Serial.print("Peer address: ");
     Serial.print(peer_addr.addr[5], HEX); Serial.print(":");
@@ -125,7 +134,7 @@ void connection_secured_callback(uint16_t conn_handle) {
     Serial.print(peer_addr.addr[1], HEX); Serial.print(":");
     Serial.print(peer_addr.addr[0], HEX);
     Serial.println();
-    
+
     // Request pairing if not already bonded
     if (!connection->bonded()) {
       Serial.println("Not bonded yet, requesting pairing");
@@ -140,7 +149,7 @@ void connection_secured_callback(uint16_t conn_handle) {
 void pair_complete_callback(uint16_t conn_handle, uint8_t auth_status) {
   if (auth_status == BLE_GAP_SEC_STATUS_SUCCESS) {
     Serial.println("Pairing successful!");
-    
+
     // Flash blue LED to indicate successful pairing
     for (int i = 0; i < 5; i++) {
       analogWrite(LED_BLUE, 0);  // Turn ON Blue LED
@@ -207,26 +216,26 @@ void disconnect_callback(uint16_t conn_handle, uint8_t reason) {
 
 void nowConnected() {
   for (int i = 0; i < 8; i++) {
-    digitalWrite(LED_BUILTIN, LOW);                           // Turn the RED LED on
-    delay(250);                                               // Wait for a quarter second
-    digitalWrite(LED_BUILTIN, HIGH);                          // Turn the RED LED off
+    digitalWrite(LED_GREEN, LOW);                           // Turn the GREEN LED on
+    delay(250);                                             // Wait for a quarter second
+    digitalWrite(LED_GREEN, HIGH);                          // Turn the GREEN LED off
     delay(250);
   }
 
   // TURN ON PULSE SENSOR and AD8232
-  digitalWrite(A5, HIGH);                                     // Set A5 pin to OFF (No Power to AD8232 or Pulse Sensor)
-  digitalWrite(LED_BUILTIN, HIGH);                            // Ensure LED is off to save power (Xiao nRF52840 Sense LEDs have reverse logic, so HIGH=>LOW)
+  digitalWrite(A5, HIGH);                                   // Set A5 pin to OFF (No Power to AD8232 or Pulse Sensor)
+  digitalWrite(LED_BUILTIN, HIGH);                          // Ensure LED is off to save power (Xiao nRF52840 Sense LEDs have reverse logic, so HIGH=>LOW)
 }
 
 void nowDisconnected() {
   for (int i = 0; i < 8; i++) {
-    digitalWrite(LED_BUILTIN, LOW);                           // Turn the RED LED on
-    delay(500);                                               // Wait for a quarter second
-    digitalWrite(LED_BUILTIN, HIGH);                          // Turn the RED LED off
+    digitalWrite(LED_RED, LOW);                             // Turn the RED LED on
+    delay(500);                                             // Wait for a quarter second
+    digitalWrite(LED_RED, HIGH);                            // Turn the RED LED off
     delay(250);
   }
 
-  digitalWrite(LED_BUILTIN, HIGH);                            // Ensure LED is off to save power (Xiao nRF52840 Sense has reverse logic, so HIGH=>LOW)
+  digitalWrite(LED_BUILTIN, HIGH);                          // Ensure LED is off to save power (Xiao nRF52840 Sense has reverse logic, so HIGH=>LOW)
 }
 
 void setup() {
@@ -236,8 +245,9 @@ void setup() {
     ----------------------------------------------------------------
   */
   Serial.begin(115200);
-  delay(2000);                                                    // Give device time to connect to Serial
+  delay(500);                                                    // Give device time to connect to Serial
   Serial.println("Xiao Sense nRF52840 - OSSMM Application");
+  delay(500);
 
   if (!IMU.begin()) {  // Initialize IMU (Accelerometer, Gyroscope)
     Serial.println("Failed to initialize IMU!");
@@ -270,6 +280,63 @@ void setup() {
   pinMode(A4, OUTPUT);                                        // Set A4 pin for OUTPUT for Vibration disc
   digitalWrite(A4, LOW);                                      // Set A4 pin to OFF (Xiao Sense HIGH/LOW is reversed, i.e. active low)
 
+
+  /* ----------------------------------------------------------------
+      Detect USB Charging vs Serial Connection - Detect Start-Up Reason
+        - Device will ONLY turn ON if Reset/ON button is pressed,
+          or if connected to a USB with a serial connection!
+        - Device will turn OFF if connected to USB charger (but will charge)
+        - Device will turn OFF if turned on by battery power which is
+          automatic after USB connection
+        - To create Serial USB connection, open Serial Monitor in Arduino          
+     ----------------------------------------------------------------
+  */
+
+
+  // Check if USB Power is for Charging or for Serial Connection (Turn OFF for charging)
+  if (powerUSB) {
+    unsigned long serialTimeout = millis() + 5000;                // Wait 5 Seconds for Serial Connection
+
+    while (!Serial && (millis() < serialTimeout)) {
+      delay(150);
+
+      Serial.println("OSSMM - Serial Connection Attempt...");
+      digitalWrite(LED_RED, !digitalRead(LED_RED));               // Rapid flip-flop red while checking for Serial Connection
+    }
+
+    if (!Serial) {                                                // Final Serial Connection Check
+
+      for (int i = 0; i < 8; i++) {
+        digitalWrite(LED_RED, LOW);                             // Turn the RED LED on
+        delay(500);                                             // Wait for a quarter second
+        digitalWrite(LED_RED, HIGH);                            // Turn the RED LED off
+        delay(250);
+      }
+
+      NRF_POWER->SYSTEMOFF = 1;                                   // USB Power only, go to sleep!
+    }
+    else {
+      Serial.println("OSSMM - Serial Connection Detected");
+      digitalWrite(LED_RED, HIGH);                                // Turn OFF RED LED
+    }
+
+  }
+
+  //Check if Start-up was Intentional (Caused by RESET/ON button), otherwise turn OFF!
+    if (!resetButtonLaunch){
+    for (int i = 0; i < 8; i++) {
+        digitalWrite(LED_RED, LOW);                             // Turn the RED LED on
+        delay(500);                                             // Wait for a quarter second
+        digitalWrite(LED_RED, HIGH);                            // Turn the RED LED off
+        delay(250);
+      }
+
+      NRF_POWER->SYSTEMOFF = 1;                                   // USB Power only, go to sleep!
+  }
+
+  
+  
+
   /* ----------------------------------------------------------------
       Initialize Bluetooth Low Energy (BLE) with Security
      ----------------------------------------------------------------
@@ -281,14 +348,14 @@ void setup() {
   Bluefruit.setTxPower(2);                                      // Set Transmit Power, Options: -40, -20, -16, -12, -8, -4, 0, 2, 3, 4, 5, 6, 7, 8
   Bluefruit.autoConnLed(false);                                 // Turn of blue LED to conserve battery
   Bluefruit.setName(DeviceName);                                // Set Device's named when seen through Bluetooth
-  
+
   // Configure security for "Just Works" pairing
   // (display, yes_no, keyboard) - for "Just Works" set all to false
   Bluefruit.Security.setIOCaps(false, false, false);
   Bluefruit.Security.setPairPasskeyCallback(NULL);              // No passkey for "Just Works"
   Bluefruit.Security.setPairCompleteCallback(pair_complete_callback);
   Bluefruit.Security.setSecuredCallback(connection_secured_callback);
-  
+
   Bluefruit.Periph.setConnectCallback(connect_callback);        // Set Callback function for Connection
   Bluefruit.Periph.setDisconnectCallback(disconnect_callback);  // Set Callback function for Disconnection
   Bluefruit.Periph.setConnInterval(6, 8);                       // 7.5 - 15 ms set connection interva
@@ -315,7 +382,7 @@ void setup() {
   Bluefruit.Advertising.addFlags(BLE_GAP_ADV_FLAGS_LE_ONLY_GENERAL_DISC_MODE);  //BLE only, not classic BT LE
   Bluefruit.Advertising.addTxPower();                                           // Add the power
   Bluefruit.Advertising.addService(BLEservice);                                 // Add the Service UUID
-  
+
   // Add security flag to advertising data
   Bluefruit.Advertising.addAppearance(BLE_APPEARANCE_GENERIC_WATCH);  // Generic watch appearance
 
@@ -325,16 +392,16 @@ void setup() {
   Bluefruit.Advertising.setInterval(100, 244);      // in unit of 0.625 ms // (still not sure about this, but these settings work fine)
   Bluefruit.Advertising.setFastTimeout(30);         // number of seconds in fast mode (still not sure about this line, what is fast mode vs slow mode?)
 
-  Bluefruit.Advertising.start(0);  // 0 = Don't stop advertising after n seconds (still not sure about this line)
+  Bluefruit.Advertising.start(0);                   // 0 = Don't stop advertising after n seconds (still not sure about this line)
 
-  for (int j = 0; j <= 5; j++) {  // Do 3 low-to-high BLUE LED ramps to show device has completed start-up and ready to work
-    for (int i = 255; i >= 0; i = i - 15) {
-      analogWrite(LED_BLUE, i);  // PWM value from 255 (off) to 0 (full brightness)
+  for (int j = 0; j <= 5; j++) {                    // Do 3 low-to-high BLUE LED ramps to show device has completed start-up and ready to work
+    for (int i = 255; i >= 0; i = i - 17) {
+      analogWrite(LED_BLUE, i);                     // PWM value from 255 (off) to 0 (full brightness)
       delay(50);
     }
   }
-  analogWrite(LED_BLUE, 255);  // Turn OFF Blue LED
-  delay(500);                  // Additional delay
+  analogWrite(LED_BLUE, 255);                       // Turn OFF Blue LED
+  delay(100);                                       // Additional delay
 }
 
 void loop() {
@@ -359,15 +426,15 @@ void loop() {
       unsigned long currentTime = micros();
 
       // Determine if it is time to sample again
-      if (currentTime - lastSampleTime >= sampling_interval) { 
+      if (currentTime - lastSampleTime >= sampling_interval) {
 
-        if (currentTime - lastSampleTime >= 2*sampling_interval) {
+        if (currentTime - lastSampleTime >= 2 * sampling_interval) {
           lastSampleTime = currentTime;                            // Reset if too far behind
         }
-       else {
-        lastSampleTime = lastSampleTime + sampling_interval;       // Update by sampling_interval to avoid processing delay effects
-       }
-       
+        else {
+          lastSampleTime = lastSampleTime + sampling_interval;       // Update by sampling_interval to avoid processing delay effects
+        }
+
 
         // Get IMU Data
         IMU.readAcceleration(accData[0], accData[1], accData[2]);  // Collect Accelerometer values

@@ -1,30 +1,11 @@
 // lib/main.dart
 
-/*
-  ******************************************************************************
-    Notes:
-    Program: OSSMM App for Android 15+
-    By: Jonny Giordano
-
-    Compared with the OSSMM version this:
-    * Implements bonding/pairing with OSSMM headband
-    * Encrypted CSV files after data recording
-    * Various Connection Settings
-      * Auto-Reconnect to Bonded Device
-      * Auto-Record upon pairing to Bonded Device
-      * Keep unecrypted CSV files
-    * Collapsible sections with all items under one "Dashboard" main page
-    *
-  ******************************************************************************
-
- */
-
-
 import 'package:flutter/material.dart';
-import 'package:flutter_blue_plus/flutter_blue_plus.dart' as fbp; // Use alias
+import 'package:flutter_blue_plus/flutter_blue_plus.dart' as fbp;
 import 'package:provider/provider.dart';
 import 'package:ossmm/src/core/services/bluetooth_service.dart';
-import 'package:ossmm/src/features/bluetooth_off/screens/bluetooth_off_screen.dart';
+import 'package:ossmm/src/core/services/location_service.dart';
+import 'package:ossmm/src/features/system_requirements/screens/system_requirements_screen.dart';
 import 'package:ossmm/src/features/home/screens/home_screen.dart';
 
 // Add this line for global navigation context
@@ -34,35 +15,85 @@ void main() {
   fbp.FlutterBluePlus.setLogLevel(fbp.LogLevel.info, color: true);
 
   runApp(
-    ChangeNotifierProvider(
-      create: (context) => OssmmBluetoothService(),
+    // Use MultiProvider to provide both services
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => OssmmBluetoothService()),
+        ChangeNotifierProvider(create: (context) => LocationService()),
+      ],
       child: const OssmmApp(),
     ),
   );
 }
 
-class OssmmApp extends StatelessWidget {
+class OssmmApp extends StatefulWidget {
   const OssmmApp({super.key});
+
+  @override
+  State<OssmmApp> createState() => _OssmmAppState();
+}
+
+class _OssmmAppState extends State<OssmmApp> with WidgetsBindingObserver {
+  late LocationService _locationService;
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addObserver(this);
+    // Store reference to location service
+    _locationService = Provider.of<LocationService>(context, listen: false);
+  }
+
+  @override
+  void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
+    super.dispose();
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    // When app comes to foreground, force check location status
+    if (state == AppLifecycleState.resumed) {
+      _locationService.forceCheck();
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      // Add navigator key for global context access
       navigatorKey: navigatorKey,
       title: 'OSSMM App',
       theme: ThemeData(
         primarySwatch: Colors.blue,
         useMaterial3: true,
       ),
-      home: Consumer<OssmmBluetoothService>(
-        builder: (context, bluetoothService, child) {
-          if (bluetoothService.adapterState != fbp.BluetoothAdapterState.on) {
-            return BluetoothOffScreen(currentState: bluetoothService.adapterState);
-          } else {
-            return const HomeScreen();
-          }
-        },
-      ),
+      home: const SystemRequirementsChecker(),
+    );
+  }
+}
+
+// Separate widget to handle navigation logic
+class SystemRequirementsChecker extends StatelessWidget {
+  const SystemRequirementsChecker({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Consumer2<OssmmBluetoothService, LocationService>(
+      builder: (context, bluetoothService, locationService, child) {
+        // Check if both requirements are met
+        bool bluetoothEnabled = bluetoothService.adapterState == fbp.BluetoothAdapterState.on;
+        bool locationEnabled = locationService.isLocationEnabled;
+
+        print("System check - Bluetooth: $bluetoothEnabled, Location: $locationEnabled");
+
+        // Only navigate to HomeScreen if BOTH are enabled
+        if (bluetoothEnabled && locationEnabled) {
+          return const HomeScreen();
+        } else {
+          // Show system requirements screen if either is disabled
+          return const SystemRequirementsScreen();
+        }
+      },
     );
   }
 }
