@@ -99,7 +99,7 @@ Technical Specifications:
 
 * **Dimensions: 79.1 x 45.2 x 30 mm** (3.114 x 1.780 x 1.181 in)
 * **Weight: 76.5 grams** ( or 2.7 ounces with a 150 mAh battery)
-* **Sampling Frequency: up to 250Hz** (produces 500MB for 8 hour recording)
+* **Sampling Frequency: 250 Hz  ** (produces 500MB for 8 hour recording)
 * **Battery: 120-220 mAh** (est. 15-27+ hour run time, sleep monitoring only)
 
 Physiological Measurements:
