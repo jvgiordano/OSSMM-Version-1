@@ -214,7 +214,7 @@ cable. This may be true even for newer USB-C cables.
 Got to "This PC" >> Android Device >> Internal Shared Storage >> "Download"
 
 <div align="center">
-  <img src="{{ site.url }}/OSSMM/media/software/access-download.gif" style="width: 25%;">
+  <img src="{{ site.url }}/OSSMM/media/software/access-download.gif" style="width: 50%;">
 </div>
 &nbsp;
 
@@ -232,7 +232,7 @@ historical posterity. The Android 15 APK contains significant updates, including
 improved safety features.
 
 <div align="center">
-  <img src="{{ site.url }}/OSSMM/media/software/apk-transfer.png" style="width: 60%;">
+  <img src="{{ site.url }}/OSSMM/media/software/apk-transfer.png" style="width: 80%;">
 </div>
 &nbsp;
 
