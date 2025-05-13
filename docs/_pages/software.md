@@ -171,7 +171,51 @@ function. The application performs three critical functions:
 This section provides step-by-step instructions for installing the Arduino apk
 file onto an Android device.
 
-##
+## Step 1. Connect your Android Device to a computer via USB with File Transfer Enabled
+
+There are many methods to transfer files to Android devices, but a USB to 
+computer is convenient and fast. We demonstrate this with a Windows 11 machine,
+but this can be accomplished with Mac OS or Linux. If using Mac OS, you will
+require a 3rd party File Transfer software [like this one](https://apps.apple.com/us/app/macdroid-manager-for-android/id1476545828?mt=12)
+
+
+Ensure that "File Transfer" is enabled on your Android device so that the
+internal memory can be accessed through your computer. You should be automatically
+prompted to make this selection When you connect your Android device. 
+
+Note: If you are not prompted or cannot access the internal memory your USB
+cable may only support power transfer and not data transfer. Try with another
+cable. This is true even for newer USB-C cables.
+
+<div align="center">
+  <img src="{{ site.url }}/OSSMM/media/software/usb-file-transfer.PNG" style="width: 60%;">
+</div>
+&nbsp;
+
+## Step 2. Access your "Download" folder on your Android Device
+
+Got to "My Pc" >> Android Device >> Internal Shared Storage >> "Download"
+
+<div align="center">
+  <img src="{{ site.url }}/OSSMM/media/software/access-download.gif" style="width: 60%;">
+</div>
+&nbsp;
+
+Note: You may choose to use other folders, but we assume the "Download" folder
+is used here.
+
+## Step 2. Move to OSSMM APK to your Android Device
+
+
+
+<div align="center">
+  <img src="{{ site.url }}/OSSMM/media/software/arduino-complete.jpg" style="width: 60%;">
+</div>
+&nbsp;
+
+## Step 2. Enable "Developer Setting" by pressing "Build Number" 7 Times
+
+## Step 3. 
 
 
 # (Advanced) Editing Android Application
