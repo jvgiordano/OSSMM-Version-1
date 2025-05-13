@@ -20,6 +20,9 @@ The OSSMM system requires two software components:
 These instructions are provided using Windows 11, but the process follows the
 same principles on macOS and Linux.
 
+There is an Advanced section at the end for those interested in modifying the 
+Android App. This is not required!
+
 
 # Arduino Code for the OSSMM Headband
 
@@ -159,7 +162,7 @@ Succesful code upload will show the following response in the Arduino IDE:
 Congratulations! You're OSSMM headband is complete. Now it's time to install the
 Android companion app!
 
-# Android App Code
+# Install the Android App
 
 The OSSMM system requires a companion app, designed for Android devices, to
 function. The application performs three critical functions:
@@ -169,7 +172,8 @@ function. The application performs three critical functions:
 3. Provides Date-Time information 
 
 This section provides step-by-step instructions for installing the Arduino apk
-file onto an Android device.
+file onto an Android device. Please note, we used a PC running Windows 11 and
+a Google Pixel 9 running Android 15 for this demo.
 
 ## Step 1. Connect your Android Device to a computer via USB with File Transfer Enabled
 
@@ -181,20 +185,20 @@ require a 3rd party File Transfer software [like this one](https://apps.apple.co
 
 Ensure that "File Transfer" is enabled on your Android device so that the
 internal memory can be accessed through your computer. You should be automatically
-prompted to make this selection When you connect your Android device. 
+prompted to make this selection When you connect the Android device. 
 
-Note: If you are not prompted or cannot access the internal memory your USB
+Note: If you are not prompted or cannot access the internal memory, your USB
 cable may only support power transfer and not data transfer. Try with another
-cable. This is true even for newer USB-C cables.
+cable. This may be true even for newer USB-C cables.
 
 <div align="center">
-  <img src="{{ site.url }}/OSSMM/media/software/usb-file-transfer.PNG" style="width: 60%;">
+  <img src="{{ site.url }}/OSSMM/media/software/usb-file-transfer.png" style="width: 60%;">
 </div>
 &nbsp;
 
 ## Step 2. Access your "Download" folder on your Android Device
 
-Got to "My Pc" >> Android Device >> Internal Shared Storage >> "Download"
+Got to "This PC" >> Android Device >> Internal Shared Storage >> "Download"
 
 <div align="center">
   <img src="{{ site.url }}/OSSMM/media/software/access-download.gif" style="width: 60%;">
@@ -204,21 +208,55 @@ Got to "My Pc" >> Android Device >> Internal Shared Storage >> "Download"
 Note: You may choose to use other folders, but we assume the "Download" folder
 is used here.
 
-## Step 2. Move to OSSMM APK to your Android Device
+## Step 3. Move the OSSMM APK to your Android Device
 
+Move the OSSMM APK file from the repository to the "Download" folder on the 
+Android device. You can disconnect the Android device from the computer when
+the file transfer is complete.
 
+**Please use the Android 15 or newer APK file**. The Android 9 APK is there for
+historical posterity. The Android 15 APK contains significant updates, including
+improved safety features.
 
 <div align="center">
-  <img src="{{ site.url }}/OSSMM/media/software/arduino-complete.jpg" style="width: 60%;">
+  <img src="{{ site.url }}/OSSMM/media/software/apk-transfer.jpg" style="width: 60%;">
 </div>
 &nbsp;
 
-## Step 2. Enable "Developer Setting" by pressing "Build Number" 7 Times
+## Step 4. Open the "Files" app, navigate to "Download", and click on the "OSSMM-Installer"
 
-## Step 3. 
+On the Android device, open the "Files" app. This is a standard app for Android
+and should come with any Android phone released after 2018. 
+
+Inside the Files app, navigate to "Downloads". You will find the "OSSMM-Installer"
+APK file there. Click on it, then accept the pop-up window which asks if you want
+to install it.
+
+If you are queried to perform a scan, please do so. 
 
 
-# (Advanced) Editing Android Application
+<div align="center">
+  <img src="{{ site.url }}/OSSMM/media/software/ossmm-install.gif" style="width: 60%;">
+</div>
+&nbsp
+
+## Step 5. You've installed the OSSMM App!
+
+You can now open the OSSMM app!
+
+You will likely encounter a "System Requirements" screen first. Usage of the app 
+requires both Bluetooth and Location settings to be enabled. 
+
+Bluetooth is required because the app receives data wirelessly from the OSSMM 
+headband via Bluetooth. Location is needed because it is an Android security 
+requirement for Bluetooth scanning, not because the app actually uses location data.
+Android requires this because BLE beacons can theoretically be used to determine
+your location (like in stores or museums), so Google mandates location permission
+as a privacy protection measure for all apps that scan for Bluetooth devices. The 
+OSSMM headband and app DO NOT collect any kind of location information.
+
+
+# (Advanced Only) Editing Android Application
 
 If you are interested in editing the Android application for your own research, 
 we briefly outline the set-up requirements for doing so. Please note, these are 
@@ -240,12 +278,30 @@ Go to [this link](https://www.java.com/en/download/help/download_options.html)) 
 
 ## Step 5 - Configure Flutter and Dart Plugin for Android Studio in Settings
 
-## Step 6 - Download (or pull) the OSSMM app files
+## Step 6 - Download (or pull) the OSSMM App Files
+
+These are located under "\OSSMM\OSSMM - V1.0.4 System Code\Android App Code\Android 15"
+in a folder called "ossmm"
+
+<div align="center">
+  <img src="{{ site.url }}/OSSMM/media/software/android-app-code.png" style="width: 60%;">
+</div>
+&nbsp
 
 ## Step 7 - Open the Project with Android Studio
 
-## Step 8 - Locate modifiable Android app code: 
+## Step 8 - Locate modifiable Android app code within project:
 
-For Android 15 and above, pertinent files are located here:
+For Android 15 and above, pertinent files are located under the "\ossmm\lib" 
+directory: 
 
-"OSSMM\OSSMM - V1.0.4 System Code\Android App Code\Android 15\ossmm\lib"
+Full Directory: "OSSMM\OSSMM - V1.0.4 System Code\Android App Code\Android 15\ossmm\lib"
+
+<div align="center">
+  <img src="{{ site.url }}/OSSMM/media/software/android-studio-files.png" style="width: 60%;">
+</div>
+&nbsp
+
+There are 10 .dart files at the time of publishing (May 13th, 2025). This is
+likely to expand as more features are developed for the application (e.g., 
+active sleep staging, automated sleep modulation)
