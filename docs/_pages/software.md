@@ -39,7 +39,7 @@ code (a C++ variant) on to the MCU.
 This section provides step-by-step instructions for setting up the Arduino 
 development environment and uploading the code. If you already have the Arduino
 IDE installed, you can 
-[skip directly to "Install the nRF52 Seeed Board Library"](https://jvgiordano.github.io/OSSMM/software/#install-the-seeed-nrf52-library).
+[skip directly to "Install the nRF52 Seeed Board Library"](https://jvgiordano.github.io/OSSMM/software/#install-the-seeed-nrf52-library-and-configure-for-the-xiao-sense-nrf52840-mcu).
 
 ## Install Arduino IDE
 
@@ -52,7 +52,7 @@ Please install the latest version from the [Arduino Website](https://www.arduino
 ## Install the Seeed nRF52 Library and Configure for the Xiao Sense nRF52840 MCU
 
 The Arduino IDE requires the Seeed nRF52 Library in to order to communicate and
-compile code for the Xiao Sense MCU. Following the steps below to install this 
+compile code for the Xiao Sense MCU. Follow the steps below to install this 
 library and configure the Arduino IDE to be used with the MCU:
 
 ### Step 1. With the Arduino IDE open, go to 'File >> Preferences’
@@ -62,7 +62,7 @@ library and configure the Arduino IDE to be used with the MCU:
 </div>
 &nbsp;
 
-### Step 2. Go to go “Additional Boards Manager URLS” Section and paste in the following:
+### Step 2. Locate the “Additional Boards Manager URLS” Section and paste in the following:
 
 https://files.seeedstudio.com/arduino/package_seeeduino_boards_index.json
 
@@ -73,11 +73,11 @@ If you already have another Board Manager URL for a different library, use a ‘
 </div>
 &nbsp;
 
-Exit the preferences window.
+Press "Ok" and exit the preferences window.
 
-### Step 3. Go to 'Tools >> Board: "HelloWorld" >>  Board's Manager' to the ‘Boards Manager’. 
-Type in the search bar at the top, ‘seeed nrf52’. Two board manager options 
-should appear. Install the one that says “Seeed nRF52 Boards."
+### Step 3. Go to 'Tools >> Board: >>  Board's Manager' and install Seeed nRF52 Board Manager.
+
+First go to 'Tools >> Board: >>  Board's Manager' and click on Board's Manager.
 
 Note: Under Tools, "Board: " may be empty or contain other names. It does not matter.
 
@@ -86,17 +86,25 @@ Note: Under Tools, "Board: " may be empty or contain other names. It does not ma
 </div>
 &nbsp;
 
+
+In the search bar at the top, type ‘seeed nrf52’. Two board manager options 
+should appear. Install the one that says “Seeed nRF52 Boards."
+
 <div align="center">
   <img src="{{ site.url }}/OSSMM/media/software/arduino-search.jpg" style="width: 50%;">
 </div>
 &nbsp;
 
-### Step 4. Select 'Tools >> Board: "HelloWorld" >>  Seeed nRF52 Boards >> Seeed XIAO nRF52840 Sense'
+### Step 4. Select 'Tools >> Board: >>  Seeed nRF52 Boards >> Seeed XIAO nRF52840 Sense'
 
 <div align="center">
   <img src="{{ site.url }}/OSSMM/media/software/arduino-seeed.jpg" style="width: 60%;">
 </div>
 &nbsp;
+
+Great! Now the Arduino IDE has the proper software configurations to work with
+the Seeed nRF52840 Sense. Now the IDE can interact with our board, we can upload
+the MCU code on to it.
 
 ## Install the code to the MCU
 
@@ -128,9 +136,10 @@ The code is located under "Micronctroller Code" in the
 ### Step 3. Connect the OSSMM Headband to your PC using a USB-C cable
 
 <div align="center">
-  <img src="{{ site.url }}/OSSMM/media/software/ports.jpg style="width: 50%;">
+  <img src="{{ site.url }}/OSSMM/media/software/ports.jpg" style="width: 50%;">
 </div>
 &nbsp;
+
 
 ### Step 4. Select 'Tools >> Port >>  COM_X_ (Seeed Xiao nRF52840 Sense)'
 
@@ -140,6 +149,10 @@ Where COM_X_ will be some port number (e.g., COM7)
   <img src="{{ site.url }}/OSSMM/media/software/arduino-port.jpg" style="width: 60%;">
 </div>
 &nbsp;
+
+This tells the Arduino IDE which port the MCU is connected to. Normally it
+should automatically detect the port. 
+
 
 ### Step 5. Click "Upload"
 
@@ -192,7 +205,7 @@ cable may only support power transfer and not data transfer. Try with another
 cable. This may be true even for newer USB-C cables.
 
 <div align="center">
-  <img src="{{ site.url }}/OSSMM/media/software/usb-file-transfer.png" style="width: 60%;">
+  <img src="{{ site.url }}/OSSMM/media/software/usb-file-transfer.png" style="width: 25%;">
 </div>
 &nbsp;
 
@@ -201,7 +214,7 @@ cable. This may be true even for newer USB-C cables.
 Got to "This PC" >> Android Device >> Internal Shared Storage >> "Download"
 
 <div align="center">
-  <img src="{{ site.url }}/OSSMM/media/software/access-download.gif" style="width: 60%;">
+  <img src="{{ site.url }}/OSSMM/media/software/access-download.gif" style="width: 25%;">
 </div>
 &nbsp;
 
@@ -219,7 +232,7 @@ historical posterity. The Android 15 APK contains significant updates, including
 improved safety features.
 
 <div align="center">
-  <img src="{{ site.url }}/OSSMM/media/software/apk-transfer.jpg" style="width: 60%;">
+  <img src="{{ site.url }}/OSSMM/media/software/apk-transfer.png" style="width: 60%;">
 </div>
 &nbsp;
 
@@ -236,7 +249,7 @@ If you are queried to perform a scan, please do so.
 
 
 <div align="center">
-  <img src="{{ site.url }}/OSSMM/media/software/ossmm-install.gif" style="width: 60%;">
+  <img src="{{ site.url }}/OSSMM/media/software/ossmm-install.gif" style="width: 25%;">
 </div>
 &nbsp
 
