@@ -177,8 +177,10 @@ file onto an Android device.
 # (Advanced) Editing Android Application
 
 If you are interested in editing the Android application for your own research, 
-we briefly the set-up requirements for doing so. Please note, these are the general steps
-which must be undertaken and not a step-by-step guide on how to modify the files.
+we briefly outline the set-up requirements for doing so. Please note, these are 
+the general steps which must be undertaken and not a step-by-step guide on how 
+to modify the files. Modifying these files requires some familiarity of
+(or willingness to learn) dart.
 
 ## Step 1 - Install Android Studio IDE
 
