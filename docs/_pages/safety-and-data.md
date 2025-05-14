@@ -36,18 +36,22 @@ verifying their respective safety information before usage.
 
 ## Data Privacy and Security
 
-OSSMM was designed with data protection in mind: 
+OSSMM was designed with data protection in mind. The Android 15+ version features: 
 
 * **Secure BLE connection**: The app-to-device BLE connection requires 
-verification of 3 unique UUIDs before data transmission occurs.
+verification of 3 unique UUIDs before data transmission occurs. The new version
+of the app implements Bluetooth bonding, preventing "Man In The Middle" (MITM)
+attacks during reconnection and ensures only previously authorized devices can
+pair.
 
-* **User-customizable security**: Each user can modify these UUID values to 
+* **User-customizable security**: Each user can modify the UUID values to 
 create their own unique security "profile".
 
-* **Local data storage**: All data collected by OSSMM is stored locally on a 
-companion Android device in a dedicated "/OSSMM" directory. No data is 
-automatically transmitted to external servers or cloud services, unless you 
-choose to do so.
+* **Local data storage**: All data collected by the OSSMM headband is stored 
+locally on a companion Android device in the "Documents/OSSMM" directory. Once data
+collection is complete, the recorded CSV file is immediately encrypted into a
+protected ZIP file. By default the unencrypted CSV is deleted, but users may 
+choose to keep them using a toggle in the settings menu.
 
 * **Device security recommendations**: Due to the nature of sleep and 
 physiological data, we recommend that companion devices used with OSSMM be 
