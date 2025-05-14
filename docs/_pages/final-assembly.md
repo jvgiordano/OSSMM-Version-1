@@ -129,11 +129,95 @@ on the Quad/Tri slide.
 &nbsp;
 
 
-## Step 4. 
+## Step 4. Shorten the strap by cutting at least 12 cm (5") above the seam.
+
+The photos below this cut. Note, for illustrative purpose the scissor is shown
+at a much shorter distance.
+
+&nbsp;
+<div style="display: flex; flex-direction: row; align-items: flex-start;">
+  <figure style="margin: 0; width: 42%;">
+    <img src="{{ site.url }}/OSSMM/media/final-assembly/shortening-cut-1.jpg" alt="Front view of OSSMM headband" style="width: 100%;">
+    <figcaption style="text-align: center; font-style: italic; margin-top: 5px;">Pre-cut Sticthed Loop </figcaption>
+  </figure>
+  <figure style="margin: 0; width: 50%; margin-left: 4%;">
+    <img src="{{ site.url }}/OSSMM/media/final-assembly/shortening-cut-2.jpg" alt="Back view of OSSMM headband" style="width: 100%;">
+    <figcaption style="text-align: center; font-style: italic; margin-top: 5px;">Post-cut Sticthed Loop</figcaption>
+  </figure>
+</div>
+&nbsp;
 
 
+Due to the difference length straps will have based on the brand, the length to 
+cut will change. Remember, you can always cut more off, but you can't add it back.
+In our case, a 15 cm (6") cut was suitable.
+
+<figure style="margin: 0; width: 50%; margin-left: 4%;">
+  <img src="{{ site.url }}/OSSMM/media/final-assembly/removed.jpg" alt="Back view of OSSMM headband" style="width: 100%;">
+  <figcaption style="text-align: center; font-style: italic; margin-top: 5px;">Post-cut Sticthed Loop</figcaption>
+</figure>
+
+&nbsp;
+## Step 5. Insert the cut end into the open slot making a new loop.
+
+Take the newly cut end and insert it through the now open slot. The band should 
+go towards the interior. This way when it is worn there is no band flopping in 
+the back.
+
+<figure style="margin: 0; width: 50%; margin-left: 4%;">
+  <img src="{{ site.url }}/OSSMM/media/final-assembly/removed.jpg" alt="Back view of OSSMM headband" style="width: 100%;">
+  <figcaption style="text-align: center; font-style: italic; margin-top: 5px;">Post-cut Sticthed Loop</figcaption>
+</figure>
+&nbsp;
+
+Under typical circumstances the tension should hold this loose end in place. 
+However, over time it may come loose with repeated use. We leave it to the user
+to choose if they would like to employ additional methods to secure it. We
+present two feasible options:
+
+1. Create a new seam using a basic sewing kit.
+2. Use a standard quality stapler with paper staples.
+
+The stapler is the preferred method. When done properly with a quality stapler, 
+staples are virtually invisible and are not felt at all. Staples should be done
+with the legs initially pointing towards the interior of the bead, that is
+towards the head area. When closed properly, the staple legs will clinch back
+outward, facing away from the head area.
 
 # Insert the Strap into the Receiver
 
-# Install the Electronic Case 
+Now that the strap is prepared, we will insert the strap into the receiver!
+
+<figure style="margin: 0; width: 50%; margin-left: 4%;">
+  <img src="{{ site.url }}/OSSMM/media/final-assembly/removed.jpg" alt="Back view of OSSMM headband" style="width: 100%;">
+  <figcaption style="text-align: center; font-style: italic; margin-top: 5px;">Post-cut Sticthed Loop</figcaption>
+</figure>
+&nbsp;
+
+# Install the Electronic Case
+
+You're almost there! This section should be done with a table as a support, 
+or an additional pair of human hands.
+
+## Step 1. Pull excess strap through the receiver, loop over, and expose the PulseSensor slot
+
+<figure style="margin: 0; width: 50%; margin-left: 4%;">
+  <img src="{{ site.url }}/OSSMM/media/final-assembly/removed.jpg" alt="Back view of OSSMM headband" style="width: 100%;">
+  <figcaption style="text-align: center; font-style: italic; margin-top: 5px;">Post-cut Sticthed Loop</figcaption>
+</figure>
+&nbsp;
+
+## Step 2.Insert the PulseSensor
+
+
+
+## Step 3. Connect the EOG/EEG electrodes
+
+
+
+## Step 4. Slot in the electronics case
+
+## Step 5. You've done it!
+
+
 
