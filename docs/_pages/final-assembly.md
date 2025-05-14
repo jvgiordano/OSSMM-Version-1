@@ -189,17 +189,58 @@ outward, facing away from the head area.
 
 Now that the strap is prepared, we will insert the strap into the receiver!
 
+## Step 1. Learn the Squeeze
+
+To insert the strap, the receiver must be squeezed in two directions in order to
+expand one of the slots. Press down on the back of the receiver on the lateral
+side of one of the slots. At the same time, squeeze the top and bottom edges
+of the receiver so that is compresses. If done correctly, this will cause
+the middle section in the back of the receiver to slightly pop out. You can 
+maintain this expansion by simply continuing to press down from the top and 
+bottom.
+
+Please refer to the GIF below on how to do this. It is recommended to practice
+this a few times.
+
+
 <div align="center">
-  <img src="{{ site.url }}/OSSMM/media/final-assembly/new-loop.jpg" alt="Back view of OSSMM headband" style="width: 100%;">
+  <img src="{{ site.url }}/OSSMM/media/final-assembly/receiver-squeeze-1.gif" alt="Back view of OSSMM headband" style="width: 100%;">
 </div>
 &nbsp;
+
+
+## Step 2. Thread the strap through the first slot
+
+Squeeze the receiver in the manner described, and maintain the slot expansion.
+Take the end of heart-monitor chest strap without the G Hook, and the silicone
+electrodes facing away from the back, and thread it through the expanded slot.
+Thread the strap through until it emerges from the other side with enough length
+to pull on. Pull the strap through, and continue to do so until both button
+connections have gone through.
+
+
+<div align="center">
+  <img src="{{ site.url }}/OSSMM/media/final-assembly/strap-insert.gif" alt="Back view of OSSMM headband" style="width: 100%;">
+</div>
+&nbsp;
+
+
+## Step 3. Thread the strap through the last slot.
+
+Now thread the strap back through the remaining slot. 
+
 
 # Install the Electronic Case
 
 You're almost there! This section should be done with a table as a support, 
 or an additional pair of human hands.
 
-## Step 1. Pull excess strap through the receiver, loop over, and expose the PulseSensor slot
+## Step 1. Pull excess headband strap through the receiver, loop over, and expose the PulseSensor slot
+
+In this step we are going to prepare the combined receiver and headband for
+the pulse sensor. We need to expose the pulse sensor slot. To do this, pull
+through more strap, and loop this over the receiver. This way, no strap should
+be blocking access.
 
 <div align="center">
   <img src="{{ site.url }}/OSSMM/media/final-assembly/new-loop.jpg" alt="Back view of OSSMM headband" style="width: 100%;">
@@ -208,7 +249,32 @@ or an additional pair of human hands.
 
 ## Step 2.Insert the PulseSensor
 
+Start by matching the version number text on the receiver and the electronic
+case so both are facing upwards. Having the receiver correctly oriented means the pulse
+sensor slot's wire notch will be on the bottom. This notch is important for
+providing space for the wires coming off the pulse sensor.
 
+<div align="center">
+  <img src="{{ site.url }}/OSSMM/media/final-assembly/receiver-view.jpg" alt="Back view of OSSMM headband" style="width: 100%;">
+</div>
+&nbsp;
+
+The PulseSensor should be forced into the slot. Instead, the slot is meant to
+expand when force is applied to the back, and the inner walls of the receiver
+are pulled slightly outward. It is recommended to practice this squeezing motion
+before attempting to insert the PulseSensor.
+
+To complete the install, lightly press the PulseSensor into the slot with the
+orientation, such that the wires will eventually sit in the notch. Then, squeeze
+the receiver in the indicated manner. You can then hold the position of the 
+PulseSensor and as you release the squeeze the receiver should "swallow" the
+PulseSensor. You may have to give a little press at the end for it to meet the
+face of the receiver.
+
+<div align="center">
+  <img src="{{ site.url }}/OSSMM/media/final-assembly/receiver-view.jpg" alt="Back view of OSSMM headband" style="width: 100%;">
+</div>
+&nbsp;
 
 ## Step 3. Connect the EOG/EEG electrodes
 
