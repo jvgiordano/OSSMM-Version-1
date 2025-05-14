@@ -25,9 +25,16 @@ strap can be removed for washing or replaced entirely if needed.
 
 Now let's combine the major components and create an OSSMM headband!
 
+&nbsp;
 # Prepare the Strap
 
-## Important Note on Strap Selection!
+In this section we will cover checking your strap for suitability for the OSSMM
+system, and then on shortening it. Because of the difference in strap designs,
+please consider this a general "How-To" as straps can use various buckle
+implementations!
+
+&nbsp;
+## Step 0. Important Note on Strap Selection!
 
 Not all heart-rate monitor straps on the market are equivalent. Importantly, the
 conductance of the silicone electrodes varies significantly between brands. This
@@ -63,11 +70,68 @@ approximate surface resistance of 620 Ω were adequate for EEG signature
 detection with machine learning classifiers. We have found that some brands 
 produce straps with electrodes with resistance levels as low as 135 Ω.
 
-
 Although we believe that most straps on the market should provide sufficient 
 conductivity, it is not possible to confirm this for every possible option. 
 Therefore, we recommend testing the straps in advance if you do not have the
 relevant data sheet.
+
+&nbsp;
+## Step 1. Identify the types of buckles used in your strap
+
+This guide is specifically for straps which have either a triglide slide (3 bars) 
+or quad slide (4 bars) in combination with a G Hook slide as shown below. Look 
+at your strap to identify the slides it has, but not you don't have to remove 
+them to do this.
+
+<div align="center">
+  <img src="{{ site.url }}/OSSMM/media/final-assembly/slides-tri.jpg" style="width: 65%;">
+  <figcaption style="text-align: center; font-style: italic; margin-top: 5px;">Slides in strap: Triglide slide on left, G hook slide on right</figcaption>
+</div>
+&nbsp;
+
+<div align="center">
+  <img src="{{ site.url }}/OSSMM/media/final-assembly/slides-quad.jpg" style="width: 60%;">
+  <figcaption style="text-align: center; font-style: italic; margin-top: 5px;">Slides in strap: Quad slide on left, G hook slide on right</figcaption>
+</div>
+&nbsp;
+
+The following example will utilize a quad slide.
+
+If you have slightly different slides, it is recommended to follow this guide in
+order to get a general idea of how you may adjust your own.
+
+## Step 2. Identify the Slide types, and stitched loop
+
+Here we have cinched the strap so that both the G Hook Slide and Quad slide are
+closer. We recommend doing the same and placing them in the same orientation as
+shown below. Identify the stitched loop which will go through one of the slots
+on the Quad/Tri slide.
+
+<div align="center">
+  <img src="{{ site.url }}/OSSMM/media/final-assembly/strap-identity.JPG" style="width: 60%;">
+</div>
+&nbsp;
+
+
+## Step 3. Cut the stich loop, and remove it from the Quad/Tri Slide
+
+&nbsp;
+<div style="display: flex; flex-direction: row; align-items: flex-start;">
+  <figure style="margin: 0; width: 42%;">
+    <img src="{{ site.url }}/OSSMM/media/final-assembly/loop-cut-1.jpg" alt="Front view of OSSMM headband" style="width: 100%;">
+    <figcaption style="text-align: center; font-style: italic; margin-top: 5px;">Pre-cut Sticthed Loop </figcaption>
+  </figure>
+  <figure style="margin: 0; width: 50%; margin-left: 4%;">
+    <img src="{{ site.url }}/OSSMM/media/final-assembly/loop-cut-2.jpg" alt="Back view of OSSMM headband" style="width: 100%;">
+    <figcaption style="text-align: center; font-style: italic; margin-top: 5px;">Post-cut Sticthed Loop</figcaption>
+  </figure>
+</div>
+&nbsp;
+
+
+## Step 4. 
+
+
 
 # Insert the Strap into the Receiver
 

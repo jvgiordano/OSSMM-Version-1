@@ -51,7 +51,7 @@ create their own unique security "profile".
 locally on a companion Android device in the "Documents/OSSMM" directory. Once data
 collection is complete, the recorded CSV file is immediately encrypted into a
 protected ZIP file. By default the unencrypted CSV is deleted, but users may 
-choose to keep them using a toggle in the settings menu.
+choose to keep the file using a toggle in the settings menu.
 
 * **Device security recommendations**: Due to the nature of sleep and 
 physiological data, we recommend that companion devices used with OSSMM be 
