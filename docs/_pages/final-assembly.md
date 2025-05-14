@@ -90,7 +90,7 @@ them to do this.
 &nbsp;
 
 <div align="center">
-  <img src="{{ site.url }}/OSSMM/media/final-assembly/slides-quad.jpg" style="width: 60%;">
+  <img src="{{ site.url }}/OSSMM/media/final-assembly/slide-quad.jpg" style="width: 60%;">
   <figcaption style="text-align: center; font-style: italic; margin-top: 5px;">Slides in strap: Quad slide on left, G hook slide on right</figcaption>
 </div>
 &nbsp;
@@ -108,7 +108,7 @@ shown below. Identify the stitched loop which will go through one of the slots
 on the Quad/Tri slide.
 
 <div align="center">
-  <img src="{{ site.url }}/OSSMM/media/final-assembly/strap-identity.JPG" style="width: 60%;">
+  <img src="{{ site.url }}/OSSMM/media/final-assembly/strap-identity.jpg" style="width: 60%;">
 </div>
 &nbsp;
 
@@ -117,11 +117,11 @@ on the Quad/Tri slide.
 
 &nbsp;
 <div style="display: flex; flex-direction: row; align-items: flex-start;">
-  <figure style="margin: 0; width: 42%;">
+  <figure style="margin: 0; width: 48%;">
     <img src="{{ site.url }}/OSSMM/media/final-assembly/loop-cut-1.jpg" alt="Front view of OSSMM headband" style="width: 100%;">
     <figcaption style="text-align: center; font-style: italic; margin-top: 5px;">Pre-cut Sticthed Loop </figcaption>
   </figure>
-  <figure style="margin: 0; width: 50%; margin-left: 4%;">
+  <figure style="margin: 0; width: 48%; margin-left: 4%;">
     <img src="{{ site.url }}/OSSMM/media/final-assembly/loop-cut-2.jpg" alt="Back view of OSSMM headband" style="width: 100%;">
     <figcaption style="text-align: center; font-style: italic; margin-top: 5px;">Post-cut Sticthed Loop</figcaption>
   </figure>
@@ -154,7 +154,7 @@ In our case, a 15 cm (6") cut was suitable.
 
 <figure style="margin: 0; width: 50%; margin-left: 4%;">
   <img src="{{ site.url }}/OSSMM/media/final-assembly/removed.jpg" alt="Back view of OSSMM headband" style="width: 100%;">
-  <figcaption style="text-align: center; font-style: italic; margin-top: 5px;">Post-cut Sticthed Loop</figcaption>
+  <figcaption style="text-align: center; font-style: italic; margin-top: 5px;">Removed Portion</figcaption>
 </figure>
 
 &nbsp;
@@ -164,19 +164,20 @@ Take the newly cut end and insert it through the now open slot. The band should
 go towards the interior. This way when it is worn there is no band flopping in 
 the back.
 
-<figure style="margin: 0; width: 50%; margin-left: 4%;">
-  <img src="{{ site.url }}/OSSMM/media/final-assembly/removed.jpg" alt="Back view of OSSMM headband" style="width: 100%;">
-  <figcaption style="text-align: center; font-style: italic; margin-top: 5px;">Post-cut Sticthed Loop</figcaption>
-</figure>
+
+<div align="center">
+  <img src="{{ site.url }}/OSSMM/media/final-assembly/new-loop.jpg" alt="Back view of OSSMM headband" style="width: 100%;">
+</div>
 &nbsp;
+
 
 Under typical circumstances the tension should hold this loose end in place. 
 However, over time it may come loose with repeated use. We leave it to the user
 to choose if they would like to employ additional methods to secure it. We
 present two feasible options:
 
-1. Create a new seam using a basic sewing kit.
-2. Use a standard quality stapler with paper staples.
+*1. Create a new seam using a basic sewing kit.*
+*2. Use a standard quality stapler with paper staples.*
 
 The stapler is the preferred method. When done properly with a quality stapler, 
 staples are virtually invisible and are not felt at all. Staples should be done
@@ -188,10 +189,9 @@ outward, facing away from the head area.
 
 Now that the strap is prepared, we will insert the strap into the receiver!
 
-<figure style="margin: 0; width: 50%; margin-left: 4%;">
-  <img src="{{ site.url }}/OSSMM/media/final-assembly/removed.jpg" alt="Back view of OSSMM headband" style="width: 100%;">
-  <figcaption style="text-align: center; font-style: italic; margin-top: 5px;">Post-cut Sticthed Loop</figcaption>
-</figure>
+<div align="center">
+  <img src="{{ site.url }}/OSSMM/media/final-assembly/new-loop.jpg" alt="Back view of OSSMM headband" style="width: 100%;">
+</div>
 &nbsp;
 
 # Install the Electronic Case
@@ -201,10 +201,9 @@ or an additional pair of human hands.
 
 ## Step 1. Pull excess strap through the receiver, loop over, and expose the PulseSensor slot
 
-<figure style="margin: 0; width: 50%; margin-left: 4%;">
-  <img src="{{ site.url }}/OSSMM/media/final-assembly/removed.jpg" alt="Back view of OSSMM headband" style="width: 100%;">
-  <figcaption style="text-align: center; font-style: italic; margin-top: 5px;">Post-cut Sticthed Loop</figcaption>
-</figure>
+<div align="center">
+  <img src="{{ site.url }}/OSSMM/media/final-assembly/new-loop.jpg" alt="Back view of OSSMM headband" style="width: 100%;">
+</div>
 &nbsp;
 
 ## Step 2.Insert the PulseSensor
