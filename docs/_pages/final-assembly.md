@@ -136,11 +136,11 @@ at a much shorter distance.
 
 &nbsp;
 <div style="display: flex; flex-direction: row; align-items: flex-start;">
-  <figure style="margin: 0; width: 42%;">
+  <figure style="margin: 0; width: 48%;">
     <img src="{{ site.url }}/OSSMM/media/final-assembly/shortening-cut-1.jpg" alt="Front view of OSSMM headband" style="width: 100%;">
     <figcaption style="text-align: center; font-style: italic; margin-top: 5px;">Pre-cut Sticthed Loop </figcaption>
   </figure>
-  <figure style="margin: 0; width: 50%; margin-left: 4%;">
+  <figure style="margin: 0; width: 48%; margin-left: 4%;">
     <img src="{{ site.url }}/OSSMM/media/final-assembly/shortening-cut-2.jpg" alt="Back view of OSSMM headband" style="width: 100%;">
     <figcaption style="text-align: center; font-style: italic; margin-top: 5px;">Post-cut Sticthed Loop</figcaption>
   </figure>
@@ -152,10 +152,10 @@ Due to the difference length straps will have based on the brand, the length to
 cut will change. Remember, you can always cut more off, but you can't add it back.
 In our case, a 15 cm (6") cut was suitable.
 
-<figure style="margin: 0; width: 50%; margin-left: 4%;">
-  <img src="{{ site.url }}/OSSMM/media/final-assembly/removed.jpg" alt="Back view of OSSMM headband" style="width: 100%;">
+<div align="center">
+  <img src="{{ site.url }}/OSSMM/media/final-assembly/removed.jpg" alt="Back view of OSSMM headband" style="width: 65%;">
   <figcaption style="text-align: center; font-style: italic; margin-top: 5px;">Removed Portion</figcaption>
-</figure>
+</div>
 
 &nbsp;
 ## Step 5. Insert the cut end into the open slot making a new loop.
@@ -166,7 +166,7 @@ the back.
 
 
 <div align="center">
-  <img src="{{ site.url }}/OSSMM/media/final-assembly/new-loop.jpg" alt="Back view of OSSMM headband" style="width: 100%;">
+  <img src="{{ site.url }}/OSSMM/media/final-assembly/new-loop.jpg" alt="Back view of OSSMM headband" style="width: 65%;">
 </div>
 &nbsp;
 
@@ -204,7 +204,7 @@ this a few times.
 
 
 <div align="center">
-  <img src="{{ site.url }}/OSSMM/media/final-assembly/receiver-squeeze-1.gif" alt="Back view of OSSMM headband" style="width: 100%;">
+  <img src="{{ site.url }}/OSSMM/media/final-assembly/receiver-squeeze-1.gif" alt="Back view of OSSMM headband" style="width: 65%;">
 </div>
 &nbsp;
 
@@ -220,7 +220,7 @@ connections have gone through.
 
 
 <div align="center">
-  <img src="{{ site.url }}/OSSMM/media/final-assembly/strap-insert.gif" alt="Back view of OSSMM headband" style="width: 100%;">
+  <img src="{{ site.url }}/OSSMM/media/final-assembly/strap-insert.gif" alt="Back view of OSSMM headband" style="width: 65%;">
 </div>
 &nbsp;
 
@@ -255,7 +255,7 @@ sensor slot's wire notch will be on the bottom. This notch is important for
 providing space for the wires coming off the pulse sensor.
 
 <div align="center">
-  <img src="{{ site.url }}/OSSMM/media/final-assembly/receiver-view.jpg" alt="Back view of OSSMM headband" style="width: 100%;">
+  <img src="{{ site.url }}/OSSMM/media/final-assembly/receiver-view.jpg" alt="Back view of OSSMM headband" style="width: 65%;">
 </div>
 &nbsp;
 
@@ -272,7 +272,7 @@ PulseSensor. You may have to give a little press at the end for it to meet the
 face of the receiver.
 
 <div align="center">
-  <img src="{{ site.url }}/OSSMM/media/final-assembly/receiver-view.jpg" alt="Back view of OSSMM headband" style="width: 100%;">
+  <img src="{{ site.url }}/OSSMM/media/final-assembly/receiver-view.jpg" alt="Back view of OSSMM headband" style="width: 65%;">
 </div>
 &nbsp;
 
