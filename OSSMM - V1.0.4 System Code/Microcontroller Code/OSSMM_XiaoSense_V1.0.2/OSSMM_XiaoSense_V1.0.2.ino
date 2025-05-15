@@ -41,7 +41,7 @@
    - OSSMM VX.X.X
   --------------------------------------------m---------------------
 */
-char DeviceName[] = "OSSMM V1.0.2";  // Version
+char DeviceName[] = "OSSMM V1.0.2 b";  // Version
 
 
 /* ------------------------------------------------------------------------
@@ -295,7 +295,7 @@ void setup() {
 
   // Check if USB Power is for Charging or for Serial Connection (Turn OFF for charging)
   if (powerUSB) {
-    unsigned long serialTimeout = millis() + 5000;                // Wait 5 Seconds for Serial Connection
+    unsigned long serialTimeout = millis() + 10000;                // Wait 10 Seconds for Serial Connection
 
     while (!Serial && (millis() < serialTimeout)) {
       delay(150);
@@ -308,7 +308,7 @@ void setup() {
 
       for (int i = 0; i < 8; i++) {
         digitalWrite(LED_RED, LOW);                             // Turn the RED LED on
-        delay(500);                                             // Wait for a quarter second
+        delay(500);                                             // Wait for a half second
         digitalWrite(LED_RED, HIGH);                            // Turn the RED LED off
         delay(250);
       }

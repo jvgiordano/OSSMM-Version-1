@@ -39,6 +39,7 @@ Follow the video below for a demonstration:
 </figure>
 
 
+&nbsp;
 # Bluetooth Bonding Verification
 
 (after completing "Basic Verification Procedure" and using the same OSSMM headband)
@@ -47,6 +48,11 @@ Follow the video below for a demonstration:
 2. Verify "Live Data" plots correctly
 3. Press "Stop Recording and Turn Off"
 
+Note: The app will pair to a specific headband, and the "Reconnect" option will
+only work for that bonded device.
+
+
+&nbsp;
 # Verify Data Saving and Encryption:
 
 
@@ -61,7 +67,7 @@ Note: Each time the application is instead, a new encryption password is
 semi-randomly generated. This can be modified within the Android app code, so
 that a chosen password is used instead.
 
-
+&nbsp;
 # Advanced Verification - if interested in sleep modulation:
 
 (After following the steps above)
