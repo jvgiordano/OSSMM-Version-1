@@ -88,33 +88,33 @@ Android application. Only Android is supported at this time.
 
 ## Benefits:
 
-* **Minimal Design**: Just 11 components (excluding wires) for simplicity
+* **Minimal Design**: Just 11 components (excluding wires)
 * **Comfortable Electrodes**: Elastic band with integrated silicone wet-dry electrodes (commercial heart rate monitor strap)
 * **Standard Electronics**: Four readily available off-the-shelf circuit boards
-* **Locally Manufacturable Housing**: 3D printable design that can be produced anywhere with basic equipment
+* **Locally Manufacturable Housing**: 3D printable design
 * **Convenient Power**: USB-C rechargeable battery for easy charging
 
 
 ## Technical Specifications:
 
-* Dimensions: 79.1 x 45.2 x 30 mm  (3.114 x 1.780 x 1.181 in)
-* Weight: 76.5 grams ( or 2.7 ounces with a 150 mAh battery)
-* Sampling Frequency: 250 Hz (produces 500MB for 8 hour recording)
-* Battery: 120-220 mAh (est. 15-27+ hour run time, sleep monitoring only)
+* *Dimensions: 79.1 x 45.2 x 30 mm*  (3.12 x 1.78 x 1.18 in)
+* *Weight: 76.5 grams* ( or 2.7 ounces with a 150 mAh battery)
+* *Sampling Frequency: 250 Hz* ( 500MB of data per 8 hour recording)
+* *Battery: 120-220 mAh* (est. 15-27+ hour run time, sleep monitoring only)
 
 ## Physiological Measurements:
 
-* Brain Activity: Frontal Electroencephalography (EEG)
-* Eye Movement: Electrooculography (EOG)
-* Head Movement: Via onboard Inertial Measurement Unit (IMU)
-* Heart Rhythm: Photoplethysmography (PPG)
+* *Brain Activity:* Frontal Electroencephalography (EEG)
+* *Eye Movement:* Electrooculography (EOG)
+* *Head Movement:* Via onboard Inertial Measurement Unit (IMU)
+* *Heart Rhythm:* Photoplethysmography (PPG)
 
 *Note: While the hardware includes a microphone for sound data collection, 
 this feature is not activated in version 1.0.4.*
 
 <br>
 
-## Sleep Modulation Capabilities
+## Sleep Modulation Capabilities:
 
 OSSMM V1.0.4 incorporates a commercial off-the-shelf vibration motor 
 (similar to those in mobile phones) as a stimulus mechanism for sleep 
@@ -129,6 +129,7 @@ Future versions aim to analyze sleep data in near-real-time
 (within 30-60 seconds) to potentially trigger sleep modulation 
 based on detected sleep stages.
 
+<br>
 # Start Building Now
 
 We recommend reviewing the 
@@ -146,7 +147,4 @@ To build your own OSSMM system, follow these pages in order:
 
 **Additional Notes:**
 
-[^note1]: V1.0.4 requires an Android device with the dedicated companion app
-to work. While currently requiring an Android device, any platform supporting 
-high-priority BLE transmission could potentially work (iPhone, Raspberry Pi, etc.)
-The cost estimate does not include the Android device.
+[^note1]: V1.0.4 requires an Android device with the dedicated companion app to work. While currently requiring an Android device, any platform supporting high-priority BLE transmission could potentially work (iPhone, Raspberry Pi, etc.). The cost estimate does not include the Android device.

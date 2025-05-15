@@ -8,13 +8,9 @@ sidebar:
   nav: "pages_sidebar_nav"
 ---
 
-# OSSMM System Verification
-
-THIS IS A WIP
-
 You've assembled the OSSMM system! Now let's verify that it works as intended:
 
-## Procedure
+# Basic Verification Procedure
 
 Requisites:
 1. Android Device with OSSMM App
@@ -33,12 +29,43 @@ To verify your OSSMM system:
 8. Move your head and confirm the Accelerometer and Gyroscope plots show your movement.
 9. Quickly move your eyes left-to-right, right-to-left, or in circles to verify your eye movement is detected.
 10. View the Heart Rate plot to see that your pulse is being detected.
+11. Press "Stop Recording and Turn Off"
+
+Follow the video below for a demonstration:
+
+<figure>
+  <img src="{{ site.url }}/OSSMM/media/final-assembly/shortening-cut-1.jpg" alt="Front view of OSSMM headband" style="width: 40%;">
+  <figcaption style="text-align: center; font-style: italic; margin-top: 5px;">Verification Demo</figcaption>
+</figure>
 
 
-Advanced Verification - if interested in sleep modulation:
+# Bluetooth Bonding Verification
+
+(after completing "Basic Verification Procedure" and using the same OSSMM headband)
+
+1. Press "Reconnect and Record"
+2. Verify "Live Data" plots correctly
+3. Press "Stop Recording and Turn Off"
+
+# Verify Data Saving and Encryption:
+
+
+1. Connect the Android Device to a computer
+2. Access the internal file system and navigate to Documents/OSSMM on the Android device
+3. Select the ZIP file corresponding to the time of your verification recording
+4. Import the ZIP file to your computer, and open with appropriate decompresser (WinRAR is recommended for Windows)
+4. Use the password under the "Data Protection" >> View Data Access Password in the app
+
+
+Note: Each time the application is instead, a new encryption password is
+semi-randomly generated. This can be modified within the Android app code, so
+that a chosen password is used instead.
+
+
+# Advanced Verification - if interested in sleep modulation:
 
 (After following the steps above)
 
-11. Go to "Sleep Modulation" and enable
-12. Press Test Modulation during the connection
+1. Go to "Sleep Modulation" and enable
+2. Press Test Modulation during the connection
    - The OSSMM headband should vibrate in a double "blinky" pattern (On-Off...On-Off)
