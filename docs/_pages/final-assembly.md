@@ -10,9 +10,9 @@ sidebar:
 
 Now it's time for the final assembly! You should have before you the three major components for the OSSMM headband:
 
-*1. The strap*
-*2. The electronics case*
-*3. The receiver*
+1. The strap
+2. The electronics case
+3. The receiver
 
 Before we can assemble these components, we need to modify the heart-rate monitor
 strap. Since it's designed to fit around the chest, it's too long for use as a 
@@ -80,20 +80,22 @@ relevant data sheet.
 
 This guide is specifically for straps which have either a triglide slide (3 bars) 
 or quad slide (4 bars) in combination with a G Hook slide as shown below. Look 
-at your strap to identify the slides it has, but not you don't have to remove 
-them to do this.
+at your strap to identify the slides it has. It is not necessary to remove
+the slides for this.
 
-<div align="center">
-  <img src="{{ site.url }}/OSSMM/media/final-assembly/slides-tri.jpg" style="width: 65%;">
-  <figcaption style="text-align: center; font-style: italic; margin-top: 5px;">Slides in strap: Triglide slide on left, G hook slide on right</figcaption>
+&nbsp;
+<div style="display: flex; flex-direction: row; align-items: flex-start;">
+  <figure style="margin: 0; width: 48%;">
+    <img src="{{ site.url }}/OSSMM/media/final-assembly/slides-tri.jpg" style="width: 65%;">
+    <figcaption style="text-align: center; font-style: italic; margin-top: 5px;">Slides in strap: Triglide slide on left, G hook slide on right</figcaption>
+  </figure>
+  <figure style="margin: 0; width: 48%; margin-left: 4%;">
+    <img src="{{ site.url }}/OSSMM/media/final-assembly/slide-quad.jpg" style="width: 60%;">
+    <figcaption style="text-align: center; font-style: italic; margin-top: 5px;">Slides in strap: Quad slide on left, G hook slide on right</figcaption>
+  </figure>
 </div>
 &nbsp;
 
-<div align="center">
-  <img src="{{ site.url }}/OSSMM/media/final-assembly/slide-quad.jpg" style="width: 60%;">
-  <figcaption style="text-align: center; font-style: italic; margin-top: 5px;">Slides in strap: Quad slide on left, G hook slide on right</figcaption>
-</div>
-&nbsp;
 
 The following example will utilize a quad slide.
 
@@ -153,7 +155,7 @@ cut will change. Remember, you can always cut more off, but you can't add it bac
 In our case, a 15 cm (6") cut was suitable.
 
 <div align="center">
-  <img src="{{ site.url }}/OSSMM/media/final-assembly/removed.jpg" alt="Back view of OSSMM headband" style="width: 65%;">
+  <img src="{{ site.url }}/OSSMM/media/final-assembly/removed.jpg" alt="Back view of OSSMM headband" style="width: 60%;">
   <figcaption style="text-align: center; font-style: italic; margin-top: 5px;">Removed Portion</figcaption>
 </div>
 
@@ -166,7 +168,7 @@ the back.
 
 
 <div align="center">
-  <img src="{{ site.url }}/OSSMM/media/final-assembly/new-loop.jpg" alt="Back view of OSSMM headband" style="width: 65%;">
+  <img src="{{ site.url }}/OSSMM/media/final-assembly/new-loop.jpg" alt="Back view of OSSMM headband" style="width: 60%;">
 </div>
 &nbsp;
 
@@ -204,7 +206,7 @@ this a few times.
 
 
 <div align="center">
-  <img src="{{ site.url }}/OSSMM/media/final-assembly/receiver-squeeze-1.gif" alt="Back view of OSSMM headband" style="width: 65%;">
+  <img src="{{ site.url }}/OSSMM/media/final-assembly/receiver-squeeze-1.gif" alt="Back view of OSSMM headband" style="width: 60%;">
 </div>
 &nbsp;
 
@@ -220,7 +222,7 @@ connections have gone through.
 
 
 <div align="center">
-  <img src="{{ site.url }}/OSSMM/media/final-assembly/strap-insert.gif" alt="Back view of OSSMM headband" style="width: 65%;">
+  <img src="{{ site.url }}/OSSMM/media/final-assembly/strap-insert.gif" alt="Back view of OSSMM headband" style="width: 60%;">
 </div>
 &nbsp;
 
@@ -255,7 +257,7 @@ sensor slot's wire notch will be on the bottom. This notch is important for
 providing space for the wires coming off the pulse sensor.
 
 <div align="center">
-  <img src="{{ site.url }}/OSSMM/media/final-assembly/receiver-view.jpg" alt="Back view of OSSMM headband" style="width: 65%;">
+  <img src="{{ site.url }}/OSSMM/media/final-assembly/receiver-view.jpg" alt="Back view of OSSMM headband" style="width: 60%;">
 </div>
 &nbsp;
 
@@ -272,7 +274,7 @@ PulseSensor. You may have to give a little press at the end for it to meet the
 face of the receiver.
 
 <div align="center">
-  <img src="{{ site.url }}/OSSMM/media/final-assembly/receiver-view.jpg" alt="Back view of OSSMM headband" style="width: 65%;">
+  <img src="{{ site.url }}/OSSMM/media/final-assembly/receiver-view.jpg" alt="Back view of OSSMM headband" style="width: 60%;">
 </div>
 &nbsp;
 
