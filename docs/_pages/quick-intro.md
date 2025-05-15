@@ -8,7 +8,7 @@ sidebar:
   nav: "pages_sidebar_nav"
 ---
 
-## Welcome to OSSMM!
+# Welcome to OSSMM!
 
 **OSSMM** (Open-Source Sleep Monitor and Modulator) is the world's first 
 open-source hardware and software system designed for both sleep monitoring 
@@ -16,15 +16,15 @@ and modulation.
 
 <br>
 
-**The Goal:** OSSMM was created to address the prohibitive entry cost into 
+# **The Goal:** 
+OSSMM was created to address the prohibitive entry cost into 
 quality sleep research. By providing researchers and sleep enthusiasts with an
-affordable platform that can be assembled locally, we enable:
-
-This accessible system promotes:
+affordable platform that can be assembled locally this accessible system 
+promotes:
 
 - Cost-effective large-scale, long-term sleep studies
 - Data collection in participants' natural home environments
-- Effective monitoring for under €40 per unit (as of 12/2024)
+- Effective monitoring for under €40 per unit (as of 12/2024)[^note1]
 
 **Most importantly, OSSMM enables sleep modulation experiments — filling a gap 
 where no comparable off-the-shelf system currently exists.**
@@ -44,9 +44,9 @@ where no comparable off-the-shelf system currently exists.**
 <br>
 <br>
 
-**Performance:** 
+# Performance:
 
-OSSMM offers more accurate sleep staging than many commercial wearables 
+OSSMM promises to offer more accurate sleep staging than many commercial wearables 
 (smart watches, rings) at a fraction of the price. 
 
 
@@ -54,7 +54,7 @@ OSSMM offers more accurate sleep staging than many commercial wearables
 
 <br>
 
-**Key Design Features:**
+# Key Design Features:
 
 * **Reusable silicone wet-dry electrodes.** - no conductive gel needed
 * **Quick-change parts** - easy repair and hygiene
@@ -68,7 +68,7 @@ OSSMM offers more accurate sleep staging than many commercial wearables
 
 <br>
 
-## Device Overview (V1.0.4)
+# Device Overview (V1.0.4)
 
 In short, OSSMM consists of a wearable headband that collects physiological data
 and transmits it wirelessly via Bluetooth Low Energy (BLE) to a dedicated 
@@ -86,7 +86,7 @@ Android application. Only Android is supported at this time.
 </div>
 <br>
 
-The headband comprises:
+## Benefits:
 
 * **Minimal Design**: Just 11 components (excluding wires) for simplicity
 * **Comfortable Electrodes**: Elastic band with integrated silicone wet-dry electrodes (commercial heart rate monitor strap)
@@ -95,26 +95,26 @@ The headband comprises:
 * **Convenient Power**: USB-C rechargeable battery for easy charging
 
 
-Technical Specifications:
+## Technical Specifications:
 
-* **Dimensions: 79.1 x 45.2 x 30 mm** (3.114 x 1.780 x 1.181 in)
-* **Weight: 76.5 grams** ( or 2.7 ounces with a 150 mAh battery)
-* **Sampling Frequency: 250 Hz  ** (produces 500MB for 8 hour recording)
-* **Battery: 120-220 mAh** (est. 15-27+ hour run time, sleep monitoring only)
+* Dimensions: 79.1 x 45.2 x 30 mm  (3.114 x 1.780 x 1.181 in)
+* Weight: 76.5 grams ( or 2.7 ounces with a 150 mAh battery)
+* Sampling Frequency: 250 Hz (produces 500MB for 8 hour recording)
+* Battery: 120-220 mAh (est. 15-27+ hour run time, sleep monitoring only)
 
-Physiological Measurements:
+## Physiological Measurements:
 
-* **Brain Activity**: Frontal Electroencephalography (EEG)
-* **Eye Movement**: Electrooculography (EOG)
-* **Head Movement**: Via onboard Inertial Measurement Unit (IMU)
-* **Heart Rhythm**: Photoplethysmography (PPG)
+* Brain Activity: Frontal Electroencephalography (EEG)
+* Eye Movement: Electrooculography (EOG)
+* Head Movement: Via onboard Inertial Measurement Unit (IMU)
+* Heart Rhythm: Photoplethysmography (PPG)
 
 *Note: While the hardware includes a microphone for sound data collection, 
 this feature is not activated in version 1.0.4.*
 
 <br>
 
-**Sleep Modulation Capabilities:**
+## Sleep Modulation Capabilities
 
 OSSMM V1.0.4 incorporates a commercial off-the-shelf vibration motor 
 (similar to those in mobile phones) as a stimulus mechanism for sleep 
@@ -149,3 +149,4 @@ To build your own OSSMM system, follow these pages in order:
 [^note1]: V1.0.4 requires an Android device with the dedicated companion app
 to work. While currently requiring an Android device, any platform supporting 
 high-priority BLE transmission could potentially work (iPhone, Raspberry Pi, etc.)
+The cost estimate does not include the Android device.
