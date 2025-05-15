@@ -87,9 +87,9 @@ Android application. Only Android is supported at this time.
 <br>
 
 
-<figure style="margin: 0; width: 45%;">
-  <img src="{{ site.url }}/OSSMM/media/quick-intro/quick-demo.gif" alt="Short GIF Demo of OSSMM app. Real-time app usage is smooth. " style="width: 45%;">
-  <figcaption style="text-align: center; font-style: italic; margin-top: 5px;">Quick Demo.</figcaption>
+<figure style="margin: 0 auto; width: 45%;">
+  <img src="{{ site.url }}/OSSMM/media/quick-intro/quick-demo.gif" alt="quick-demo" style="width: 55%;">
+  <figcaption style="text-align: center; font-style: italic; margin-top: 5px;">Short Demo of OSSMM app. Real-time app usage is smoother than can be shown in this GIF.</figcaption>
 </figure>
 
 
