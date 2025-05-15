@@ -55,10 +55,10 @@ their Polar Pro Strap, specifying a surface resistance of 500 Ω.
 You can measure an approximate surface resistance of your strap's electrodes 
 using a quality multimeter on the resistance measurement setting:
 
-*1. Set the multimeter to resistance measurement mode (2kΩ setting if applicable)*
-*2. Place probes at a fixed distance on one silicone electrode*
-*3. Apply sufficient pressure for good contact*
-*4. Record the reading*
+1. Set the multimeter to resistance measurement mode (2kΩ setting if applicable)
+2. Place probes at a fixed distance on one silicone electrode
+3. Apply sufficient pressure for good contact
+4. Record the reading
 
 This reading will give you an idea of how conductive your heart-rate monitor 
 strap is. Please be aware, however, that accurate measurements require 
@@ -206,7 +206,7 @@ this a few times.
 
 
 <div align="center">
-  <img src="{{ site.url }}/OSSMM/media/final-assembly/receiver-squeeze-1.gif" alt="Back view of OSSMM headband" style="width: 60%;">
+  <img src="{{ site.url }}/OSSMM/media/final-assembly/receiver-squeeze-1.gif" alt="Back view of OSSMM headband" style="width: 50%;">
 </div>
 &nbsp;
 
@@ -222,27 +222,43 @@ connections have gone through.
 
 
 <div align="center">
-  <img src="{{ site.url }}/OSSMM/media/final-assembly/strap-insert.gif" alt="Back view of OSSMM headband" style="width: 60%;">
+  <img src="{{ site.url }}/OSSMM/media/final-assembly/strap-insert.gif" alt="Back view of OSSMM headband" style="width: 50%;">
 </div>
 &nbsp;
 
 
 ## Step 3. Thread the strap through the last slot.
 
-Now thread the strap back through the remaining slot. 
+Now thread the strap back through the remaining slot. You can use your finger to
+expand the slot or use the original squeeze method shown in Step 1. When you are
+the silicone electrodes should be spaced roughly equally when emerging from the
+back of the receiver, and the button contacts should be also be equally spaced
+apart in the inner compartment.
+
+
+<div align="center">
+  <img src="{{ site.url }}/OSSMM/media/final-assembly/last-strap.gif" alt="Back view of OSSMM headband" style="width: 60%;">
+</div>
+&nbsp;
+
 
 
 # Install the Electronic Case
 
-You're almost there! This section should be done with a table as a support, 
-or an additional pair of human hands.
+You're almost there! 2 out of 3 components are connected. Now let's add the final
+piece: the electronic case!
 
-## Step 1. Pull excess headband strap through the receiver, loop over, and expose the PulseSensor slot
+This section should be done with a table as a support, 
+or an additional pair of human hands. 
 
-In this step we are going to prepare the combined receiver and headband for
+## Step 1. Pull excess strap through the receiver, loop over, and expose the PulseSensor slot
+
+The first part of the installation is inserting the PulseSensor into its 
+dedicated slot in the receiver. Before we can do this we need to clear a path. In
+this step we are going to prepare the combined receiver and headband strap for
 the pulse sensor. We need to expose the pulse sensor slot. To do this, pull
-through more strap, and loop this over the receiver. This way, no strap should
-be blocking access.
+more of strap through, and loop this over the receiver. After completion, no 
+strap should be blocking access.
 
 <div align="center">
   <img src="{{ site.url }}/OSSMM/media/final-assembly/new-loop.jpg" alt="Back view of OSSMM headband" style="width: 100%;">
