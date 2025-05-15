@@ -12,7 +12,7 @@ class LiveDataChart extends StatelessWidget {
   const LiveDataChart({
     super.key,
     required this.samples,
-    this.displayDuration = const Duration(seconds: 20),
+    this.displayDuration = const Duration(seconds: 15),
     // Removed downsampleFactor from constructor
   });
 
