@@ -112,7 +112,7 @@ Android application. Only Android is supported at this time.
 *Note: While the hardware includes a microphone for sound data collection, 
 this feature is not activated in version 1.0.4.*
 
-<br>
+&nbsp;
 
 ## Sleep Modulation Capabilities:
 
@@ -129,7 +129,7 @@ Future versions aim to analyze sleep data in near-real-time
 (within 30-60 seconds) to potentially trigger sleep modulation 
 based on detected sleep stages.
 
-<br>
+&nbsp;
 # Start Building Now
 
 We recommend reviewing the 
