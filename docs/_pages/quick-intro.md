@@ -86,6 +86,13 @@ Android application. Only Android is supported at this time.
 </div>
 <br>
 
+
+<figure style="margin: 0; width: 45%;">
+  <img src="{{ site.url }}/OSSMM/media/quick-intro/quick-demo.gif" alt="Short Demo " style="width: 45%;">
+  <figcaption style="text-align: center; font-style: italic; margin-top: 5px;">Quick Demo.</figcaption>
+</figure>
+
+
 ## Benefits:
 
 * **Minimal Design**: Just 11 components (excluding wires)
@@ -97,17 +104,17 @@ Android application. Only Android is supported at this time.
 
 ## Technical Specifications:
 
-* *Dimensions: 79.1 x 45.2 x 30 mm*  (3.12 x 1.78 x 1.18 in)
-* *Weight: 76.5 grams* ( or 2.7 ounces with a 150 mAh battery)
-* *Sampling Frequency: 250 Hz* ( 500MB of data per 8 hour recording)
-* *Battery: 120-220 mAh* (est. 15-27+ hour run time, sleep monitoring only)
+* **Dimensions: 79.1 x 45.2 x 30 mm**  (3.12 x 1.78 x 1.18 in)
+* **Weight: 76.5 grams** ( or 2.7 ounces with a 150 mAh battery)
+* **Sampling Frequency: 250 Hz** ( 500MB of data per 8 hour recording)
+* **Battery: 120-220 mAh** (est. 15-27+ hour run time, sleep monitoring only)
 
 ## Physiological Measurements:
 
-* *Brain Activity:* Frontal Electroencephalography (EEG)
-* *Eye Movement:* Electrooculography (EOG)
-* *Head Movement:* Via onboard Inertial Measurement Unit (IMU)
-* *Heart Rhythm:* Photoplethysmography (PPG)
+* *Brain Activity:** Frontal Electroencephalography (EEG)
+* *Eye Movement:** Electrooculography (EOG)
+* *Head Movement:** Via onboard Inertial Measurement Unit (IMU)
+* *Heart Rhythm:** Photoplethysmography (PPG)
 
 *Note: While the hardware includes a microphone for sound data collection, 
 this feature is not activated in version 1.0.4.*
