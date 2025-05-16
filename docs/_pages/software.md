@@ -57,8 +57,8 @@ library and configure the Arduino IDE to be used with the MCU:
 
 ### Step 1. With the Arduino IDE open, go to 'File >> Preferences'
 
-<figure align="center">
-  <img src="{{ site.url }}/OSSMM/media/software/arduino-pref.jpg" style="width: 50%;">
+<figure style="text-align: center; display: block; margin: 0 auto;">
+  <img src="{{ site.url }}/OSSMM/media/software/arduino-pref.jpg" style="width: 50%; border-radius: 8px;">
 </figure>
 <br>
 
@@ -68,8 +68,8 @@ https://files.seeedstudio.com/arduino/package_seeeduino_boards_index.json
 
 If you already have another Board Manager URL for a different library, use a ',' to separate the URLS.
 
-<figure align="center">
-  <img src="{{ site.url }}/OSSMM/media/software/arduino-json.jpg" style="width: 65%;">
+<figure style="text-align: center; display: block; margin: 0 auto;">
+  <img src="{{ site.url }}/OSSMM/media/software/arduino-json.jpg" style="width: 65%; border-radius: 8px;">
 </figure>
 <br>
 
@@ -81,8 +81,8 @@ First go to 'Tools >> Board: >>  Board's Manager' and click on Board's Manager.
 
 Note: Under Tools, "Board: " may be empty or contain other names. It does not matter.
 
-<figure align="center">
-  <img src="{{ site.url }}/OSSMM/media/software/arduino-boards.jpg" style="width: 50%;">
+<figure style="text-align: center; display: block; margin: 0 auto;">
+  <img src="{{ site.url }}/OSSMM/media/software/arduino-boards.jpg" style="width: 50%; border-radius: 8px;">
 </figure>
 <br>
 
@@ -90,15 +90,15 @@ Note: Under Tools, "Board: " may be empty or contain other names. It does not ma
 In the search bar at the top, type 'seeed nrf52'. Two board manager options 
 should appear. Install the one that says "Seeed nRF52 Boards."
 
-<figure align="center">
-  <img src="{{ site.url }}/OSSMM/media/software/arduino-search.jpg" style="width: 50%;">
+<figure style="text-align: center; display: block; margin: 0 auto;">
+  <img src="{{ site.url }}/OSSMM/media/software/arduino-search.jpg" style="width: 50%; border-radius: 8px;">
 </figure>
 <br>
 
 ### Step 4. Select 'Tools >> Board: >>  Seeed nRF52 Boards >> Seeed XIAO nRF52840 Sense'
 
-<figure align="center">
-  <img src="{{ site.url }}/OSSMM/media/software/arduino-seeed.jpg" style="width: 60%;">
+<figure style="text-align: center; display: block; margin: 0 auto;">
+  <img src="{{ site.url }}/OSSMM/media/software/arduino-seeed.jpg" style="width: 60%; border-radius: 8px;">
 </figure>
 <br>
 
@@ -116,27 +116,27 @@ and install the code:
 The code is located under "Micronctroller Code" in the
 [OSSMM - System Code](https://github.com/jvgiordano/OSSMM/tree/main/OSSMM%20-%20V1.0.4%20System%20Code) folder.
 
-<figure align="center">
-  <img src="{{ site.url }}/OSSMM/media/software/arduino-location.jpg" style="width: 60%;">
+<figure style="text-align: center; display: block; margin: 0 auto;">
+  <img src="{{ site.url }}/OSSMM/media/software/arduino-location.jpg" style="width: 60%; border-radius: 8px;">
 </figure>
 <br>
 
-<figure align="center">
-  <img src="{{ site.url }}/OSSMM/media/software/arduino-mcu.jpg" style="width: 60%;">
+<figure style="text-align: center; display: block; margin: 0 auto;">
+  <img src="{{ site.url }}/OSSMM/media/software/arduino-mcu.jpg" style="width: 60%; border-radius: 8px;">
 </figure>
 <br>
 
 ### Step 2. Open the Arduino File with the Arduino IDE
 
-<figure align="center">
-  <img src="{{ site.url }}/OSSMM/media/software/arduino-code.jpg" style="width: 60%;">
+<figure style="text-align: center; display: block; margin: 0 auto;">
+  <img src="{{ site.url }}/OSSMM/media/software/arduino-code.jpg" style="width: 60%; border-radius: 8px;">
 </figure>
 <br>
 
 ### Step 3. Connect the OSSMM Headband to your PC using a USB-C cable
 
-<figure align="center">
-  <img src="{{ site.url }}/OSSMM/media/software/ports.jpg" style="width: 50%;">
+<figure style="text-align: center; display: block; margin: 0 auto;">
+  <img src="{{ site.url }}/OSSMM/media/software/ports.jpg" style="width: 50%; border-radius: 8px;">
 </figure>
 <br>
 
@@ -145,8 +145,8 @@ The code is located under "Micronctroller Code" in the
 
 Where COM_X_ will be some port number (e.g., COM7)
 
-<figure align="center">
-  <img src="{{ site.url }}/OSSMM/media/software/arduino-port.jpg" style="width: 60%;">
+<figure style="text-align: center; display: block; margin: 0 auto;">
+  <img src="{{ site.url }}/OSSMM/media/software/arduino-port.jpg" style="width: 60%; border-radius: 8px;">
 </figure>
 <br>
 
@@ -158,8 +158,8 @@ should automatically detect the port.
 
 This will take some time as the code compiles, and then uploads to the MCU.
 
-<figure align="center">
-  <img src="{{ site.url }}/OSSMM/media/software/arduino-upload.jpg" style="width: 60%;">
+<figure style="text-align: center; display: block; margin: 0 auto;">
+  <img src="{{ site.url }}/OSSMM/media/software/arduino-upload.jpg" style="width: 60%; border-radius: 8px;">
 </figure>
 <br>
 
@@ -167,8 +167,8 @@ This will take some time as the code compiles, and then uploads to the MCU.
 
 Succesful code upload will show the following response in the Arduino IDE:
 
-<figure align="center">
-  <img src="{{ site.url }}/OSSMM/media/software/arduino-complete.jpg" style="width: 60%;">
+<figure style="text-align: center; display: block; margin: 0 auto;">
+  <img src="{{ site.url }}/OSSMM/media/software/arduino-complete.jpg" style="width: 60%; border-radius: 8px;">
 </figure>
 <br>
 
@@ -204,8 +204,8 @@ Note: If you are not prompted or cannot access the internal memory, your USB
 cable may only support power transfer and not data transfer. Try with another
 cable. This may be true even for newer USB-C cables.
 
-<figure align="center">
-  <img src="{{ site.url }}/OSSMM/media/software/usb-file-transfer.png" style="width: 25%;">
+<figure style="text-align: center; display: block; margin: 0 auto;">
+  <img src="{{ site.url }}/OSSMM/media/software/usb-file-transfer.png" style="width: 25%; border-radius: 8px;">
 </figure>
 <br>
 
@@ -213,8 +213,8 @@ cable. This may be true even for newer USB-C cables.
 
 Got to "This PC" >> Android Device >> Internal Shared Storage >> "Download"
 
-<figure align="center">
-  <img src="{{ site.url }}/OSSMM/media/software/access-download.gif" style="width: 70%;">
+<figure style="text-align: center; display: block; margin: 0 auto;">
+  <img src="{{ site.url }}/OSSMM/media/software/access-download.gif" style="width: 70%; border-radius: 8px;">
 </figure>
 <br>
 
@@ -231,8 +231,8 @@ the file transfer is complete.
 historical posterity. The Android 15 APK contains significant updates, including
 improved safety features.
 
-<figure align="center">
-  <img src="{{ site.url }}/OSSMM/media/software/apk-transfer.png" style="width: 100%;">
+<figure style="text-align: center; display: block; margin: 0 auto;">
+  <img src="{{ site.url }}/OSSMM/media/software/apk-transfer.png" style="width: 100%; border-radius: 8px;">
 </figure>
 <br>
 
@@ -248,8 +248,8 @@ to install it.
 If you are queried to perform a scan, please do so. 
 
 
-<figure align="center">
-  <img src="{{ site.url }}/OSSMM/media/software/ossmm-install.gif" style="width: 25%;">
+<figure style="text-align: center; display: block; margin: 0 auto;">
+  <img src="{{ site.url }}/OSSMM/media/software/ossmm-install.gif" style="width: 25%; border-radius: 8px;">
 </figure>
 <br>
 
@@ -296,8 +296,8 @@ Go to [this link](https://www.java.com/en/download/help/download_options.html)) 
 These are located under "\OSSMM\OSSMM - V1.0.4 System Code\Android App Code\Android 15"
 in a folder called "ossmm"
 
-<figure align="center">
-  <img src="{{ site.url }}/OSSMM/media/software/android-app-code.png" style="width: 60%;">
+<figure style="text-align: center; display: block; margin: 0 auto;">
+  <img src="{{ site.url }}/OSSMM/media/software/android-app-code.png" style="width: 60%; border-radius: 8px;">
 </figure>
 <br>
 
@@ -310,8 +310,8 @@ directory:
 
 Full Directory: "OSSMM\OSSMM - V1.0.4 System Code\Android App Code\Android 15\ossmm\lib"
 
-<figure align="center">
-  <img src="{{ site.url }}/OSSMM/media/software/android-studio-files.png" style="width: 60%;">
+<figure style="text-align: center; display: block; margin: 0 auto;">
+  <img src="{{ site.url }}/OSSMM/media/software/android-studio-files.png" style="width: 60%; border-radius: 8px;">
 </figure>
 <br>
 
