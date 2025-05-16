@@ -516,7 +516,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   Builder(
                       builder: (context) {
                         final List<DataSample> chartSamples = service.getDownsampledSamples(
-                            const Duration(seconds: 10));
+                            const Duration(seconds: 15));
 
                         bool hasChartData = chartSamples.isNotEmpty;
                         bool showChart = service.isConnected && hasChartData;
@@ -532,7 +532,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         } else if (showChart) {
                           return LiveDataChart(
                             samples: chartSamples,
-                            displayDuration: const Duration(seconds: 10),
+                            displayDuration: const Duration(seconds: 15),
                           );
                         } else {
                           // Fallback case
