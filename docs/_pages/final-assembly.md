@@ -261,11 +261,11 @@ more of strap through, and loop this over the receiver. After completion, no
 strap should be blocking access.
 
 <div align="center">
-  <img src="{{ site.url }}/OSSMM/media/final-assembly/new-loop.jpg" alt="Back view of OSSMM headband" style="width: 50%;">
+  <img src="{{ site.url }}/OSSMM/media/final-assembly/loop-over.gif" alt="Back view of OSSMM headband" style="width: 50%;">
 </div>
 &nbsp;
 
-## Step 2.Insert the PulseSensor
+## Step 2.Identify the Wire Notch and Orient the Receiver
 
 Start by matching the version number text on the receiver and the electronic
 case so both are facing upwards. Having the receiver correctly oriented means the pulse
@@ -277,30 +277,62 @@ providing space for the wires coming off the pulse sensor.
 </div>
 &nbsp;
 
-The PulseSensor should be forced into the slot. Instead, the slot is meant to
+## Step 3. Learn the Squeeze
+
+The PulseSensor shouldn't be forced into the slot. Instead, the slot is meant to
 expand when force is applied to the back, and the inner walls of the receiver
 are pulled slightly outward. It is recommended to practice this squeezing motion
 before attempting to insert the PulseSensor.
 
-To complete the install, lightly press the PulseSensor into the slot with the
+<div align="center">
+  <img src="{{ site.url }}/OSSMM/media/final-assembly/receiver-squeeze-2.gif" alt="Back view of OSSMM headband" style="width: 50%;">
+</div>
+&nbsp;
+
+## Step 4. Squeeze and Insert the Pulse Sensor
+
+To complete the install, lightly press the PulseSensor into the beginning of slot with the
 orientation, such that the wires will eventually sit in the notch. Then, squeeze
-the receiver in the indicated manner. You can then hold the position of the 
+the receiver in the indicated manner above. You can then hold the position of the 
 PulseSensor and as you release the squeeze the receiver should "swallow" the
 PulseSensor. You may have to give a little press at the end for it to meet the
 face of the receiver.
 
+We recommend laying the electronic case on a table so that the only part being
+lifted is the PulseSensor, or alternatively having an extra pair of hands help.
+
 <div align="center">
-  <img src="{{ site.url }}/OSSMM/media/final-assembly/receiver-view.jpg" alt="Back view of OSSMM headband" style="width: 50%;">
+  <img src="{{ site.url }}/OSSMM/media/final-assembly/pulse-sensor-insert.gif" alt="Back view of OSSMM headband" style="width: 50%;">
 </div>
 &nbsp;
 
-## Step 3. Connect the EOG/EEG electrodes
+
+## Step 5. Unloop the strap
+
+Return the strap to its original position.
+
+<div align="center">
+  <img src="{{ site.url }}/OSSMM/media/final-assembly/unloop.gif" alt="Back view of OSSMM headband" style="width: 50%;">
+</div>
+&nbsp;
+
+
+## Step 6. Connect the EOG/EEG snap-fastener and button electrodes
+
+Ensure that the Version text on the receiver and electronic case are facing the
+same direction. 
+
+Button the snap-fastener electrodes from the electronic case into the 
+button on the strap.
+
+There should be an audible clip, signifying a tight connection.
 
 
 
-## Step 4. Slot in the electronics case
 
-## Step 5. You've done it!
+## Step 7. Slot in the electronics case
+
+## Step 8. You've done it!
 
 
 
