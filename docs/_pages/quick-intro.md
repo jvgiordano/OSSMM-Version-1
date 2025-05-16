@@ -131,7 +131,7 @@ Future versions aim to analyze sleep data in near-real-time
 (within 30-60 seconds) to potentially trigger sleep modulation 
 based on detected sleep stages.
 
-&nbsp;
+<br>
 # Start Building Now
 
 We recommend reviewing the 
