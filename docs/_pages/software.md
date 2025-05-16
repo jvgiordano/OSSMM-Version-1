@@ -51,7 +51,7 @@ Please install the latest version from the [Arduino Website](https://www.arduino
 
 ## Install the Seeed nRF52 Library and Configure for the Xiao Sense nRF52840 MCU
 
-The Arduino IDE requires the Seeed nRF52 Library in to order to communicate and
+The Arduino IDE requires the Seeed nRF52 Library in order to communicate and
 compile code for the Xiao Sense MCU. Follow the steps below to install this 
 library and configure the Arduino IDE to be used with the MCU:
 
@@ -113,7 +113,7 @@ and install the code:
 
 ### Step 1. Download (or Clone with Git) the Arduino Code from the OSSMM Repository
 
-The code is located under "Micronctroller Code" in the
+The code is located under "Microcontroller Code" in the
 [OSSMM - System Code](https://github.com/jvgiordano/OSSMM/tree/main/OSSMM%20-%20V1.0.4%20System%20Code) folder.
 
 <figure style="text-align: center; display: block; margin: 0 auto;">
@@ -165,14 +165,14 @@ This will take some time as the code compiles, and then uploads to the MCU.
 
 ### Step 6. Confirm Upload
 
-Succesful code upload will show the following response in the Arduino IDE:
+Successful code upload will show the following response in the Arduino IDE:
 
 <figure style="text-align: center; display: block; margin: 0 auto;">
   <img src="{{ site.url }}/OSSMM/media/software/arduino-complete.jpg" style="width: 60%; border-radius: 8px;">
 </figure>
 <br>
 
-Congratulations! You're OSSMM headband is complete. Now it's time to install the
+Congratulations! Your OSSMM headband is complete. Now it's time to install the
 Android companion app!
 
 # Install the Android App
@@ -211,7 +211,7 @@ cable. This may be true even for newer USB-C cables.
 
 ## Step 2. Access your "Download" folder on your Android Device
 
-Got to "This PC" >> Android Device >> Internal Shared Storage >> "Download"
+Go to "This PC" >> Android Device >> Internal Shared Storage >> "Download"
 
 <figure style="text-align: center; display: block; margin: 0 auto;">
   <img src="{{ site.url }}/OSSMM/media/software/access-download.gif" style="width: 70%; border-radius: 8px;">
@@ -287,11 +287,11 @@ Go to [this link](https://docs.flutter.dev/get-started/install) for Flutter Inst
 
 ## Step 3 - Install Java
 
-Go to [this link](https://www.java.com/en/download/help/download_options.html)) for Java Installation instructions.
+Go to [this link](https://www.java.com/en/download/help/download_options.html) for Java Installation instructions.
 
-## Step 5 - Configure Flutter and Dart Plugin for Android Studio in Settings
+## Step 4 - Configure Flutter and Dart Plugin for Android Studio in Settings
 
-## Step 6 - Download (or pull) the OSSMM App Files
+## Step 5 - Download (or pull) the OSSMM App Files
 
 These are located under "\OSSMM\OSSMM - V1.0.4 System Code\Android App Code\Android 15"
 in a folder called "ossmm"
@@ -301,9 +301,9 @@ in a folder called "ossmm"
 </figure>
 <br>
 
-## Step 7 - Open the Project with Android Studio
+## Step 6 - Open the Project with Android Studio
 
-## Step 8 - Locate modifiable Android app code within project:
+## Step 7 - Locate modifiable Android app code within project:
 
 For Android 15 and above, pertinent files are located under the "\ossmm\lib" 
 directory: 
