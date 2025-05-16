@@ -44,16 +44,6 @@ where no comparable off-the-shelf system currently exists.**
 <br>
 <br>
 
-# Performance:
-
-OSSMM promises to offer more accurate sleep staging than many commercial wearables 
-(smart watches, rings) at a fraction of the price. 
-
-
-*Note: OSSMM is currently under assessment for 4-stage sleep classification accuracy.*
-
-<br>
-
 # Key Design Features:
 
 * **Reusable silicone wet-dry electrodes.** - no conductive gel needed
@@ -63,9 +53,6 @@ OSSMM promises to offer more accurate sleep staging than many commercial wearabl
   - Complete access for researcher modifications
   - Full transparency of sleep staging algorithms and hardware code
   
-
-*Note: An Android device[^note1] is required for data collection and is not included in the cost estimate.*
-
 <br>
 
 # Device Overview (V1.0.4)
@@ -100,15 +87,15 @@ Android application. Only Android is supported at this time.
 
 * **Dimensions: 79.1 x 45.2 x 30 mm**  (3.12 x 1.78 x 1.18 in)
 * **Weight: 76.5 grams** ( or 2.7 ounces with a 150 mAh battery)
-* **Sampling Frequency: 250 Hz** ( 500MB of data per 8 hour recording)
+* **Sampling Frequency: +250 Hz** ( 500MB of data per 8 hour recording)
 * **Battery: 120-220 mAh** (est. 15-27+ hour run time, sleep monitoring only)
 
 ## Physiological Measurements:
 
-* *Brain Activity:** Frontal Electroencephalography (EEG)
-* *Eye Movement:** Electrooculography (EOG)
-* *Head Movement:** Via onboard Inertial Measurement Unit (IMU)
-* *Heart Rhythm:** Photoplethysmography (PPG)
+* **Brain Activity:** Frontal Electroencephalography (EEG)
+* **Eye Movement:** Electrooculography (EOG)
+* **Head Movement:** Via onboard Inertial Measurement Unit (IMU)
+* **Heart Rhythm:** Photoplethysmography (PPG)
 
 *Note: While the hardware includes a microphone for sound data collection, 
 this feature is not activated in version 1.0.4.*
@@ -120,6 +107,14 @@ this feature is not activated in version 1.0.4.*
   <figcaption style="text-align: center; font-style: italic; margin-top: 5px; display: block;">Short Demo of OSSMM app. Real-time app usage is smoother than can be shown in this GIF.</figcaption>
 </figure>
 <br>
+
+# Performance:
+
+OSSMM promises to offer more accurate sleep staging than many commercial wearables 
+(smart watches, rings) at a fraction of the price. 
+
+
+*Note: OSSMM is currently under technical validation for 4-stage sleep classification accuracy.*
 
 ## Sleep Modulation Capabilities:
 
