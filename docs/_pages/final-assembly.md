@@ -17,7 +17,7 @@ components for the OSSMM headband:
 
 Before we can assemble these components, we need to modify the heart-rate monitor
 strap. Since it's designed to fit around the chest, it's too long for use as a 
-headband and must be shortened. Then will connect the components together easily!
+headband and must be shortened. Then we will connect the components together easily!
 
 The modular design of the OSSMM system offers important benefits for future use. 
 If any issues arise with the OSSMM headband, these principal components can be
@@ -63,7 +63,7 @@ using a quality multimeter:
 5. Repeat for the other electrode to confirm repeatable measurement
 
 This measurement will give you an estimate of your strap's conductivity. Please
-be aware that try surface resistance measurements required specialized equipment.
+be aware that true surface resistance measurements require specialized equipment.
 It is recommended where possible to find heart-rate 
 monitor straps with the lowest resistance. 
 
@@ -108,7 +108,7 @@ making adjustments to your specific strap.
 ## Step 2. Locate the Slide Types and Stitched Loop
 
 Cinch your strap so that both the G Hook Slide and Quad/Triglide slide are 
-loser together, as shown below. Position them in the same orientation as in the 
+closer together, as shown below. Position them in the same orientation as in the 
 image. Identify the stitched loop that passes through one of the slots on 
 the Quad/Tri slide.
 
@@ -121,7 +121,7 @@ connected to the quad/tri slide.
 <br>
 
 
-## Step 3. Cut the stiched loop and remove
+## Step 3. Cut the stitched loop and remove
 
 Using scissors, carefully cut through the stitched loop, then remove it from the
 Quad/Tri Slide.
@@ -131,18 +131,18 @@ Quad/Tri Slide.
   <div style="display: flex; flex-direction: row; align-items: flex-start;">
     <div style="margin: 0; width: 48%;">
       <img src="{{ site.url }}/OSSMM/media/final-assembly/loop-cut-1.jpg" alt="Front view of OSSMM headband" style="width: 100%;">
-      <figcaption style="text-align: center; font-style: italic; margin-top: 5px;">Pre-cut Sticthed Loop </figcaption>
+      <figcaption style="text-align: center; font-style: italic; margin-top: 5px;">Pre-cut Stitched Loop </figcaption>
     </div>
     <div style="margin: 0; width: 48%; margin-left: 4%;">
       <img src="{{ site.url }}/OSSMM/media/final-assembly/loop-cut-2.jpg" alt="Back view of OSSMM headband" style="width: 100%;">
-      <figcaption style="text-align: center; font-style: italic; margin-top: 5px;">Post-cut Sticthed Loop</figcaption>
+      <figcaption style="text-align: center; font-style: italic; margin-top: 5px;">Post-cut Stitched Loop</figcaption>
     </div>
   </div>
 </figure>
 <br>
 
 
-## Step 4. Shorten the Strap by at least 12 cm (5") to the above of the seam.
+## Step 4. Shorten the Strap by at least 12 cm (5") above the seam.
 
 Cut the strap at least 12 cm (5") above the seam (to the left in our reference
 image). The images below demonstrate this cut.
@@ -155,11 +155,11 @@ distance than recommended.
   <div style="display: flex; flex-direction: row; align-items: flex-start;">
     <div style="margin: 0; width: 48%;">
       <img src="{{ site.url }}/OSSMM/media/final-assembly/shortening-cut-1.jpg" alt="Front view of OSSMM headband" style="width: 100%;">
-      <figcaption style="text-align: center; font-style: italic; margin-top: 5px;">Pre-cut Sticthed Loop </figcaption>
+      <figcaption style="text-align: center; font-style: italic; margin-top: 5px;">Pre-cut Stitched Loop </figcaption>
     </div>
     <div style="margin: 0; width: 48%; margin-left: 4%;">
       <img src="{{ site.url }}/OSSMM/media/final-assembly/shortening-cut-2.jpg" alt="Back view of OSSMM headband" style="width: 100%;">
-      <figcaption style="text-align: center; font-style: italic; margin-top: 5px;">Post-cut Sticthed Loop</figcaption>
+      <figcaption style="text-align: center; font-style: italic; margin-top: 5px;">Post-cut Stitched Loop</figcaption>
     </div>
   </div>
 </figure>
@@ -189,20 +189,6 @@ flopping at the back.
 <br>
 
 
-Under typical circumstances the tension should hold this loose end in place. 
-However, over time it may come loose with repeated use. We leave it to the user
-to choose if they would like to employ additional methods to secure it. We
-present two feasible options:
-
-*1. Create a new seam using a basic sewing kit.*
-*2. Use a standard quality stapler with paper staples.*
-
-The stapler is the preferred method. When done properly with a quality stapler, 
-staples are virtually invisible and are not felt at all. Staples should be done
-with the legs initially pointing towards the interior of the bead, that is
-towards the head area. When closed properly, the staple legs will clinch back
-outward, facing away from the head area.
-
 Under normal circumstances, tension should hold this loose end in place. 
 However, it may come loose with repeated use. We leave it to the user to decide
 if they would like to employ additional methods to secure the band. We propose
@@ -214,7 +200,7 @@ two feasible options:
 If using staples, they should be positioned with the legs initially pointing
 toward the interior of the band (toward the head area). When properly closed, 
 the staple legs will clinch back outward, facing away from the head.  When done
-properly staples provide a strong seam, and are virtually invisible and 
+properly, staples provide a strong seam, and are virtually invisible and 
 imperceptible to the touch. 
 
 
@@ -273,10 +259,7 @@ in the inner compartment.
 
 
 
-# Install the Electronic Case
-
-You're almost there! 2 out of 3 components are connected. Now let's add the final
-piece: the electronic case!
+# Install the Electronics Case
 
 You're almost there! Two of the three components are now connected. Let's add 
 the final piece: the electronics case.
@@ -286,7 +269,7 @@ This section is best performed with a table for support.
 ## Step 1. Prepare Access to the PulseSensor Slot
 
 To install the PulseSensor, first we need to clear a path to the slot in the
-receiver. Pull excess strap through a receiver slot. Loop this strap back over
+receiver. Pull excess strap through the first receiver slot. Loop this strap back over
 the receiver so it is no longer blocking the front. No part of the strap should
 now be blocking access.
 
@@ -297,7 +280,7 @@ Refer to the GIF below:
 </figure>
 <br>
 
-## Step 2.Identify the Wire Notch and Orient the Receiver
+## Step 2. Identify the Wire Notch and Orient the Receiver
 
 The PulseSensor slot in the receiver is notched on one side to accommodate the
 connecting wires. To organize a proper installation, match the version number
@@ -324,7 +307,7 @@ insert the PulseSensor.
 ## Step 4. Squeeze and Insert the Pulse Sensor
 
 
-To complete the installation, first lay the electronic case on a table. This way
+To complete the installation, first lay the electronics case on a table. This way
 when lifted the PulseSensor will only bear its own weight. Lightly press the 
 PulseSensor into the beginning of the slot, oriented so the wires will sit in
 the notch.
@@ -355,8 +338,8 @@ Unloop the strap and return it to its original position.
 Now it's time to mate the electrode connections on the electronics case and
 the strap. 
 
-Ensure that the Version text on the receiver and electronic case are facing the
-same direction. Button the male snap-fastener on the electronic case to the
+Ensure that the Version text on the receiver and electronics case are facing the
+same direction. Button the male snap-fastener on the electronics case to the
 female snap-fasteners in the strap. There should be an audible click,
 indicating a snug connection. 
 
@@ -380,7 +363,7 @@ Slot the electronics case into the receiver as shown in the GIF below:
 
 
 ## Step 8. You've done it!
-
+  
 Reconnect the G Hook and you're done!
 
 You've completed the physical assembly of the OSSMM headband. 

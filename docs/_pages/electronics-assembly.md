@@ -41,7 +41,7 @@ case in the final assembly.
 
 **Note:** Edges may appear curved in some photos due to lens distortion 
 during the documentation process. Please be aware that these edges, like the sides
-of the electronic case, are actually straight.
+of the electronics case, are actually straight.
 
 <br><br>
 
@@ -53,9 +53,9 @@ of the electronic case, are actually straight.
 
 **Parts:**
 
-1. **3D Printed Electronic Case Bottom**
+1. **3D Printed Electronics case Bottom**
 
-2. **3D Printed Electronic Case Lid**
+2. **3D Printed Electronics case Lid**
 
 3. **x2 Pair of 12mm Metal Snap-Fastener (2 male, 2 female)**
 
@@ -153,11 +153,11 @@ along with the designated positions for the battery and MCU.
 </figure>
 
 Please note that the Seeed Xiao Sense inserts bottom-side facing up, so that the
-USB port inserts into the electronic case's USB slot.
+USB port inserts into the electronics case's USB slot.
 
 The Vibration Motor Board may need minor adjustment to fit properly. The 
 vibration disk's orientation might cause wires to extend beyond the board's 
-boundaries, preventing insertion into the electronic case. Simply lift the 
+boundaries, preventing insertion into the electronics case. Simply lift the 
 vibration disk from the board (it's attached with double-sided adhesive) using 
 the wire cutters or your fingers, reorient it so wires stay within the board 
 dimensions, and press it back down gently to reattach.
@@ -192,11 +192,11 @@ time to reprint the case or gently modify the PCBs as needed.
 
 <br><br>
 
-## Step 3. Connect Snap-Fasteners to the Electronic Case Lid
+## Step 3. Connect Snap-Fasteners to the Electronics case Lid
 
 <br>
 
-**Goal: Install Snap-Fasteners on the Electronic Case Lid with Wire Leads**
+**Goal: Install Snap-Fasteners on the Electronics Case Lid with Wire Leads**
 
 The snap-fasteners function as electrode connection points for the heart rate 
 monitor strap, which collects EOG and EEG signals. This connection is essential
@@ -263,7 +263,7 @@ is the metal rod with a concave end which is shaped to fit over the female end.
 
 Find a sturdy corner of a hard, flat surface for this step. Using a corner is 
 important as it provides targeted support directly under the snap-fastener while 
-keeping the electronic case lid's side tabs free from pressure that could damage
+keeping the electronics case lid's side tabs free from pressure that could damage
 them.
 
 <br>
@@ -273,7 +273,7 @@ them.
 <br>
 
 First, verify the wire remains in the notch on the internal face. Then position the 
-electronic case over the corner so that only the male end of the snap fastener
+electronics case over the corner so that only the male end of the snap fastener
 receives support from below, without the corner touching any other part of the 
 case lid. This positioning will prevent any damage to the four side 
 tabs on the lid.
@@ -299,7 +299,7 @@ the conductive path for the EOG and EEG signals and it is essential for
 accurate sleep monitoring.
 
 Repeat the process for the other hole. Make sure the snap fasteners are
-secure. Below is a complete electronic case lid with attached
+secure. Below is a complete electronics case lid with attached
 snap-fasteners:
 
 <br>
@@ -333,7 +333,7 @@ some preparation. We'll start with the AD8232 EKG board.
 The AD8232 EKG board includes a 3.5mm headphone jack that we won't be using in
 our design. Since we'll connect directly to the board's RA and LA pins 
 (leaving the RL pin unused), this jack must be removed to allow the board to fit
-properly inside the electronic case.
+properly inside the electronics case.
 
 
 *For those interested in more information about this design choice, please refer
@@ -484,7 +484,7 @@ soldering photos further below:
 
 3. **Vibration Motor Board**: Wires can exit from either side. Top side is preferred.
 
-4. **PulseSensor**: If you have soldered wires to the PulseSensor, remember to thread the wires through the rectangular slot in the electronic case lid before soldering to the MCU!
+4. **PulseSensor**: If you have soldered wires to the PulseSensor, remember to thread the wires through the rectangular slot in the electronics case lid before soldering to the MCU!
 
 We will remind you of these again later in the tutorial.
 
@@ -537,7 +537,7 @@ Now it is time to complete the connection between the MCU and the PulseSensor.
 
 
 We highlight again here that the wires for the PulseSensor must go
-through the rectangular slot in the electronic case lid. If you forget
+through the rectangular slot in the electronics case lid. If you forget
 to do this, don't worry. Simply desolder the connections on the PulseSensor, 
 thread the wires correctly, then resolder.
 
@@ -545,7 +545,7 @@ We do not recommend resoldering the connection from the MCU side as the pins are
 very small and not conducive to easy resoldering.
 
 Below is an example demonstrating the PulseSensor with wires properly threaded
-through the rectangular slot in the electronic case lid. Again this photo is for
+through the rectangular slot in the electronics case lid. Again this photo is for
 illustrative purpose and we recommend connecting the PulseSensor to the wires
 after they have already been attached to the MCU.
 
@@ -587,7 +587,7 @@ Next solder then clean the connections by snipping off any excess.
 <br>
 
 Now, solder the RA and LA connections using the two wires from the 
-electronic case lid. In this tutorial, we've used thicker yellow and blue wires 
+electronics case lid. In this tutorial, we've used thicker yellow and blue wires 
 for these connections. Either wire can connect to LA or RA as the assignment 
 doesn't matter. Remember that these wires should exit from the top of the board 
 (the side where the 3.5mm jack was removed).
@@ -643,7 +643,7 @@ incapable of charging the battery.
 
 <br><br>
 
-## Step 9. Install Components into the Electronic Case Bottom
+## Step 9. Install Components into the Electronics case Bottom
 
 <br>
 
@@ -669,7 +669,7 @@ of the MCU enclosure.
 <br>
 
 Next, install the AD8232 Board into position. The side pins should be
-located over the center of the electronic case, and the EOG/EEG (RA/LA)
+located over the center of the electronics case, and the EOG/EEG (RA/LA)
 pins should be towards the bottom left corner.
 
 <br>
@@ -703,21 +703,21 @@ shorting with the underlying PCBs.
 
 <br><br>
 
-## Step 10. Close the Electronic Case
+## Step 10. Close the Electronics case
 
 <br>
 
 **Goal: Close the case and finish!**
 
-Now it's time to close the electronic case. Note that the tabs on the
-electronic case lid are asymmetrical. It can only be closed in one way!
+Now it's time to close the electronics case. Note that the tabs on the
+electronics case lid are asymmetrical. It can only be closed in one way!
 
-Before inserting, make sure the respective slots on the electronic case
+Before inserting, make sure the respective slots on the electronics case
 bottom are free and clear. Remove any debris or support material which
 may remain.
 
 Align the tabs, insert on one side, then insert on the other. This may
-require some slight bending of the electronic case walls to allow the
+require some slight bending of the electronics case walls to allow the
 tabs to slip into their slots.
 
 When it is finished it should look like the following:
