@@ -9,6 +9,6 @@ sidebar:
 
 # Sleep Staging Accuracy
 
-*OSSMM is currently under assessment for 4-stage sleep classification accuracy.*
+*OSSMM is currently under technical validation for 4-stage sleep classification accuracy.*
 
-If you would like to contribute to this research, please let us know!
+If you are interested and would like to contribute to this research, let us know!
