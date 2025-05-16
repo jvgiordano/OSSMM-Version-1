@@ -32,9 +32,9 @@ The OSSMM system consists of 4 parts:
 4. **You - The Researcher**
 
 <br>
-<figure align="center">
-  <img src="{{ site.url }}/OSSMM/media/getting-started/system_ai.JPG" style="width: 75%;">
-  <figcaption style="text-align: center; font-style: italic; margin-top: 4px;">AI generated rendition of OSSMM System. 1) The User 2) OSSMM Headband 3) Android Device running OSSMM app</figcaption>
+<figure style="text-align: center; display: block; margin-left: auto; margin-right: auto;">
+  <img src="{{ site.url }}/OSSMM/media/getting-started/system_ai.JPG" style="width: 75%; display: block; margin-left: auto; margin-right: auto;">
+  <figcaption style="text-align: center; font-style: italic; margin-top: 4px; display: block;">AI generated rendition of OSSMM System. 1) The User 2) OSSMM Headband 3) Android Device running OSSMM app</figcaption>
 </figure>
 <br>
 
@@ -47,8 +47,8 @@ headband collects:
 * Heart Rhythm data (PPG)
 
 <br>
-<figure align="center">
-  <img src="{{ site.url }}/OSSMM/media/getting-started/quick_pics.jpg" style="width: 75%;">
+<figure style="text-align: center; display: block; margin-left: auto; margin-right: auto;">
+  <img src="{{ site.url }}/OSSMM/media/getting-started/quick_pics.jpg" style="width: 75%; display: block; margin-left: auto; margin-right: auto;">
 </figure>
 <br>
 
@@ -87,9 +87,9 @@ With future work it will be possible to have:
 The OSSMM Headband comprises 3 principal components: An electronic case, a headband, and a receiver.
 
 <br>
-<figure align="center">
-  <img src="{{ site.url }}/OSSMM/media/getting-started/front_annotated.jpg" style="width: 65%;">
-  <figcaption style="text-align: center; font-style: italic; margin-top: 4px;">Open view of the three major components, all disconnected: Headband, Receiver, and Electronic Case.</figcaption>
+<figure style="text-align: center; display: block; margin-left: auto; margin-right: auto;">
+  <img src="{{ site.url }}/OSSMM/media/getting-started/front_annotated.jpg" style="width: 65%; display: block; margin-left: auto; margin-right: auto;">
+  <figcaption style="text-align: center; font-style: italic; margin-top: 4px; display: block;">Open view of the three major components, all disconnected: Headband, Receiver, and Electronic Case.</figcaption>
 </figure>
 <br>
 
@@ -99,16 +99,16 @@ EOG/EEG signal collection. These two components connect through the 3D printed
 receiver made from soft filament.
 
 <br>
-<figure align="center">
-  <img src="{{ site.url }}/OSSMM/media/getting-started/back_annotated.jpg" style="width: 65%;">
-  <figcaption style="text-align: center; font-style: italic; margin-top: 4px;">Rear view of OSSMM headband.</figcaption>
+<figure style="text-align: center; display: block; margin-left: auto; margin-right: auto;">
+  <img src="{{ site.url }}/OSSMM/media/getting-started/back_annotated.jpg" style="width: 65%; display: block; margin-left: auto; margin-right: auto;">
+  <figcaption style="text-align: center; font-style: italic; margin-top: 4px; display: block;">Rear view of OSSMM headband.</figcaption>
 </figure>
 <br>
 
 <br>
-<figure align="center">
-  <img src="{{ site.url }}/OSSMM/media/getting-started/cad_parts_annotated.jpg" style="width: 75%;">
-  <figcaption style="text-align: center; font-style: italic; margin-top: 4px;">Annotated Printables. TPE = Thermoplastic Elastomer, PLA = Polylactic Acid</figcaption>
+<figure style="text-align: center; display: block; margin-left: auto; margin-right: auto;">
+  <img src="{{ site.url }}/OSSMM/media/getting-started/cad_parts_annotated.jpg" style="width: 75%; display: block; margin-left: auto; margin-right: auto;">
+  <figcaption style="text-align: center; font-style: italic; margin-top: 4px; display: block;">Annotated Printables. TPE = Thermoplastic Elastomer, PLA = Polylactic Acid</figcaption>
 </figure>
 <br>
 
@@ -137,9 +137,9 @@ button during an established connection to activate the headband's vibration
 motor in a double-blink pattern.
 
 <br>
-<figure align="center">
-  <img src="{{ site.url }}/OSSMM/media/getting-started/app-main.jpg" style="width: 25%;">
-  <figcaption style="text-align: center; font-style: italic; margin-top: 4px;">Main page of OSSMM app</figcaption>
+<figure style="text-align: center; display: block; margin-left: auto; margin-right: auto;">
+  <img src="{{ site.url }}/OSSMM/media/getting-started/app-main.jpg" style="width: 25%; display: block; margin-left: auto; margin-right: auto;">
+  <figcaption style="text-align: center; font-style: italic; margin-top: 4px; display: block;">Main page of OSSMM app</figcaption>
 </figure>
 <br>
 
@@ -155,9 +155,9 @@ Along with the other signals like head movement and pulse, you can use eye
 movement to confirm that the headband is properly functioning.
 
 <br>
-<figure align="center">
-  <img src="{{ site.url }}/OSSMM/media/getting-started/app-data.jpg" style="width: 25%;">
-  <figcaption style="text-align: center; font-style: italic; margin-top: 4px;">Real Time Graph of EOG Data with several eye movements (spikes)</figcaption>
+<figure style="text-align: center; display: block; margin-left: auto; margin-right: auto;">
+  <img src="{{ site.url }}/OSSMM/media/getting-started/app-data.jpg" style="width: 25%; display: block; margin-left: auto; margin-right: auto;">
+  <figcaption style="text-align: center; font-style: italic; margin-top: 4px; display: block;">Real Time Graph of EOG Data with several eye movements (spikes)</figcaption>
 </figure>
 <br>
 
@@ -185,9 +185,9 @@ Note: The transmission number resets to 0 after reaching 65,535
 updates are being lost.
 
 <br>
-<figure align="center">
-  <img src="{{ site.url }}/OSSMM/media/getting-started/data.jpg" style="width: 65%;">
-  <figcaption style="text-align: center; font-style: italic; margin-top: 4px;">Portion of a sample CSV file</figcaption>
+<figure style="text-align: center; display: block; margin-left: auto; margin-right: auto;">
+  <img src="{{ site.url }}/OSSMM/media/getting-started/data.jpg" style="width: 65%; display: block; margin-left: auto; margin-right: auto;">
+  <figcaption style="text-align: center; font-style: italic; margin-top: 4px; display: block;">Portion of a sample CSV file</figcaption>
 </figure>
 <br>
 
@@ -254,8 +254,8 @@ Specific knowledge within each of these areas with resources is listed below:
 ## Required Tools:
 
 <br>
-<figure align="center">
-  <img src="{{ site.url }}/OSSMM/media/getting-started/required_tools.jpg" style="width: 75%;">
+<figure style="text-align: center; display: block; margin-left: auto; margin-right: auto;">
+  <img src="{{ site.url }}/OSSMM/media/getting-started/required_tools.jpg" style="width: 75%; display: block; margin-left: auto; margin-right: auto;">
 </figure>
 <br>
 
@@ -274,8 +274,8 @@ Specific knowledge within each of these areas with resources is listed below:
 ## Required Expendables:
 
 <br>
-<figure align="center">
-  <img src="{{ site.url }}/OSSMM/media/getting-started/required_expendables.jpg" style="width: 75%;">
+<figure style="text-align: center; display: block; margin-left: auto; margin-right: auto;">
+  <img src="{{ site.url }}/OSSMM/media/getting-started/required_expendables.jpg" style="width: 75%; display: block; margin-left: auto; margin-right: auto;">
 </figure>
 <br>
 
@@ -293,8 +293,8 @@ Specific knowledge within each of these areas with resources is listed below:
 ## Recommended Tools and Expendables:
 
 <br>
-<figure align="center">
-  <img src="{{ site.url }}/OSSMM/media/getting-started/recommended_tools.jpg" style="width: 75%;">
+<figure style="text-align: center; display: block; margin-left: auto; margin-right: auto;">
+  <img src="{{ site.url }}/OSSMM/media/getting-started/recommended_tools.jpg" style="width: 75%; display: block; margin-left: auto; margin-right: auto;">
 </figure>
 <br>
 
@@ -310,8 +310,8 @@ Specific knowledge within each of these areas with resources is listed below:
 ## OSSMM Headband Required Parts:
 
 <br>
-<figure align="center">
-  <img src="{{ site.url }}/OSSMM/media/getting-started/required_parts.jpg" style="width: 75%;">
+<figure style="text-align: center; display: block; margin-left: auto; margin-right: auto;">
+  <img src="{{ site.url }}/OSSMM/media/getting-started/required_parts.jpg" style="width: 75%; display: block; margin-left: auto; margin-right: auto;">
 </figure>
 <br>
 
@@ -366,8 +366,8 @@ This estimate will vary depending on country, suppliers, and brands
 (and it seems political changes). 
 
 <br>
-<figure align="center">
-  <img src="{{ site.url }}/OSSMM/media/getting-started/cost.jpg" style="width: 75%;">
+<figure style="text-align: center; display: block; margin-left: auto; margin-right: auto;">
+  <img src="{{ site.url }}/OSSMM/media/getting-started/cost.jpg" style="width: 75%; display: block; margin-left: auto; margin-right: auto;">
 </figure>
 <br>
 
