@@ -109,6 +109,9 @@ closer. We recommend doing the same and placing them in the same orientation as
 shown below. Identify the stitched loop which will go through one of the slots
 on the Quad/Tri slide.
 
+There are actually 2 stictched looops on the strap. We only working with the one
+which is connected to the quad/tri slide. 
+
 <div align="center">
   <img src="{{ site.url }}/OSSMM/media/final-assembly/strap-identity.jpg" style="width: 50%;">
 </div>
@@ -327,12 +330,25 @@ button on the strap.
 
 There should be an audible clip, signifying a tight connection.
 
-
+<div align="center">
+  <img src="{{ site.url }}/OSSMM/media/final-assembly/button.gif" alt="Back view of OSSMM headband" style="width: 50%;">
+</div>
+&nbsp;
 
 
 ## Step 7. Slot in the electronics case
 
-## Step 8. You've done it!
+<div align="center">
+  <img src="{{ site.url }}/OSSMM/media/final-assembly/case-insert.gif" alt="Back view of OSSMM headband" style="width: 50%;">
+</div>
+&nbsp;
+
+
+## Step 8. Reconnect the G Hook
+
+
+
+## Step 9. You've done it!
 
 
 
