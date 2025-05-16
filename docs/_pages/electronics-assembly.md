@@ -355,7 +355,7 @@ though this won't affect our current application.
 found prying to be both quick and reliable, with no board failures to date.
 
 <figure style="text-align: center; display: block; margin-left: auto; margin-right: auto;">
-  <img src="{{ site.url }}/OSSMM/media/electronics-assembly/JackRemoval.gif" alt="3.5mm Jack Removal Process" style="display: block; margin-left: auto; margin-right: auto;">
+  <img src="{{ site.url }}/OSSMM/media/electronics-assembly/JackRemoval.gif" style="width: 50%; alt="3.5mm Jack Removal Process" style="display: block; margin-left: auto; margin-right: auto;">
 </figure>
 
 Once the 3.5mm jack is removed, the AD8232 board should appear as in the
@@ -470,7 +470,7 @@ soldering photos further below:
 
 <br>
 <figure style="text-align: center; display: block; margin-left: auto; margin-right: auto;">
-  <img src="{{ site.url }}/OSSMM/media/electronics-assembly/image31.jpeg" style="display: block; margin-left: auto; margin-right: auto;">
+  <img src="{{ site.url }}/OSSMM/media/electronics-assembly/image31.jpeg" style="width: 65%; style="display: block; margin-left: auto; margin-right: auto;">
 </figure>
 <br>
 
