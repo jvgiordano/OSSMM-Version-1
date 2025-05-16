@@ -15,7 +15,7 @@ functionality, capabilities, cost, and the prerequisites for building your own.
 **Please don't be intimidated by the Table of Contents (on any page)!**
 
 Great care has been taken to explain each step in pedantic detail, so what may 
-appear as complexity is actually comprehensive clarity. Each step has been 
+appear as complexity is closer to excessive detail. Each step has been 
 broken down into many small parts to eliminate any confusion. You'll likely find 
 yourself breezing through them much faster than you'd expect. The 
 extensive detail is there to guide you, not to overwhelm you.
