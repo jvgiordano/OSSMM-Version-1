@@ -17,7 +17,7 @@ functionality, capabilities, cost, and the prerequisites for building your own.
 Great care has been taken to explain each step in pedantic detail, so what may 
 appear as complexity is actually comprehensive clarity. Each step has been 
 broken down into many small parts to eliminate any confusion. You'll likely find 
-yourself breezing through them much faster than you'd expect.The 
+yourself breezing through them much faster than you'd expect. The 
 extensive detail is there to guide you, not to overwhelm you.
 
 # How It All Works
@@ -93,7 +93,7 @@ The OSSMM Headband comprises 3 principal components: An electronic case, a headb
 </div>
 &nbsp;
 
-The electronic case consists of two 3D printed parts which houses the electronics.
+The electronic case consists of two 3D printed parts which house the electronics.
 The headband is an adjustable strap with silicone electrodes for
 EOG/EEG signal collection. These two components connect through the 3D printed
 receiver made from soft filament.
@@ -117,7 +117,7 @@ receiver made from soft filament.
 
 The companion app serves multiple purposes:
 
-* Stores data collected by the headband
+* Stores data collected by the headband to local storage
 * Provides accurate date-time information
 * Will support near real-time sleep staging in future versions
 
@@ -127,13 +127,13 @@ The companion app serves multiple purposes:
 
 The app allows a scan of nearby Bluetooth devices with the 
 "Select Device and Start Recording" button. Once the headband is selected,
-the app establishes a establishes a BLE connection with the headband, initiates 
+the app establishes a BLE connection with the headband, initiates 
 data collection upon connection, and stores data continuously, even if the
 connection is temporarily lost.
 
 The "Sleep Modulation" toggle enables BLE signals to be sent from the Android 
-device to the headband. Once enabled, the "Test Modulation" button can be used
-during an established connection to activated the headband's vibration 
+device to the headband. Once enabled, the user can press the "Test Modulation" 
+button during an established connection to activate the headband's vibration 
 motor in a double-blink pattern.
 
 &nbsp;
@@ -150,9 +150,9 @@ new page with live graphs of the accelerometer, gyroscope, eye movement (EOG),
 and pulse sensors (PPG) data. 
 
 While both eye movement and brain activity are captured in the same signal, only
-the EOG component can be reliably identified visually in real-time. Along with
-the other signals like head movement and pulse, eyemovement can be used to
-confirm that the headband is properly functioning.
+the EOG component can be reliably identified visually in real-time by the user.
+Along with the other signals like head movement and pulse, you can use eye
+movement to confirm that the headband is properly functioning.
 
 &nbsp;
 <div align="center">
@@ -163,7 +163,7 @@ confirm that the headband is properly functioning.
 
 ### Data Collection
 
-Data is continuously saved in CSV format. At a sampling rate of 250 Hz, 
+The app continuously saves data in CSV format. At a sampling rate of 250 Hz, 
 approximately 500 MB of storage is required for an 8-hour sleep recording.
 
 Each data sample collected by the headband and sent to the companion app includes
@@ -218,7 +218,7 @@ Specific knowledge within each of these areas with resources is listed below:
 
 ### 1. Basic Electronics Knowledge (including how to solder)
 
-1. What a microcontroller (MCU) and Printer Circuit Board (PCB) are:
+1. What a microcontroller (MCU) and Printed Circuit Board (PCB) are:
    - [MCU + PCB Resource](https://www.youtube.com/watch?v=yi29dbPnu28) (Video)
    - [Arduino MCUs in 100 seconds](https://www.youtube.com/watch?v=1ENiVwk8idM) (Video)
 2. How to Solder
@@ -326,8 +326,8 @@ Specific knowledge within each of these areas with resources is listed below:
 7. **x2 Pair of 12mm Metal Snap-Fastener (not shown, these generally come with the snap-fastener kit mentioned above)**
 8. **Sheet of paper (not shown)**
 
-Note: If you are only interested in sleep monitoring, the Vibration Motor Board
-is not needed.
+Note: The Vibration Motor Board is only required if you plan to use sleep 
+modulation features. For sleep monitoring only, this component can be omitted.
 
 &nbsp;
 # The Cost
@@ -344,14 +344,14 @@ enough snap-fasteners for more than 30 OSSMM headbands.
 
 3D printing is essential for creating the OSSMM headband. While 3D printers are 
 increasingly accessible in universities and public libraries, it's important to
-note that a direct-drive extrude is strongly recommended. This type of printer 
+note that a direct-drive extruder is strongly recommended. This type of printer 
 pushes filament directly into the hot end (where filament melts for printing) and
 is the best method for printing flexible filaments (like the TPU used 
 in OSSMM). While not impossible, printing TPU with other 3D printer types will
 likely be challenging.
 
-The original target cost of OSSMM headband was $150. To our surprise, **we 
-achieved a cost of just €37.20 per unit ( and with some rounding up at that)**. 
+The original target cost for the OSSMM headband was $150. **We 
+achieved a cost of just €37.20 per unit ( after rounding up)**. 
 This value represents the marginal cost ("ingredient cost") of building one unit,
 not the total overhead cost ("shopping list cost")[^marginal]. 
 

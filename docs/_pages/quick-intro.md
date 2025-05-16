@@ -19,7 +19,7 @@ and modulation.
 # **The Goal:** 
 OSSMM was created to address the prohibitive entry cost into 
 quality sleep research. By providing researchers and sleep enthusiasts with an
-affordable platform that can be assembled locally this accessible system 
+affordable platform that can be assembled locally, this accessible system 
 promotes:
 
 - Cost-effective large-scale, long-term sleep studies
@@ -38,7 +38,7 @@ where no comparable off-the-shelf system currently exists.**
   </figure>
   <figure style="margin: 0; width: 50%; margin-left: 4%;">
     <img src="{{ site.url }}/OSSMM/media/quick-intro/ports.jpg" alt="Back view of OSSMM headband" style="width: 100%;">
-    <figcaption style="text-align: center; font-style: italic; margin-top: 5px;">Macro photo of OSSMM Headband. USB-C, LED port, ON/Reset switch, and Microhone port are visible. €1 euro coin for size reference.</figcaption>
+    <figcaption style="text-align: center; font-style: italic; margin-top: 5px;">Macro photo of OSSMM Headband. USB-C, LED port, ON/Reset switch, and microphone port are visible. €1 euro coin for size reference.</figcaption>
   </figure>
 </div>
 <br>
