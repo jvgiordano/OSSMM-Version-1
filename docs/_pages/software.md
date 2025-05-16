@@ -55,23 +55,23 @@ The Arduino IDE requires the Seeed nRF52 Library in to order to communicate and
 compile code for the Xiao Sense MCU. Follow the steps below to install this 
 library and configure the Arduino IDE to be used with the MCU:
 
-### Step 1. With the Arduino IDE open, go to 'File >> Preferences’
+### Step 1. With the Arduino IDE open, go to 'File >> Preferences'
 
-<div align="center">
+<figure align="center">
   <img src="{{ site.url }}/OSSMM/media/software/arduino-pref.jpg" style="width: 50%;">
-</div>
-&nbsp;
+</figure>
+<br>
 
-### Step 2. Locate the “Additional Boards Manager URLS” Section and paste in the following:
+### Step 2. Locate the "Additional Boards Manager URLS" Section and paste in the following:
 
 https://files.seeedstudio.com/arduino/package_seeeduino_boards_index.json
 
-If you already have another Board Manager URL for a different library, use a ‘,’ to separate the URLS.
+If you already have another Board Manager URL for a different library, use a ',' to separate the URLS.
 
-<div align="center">
+<figure align="center">
   <img src="{{ site.url }}/OSSMM/media/software/arduino-json.jpg" style="width: 65%;">
-</div>
-&nbsp;
+</figure>
+<br>
 
 Press "Ok" and exit the preferences window.
 
@@ -81,26 +81,26 @@ First go to 'Tools >> Board: >>  Board's Manager' and click on Board's Manager.
 
 Note: Under Tools, "Board: " may be empty or contain other names. It does not matter.
 
-<div align="center">
+<figure align="center">
   <img src="{{ site.url }}/OSSMM/media/software/arduino-boards.jpg" style="width: 50%;">
-</div>
-&nbsp;
+</figure>
+<br>
 
 
-In the search bar at the top, type ‘seeed nrf52’. Two board manager options 
-should appear. Install the one that says “Seeed nRF52 Boards."
+In the search bar at the top, type 'seeed nrf52'. Two board manager options 
+should appear. Install the one that says "Seeed nRF52 Boards."
 
-<div align="center">
+<figure align="center">
   <img src="{{ site.url }}/OSSMM/media/software/arduino-search.jpg" style="width: 50%;">
-</div>
-&nbsp;
+</figure>
+<br>
 
 ### Step 4. Select 'Tools >> Board: >>  Seeed nRF52 Boards >> Seeed XIAO nRF52840 Sense'
 
-<div align="center">
+<figure align="center">
   <img src="{{ site.url }}/OSSMM/media/software/arduino-seeed.jpg" style="width: 60%;">
-</div>
-&nbsp;
+</figure>
+<br>
 
 Great! Now the Arduino IDE has the proper software configurations to work with
 the Seeed nRF52840 Sense. Now the IDE can interact with our board, we can upload
@@ -116,39 +116,39 @@ and install the code:
 The code is located under "Micronctroller Code" in the
 [OSSMM - System Code](https://github.com/jvgiordano/OSSMM/tree/main/OSSMM%20-%20V1.0.4%20System%20Code) folder.
 
-<div align="center">
+<figure align="center">
   <img src="{{ site.url }}/OSSMM/media/software/arduino-location.jpg" style="width: 60%;">
-</div>
-&nbsp;
+</figure>
+<br>
 
-<div align="center">
+<figure align="center">
   <img src="{{ site.url }}/OSSMM/media/software/arduino-mcu.jpg" style="width: 60%;">
-</div>
-&nbsp;
+</figure>
+<br>
 
 ### Step 2. Open the Arduino File with the Arduino IDE
 
-<div align="center">
+<figure align="center">
   <img src="{{ site.url }}/OSSMM/media/software/arduino-code.jpg" style="width: 60%;">
-</div>
-&nbsp;
+</figure>
+<br>
 
 ### Step 3. Connect the OSSMM Headband to your PC using a USB-C cable
 
-<div align="center">
+<figure align="center">
   <img src="{{ site.url }}/OSSMM/media/software/ports.jpg" style="width: 50%;">
-</div>
-&nbsp;
+</figure>
+<br>
 
 
 ### Step 4. Select 'Tools >> Port >>  COM_X_ (Seeed Xiao nRF52840 Sense)'
 
 Where COM_X_ will be some port number (e.g., COM7)
 
-<div align="center">
+<figure align="center">
   <img src="{{ site.url }}/OSSMM/media/software/arduino-port.jpg" style="width: 60%;">
-</div>
-&nbsp;
+</figure>
+<br>
 
 This tells the Arduino IDE which port the MCU is connected to. Normally it
 should automatically detect the port. 
@@ -158,19 +158,19 @@ should automatically detect the port.
 
 This will take some time as the code compiles, and then uploads to the MCU.
 
-<div align="center">
+<figure align="center">
   <img src="{{ site.url }}/OSSMM/media/software/arduino-upload.jpg" style="width: 60%;">
-</div>
-&nbsp;
+</figure>
+<br>
 
 ### Step 6. Confirm Upload
 
 Succesful code upload will show the following response in the Arduino IDE:
 
-<div align="center">
+<figure align="center">
   <img src="{{ site.url }}/OSSMM/media/software/arduino-complete.jpg" style="width: 60%;">
-</div>
-&nbsp;
+</figure>
+<br>
 
 Congratulations! You're OSSMM headband is complete. Now it's time to install the
 Android companion app!
@@ -204,19 +204,19 @@ Note: If you are not prompted or cannot access the internal memory, your USB
 cable may only support power transfer and not data transfer. Try with another
 cable. This may be true even for newer USB-C cables.
 
-<div align="center">
+<figure align="center">
   <img src="{{ site.url }}/OSSMM/media/software/usb-file-transfer.png" style="width: 25%;">
-</div>
-&nbsp;
+</figure>
+<br>
 
 ## Step 2. Access your "Download" folder on your Android Device
 
 Got to "This PC" >> Android Device >> Internal Shared Storage >> "Download"
 
-<div align="center">
+<figure align="center">
   <img src="{{ site.url }}/OSSMM/media/software/access-download.gif" style="width: 70%;">
-</div>
-&nbsp;
+</figure>
+<br>
 
 Note: You may choose to use other folders, but we assume the "Download" folder
 is used here.
@@ -231,10 +231,10 @@ the file transfer is complete.
 historical posterity. The Android 15 APK contains significant updates, including
 improved safety features.
 
-<div align="center">
+<figure align="center">
   <img src="{{ site.url }}/OSSMM/media/software/apk-transfer.png" style="width: 100%;">
-</div>
-&nbsp;
+</figure>
+<br>
 
 ## Step 4. Open the "Files" app, navigate to "Download", and click on the "OSSMM-Installer"
 
@@ -248,10 +248,10 @@ to install it.
 If you are queried to perform a scan, please do so. 
 
 
-<div align="center">
+<figure align="center">
   <img src="{{ site.url }}/OSSMM/media/software/ossmm-install.gif" style="width: 25%;">
-</div>
-&nbsp
+</figure>
+<br>
 
 ## Step 5. You've installed the OSSMM App!
 
@@ -296,10 +296,10 @@ Go to [this link](https://www.java.com/en/download/help/download_options.html)) 
 These are located under "\OSSMM\OSSMM - V1.0.4 System Code\Android App Code\Android 15"
 in a folder called "ossmm"
 
-<div align="center">
+<figure align="center">
   <img src="{{ site.url }}/OSSMM/media/software/android-app-code.png" style="width: 60%;">
-</div>
-&nbsp
+</figure>
+<br>
 
 ## Step 7 - Open the Project with Android Studio
 
@@ -310,10 +310,10 @@ directory:
 
 Full Directory: "OSSMM\OSSMM - V1.0.4 System Code\Android App Code\Android 15\ossmm\lib"
 
-<div align="center">
+<figure align="center">
   <img src="{{ site.url }}/OSSMM/media/software/android-studio-files.png" style="width: 60%;">
-</div>
-&nbsp
+</figure>
+<br>
 
 There are 10 .dart files at the time of publishing (May 13th, 2025). This is
 likely to expand as more features are developed for the application (e.g., 
