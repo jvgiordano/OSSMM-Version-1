@@ -1,7 +1,7 @@
 ---
 title: "Electronics Assembly Guide"
 permalink: /electronics-assembly/
-date: 2025-04-23T04:20:20+01:00
+date: 2025-05-16T04:20:20+01:00
 classes: wide
 toc: true # Enable Table of Contents for this page
 read_time: true
@@ -22,18 +22,22 @@ case in the final assembly.
 
 **Build Time:**  
 \- First-time: expect 2-2.5 hours  
-\- Experienced: comfortably under 50 minute
+\- Experienced: comfortably under 50 minutes
 
-<div align="center" style="display: flex; justify-content: center; gap: 10px;">
-  <img src="{{ site.url }}/OSSMM/media/electronics-assembly/image1.jpeg" style="width: 30%;">
-  <img src="{{ site.url }}/OSSMM/media/electronics-assembly/image2.jpeg" style="width: 30%;">
-  <img src="{{ site.url }}/OSSMM/media/electronics-assembly/image3.jpeg" style="width: 17%;">
-</div>
+<figure style="text-align: center; display: block; margin-left: auto; margin-right: auto;">
+  <div style="display: flex; justify-content: center; gap: 10px;">
+    <img src="{{ site.url }}/OSSMM/media/electronics-assembly/image1.jpeg" style="width: 30%;">
+    <img src="{{ site.url }}/OSSMM/media/electronics-assembly/image2.jpeg" style="width: 30%;">
+    <img src="{{ site.url }}/OSSMM/media/electronics-assembly/image3.jpeg" style="width: 17%;">
+  </div>
+</figure>
 <br>
-<div align="center" style="display: flex; justify-content: center; gap: 10px;">
-  <img src="{{ site.url }}/OSSMM/media/electronics-assembly/image4.jpeg" style="width: 30%;">
-  <img src="{{ site.url }}/OSSMM/media/electronics-assembly/image5.jpeg" style="width: 30%;">
-</div>
+<figure style="text-align: center; display: block; margin-left: auto; margin-right: auto;">
+  <div style="display: flex; justify-content: center; gap: 10px;">
+    <img src="{{ site.url }}/OSSMM/media/electronics-assembly/image4.jpeg" style="width: 30%;">
+    <img src="{{ site.url }}/OSSMM/media/electronics-assembly/image5.jpeg" style="width: 30%;">
+  </div>
+</figure>
 
 **Note:** Edges may appear curved in some photos due to lens distortion 
 during the documentation process. Please be aware that these edges, like the sides
@@ -43,9 +47,9 @@ of the electronic case, are actually straight.
 
 ## Step 1. Gather Relevant Tools and Materials:
 
-<div align="center">
-  <img src="{{ site.url }}/OSSMM/media/electronics-assembly/image6.jpeg" style="width: 65%;">
-</div>
+<figure style="text-align: center; display: block; margin-left: auto; margin-right: auto;">
+  <img src="{{ site.url }}/OSSMM/media/electronics-assembly/image6.jpeg" style="width: 65%; display: block; margin-left: auto; margin-right: auto;">
+</figure>
 
 **Parts:**
 
@@ -63,13 +67,13 @@ of the electronic case, are actually straight.
 
 7. **Pulse Sensor**
 
-8. **Seed Xiao nRF52840 Sense (MCU)**
+8. **Seeed Xiao nRF52840 Sense (MCU)**
 
 9. **Sheet of paper (not shown)**
 
-<div align="center">
-  <img src="{{ site.url }}/OSSMM/media/electronics-assembly/image7.png" style="width: 80%;">
-</div>
+<figure style="text-align: center; display: block; margin-left: auto; margin-right: auto;">
+  <img src="{{ site.url }}/OSSMM/media/electronics-assembly/image7.png" style="width: 80%; display: block; margin-left: auto; margin-right: auto;">
+</figure>
 
 **Required Tools:**
 
@@ -81,9 +85,9 @@ of the electronic case, are actually straight.
 
 4. **Multimeter**
 
-<div align="center">
-  <img src="{{ site.url }}/OSSMM/media/electronics-assembly/image8.jpeg" style="width: 80%;">
-</div>
+<figure style="text-align: center; display: block; margin-left: auto; margin-right: auto;">
+  <img src="{{ site.url }}/OSSMM/media/electronics-assembly/image8.jpeg" style="width: 80%; display: block; margin-left: auto; margin-right: auto;">
+</figure>
 
 **Recommended Tools:**
 
@@ -91,9 +95,9 @@ of the electronic case, are actually straight.
 
 **6.  Fume Extractor (if not working in a ventilated environment)**
 
-<div align="center">
-  <img src="{{ site.url }}/OSSMM/media/electronics-assembly/image9.jpeg" style="width: 80%;">
-</div>
+<figure style="text-align: center; display: block; margin-left: auto; margin-right: auto;">
+  <img src="{{ site.url }}/OSSMM/media/electronics-assembly/image9.jpeg" style="width: 80%; display: block; margin-left: auto; margin-right: auto;">
+</figure>
 
 **Expendables:**
 
@@ -144,12 +148,12 @@ Xiao Sense, Vibration Motor Board, AD8232, and Pulse Sensor.
 The photo directly below shows a properly positioned Vibration Motor,
 along with the designated positions for the battery and MCU.
 
-<div align="center">
-  <img src="{{ site.url }}/OSSMM/media/electronics-assembly/image10.jpg" style="width: 50%; transform: rotate(90deg);">
-</div>
+<figure style="text-align: center; display: block; margin-left: auto; margin-right: auto;">
+  <img src="{{ site.url }}/OSSMM/media/electronics-assembly/image10.jpg" style="width: 50%; transform: rotate(90deg); display: block; margin-left: auto; margin-right: auto;">
+</figure>
 
 Please note that the Seeed Xiao Sense inserts bottom-side facing up, so that the
-USB port insert into the electronic case's USB slot.
+USB port inserts into the electronic case's USB slot.
 
 The Vibration Motor Board may need minor adjustment to fit properly. The 
 vibration disk's orientation might cause wires to extend beyond the board's 
@@ -165,10 +169,12 @@ contained within the board dimensions.
 
 <br>
 
-<div align="center" style="display: flex; justify-content: center; gap: 10px;">
-  <img src="{{ site.url }}/OSSMM/media/electronics-assembly/image11.jpeg" style="width: 40%;">
-  <img src="{{ site.url }}/OSSMM/media/electronics-assembly/image12.jpeg" style="width: 40%;">
-</div>
+<figure style="text-align: center; display: block; margin-left: auto; margin-right: auto;">
+  <div style="display: flex; justify-content: center; gap: 10px;">
+    <img src="{{ site.url }}/OSSMM/media/electronics-assembly/image11.jpeg" style="width: 40%;">
+    <img src="{{ site.url }}/OSSMM/media/electronics-assembly/image12.jpeg" style="width: 40%;">
+  </div>
+</figure>
 
 <br>
 
@@ -176,9 +182,9 @@ The photo below shows the inclusion of the AD8232, which should sit
 above the Vibration Motor Board.
 
 <br>
-<div align="center">
-  <img src="{{ site.url }}/OSSMM/media/electronics-assembly/image13.jpeg" style="width: 65%;">
-</div>
+<figure style="text-align: center; display: block; margin-left: auto; margin-right: auto;">
+  <img src="{{ site.url }}/OSSMM/media/electronics-assembly/image13.jpeg" style="width: 65%; display: block; margin-left: auto; margin-right: auto;">
+</figure>
 <br>
 
 If the components fit, move on to the next step. Otherwise, take the
@@ -186,7 +192,7 @@ time to reprint the case or gently modify the PCBs as needed.
 
 <br><br>
 
-## Step 3. Connect Snap-Fasters to the Electronic Case Lid
+## Step 3. Connect Snap-Fasteners to the Electronic Case Lid
 
 <br>
 
@@ -207,26 +213,26 @@ Preparation steps:
 4. Position the wire carefully in the notch as shown in the photo below:
 
 <br>
-<div align="center">
-  <img src="{{ site.url }}/OSSMM/media/electronics-assembly/image14.jpeg" style="width: 65%;">
-</div>
+<figure style="text-align: center; display: block; margin-left: auto; margin-right: auto;">
+  <img src="{{ site.url }}/OSSMM/media/electronics-assembly/image14.jpeg" style="width: 65%; display: block; margin-left: auto; margin-right: auto;">
+</figure>
 <br>
 
 Then, insert one of the male snap-fasteners into the same hole.
 
 <br>
-<div align="center">
-  <img src="{{ site.url }}/OSSMM/media/electronics-assembly/image15.jpeg" style="width: 65%;">
-</div>
+<figure style="text-align: center; display: block; margin-left: auto; margin-right: auto;">
+  <img src="{{ site.url }}/OSSMM/media/electronics-assembly/image15.jpeg" style="width: 65%; display: block; margin-left: auto; margin-right: auto;">
+</figure>
 <br>
 
 Flip the electronic lid over. Bend the exposed wiring over the male snap
 fastener. Trim excess wire.
 
 <br>
-<div align="center">
-  <img src="{{ site.url }}/OSSMM/media/electronics-assembly/image16.jpeg" style="width: 65%;">
-</div>
+<figure style="text-align: center; display: block; margin-left: auto; margin-right: auto;">
+  <img src="{{ site.url }}/OSSMM/media/electronics-assembly/image16.jpeg" style="width: 65%; display: block; margin-left: auto; margin-right: auto;">
+</figure>
 <br>
 
 Next, place a female snap-fastener over the male snap fastener **while 
@@ -235,9 +241,9 @@ shift slightly during this process—as long as most of the wiring stays in plac
 the connection will function properly.
 
 <br>
-<div align="center">
-  <img src="{{ site.url }}/OSSMM/media/electronics-assembly/image17.jpeg" style="width: 65%;">
-</div>
+<figure style="text-align: center; display: block; margin-left: auto; margin-right: auto;">
+  <img src="{{ site.url }}/OSSMM/media/electronics-assembly/image17.jpeg" style="width: 65%; display: block; margin-left: auto; margin-right: auto;">
+</figure>
 <br>
 
 Press the snap-fastener assembly together firmly by hand. This creates an initial
@@ -246,9 +252,9 @@ gaps between the snap-fastener assembly (as shown in the photo below). Don't
 worry — we'll address this in the next step.
 
 <br>
-<div align="center">
-  <img src="{{ site.url }}/OSSMM/media/electronics-assembly/image18.jpeg" style="width: 65%;">
-</div>
+<figure style="text-align: center; display: block; margin-left: auto; margin-right: auto;">
+  <img src="{{ site.url }}/OSSMM/media/electronics-assembly/image18.jpeg" style="width: 65%; display: block; margin-left: auto; margin-right: auto;">
+</figure>
 <br>
 
 To close these gaps and create a secure electrical connection, we'll now properly
@@ -261,9 +267,9 @@ keeping the electronic case lid's side tabs free from pressure that could damage
 them.
 
 <br>
-<div align="center">
-  <img src="{{ site.url }}/OSSMM/media/electronics-assembly/image19.jpeg" style="width: 65%;">
-</div>
+<figure style="text-align: center; display: block; margin-left: auto; margin-right: auto;">
+  <img src="{{ site.url }}/OSSMM/media/electronics-assembly/image19.jpeg" style="width: 65%; display: block; margin-left: auto; margin-right: auto;">
+</figure>
 <br>
 
 First, verify the wire remains in the notch on the internal face. Then position the 
@@ -281,9 +287,9 @@ difficult to achieve if the wire is positioned in the notch from the start.
 
 
 <br>
-<div align="center">
-  <img src="{{ site.url }}/OSSMM/media/electronics-assembly/image20.jpeg" style="width: 65%;">
-</div>
+<figure style="text-align: center; display: block; margin-left: auto; margin-right: auto;">
+  <img src="{{ site.url }}/OSSMM/media/electronics-assembly/image20.jpeg" style="width: 65%; display: block; margin-left: auto; margin-right: auto;">
+</figure>
 <br>
 
 
@@ -297,9 +303,9 @@ secure. Below is a complete electronic case lid with attached
 snap-fasteners:
 
 <br>
-<div align="center">
-  <img src="{{ site.url }}/OSSMM/media/electronics-assembly/image21.jpeg" style="width: 65%;">
-</div>
+<figure style="text-align: center; display: block; margin-left: auto; margin-right: auto;">
+  <img src="{{ site.url }}/OSSMM/media/electronics-assembly/image21.jpeg" style="width: 65%; display: block; margin-left: auto; margin-right: auto;">
+</figure>
 <br>
 
 
@@ -308,9 +314,9 @@ snug. Again note that over crimping can lead to the wire being cut, but
 if the wires are placed correctly in the notch this is unlikely.
 
 <br>
-<div align="center">
-  <img src="{{ site.url }}/OSSMM/media/electronics-assembly/image22.jpeg" style="width: 65%;">
-</div>
+<figure style="text-align: center; display: block; margin-left: auto; margin-right: auto;">
+  <img src="{{ site.url }}/OSSMM/media/electronics-assembly/image22.jpeg" style="width: 65%; display: block; margin-left: auto; margin-right: auto;">
+</figure>
 
 <br><br>
 
@@ -334,9 +340,9 @@ properly inside the electronic case.
 to the section below titled, 
 [Additional Information on the AD8232](#additional-information-on-the-ad8232) below*
 
-<div align="center">
-  <img src="{{ site.url }}/OSSMM/media/electronics-assembly/image23.png" style="width: 65%;">
-</div>
+<figure style="text-align: center; display: block; margin-left: auto; margin-right: auto;">
+  <img src="{{ site.url }}/OSSMM/media/electronics-assembly/image23.png" style="width: 65%; display: block; margin-left: auto; margin-right: auto;">
+</figure>
 
 **Quick Method:** Use wire cutters to firmly pry the jack off the board. Don't
 hesitate to apply reasonable force.
@@ -348,16 +354,16 @@ though this won't affect our current application.
 **Note on Reliability:** We've tested this removal method on numerous boards and
 found prying to be both quick and reliable, with no board failures to date.
 
-<div align="center">
-  <img src="{{ site.url }}/OSSMM/media/electronics-assembly/JackRemoval.gif" alt="3.5mm Jack Removal Process">
-</div>
+<figure style="text-align: center; display: block; margin-left: auto; margin-right: auto;">
+  <img src="{{ site.url }}/OSSMM/media/electronics-assembly/JackRemoval.gif" alt="3.5mm Jack Removal Process" style="display: block; margin-left: auto; margin-right: auto;">
+</figure>
 
 Once the 3.5mm jack is removed, the AD8232 board should appear as in the
 photo below:
 
-<div align="center">
-  <img src="{{ site.url }}/OSSMM/media/electronics-assembly/image24.jpeg" style="width: 65%;">
-</div>
+<figure style="text-align: center; display: block; margin-left: auto; margin-right: auto;">
+  <img src="{{ site.url }}/OSSMM/media/electronics-assembly/image24.jpeg" style="width: 65%; display: block; margin-left: auto; margin-right: auto;">
+</figure>
 
 <br><br>
 
@@ -374,27 +380,27 @@ Even if the unit comes with wires it is recommended replacing them with
 high-quality silicone-insulated wires. This will prolong the durability
 and longevity of the device, and make later assembly easier.
 
-Note: Future designs may permit the PulseSenor to only require pins. Wires coming
+Note: Future designs may permit the PulseSensor to only require pins. Wires coming
 from the MCU could terminate with female Dupont connectors which would mate with
 these pins. This would have several benefits. However, the current design does
 not lend itself to this. 
 
 <br>
-<div align="center">
-  <img src="{{ site.url }}/OSSMM/media/electronics-assembly/image25.jpeg" style="width: 65%;">
-</div>
+<figure style="text-align: center; display: block; margin-left: auto; margin-right: auto;">
+  <img src="{{ site.url }}/OSSMM/media/electronics-assembly/image25.jpeg" style="width: 65%; display: block; margin-left: auto; margin-right: auto;">
+</figure>
 <br>
 
 If you have pins, it is easiest to remove the black separator then
 desolder the pins one by one.
 
 <br>
-<div align="center">
-  <img src="{{ site.url }}/OSSMM/media/electronics-assembly/image26.jpeg" style="width: 65%;">
-</div>
+<figure style="text-align: center; display: block; margin-left: auto; margin-right: auto;">
+  <img src="{{ site.url }}/OSSMM/media/electronics-assembly/image26.jpeg" style="width: 65%; display: block; margin-left: auto; margin-right: auto;">
+</figure>
 <br>
 
-**Wiring Decision:** You can add wires to the PulseSensor nor or later.
+**Wiring Decision:** You can add wires to the PulseSensor now or later.
 
 Both approaches work, but **we recommend adding the wires later.** The 
 PulseSensor's wires must pass through the rectangular slot in the electronic 
@@ -409,9 +415,9 @@ electrodes of:
 * **--** (Ground, 0V):
 
 <br>
-<div align="center">
-  <img src="{{ site.url }}/OSSMM/media/electronics-assembly/image27.jpeg" style="width: 65%;">
-</div>
+<figure style="text-align: center; display: block; margin-left: auto; margin-right: auto;">
+  <img src="{{ site.url }}/OSSMM/media/electronics-assembly/image27.jpeg" style="width: 65%; display: block; margin-left: auto; margin-right: auto;">
+</figure>
 
 
 <br><br>
@@ -425,9 +431,9 @@ electrodes of:
 If the vibration motor board comes with pins these must be removed.
 
 <br>
-<div align="center">
-  <img src="{{ site.url }}/OSSMM/media/electronics-assembly/image28.jpeg" style="width: 65%;">
-</div>
+<figure style="text-align: center; display: block; margin-left: auto; margin-right: auto;">
+  <img src="{{ site.url }}/OSSMM/media/electronics-assembly/image28.jpeg" style="width: 65%; display: block; margin-left: auto; margin-right: auto;">
+</figure>
 <br>
 
 If the pins are bent, we recommend cutting below the bend, then remove
@@ -437,18 +443,18 @@ easiest to remove with tweezers or pliers while desoldering if there is
 something to grasp.
 
 <br>
-<div align="center">
-  <img src="{{ site.url }}/OSSMM/media/electronics-assembly/image29.jpeg" style="width: 65%;">
-</div>
+<figure style="text-align: center; display: block; margin-left: auto; margin-right: auto;">
+  <img src="{{ site.url }}/OSSMM/media/electronics-assembly/image29.jpeg" style="width: 65%; display: block; margin-left: auto; margin-right: auto;">
+</figure>
 <br>
 
 The prepared board should look as the below. Nothing external protruding
 over the board's boundaries, and electrode pinholes ready for wires.
 
 <br>
-<div align="center">
-  <img src="{{ site.url }}/OSSMM/media/electronics-assembly/image30.jpeg" style="width: 65%;">
-</div>
+<figure style="text-align: center; display: block; margin-left: auto; margin-right: auto;">
+  <img src="{{ site.url }}/OSSMM/media/electronics-assembly/image30.jpeg" style="width: 65%; display: block; margin-left: auto; margin-right: auto;">
+</figure>
 
 <br><br>
 
@@ -463,9 +469,9 @@ Layman's schematic below for the connections. We will show step by step
 soldering photos further below:
 
 <br>
-<div align="center">
-  <img src="{{ site.url }}/OSSMM/media/electronics-assembly/image31.jpeg">
-</div>
+<figure style="text-align: center; display: block; margin-left: auto; margin-right: auto;">
+  <img src="{{ site.url }}/OSSMM/media/electronics-assembly/image31.jpeg" style="display: block; margin-left: auto; margin-right: auto;">
+</figure>
 <br>
 
 **Before proceeding, please note the following:**
@@ -500,18 +506,18 @@ Motor. Already soldered are the three ground wires for the component PCBs.
 We highlight again, upon completion wires must emerge from bottom of the board:
 
 <br>
-<div align="center">
-  <img src="{{ site.url }}/OSSMM/media/electronics-assembly/image32.jpeg" style="width: 65%;">
-</div>
+<figure style="text-align: center; display: block; margin-left: auto; margin-right: auto;">
+  <img src="{{ site.url }}/OSSMM/media/electronics-assembly/image32.jpeg" style="width: 65%; display: block; margin-left: auto; margin-right: auto;">
+</figure>
 <br>
 
 Now it is time to solder the bent wire, and trim off any excess. Resoldering may
 be done for a cleaner job.
 
 <br>
-<div align="center">
-  <img src="{{ site.url }}/OSSMM/media/electronics-assembly/image33.jpeg" style="width: 65%;">
-</div>
+<figure style="text-align: center; display: block; margin-left: auto; margin-right: auto;">
+  <img src="{{ site.url }}/OSSMM/media/electronics-assembly/image33.jpeg" style="width: 65%; display: block; margin-left: auto; margin-right: auto;">
+</figure>
 <br>
 
 
@@ -520,9 +526,9 @@ Refer to the schematic if there is any confusion. Again we have threaded the
 wiring through the pin holes and bent the wires so they hold themselves.
 
 <br>
-<div align="center">
-  <img src="{{ site.url }}/OSSMM/media/electronics-assembly/image34.jpeg" style="width: 65%;">
-</div>
+<figure style="text-align: center; display: block; margin-left: auto; margin-right: auto;">
+  <img src="{{ site.url }}/OSSMM/media/electronics-assembly/image34.jpeg" style="width: 65%; display: block; margin-left: auto; margin-right: auto;">
+</figure>
 <br>
 
 Solder these connections then trim any excess.
@@ -544,9 +550,9 @@ illustrative purpose and we recommend connecting the PulseSensor to the wires
 after they have already been attached to the MCU.
 
 <br>
-<div align="center">
-  <img src="{{ site.url }}/OSSMM/media/electronics-assembly/image35.jpeg" style="width: 65%; transform: rotate(180deg);">
-</div>
+<figure style="text-align: center; display: block; margin-left: auto; margin-right: auto;">
+  <img src="{{ site.url }}/OSSMM/media/electronics-assembly/image35.jpeg" style="width: 65%; transform: rotate(180deg); display: block; margin-left: auto; margin-right: auto;">
+</figure>
 <br>
 
 
@@ -555,9 +561,9 @@ Please fully connect the PulseSensor to the MCU now.
 Now you will connect the Vibration Motor Board as shown below:
 
 <br>
-<div align="center">
-  <img src="{{ site.url }}/OSSMM/media/electronics-assembly/image36.jpeg" style="width: 65%;">
-</div>
+<figure style="text-align: center; display: block; margin-left: auto; margin-right: auto;">
+  <img src="{{ site.url }}/OSSMM/media/electronics-assembly/image36.jpeg" style="width: 65%; display: block; margin-left: auto; margin-right: auto;">
+</figure>
 <br>
 
 Finally, connect the AD8232 EKG Board. Start with the side connections 
@@ -566,39 +572,31 @@ the board (the side opposite where the 3.5mm jack was removed). Thread the wires
 through the pin holes as shown in the image below.
 
 <br>
-<div align="center">
-  <img src="{{ site.url }}/OSSMM/media/electronics-assembly/image37.jpeg" style="width: 65%; transform: rotate(180deg);">
-</div>
+<figure style="text-align: center; display: block; margin-left: auto; margin-right: auto;">
+  <img src="{{ site.url }}/OSSMM/media/electronics-assembly/image37.jpeg" style="width: 65%; transform: rotate(180deg); display: block; margin-left: auto; margin-right: auto;">
+</figure>
 <br>
 
 
 Next solder then clean the connections by snipping off any excess.
 
 <br>
-<div align="center">
-  <img src="{{ site.url }}/OSSMM/media/electronics-assembly/image38.jpeg" style="width: 65%; transform: rotate(180deg);">
-</div>
+<figure style="text-align: center; display: block; margin-left: auto; margin-right: auto;">
+  <img src="{{ site.url }}/OSSMM/media/electronics-assembly/image38.jpeg" style="width: 65%; transform: rotate(180deg); display: block; margin-left: auto; margin-right: auto;">
+</figure>
 <br>
-
-In a similar manner, we now solder the RA and LA connections. Note, the
-wires for this connection are those remaining from the electronic case
-lid. These two wires are for our EOG / EEG signals. Notice the thicker,
-yelow and blue wires we used in this tutorial for this section. It does
-not matter which wire goes into LA or RA. We note here again that the
-wire from the top connections emerge from the top of the board.
-
 
 Now, solder the RA and LA connections using the two wires from the 
 electronic case lid. In this tutorial, we've used thicker yellow and blue wires 
-for these connections. Either wire can connect to LA or RA - the assignment 
+for these connections. Either wire can connect to LA or RA as the assignment 
 doesn't matter. Remember that these wires should exit from the top of the board 
 (the side where the 3.5mm jack was removed).
 
 
 <br>
-<div align="center">
-  <img src="{{ site.url }}/OSSMM/media/electronics-assembly/image39.jpeg" style="width: 65%; transform: rotate(180deg);">
-</div>
+<figure style="text-align: center; display: block; margin-left: auto; margin-right: auto;">
+  <img src="{{ site.url }}/OSSMM/media/electronics-assembly/image39.jpeg" style="width: 65%; transform: rotate(180deg); display: block; margin-left: auto; margin-right: auto;">
+</figure>
 
 <br><br>
 
@@ -611,25 +609,27 @@ doesn't matter. Remember that these wires should exit from the top of the board
 Now it's time to connect the battery.
 
 
-<div align="center">
-  ⚠️ CRITICAL SAFETY CHECK ⚠️
-  <br>
-  <b>IMPORTANT: YOU MUST VERIFY BATTERY LEAD POLARITY WITH MULTIMETER</b>
-  <br>
-  - RED should be POSITIVE (+)
-  - BLACK should be NEGATIVE (-)
-  <br>
-  <b>CAUTION:</b> Some manufacturers reverse this standard color coding.
-  <br>
-  <b>⚠️ CONNECTING INCORRECT POLARITY WILL PERMANENTLY DAMAGE THE MCU ⚠️</b>
-  <br>
-  With the polarity of the battery leads verified, <b>carefully solder the leads to the MCU battery contacts</b> as shown in the photo below. Here RED is positive, and BLACK is negative.
-</div>
+<figure style="text-align: center; display: block; margin-left: auto; margin-right: auto;">
+  <div style="text-align: center; background-color: #fff3cd; padding: 15px; border-radius: 5px; border: 1px solid #ffeeba; margin: 10px;">
+    ⚠️ <b>CRITICAL SAFETY CHECK</b> ⚠️
+    <br>
+    <b>IMPORTANT: YOU MUST VERIFY BATTERY LEAD POLARITY WITH MULTIMETER</b>
+    <br>
+    - RED should be POSITIVE (+)
+    - BLACK should be NEGATIVE (-)
+    <br>
+    <b>CAUTION:</b> Some manufacturers reverse this standard color coding.
+    <br>
+    <b>⚠️ CONNECTING INCORRECT POLARITY WILL PERMANENTLY DAMAGE THE MCU ⚠️</b>
+    <br>
+    With the polarity of the battery leads verified, <b>carefully solder the leads to the MCU battery contacts</b> as shown in the photo below. Here RED is positive, and BLACK is negative.
+  </div>
+</figure>
 
 <br>
-<div align="center">
-  <img src="{{ site.url }}/OSSMM/media/electronics-assembly/image40.JPG" style="width: 65%;">
-</div>
+<figure style="text-align: center; display: block; margin-left: auto; margin-right: auto;">
+  <img src="{{ site.url }}/OSSMM/media/electronics-assembly/image40.JPG" style="width: 65%; display: block; margin-left: auto; margin-right: auto;">
+</figure>
 <br>
 
 Accidentally soldering the leads to the wrong location (such as positive
@@ -658,14 +658,14 @@ version number (printed on the side) is in the upper left corner. The
 MCU slot should be in the upper right corner.
 
 Install the MCU (upside down), the battery, and Vibration Motor Board.
-Loop the Vibration Motor Bord wires around the upper right peg as shown
+Loop the Vibration Motor Board wires around the upper right peg as shown
 below. Likewise, the battery wires should thread through the bottom slot
 of the MCU enclosure. 
 
 <br>
-<div align="center">
-  <img src="{{ site.url }}/OSSMM/media/electronics-assembly/image41.png" style="width: 65%;">
-</div>
+<figure style="text-align: center; display: block; margin-left: auto; margin-right: auto;">
+  <img src="{{ site.url }}/OSSMM/media/electronics-assembly/image41.png" style="width: 65%; display: block; margin-left: auto; margin-right: auto;">
+</figure>
 <br>
 
 Next, install the AD8232 Board into position. The side pins should be
@@ -673,9 +673,9 @@ located over the center of the electronic case, and the EOG/EEG (RA/LA)
 pins should be towards the bottom left corner.
 
 <br>
-<div align="center">
-  <img src="{{ site.url }}/OSSMM/media/electronics-assembly/image42.jpeg" style="width: 65%;">
-</div>
+<figure style="text-align: center; display: block; margin-left: auto; margin-right: auto;">
+  <img src="{{ site.url }}/OSSMM/media/electronics-assembly/image42.jpeg" style="width: 65%; display: block; margin-left: auto; margin-right: auto;">
+</figure>
 <br>
 
 If the MCU is overly loose in its slot, we recommend covering it with
@@ -685,9 +685,9 @@ device printed in blue, and with thinner 30AWG wiring for the EOG/EEG
 electrodes.
 
 <br>
-<div align="center">
-  <img src="{{ site.url }}/OSSMM/media/electronics-assembly/image43.jpeg" style="width: 40%; transform: rotate(90deg);">
-</div>
+<figure style="text-align: center; display: block; margin-left: auto; margin-right: auto;">
+  <img src="{{ site.url }}/OSSMM/media/electronics-assembly/image43.jpeg" style="width: 40%; transform: rotate(90deg); display: block; margin-left: auto; margin-right: auto;">
+</figure>
 <br>
 
 
@@ -697,9 +697,9 @@ the metal snap-fastener electrodes and eliminates any possibility of
 shorting with the underlying PCBs.
 
 <br>
-<div align="center">
-  <img src="{{ site.url }}/OSSMM/media/electronics-assembly/image44.jpeg" style="width: 40%; transform: rotate(90deg);">
-</div>
+<figure style="text-align: center; display: block; margin-left: auto; margin-right: auto;">
+  <img src="{{ site.url }}/OSSMM/media/electronics-assembly/image44.jpeg" style="width: 40%; transform: rotate(90deg); display: block; margin-left: auto; margin-right: auto;">
+</figure>
 
 <br><br>
 
@@ -722,20 +722,20 @@ tabs to slip into their slots.
 
 When it is finished it should look like the following:
 
-<div align="center">
-  <p><strong>Back:</strong></p>
-  <img src="{{ site.url }}/OSSMM/media/electronics-assembly/image45.jpeg" style="width: 65%;">
-</div>
+<figure style="text-align: center; display: block; margin-left: auto; margin-right: auto;">
+  <img src="{{ site.url }}/OSSMM/media/electronics-assembly/image45.jpeg" style="width: 65%; display: block; margin-left: auto; margin-right: auto;">
+  <figcaption style="text-align: center; font-style: italic; margin-top: 4px; display: block;"><strong>Back</strong></figcaption>
+</figure>
 
-<div align="center">
-  <p><strong>Front:</strong></p>
-  <img src="{{ site.url }}/OSSMM/media/electronics-assembly/image46.jpeg" style="width: 65%;">
-</div>
+<figure style="text-align: center; display: block; margin-left: auto; margin-right: auto;">
+  <img src="{{ site.url }}/OSSMM/media/electronics-assembly/image46.jpeg" style="width: 65%; display: block; margin-left: auto; margin-right: auto;">
+  <figcaption style="text-align: center; font-style: italic; margin-top: 4px; display: block;"><strong>Front</strong></figcaption>
+</figure>
 
-<div align="center">
-  <p><strong>Side with USB-C:</strong></p>
-  <img src="{{ site.url }}/OSSMM/media/electronics-assembly/image47.jpeg" style="width: 25%;">
-</div>
+<figure style="text-align: center; display: block; margin-left: auto; margin-right: auto;">
+  <img src="{{ site.url }}/OSSMM/media/electronics-assembly/image47.jpeg" style="width: 25%; display: block; margin-left: auto; margin-right: auto;">
+  <figcaption style="text-align: center; font-style: italic; margin-top: 4px; display: block;"><strong>Side with USB-C</strong></figcaption>
+</figure>
 
 <br><br>
 
@@ -765,17 +765,17 @@ means the Right Leg Drive Amplifier (RLD) is not used. Typically, the
 RLD applies a small current which is inverse to the signal commonly
 detected by both the RA and LA electrodes. Because the AD8232 acts as a
 differential amplifier in this case, applying the inverse of the common
-signal improve improves the Common-Mode Rejection Ratio, or in short,
-improves the Signal to Noise Raise (SNR) of the signal difference
+signal improves the Common-Mode Rejection Ratio, or in short,
+improves the Signal to Noise Ratio (SNR) of the signal difference
 between the electrodes.*
 
 *We accept the trade-off of reduced signal quality by abandoning the RLD
 for two principal reasons: perceived safety and constructability. Having
 any current applied to the body, particularly the head, is considered
-invasive and therefore makes any risk however infantisemly negligible\*,
+invasive and therefore makes any risk however infinitesimally negligible\*,
 non-zero. Furthermore, the requirement for a third electrode to supply
 this current to the body increases device costs and device complexity.
-The perfomance of the OSSMM without the RLD is more than sufficient to
+The performance of the OSSMM without the RLD is more than sufficient to
 gladly accept this trade-off.\
 \
 \*To be very clear on how safe the RLD already is, please consider the
@@ -783,11 +783,11 @@ following: The AD8232 EKG board in its standard "Cardiac Monitor
 configuration," which is used here prior to "safety" modification, is
 set with an "RL" output resistor of 360kΩ limiting the output current to
 a participant's body of ≤ 10 µA, provided the PCB voltage is 3.3V. In
-the worst case scenarion, even if the voltage were raised to 4.2V (i.e.
+the worst case scenario, even if the voltage were raised to 4.2V (i.e.
 directly powered by a fully charged 3.7V LiPo battery, which it is not)
 and the resistor had the lowest value within the ±10% tolerance range
 (that is 324 KΩ), the maximum current would be 13 µA. In comparison,
 tACS and tDCS devices supply current to a participants head of up to
 2mA, or more than 150x the worst case scenario of the AD8232. However,
 given that there is still a "risk" using the RLD, this would needlessly
-complicate Health&Safety assesments and ethics approval.*
+complicate Health&Safety assessments and ethics approval.*
