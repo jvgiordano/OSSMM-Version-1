@@ -19,12 +19,12 @@ Requisites:
 
 To verify your OSSMM system:
 
-1. Turn on the OSSMM headband byu pressing the ON/RESET button on the front face.
+1. Turn on the OSSMM headband by pressing the ON/RESET button on the front face.
 2. Put on the OSSMM headband.
 3. Open the OSSMM app on your Android device.
 4. Enable the BLE and Location requirements.
 5. Go to Settings >> Find Device.
-6. Connect the the OSSMM device.
+6. Connect the OSSMM device.
 7. Move to the Live Data section
 8. Move your head and confirm the Accelerometer and Gyroscope plots show your movement.
 9. Quickly move your eyes left-to-right, right-to-left, or in circles to verify your eye movement is detected.
@@ -39,7 +39,7 @@ Follow the video below for a demonstration:
 </figure>
 
 
-&nbsp;
+<br>
 # Bluetooth Bonding Verification
 
 (after completing "Basic Verification Procedure" and using the same OSSMM headband)
@@ -52,7 +52,7 @@ Note: The app will pair to a specific headband, and the "Reconnect" option will
 only work for that bonded device.
 
 
-&nbsp;
+<br>
 # Verify Data Saving and Encryption:
 
 
@@ -63,11 +63,11 @@ only work for that bonded device.
 4. Use the password under the "Data Protection" >> View Data Access Password in the app
 
 
-Note: Each time the application is instead, a new encryption password is
+Note: Each time the application is installed, a new encryption password is
 semi-randomly generated. This can be modified within the Android app code, so
 that a chosen password is used instead.
 
-&nbsp;
+<br>
 # Advanced Verification - if interested in sleep modulation:
 
 (After following the steps above)
