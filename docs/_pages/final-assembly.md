@@ -350,8 +350,10 @@ There should be an audible clip, signifying a tight connection.
 <br>
 
 
-## Step 8. Reconnect the G Hook
+## Step 8. You've done it!
 
+Reconnect the G Hook and you're done!
 
-
-## Step 9. You've done it!
+You've finished the physical assembly of the OSSMM headband. Now it's time to
+upload the necessary software! Proceed to [Step 4. Software](https://jvgiordano.github.io/OSSMM/software/)
+to continue.
