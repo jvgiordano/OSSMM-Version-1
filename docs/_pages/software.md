@@ -205,7 +205,7 @@ cable may only support power transfer and not data transfer. Try with another
 cable. This may be true even for newer USB-C cables.
 
 <figure style="text-align: center; display: block; margin: 0 auto;">
-  <img src="{{ site.url }}/OSSMM/media/software/usb-file-transfer.png" style="width: 25%; border-radius: 8px;">
+  <img src="{{ site.url }}/OSSMM/media/software/usb-file-transfer.png" style="width: 25%; border-radius: 8px; border: 2px solid white;">
 </figure>
 <br>
 
