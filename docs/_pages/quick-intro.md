@@ -31,14 +31,16 @@ where no comparable off-the-shelf system currently exists.**
 
 
 <br>
-<figure style="display: inline-block; width: 65%; margin: 0 10px; text-align: center; vertical-align: top;">
-  <img src="{{ site.url }}/OSSMM/media/final-checks/data-protection.png" alt="Front view of OSSMM headband" style="width: 100%; display: block;">
-  <figcaption style="font-style: italic; margin-top: 5px;">"View Data Access Password" in the Data Protection Section.</figcaption>
-</figure>
-<figure style="display: inline-block; width: 65%; margin: 0 10px; text-align: center; vertical-align: top;">
-  <img src="{{ site.url }}/OSSMM/media/final-checks/password.png" alt="Front view of OSSMM headband" style="width: 100%; display: block;">
-  <figcaption style="font-style: italic; margin-top: 5px;">Semi-randomly generated OSSMM password for encrypted recording files.</figcaption>
-</figure>
+<div style="display: flex; flex-direction: row; align-items: flex-start;">
+  <figure style="margin: 0; width: 42%;">
+    <img src="{{ site.url }}/OSSMM/media/quick-intro/stretch.jpg" alt="Front view of OSSMM headband" style="width: 100%;">
+    <figcaption style="text-align: center; font-style: italic; margin-top: 5px;">OSSMM Headband on display with strap fully stretched out.</figcaption>
+  </figure>
+  <figure style="margin: 0; width: 50%; margin-left: 4%;">
+    <img src="{{ site.url }}/OSSMM/media/quick-intro/ports.jpg" alt="Back view of OSSMM headband" style="width: 100%;">
+    <figcaption style="text-align: center; font-style: italic; margin-top: 5px;">Macro photo of OSSMM Headband. USB-C, LED port, ON/Reset switch, and microphone port are visible. €1 euro coin for size reference.</figcaption>
+  </figure>
+</div>
 <br>
 
 # Key Design Features:
