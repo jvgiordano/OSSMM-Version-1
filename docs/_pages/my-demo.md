@@ -1,7 +1,7 @@
 ---
   title: "Demo"
 permalink: /my-demo/
-  date: 2025-05-16T00:26:20+01:00
+  date: 2025-05-17T00:26:20+01:00
 classes: wide
 read_time: true
 sidebar:
