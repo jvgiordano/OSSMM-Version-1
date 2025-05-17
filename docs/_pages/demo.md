@@ -1,6 +1,6 @@
 ---
 title: "Demo"
-permalink: /my-demo/
+permalink: /demo/
 date: 2025-05-17T00:26:20+01:00
 classes: wide
 read_time: true
