@@ -130,7 +130,7 @@ encrypted correctly. Individual steps are listed below:
 
 Follow the video below for a demonstration:
 <figure style="text-align: center; display: block; margin-left: auto; margin-right: auto;">
-  <img src="{{ site.url }}/OSSMM/media/final-checks/decryption.gif" alt="Front view of OSSMM headband" style="width: 85%; display: block; margin-left: auto; margin-right: auto;">
+  <img src="{{ site.url }}/OSSMM/media/final-checks/decryption.gif" alt="Front view of OSSMM headband" style="width: 95%; display: block; margin-left: auto; margin-right: auto;">
   <figcaption style="font-style: italic; margin-top: 5px; text-align: center;">Decryption Protocol</figcaption>
 </figure>
 
@@ -154,16 +154,16 @@ Note: Standard Windows extraction will not work. Winrar is "free".
 
 
 <br>
-<p style="text-align: center;">
-<figure style="display: inline-block; width: 25%; margin: 0 10px; text-align: center; vertical-align: top;">
-  <img src="{{ site.url }}/OSSMM/media/final-checks/data-protection.png" alt="Front view of OSSMM headband" style="width: 100%; display: block;">
-  <figcaption style="font-style: italic; margin-top: 5px;">"View Data Access Password" in the Data Protection Section.</figcaption>
-</figure>
-<figure style="display: inline-block; width: 25%; margin: 0 10px; text-align: center; vertical-align: top;">
-  <img src="{{ site.url }}/OSSMM/media/final-checks/password.png" alt="Front view of OSSMM headband" style="width: 100%; display: block;">
-  <figcaption style="font-style: italic; margin-top: 5px;">Semi-randomly generated OSSMM password for encrypted recording files.</figcaption>
-</figure>
-</p>
+<div style="display: flex; justify-content: center; align-items: flex-start; flex-wrap: wrap; width: 100%; margin: 0 auto;">
+  <figure style="width: 25%; margin: 0 15px; text-align: center;">
+    <img src="{{ site.url }}/OSSMM/media/final-checks/data-protection.png" alt="Front view of OSSMM headband" style="width: 100%; display: block;">
+    <figcaption style="font-style: italic; margin-top: 5px;">"View Data Access Password" in the Data Protection Section.</figcaption>
+  </figure>
+  <figure style="width: 25%; margin: 0 15px; text-align: center;">
+    <img src="{{ site.url }}/OSSMM/media/final-checks/password.png" alt="Front view of OSSMM headband" style="width: 100%; display: block;">
+    <figcaption style="font-style: italic; margin-top: 5px;">Semi-randomly generated OSSMM password for encrypted recording files.</figcaption>
+  </figure>
+</div>
 <br>
 
 Note: Each time the application is installed, a new encryption password is
