@@ -154,6 +154,7 @@ Note: Standard Windows extraction will not work. Winrar is "free".
 
 
 <br>
+<p style="text-align: center;">
 <figure style="display: inline-block; width: 25%; margin: 0 10px; text-align: center; vertical-align: top;">
   <img src="{{ site.url }}/OSSMM/media/final-checks/data-protection.png" alt="Front view of OSSMM headband" style="width: 100%; display: block;">
   <figcaption style="font-style: italic; margin-top: 5px;">"View Data Access Password" in the Data Protection Section.</figcaption>
@@ -162,6 +163,7 @@ Note: Standard Windows extraction will not work. Winrar is "free".
   <img src="{{ site.url }}/OSSMM/media/final-checks/password.png" alt="Front view of OSSMM headband" style="width: 100%; display: block;">
   <figcaption style="font-style: italic; margin-top: 5px;">Semi-randomly generated OSSMM password for encrypted recording files.</figcaption>
 </figure>
+</p>
 <br>
 
 Note: Each time the application is installed, a new encryption password is
