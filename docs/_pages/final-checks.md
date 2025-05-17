@@ -130,11 +130,13 @@ encrypted correctly. Individual steps are listed below:
 
 Follow the video below for a demonstration:
 <figure style="text-align: center; display: block; margin-left: auto; margin-right: auto;">
-  <img src="{{ site.url }}/OSSMM/media/final-checks/decryption.gif" alt="Front view of OSSMM headband" style="width: 70%; display: block; margin-left: auto; margin-right: auto;">
+  <img src="{{ site.url }}/OSSMM/media/final-checks/decryption.gif" alt="Front view of OSSMM headband" style="width: 85%; display: block; margin-left: auto; margin-right: auto;">
   <figcaption style="font-style: italic; margin-top: 5px; text-align: center;">Decryption Protocol</figcaption>
 </figure>
 
 ## Step 1. Connect the Android Device to a computer
+
+Make sure "File Transfer/Android Auto" is enabled.
 
 <br>
 ## Step 2. Access the internal file system and navigate to "Documents/OSSMM" on the Android device
@@ -145,18 +147,23 @@ Follow the video below for a demonstration:
 <br>
 ## Step 4. Import the ZIP file to your computer, and open with appropriate decompression tool (WinRAR is recommended for Windows)
 
+Note: Standard Windows extraction will not work. Winrar is "free".
+
 <br>
-## Step 5. Use the password under the "Data Protection" >> View Data Access Password in the app
+## Step 5. Use the password under "Data Protection" >> "View Data Access Password" in the app
 
-<figure style="text-align: center; display: block; margin-left: auto; margin-right: auto;">
-  <img src="{{ site.url }}/OSSMM/media/final-checks/data-protection.png" alt="Front view of OSSMM headband" style="width: 20%; display: block; margin-left: auto; margin-right: auto;">
-  <figcaption style="font-style: italic; margin-top: 5px; text-align: center;">"View Data Access Password"  in the Data Protection Section.</figcaption>
-</figure>
 
-<figure style="text-align: center; display: block; margin-left: auto; margin-right: auto;">
-  <img src="{{ site.url }}/OSSMM/media/final-checks/password.png" alt="Front view of OSSMM headband" style="width: 20%; display: block; margin-left: auto; margin-right: auto;">
-  <figcaption style="font-style: italic; margin-top: 5px; text-align: center;">Semi-randomly generated OSSMM password for encrypted recording files.</figcaption>
-</figure>
+<br>
+<div style="display: flex; flex-direction: row; align-items: flex-start;">
+  <figure style="margin: 0; width: 20%;">
+    <img src="{{ site.url }}/OSSMM/media/final-checks/data-protection.png" alt="Front view of OSSMM headband" style="width: 20%; display: block; margin-left: auto; margin-right: auto;">
+    <figcaption style="font-style: italic; margin-top: 5px; text-align: center;">"View Data Access Password"  in the Data Protection Section.</figcaption>
+  </figure>
+  <figure style="margin: 0; width: 20%; margin-left: 4%;">
+    <img src="{{ site.url }}/OSSMM/media/final-checks/password.png" alt="Front view of OSSMM headband" style="width: 20%; display: block; margin-left: auto; margin-right: auto;">
+    <figcaption style="font-style: italic; margin-top: 5px; text-align: center;">Semi-randomly generated OSSMM password for encrypted recording files.</figcaption>  </figure>
+</div>
+<br>
 
 Note: Each time the application is installed, a new encryption password is
 semi-randomly generated. This can be modified within the Android app code, so
