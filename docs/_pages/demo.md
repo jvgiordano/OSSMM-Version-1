@@ -8,4 +8,11 @@ sidebar:
   nav: "pages_sidebar_nav"
 ---
   
-This page is a Work-In-Progress.
+This page is a Work-In-Progress. 
+
+
+For a quick demonstration of the app, you can
+refer to the following GIFs:
+
+* [Quick App Demo](https://jvgiordano.github.io/OSSMM/quick-intro/#quick-app-demo)
+* [Verification Demp](https://jvgiordano.github.io/OSSMM/final-checks/)
