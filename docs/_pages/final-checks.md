@@ -130,7 +130,7 @@ encrypted correctly. Individual steps are listed below:
 
 Follow the video below for a demonstration:
 <figure style="text-align: center; display: block; margin-left: auto; margin-right: auto;">
-  <img src="{{ site.url }}/OSSMM/media/final-checks/decryption.gif" alt="Front view of OSSMM headband" style="width: 50%; display: block; margin-left: auto; margin-right: auto;">
+  <img src="{{ site.url }}/OSSMM/media/final-checks/decryption.gif" alt="Front view of OSSMM headband" style="width: 70%; display: block; margin-left: auto; margin-right: auto;">
   <figcaption style="font-style: italic; margin-top: 5px; text-align: center;">Decryption Protocol</figcaption>
 </figure>
 
@@ -165,7 +165,7 @@ that a chosen password is used instead.
 <br>
 # Advanced Verification - if interested in sleep modulation:
 
-(After following the steps above)
+(After following the connection/reconnection steps above)
 
 ## Step 1. Go to "Sleep Modulation" and enable
 
