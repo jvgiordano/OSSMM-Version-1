@@ -2,6 +2,7 @@
 layout: splash
 permalink: /
 hidden: true
+date: 2025-05-17T04:20:20+01:00
 header:
   overlay_color: 
   overlay_image: /media/home/system-ai.JPG
@@ -40,8 +41,6 @@ feature_row:
 ---
 
 {% include feature_row %}
-
-## THIS REPOSITORY IS A WORK IN PROGRESS! PLEASE REFRAIN FROM USAGE UNTIL THIS TEXT IS REMOVED (April 17th, 2025)
 
 ---
 *Current Version: V1.0.4*
