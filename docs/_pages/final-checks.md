@@ -20,8 +20,8 @@ Requisites:
 To verify your OSSMM system we will run through the following protocol:
 
 <div style="text-align: center;">
-  <img src="{{ site.url }}/OSSMM/media/final-assembly/shortening-cut-1.jpg" alt="Front view of OSSMM headband" style="width: 40%; display: block; margin-left: auto; margin-right: auto;">
-  <figcaption style="text-align: center; font-style: italic; margin-top: 5px;">Verification Demo</figcaption>
+  <img src="{{ site.url }}/OSSMM/media/final-checks/long-demo.gif" alt="Front view of OSSMM headband" style="width: 40%; display: block; margin-left: auto; margin-right: auto;">
+  <figcaption style="text-align: center; font-style: italic; margin-top: 5px;">Basic Verification Demo</figcaption>
 </div>
 
 
