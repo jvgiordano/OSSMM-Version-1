@@ -154,15 +154,14 @@ Note: Standard Windows extraction will not work. Winrar is "free".
 
 
 <br>
-<div style="display: flex; flex-direction: row; align-items: flex-start;">
-  <figure style="margin: 0;">
-    <img src="{{ site.url }}/OSSMM/media/final-checks/data-protection.png" alt="Front view of OSSMM headband" style="width: 20%; display: block; margin-left: auto; margin-right: auto;">
-    <figcaption style="font-style: italic; margin-top: 5px; text-align: center;">"View Data Access Password"  in the Data Protection Section.</figcaption>
-  </figure>
-  <figure style="margin: 0; margin-left: 4%;">
-    <img src="{{ site.url }}/OSSMM/media/final-checks/password.png" alt="Front view of OSSMM headband" style="width: 20%; display: block; margin-left: auto; margin-right: auto;">
-    <figcaption style="font-style: italic; margin-top: 5px; text-align: center;">Semi-randomly generated OSSMM password for encrypted recording files.</figcaption>  </figure>
-</div>
+<figure style="display: inline-block; width: 45%; margin: 0 2%; text-align: center; vertical-align: top;">
+  <img src="{{ site.url }}/OSSMM/media/final-checks/data-protection.png" alt="Front view of OSSMM headband" style="width: 100%; display: block;">
+  <figcaption style="font-style: italic; margin-top: 5px;">"View Data Access Password" in the Data Protection Section.</figcaption>
+</figure>
+<figure style="display: inline-block; width: 45%; margin: 0 2%; text-align: center; vertical-align: top;">
+  <img src="{{ site.url }}/OSSMM/media/final-checks/password.png" alt="Front view of OSSMM headband" style="width: 100%; display: block;">
+  <figcaption style="font-style: italic; margin-top: 5px;">Semi-randomly generated OSSMM password for encrypted recording files.</figcaption>
+</figure>
 <br>
 
 Note: Each time the application is installed, a new encryption password is
