@@ -1,7 +1,7 @@
 ---
 title: "Final Checks"
 permalink: /final-checks/
-date: "2025-05-16"
+date: "2020-05-16"
 classes: wide
 read_time: true
 sidebar:
@@ -17,7 +17,8 @@ Requisites:
 2. OSSMM Headband
 3. Both devices are charged
 
-To verify your OSSMM system we will run through the following protocol:
+To verify your OSSMM system we will run through the protocol shown in the
+following GIF. The individual steps are described below:
 
 <figure style="text-align: center; display: block; margin-left: auto; margin-right: auto;">
   <img src="{{ site.url }}/OSSMM/media/final-checks/long-demo.gif" alt="Front view of OSSMM headband" style="width: 30%; display: block; margin-left: auto; margin-right: auto;">
@@ -45,7 +46,7 @@ b. The blue LED will flash several times during start-up.
 ## 4. Enable the BLE and Location requirements.
 
 <figure style="text-align: center; display: block; margin-left: auto; margin-right: auto;">
-  <img src="{{ site.url }}/OSSMM/media/final-checks/requirements.png" alt="Front view of OSSMM headband" style="width: 25%; display: block; margin-left: auto; margin-right: auto;">
+  <img src="{{ site.url }}/OSSMM/media/final-checks/requirements.png" alt="Front view of OSSMM headband" style="width: 20%; display: block; margin-left: auto; margin-right: auto;">
   <figcaption style="font-style: italic; margin-top: 5px; text-align: center;">System Requirements Screen</figcaption>
 </figure>
 <br>
@@ -53,7 +54,7 @@ b. The blue LED will flash several times during start-up.
 ## Step 5. To bond the app and headband, go to Settings >> Find Device.
 
 <figure style="text-align: center; display: block; margin-left: auto; margin-right: auto;">
-  <img src="{{ site.url }}/OSSMM/media/final-checks/find-device.png" alt="Front view of OSSMM headband" style="width: 25%; display: block; margin-left: auto; margin-right: auto;">
+  <img src="{{ site.url }}/OSSMM/media/final-checks/find-device.png" alt="Front view of OSSMM headband" style="width: 20%; display: block; margin-left: auto; margin-right: auto;">
   <figcaption style="font-style: italic; margin-top: 5px; text-align: center;">"Find Device" is in the collapsible Settings section.</figcaption>
 </figure>
 <br>
@@ -62,7 +63,7 @@ b. The blue LED will flash several times during start-up.
  a. The green LED will flash several times for a successful connection.
  
 <figure style="text-align: center; display: block; margin-left: auto; margin-right: auto;">
-  <img src="{{ site.url }}/OSSMM/media/final-checks/connect.png" alt="Front view of OSSMM headband" style="width: 25%; display: block; margin-left: auto; margin-right: auto;">
+  <img src="{{ site.url }}/OSSMM/media/final-checks/connect.png" alt="Front view of OSSMM headband" style="width: 20%; display: block; margin-left: auto; margin-right: auto;">
   <figcaption style="font-style: italic; margin-top: 5px; text-align: center;">Bluetooth Devices Scan Screen</figcaption>
 </figure>
 
@@ -72,7 +73,7 @@ b. The blue LED will flash several times during start-up.
 ## Step 8. View the Accelerometer and Gyroscope and verify plots show turning of the head.
 
 <figure style="text-align: center; display: block; margin-left: auto; margin-right: auto;">
-  <img src="{{ site.url }}/OSSMM/media/final-checks/acc-gyro.png" alt="Front view of OSSMM headband" style="width: 25%; display: block; margin-left: auto; margin-right: auto;">
+  <img src="{{ site.url }}/OSSMM/media/final-checks/acc-gyro.png" alt="Front view of OSSMM headband" style="width: 20%; display: block; margin-left: auto; margin-right: auto;">
   <figcaption style="font-style: italic; margin-top: 5px; text-align: center;">Accelerometer and Gyroscope Plots in the Live Data Section. Arrows point to distinct head turns, hence separate colors in the gyroscope plot.</figcaption>
 </figure>
 <br>
@@ -82,7 +83,7 @@ b. The blue LED will flash several times during start-up.
 In the plot below you can observe left-right saccade, right-left saccade, and clock-wise eye movement.
 
 <figure style="text-align: center; display: block; margin-left: auto; margin-right: auto;">
-  <img src="{{ site.url }}/OSSMM/media/final-checks/eog.png" alt="Front view of OSSMM headband" style="width: 25%; display: block; margin-left: auto; margin-right: auto;">
+  <img src="{{ site.url }}/OSSMM/media/final-checks/eog.png" alt="Front view of OSSMM headband" style="width: 20%; display: block; margin-left: auto; margin-right: auto;">
   <figcaption style="font-style: italic; margin-top: 5px; text-align: center;">Eye Movement (EOG) plot in Live Data section. Arrows point to distinct eye movements: left-right saccade, right-left saccade, eye rolling.</figcaption>
 </figure>
 <br>
@@ -91,7 +92,7 @@ In the plot below you can observe left-right saccade, right-left saccade, and cl
 ## Step 10. View the Heart Rate plot to see that your pulse is being detected.
 
 <figure style="text-align: center; display: block; margin-left: auto; margin-right: auto;">
-  <img src="{{ site.url }}/OSSMM/media/final-checks/pulse.png" alt="Front view of OSSMM headband" style="width: 25%; display: block; margin-left: auto; margin-right: auto;">
+  <img src="{{ site.url }}/OSSMM/media/final-checks/pulse.png" alt="Front view of OSSMM headband" style="width: 20%; display: block; margin-left: auto; margin-right: auto;">
   <figcaption style="font-style: italic; margin-top: 5px; text-align: center;">Pulse plot in the Live Data section. Each spike shows a heart beat. The EKG 'T Wave' is visible as a low bump after each spike. </figcaption>
 </figure>
 <br>
@@ -99,7 +100,7 @@ In the plot below you can observe left-right saccade, right-left saccade, and cl
 ## Step 11. Press "Stop Recording and Turn Off"
 
 <figure style="text-align: center; display: block; margin-left: auto; margin-right: auto;">
-  <img src="{{ site.url }}/OSSMM/media/final-checks/stop.png" alt="Front view of OSSMM headband" style="width: 25%; display: block; margin-left: auto; margin-right: auto;">
+  <img src="{{ site.url }}/OSSMM/media/final-checks/stop.png" alt="Front view of OSSMM headband" style="width: 20%; display: block; margin-left: auto; margin-right: auto;">
   <figcaption style="font-style: italic; margin-top: 5px; text-align: center;">"Stop Recording and Turn Off" button on the OSSMM Dashboard during active Recording. </figcaption>
 </figure>
 <br>
@@ -115,7 +116,7 @@ bonded device.
  a. The green LED will flash several times for a successful connection.
  
 <figure style="text-align: center; display: block; margin-left: auto; margin-right: auto;">
-  <img src="{{ site.url }}/OSSMM/media/final-checks/reconnect.png" alt="Front view of OSSMM headband" style="width: 25%; display: block; margin-left: auto; margin-right: auto;">
+  <img src="{{ site.url }}/OSSMM/media/final-checks/reconnect.png" alt="Front view of OSSMM headband" style="width: 20%; display: block; margin-left: auto; margin-right: auto;">
   <figcaption style="font-style: italic; margin-top: 5px; text-align: center;">"Reconnect and Record" button on the OSSMM dashboard. This button is only available after an OSSMM headband has bonded with the app.</figcaption>
 </figure>
  
@@ -139,12 +140,12 @@ bonded device.
 ## Step 5. Use the password under the "Data Protection" >> View Data Access Password in the app
 
 <figure style="text-align: center; display: block; margin-left: auto; margin-right: auto;">
-  <img src="{{ site.url }}/OSSMM/media/final-checks/data-protection.png" alt="Front view of OSSMM headband" style="width: 25%; display: block; margin-left: auto; margin-right: auto;">
+  <img src="{{ site.url }}/OSSMM/media/final-checks/data-protection.png" alt="Front view of OSSMM headband" style="width: 20%; display: block; margin-left: auto; margin-right: auto;">
   <figcaption style="font-style: italic; margin-top: 5px; text-align: center;">"View Data Access Password"  in the Data Protection Section.</figcaption>
 </figure>
 
 <figure style="text-align: center; display: block; margin-left: auto; margin-right: auto;">
-  <img src="{{ site.url }}/OSSMM/media/final-checks/password.png" alt="Front view of OSSMM headband" style="width: 25%; display: block; margin-left: auto; margin-right: auto;">
+  <img src="{{ site.url }}/OSSMM/media/final-checks/password.png" alt="Front view of OSSMM headband" style="width: 20%; display: block; margin-left: auto; margin-right: auto;">
   <figcaption style="font-style: italic; margin-top: 5px; text-align: center;">Semi-randomly generated OSSMM password for encrypted recording files.</figcaption>
 </figure>
 
@@ -166,7 +167,7 @@ that a chosen password is used instead.
 ## Step 1. Go to "Sleep Modulation" and enable
 
 <figure style="text-align: center; display: block; margin-left: auto; margin-right: auto;">
-  <img src="{{ site.url }}/OSSMM/media/final-checks/modulation.png" alt="Front view of OSSMM headband" style="width: 25%; display: block; margin-left: auto; margin-right: auto;">
+  <img src="{{ site.url }}/OSSMM/media/final-checks/modulation.png" alt="Front view of OSSMM headband" style="width: 20%; display: block; margin-left: auto; margin-right: auto;">
   <figcaption style="font-style: italic; margin-top: 5px; text-align: center;">"Modulation Mode" Toggle and "Test" button in Sleep Modulation section.</figcaption>
 </figure>
 <br>
