@@ -154,11 +154,11 @@ Note: Standard Windows extraction will not work. Winrar is "free".
 
 
 <br>
-<figure style="display: inline-block; width: 30%; margin: 0 2%; text-align: center; vertical-align: top;">
+<figure style="display: inline-block; width: 25%; margin: 0 10px; text-align: center; vertical-align: top;">
   <img src="{{ site.url }}/OSSMM/media/final-checks/data-protection.png" alt="Front view of OSSMM headband" style="width: 100%; display: block;">
   <figcaption style="font-style: italic; margin-top: 5px;">"View Data Access Password" in the Data Protection Section.</figcaption>
 </figure>
-<figure style="display: inline-block; width: 30%; margin: 0 2%; text-align: center; vertical-align: top;">
+<figure style="display: inline-block; width: 25%; margin: 0 10px; text-align: center; vertical-align: top;">
   <img src="{{ site.url }}/OSSMM/media/final-checks/password.png" alt="Front view of OSSMM headband" style="width: 100%; display: block;">
   <figcaption style="font-style: italic; margin-top: 5px;">Semi-randomly generated OSSMM password for encrypted recording files.</figcaption>
 </figure>
