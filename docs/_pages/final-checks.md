@@ -119,19 +119,19 @@ bonded device.
 5. Use the password under the "Data Protection" >> View Data Access Password in the app
 
 <div style="text-align: center;">
-  <img src="{{ site.url }}/OSSMM/media/final-assembly/data-protection.png" alt="Front view of OSSMM headband" style="width: 25%; display: block; margin-left: auto; margin-right: auto;">
+  <img src="{{ site.url }}/OSSMM/media/final-checks/data-protection.png" alt="Front view of OSSMM headband" style="width: 25%; display: block; margin-left: auto; margin-right: auto;">
   <figcaption style="text-align: center; font-style: italic; margin-top: 5px;">"View Data Access Password"  in the Data Protection Section.</figcaption>
 </div>
 
 <div style="text-align: center;">
-  <img src="{{ site.url }}/OSSMM/media/final-assembly/password.png" alt="Front view of OSSMM headband" style="width: 25%; display: block; margin-left: auto; margin-right: auto;">
+  <img src="{{ site.url }}/OSSMM/media/final-checks/password.png" alt="Front view of OSSMM headband" style="width: 25%; display: block; margin-left: auto; margin-right: auto;">
   <figcaption style="text-align: center; font-style: italic; margin-top: 5px;">Semi-randomly generated OSSMM password for encrypted recording files.</figcaption>
 </div>
 
 
 Follow the video below for a demonstration:
 <div style="text-align: center;">
-  <img src="{{ site.url }}/OSSMM/media/final-assembly/shortening-cut-1.jpg" alt="Front view of OSSMM headband" style="width: 40%; display: block; margin-left: auto; margin-right: auto;">
+  <img src="{{ site.url }}/OSSMM/media/final-checks/shortening-cut-1.jpg" alt="Front view of OSSMM headband" style="width: 40%; display: block; margin-left: auto; margin-right: auto;">
   <figcaption style="text-align: center; font-style: italic; margin-top: 5px;">Verification Demo</figcaption>
 </div>
 
@@ -146,7 +146,7 @@ that a chosen password is used instead.
 1. Go to "Sleep Modulation" and enable
 
 <div style="text-align: center;">
-  <img src="{{ site.url }}/OSSMM/media/final-assembly/modulation.png" alt="Front view of OSSMM headband" style="width: 25%; display: block; margin-left: auto; margin-right: auto;">
+  <img src="{{ site.url }}/OSSMM/media/final-checks/modulation.png" alt="Front view of OSSMM headband" style="width: 25%; display: block; margin-left: auto; margin-right: auto;">
   <figcaption style="text-align: center; font-style: italic; margin-top: 5px;">"Modulation Mode" Toggle and "Test" button in Sleep Modulation section.</figcaption>
 </div>
 
