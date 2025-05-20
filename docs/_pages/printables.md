@@ -3,6 +3,7 @@ title: "3D Printables"
 permalink: /printables/
 date: "2025-05-16"
 classes: wide
+toc: true # Enable Table of Contents for this page
 read_time: true
 sidebar:
   nav: "pages_sidebar_nav"
