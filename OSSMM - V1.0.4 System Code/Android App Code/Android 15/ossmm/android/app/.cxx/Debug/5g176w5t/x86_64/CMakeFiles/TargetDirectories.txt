@@ -1,2 +1,0 @@
-C:/Users/Jonny/Desktop/GitHub/OSSMM/OSSMM - V1.0.4 System Code/Android App Code/Android 15/ossmm/android/app/.cxx/Debug/5g176w5t/x86_64/CMakeFiles/edit_cache.dir
-C:/Users/Jonny/Desktop/GitHub/OSSMM/OSSMM - V1.0.4 System Code/Android App Code/Android 15/ossmm/android/app/.cxx/Debug/5g176w5t/x86_64/CMakeFiles/rebuild_cache.dir

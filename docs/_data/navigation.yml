@@ -19,49 +19,25 @@ foo:
 
 
 # main links
-# main:
-#   - title: "Quick Intro"
-#     url: /quick-intro/
-#   - title: " Getting Started"
-#     url: /getting-started/
-#   - title: "1. 3D Printables"
-#     url: /printables/
-#   - title: "2. Electronics Assembly Guide"
-#     url: /electronics-assembly/
-#   - title: "3. Final Assembly"
-#     url: /final-assembly/
-#   - title: "4. Software"
-#     url: /software/
-#   - title: "5. Final Checks & Completion"
-#     url: /final-checks/
-#   - title: "Demo"
-#     url: /demo/
-#   - title: "Performance - Sleep Staging"
-#     url: /performance/
-#   - title: "Safety & Data Privacy"
-#     url: /safety-and-data/
-
-sidebar:
-  - title: "Introduction"
-    children:
-      - title: "Quick Intro"
-        url: /quick-intro/
-      - title: "Getting Started"
-        url: /getting-started/
-  - title: "Instructional"
-    children:
-      - title: "1. 3D Printables"
-        url: /printables/
-      - title: "2. Electronics Assembly"
-        url: /electronics-assembly/
-      - title: "3. Major Parts Assembly"
-        url: /final-assembly/
-      - title: "4. Software"
-        url: /software/
-      - title: "5. Final Checks & Completion"
-        url: /final-checks/
+main:
+  - title: "Quick Intro"
+    url: /quick-intro/
+  - title: " Getting Started"
+    url: /getting-started/
+  - title: "1. 3D Printables"
+    url: /printables/
+  - title: "2. Electronics Assembly Guide"
+    url: /electronics-assembly/
+  - title: "3. Final Assembly"
+    url: /final-assembly/
+  - title: "4. Software"
+    url: /software/
+  - title: "5. Final Checks & Completion"
+    url: /final-checks/
   - title: "Demo"
     url: /demo/
+  - title: "Performance - Sleep Staging"
+    url: /performance/
   - title: "Safety & Data Privacy"
     url: /safety-and-data/
 
