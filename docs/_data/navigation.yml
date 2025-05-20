@@ -19,10 +19,7 @@ foo:
 
 
 # main links
-main:
-  - title: "Home"
-    url: /
-    
+main: []
 # main:
 #   - title: "Quick Intro"
 #     url: /quick-intro/

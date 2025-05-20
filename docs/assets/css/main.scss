@@ -24,63 +24,51 @@ html {
   }
 }
 
-/* Force masthead structure to remain */
-.masthead {
-  position: relative;
-  display: block !important;
+/* Hide masthead links but keep the structure */
+.greedy-nav {
+  .visible-links {
+    display: none !important; 
+  }
+  
+  /* Force display of hamburger menu on all screen sizes */
+  .nav-toggle {
+    display: block !important;
+    position: relative;
+    background: transparent;
+  }
 }
 
-/* Always show the hamburger menu */
-.greedy-nav .nav-toggle {
-  display: block !important;
-  position: absolute;
-  top: 0.5rem;
-  right: 0.5rem;
-  background: transparent;
-  border: 0;
-  outline: none;
-  z-index: 1000;
-}
-
-/* Hide the main navigation links */
-.greedy-nav .visible-links {
-  display: none !important;
-}
-
-/* Style the sidebar to appear when toggled */
+/* Style the sidebar */
 .sidebar {
-  transform: translateX(-101%);
-  transition: transform 0.3s ease-in-out;
-  display: block !important;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 300px;
-  height: 100%;
-  background-color: #fff;
-  z-index: 20;
-  padding: 1em;
-  overflow-y: auto;
-  box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+  .nav__list {
+    padding: 0;
+    
+    /* Style category headers */
+    span:not(.nav__sub-title) {
+      font-weight: bold;
+      display: block;
+      margin-top: 1em;
+      color: #333;
+    }
+    
+    /* Indent the child items */
+    .nav__items .nav__items {
+      margin-left: 1.5em;
+      font-size: 0.9em;
+    }
+  }
 }
 
+/* Make sure the sidebar is expanded when toggled */
 .sidebar.is-visible {
+  display: block !important;
   transform: translateX(0);
+  transition: all 0.3s ease-in-out;
 }
 
-body.sidebar-visible {
-  overflow: hidden;
-}
-
-/* Style category headers and indents in navigation */
-.sidebar .nav__list span:not(.nav__sub-title) {
-  font-weight: bold;
-  display: block;
-  margin-top: 1em;
-  color: #333;
-}
-
-.sidebar .nav__items .nav__items {
-  margin-left: 1.5em;
-  font-size: 0.9em;
+.sidebar {
+  @media (max-width: 63.9375em) {
+    transform: translateX(-100%);
+    display: block !important;
+  }
 }
