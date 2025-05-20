@@ -4,6 +4,7 @@ permalink: /printables/
 date: "2025-05-16"
 classes: wide
 read_time: true
+toc: true # Enable Table of Contents for this page
 sidebar:
   nav: "pages_sidebar_nav"
 ---
