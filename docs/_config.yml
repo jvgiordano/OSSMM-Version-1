@@ -202,6 +202,7 @@ defaults:
       path: ""
     values:
       layout: single
+      author_profile: false
       sidebar:
         nav: "sidebar"
 
