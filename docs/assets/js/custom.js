@@ -1,11 +1,15 @@
-// Force hamburger menu to be visible and control the sidebar
-document.addEventListener('DOMContentLoaded', function() {
-  // Make sure sidebar is always shown when hamburger is clicked
-  var navToggle = document.querySelector('.nav-toggle');
+$(document).ready(function() {
+  // Toggle sidebar when hamburger menu is clicked
+  $(".nav-toggle").click(function() {
+    $(".sidebar").toggleClass("is-visible");
+    $("body").toggleClass("sidebar-visible");
+  });
   
-  if (navToggle) {
-    navToggle.addEventListener('click', function() {
-      document.querySelector('body').classList.toggle('sidebar-visible');
-    });
-  }
+  // Close sidebar when clicking outside of it
+  $(document).on('click', function(event) {
+    if (!$(event.target).closest('.sidebar, .nav-toggle').length) {
+      $(".sidebar").removeClass("is-visible");
+      $("body").removeClass("sidebar-visible");
+    }
+  });
 });

@@ -195,7 +195,7 @@ collections:
     permalink: /:collection/:path/
 
 
-# Always show sidebar navigation
+# Defaults
 defaults:
   # _all
   - scope:
@@ -205,10 +205,6 @@ defaults:
       author_profile: false
       sidebar:
         nav: "sidebar"
-
-# Make sure the sidebar is always visible
-after_footer_scripts:
-  - /assets/js/custom.js
 
 # Sass/SCSS
 sass:

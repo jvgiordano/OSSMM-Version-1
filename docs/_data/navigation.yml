@@ -19,7 +19,6 @@ foo:
 
 
 # main links
-main: []
 # main:
 #   - title: "Quick Intro"
 #     url: /quick-intro/
@@ -42,8 +41,6 @@ main: []
 #   - title: "Safety & Data Privacy"
 #     url: /safety-and-data/
 
-
-# Sidebar navigation
 sidebar:
   - title: "Introduction"
     children:
