@@ -24,27 +24,51 @@ html {
   }
 }
 
-/* Always show hamburger menu and hide normal navigation */
+/* Hide masthead links but keep the structure */
 .greedy-nav {
   .visible-links {
-    @media (min-width: 64em) {
-      display: none !important;
-    }
+    display: none !important; 
   }
   
+  /* Force display of hamburger menu on all screen sizes */
   .nav-toggle {
     display: block !important;
+    position: relative;
+    background: transparent;
   }
 }
 
-/* Style the navigation headings */
-nav.nav__list ul li span {
-  font-weight: bold;
-  color: #333;
+/* Style the sidebar */
+.sidebar {
+  .nav__list {
+    padding: 0;
+    
+    /* Style category headers */
+    span:not(.nav__sub-title) {
+      font-weight: bold;
+      display: block;
+      margin-top: 1em;
+      color: #333;
+    }
+    
+    /* Indent the child items */
+    .nav__items .nav__items {
+      margin-left: 1.5em;
+      font-size: 0.9em;
+    }
+  }
 }
 
-/* Indent the child items */
-.nav__list .nav__items .nav__items {
-  margin-left: 1.5em;
-  font-size: 0.9em;
+/* Make sure the sidebar is expanded when toggled */
+.sidebar.is-visible {
+  display: block !important;
+  transform: translateX(0);
+  transition: all 0.3s ease-in-out;
+}
+
+.sidebar {
+  @media (max-width: 63.9375em) {
+    transform: translateX(-100%);
+    display: block !important;
+  }
 }
