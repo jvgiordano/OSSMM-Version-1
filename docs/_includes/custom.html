@@ -1,0 +1,35 @@
+<!-- Force hamburger menu to be visible -->
+<style>
+  .greedy-nav .nav-toggle {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+  
+  .greedy-nav .visible-links {
+    display: none !important;
+  }
+  
+  .masthead__inner-wrap {
+    position: relative;
+  }
+</style>
+
+<script>
+  // This script runs immediately, before the page is fully loaded
+  document.addEventListener('DOMContentLoaded', function() {
+    var navToggle = document.querySelector('.nav-toggle');
+    if (navToggle) {
+      navToggle.style.display = 'block';
+      navToggle.style.visibility = 'visible';
+      navToggle.style.opacity = '1';
+      
+      navToggle.addEventListener('click', function() {
+        var sidebar = document.querySelector('.sidebar');
+        if (sidebar) {
+          sidebar.classList.toggle('is-visible');
+        }
+      });
+    }
+  });
+</script>
