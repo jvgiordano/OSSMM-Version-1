@@ -23,3 +23,69 @@ html {
     font-size: 16px; // change to whatever
   }
 }
+
+/* Force display of hamburger menu on all screen sizes */
+.greedy-nav {
+  a.site-title {
+    margin-right: auto;
+  }
+  
+  .visible-links {
+    display: none !important;
+  }
+  
+  .nav-toggle {
+    display: block !important;
+  }
+}
+
+/* Style the sidebar navigation */
+.nav__category {
+  font-weight: bold;
+  margin: 0.5em 0;
+  padding: 0.5em 0;
+  display: block;
+  color: #333;
+  font-size: 1em;
+}
+
+.nav__list .nav__items ul {
+  margin-left: 1.5em;
+  list-style-type: none;
+}
+
+/* Style for the slide-out menu */
+.sidebar {
+  opacity: 1;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+
+/* Sidebar toggle functionality */
+.sidebar {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 100%;
+  background-color: #fff;
+  z-index: 10;
+  padding: 1em;
+  overflow-y: auto;
+  box-shadow: 0 0 10px rgba(0,0,0,0.25);
+}
+
+.sidebar.is-visible {
+  display: block;
+}
+
+body.sidebar-visible {
+  overflow: hidden;
+}
+
+@media (min-width: 64em) {
+  .sidebar {
+    width: 300px;
+  }
+}
