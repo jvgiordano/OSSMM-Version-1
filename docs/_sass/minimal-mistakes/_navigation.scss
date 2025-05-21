@@ -164,7 +164,7 @@
 }
 
 /*
-     Priority plus navigation
+     Priority plus navigation (Masthead)
      ========================================================================== */
 
 .greedy-nav {
@@ -178,9 +178,9 @@
   min-height: $nav-height;
   background: $background-color;
 
-  a {
+  a { // General style for links in greedy-nav, including site-title, site-logo
     display: block;
-    margin: 0 1rem;
+    margin: 0 1rem; // Default margin for links
     color: $masthead-link-color;
     text-decoration: none;
     -webkit-transition: none;
@@ -225,44 +225,111 @@
     -webkit-box-flex: 1;
     -ms-flex: 1;
     flex: 1;
-    overflow: hidden;
+    overflow: hidden; // Important for greedy-nav functionality
 
-    li {
+    // Styles for individual list items (top-level menu items)
+    // These items might be direct links or parents of dropdowns
+    li.masthead__menu-item { // Assuming your <li> elements have this class
       -webkit-box-flex: 0;
       -ms-flex: none;
-      flex: none;
-    }
+      flex: none; // Don't allow items to grow or shrink by default
+      position: relative; // CRITICAL for positioning dropdown children absolutely
 
-    a {
-      position: relative;
+      // Styles for links within the top-level menu items
+      > a { // Target direct children links of li.masthead__menu-item
+        position: relative; // For the underline hover effect
+        margin: 0 0.5rem; // Adjust margin as needed for menu items, could be less than general 'a'
+        padding: 0.5rem;   // Add some padding for better clickability
 
-      &:before {
-        content: "";
-        position: absolute;
-        inset-inline-start: 0;
-        bottom: 0;
-        height: 4px;
-        background: $primary-color;
-        width: 100%;
-        -webkit-transition: $global-transition;
-        transition: $global-transition;
-        -webkit-transform: scaleX(0) translate3d(0, 0, 0);
-        transform: scaleX(0) translate3d(0, 0, 0); // hide
+        &:before { // Underline hover effect
+          content: "";
+          position: absolute;
+          inset-inline-start: 0;
+          bottom: 0; // Position underline at the bottom
+          height: 4px; // Thickness of underline
+          background: $primary-color;
+          width: 100%;
+          -webkit-transition: $global-transition;
+          transition: $global-transition;
+          -webkit-transform: scaleX(0) translate3d(0, 0, 0);
+          transform: scaleX(0) translate3d(0, 0, 0); // hide by default
+        }
+
+        &:hover:before {
+          -webkit-transform: scaleX(1);
+          -ms-transform: scaleX(1);
+          transform: scaleX(1); // reveal on hover
+        }
       }
 
-      &:hover:before {
-        -webkit-transform: scaleX(1);
-        -ms-transform: scaleX(1);
-        transform: scaleX(1); // reveal
+      // Dropdown Arrow Indicator (Optional, if you add a span with this class in your HTML)
+      .icon-caret-down {
+        display: inline-block;
+        width: 0;
+        height: 0;
+        margin-inline-start: 0.4em; // Space between text and caret
+        vertical-align: middle; // Align with text
+        border-top: 0.35em solid; // Creates the caret shape
+        border-right: 0.35em solid transparent;
+        border-bottom: 0;
+        border-left: 0.35em solid transparent;
       }
     }
-  }
 
-  .hidden-links {
+    // Styles for the Dropdown Submenu
+    // This targets a <ul> with class "masthead__submenu" nested inside a "masthead__menu-item"
+    .masthead__submenu {
+      display: none; // Hidden by default
+      position: absolute;
+      top: 100%; // Position directly below the parent list item
+      left: 0;   // Align to the left of the parent list item
+      background-color: $background-color; // Or a slightly different shade if preferred
+      border: 1px solid $border-color;
+      border-top: none; // Optional: remove top border if parent has bottom border or underline
+      list-style: none;
+      padding: 0.5em 0; // Padding above/below first/last item
+      margin: 0; // Reset margin
+      min-width: 200px; // Minimum width of the dropdown
+      z-index: 1000; // Ensure dropdown is above other content
+      box-shadow: $box-shadow; // Use theme's box-shadow variable
+
+      // Styles for individual items within the dropdown submenu
+      li.masthead__submenu-item { // Assuming your nested <li> have this class
+        width: 100%; // Ensure items take full width of submenu
+
+        a {
+          display: block; // Make the entire area clickable
+          padding: 0.5em 1em; // Padding for dropdown links
+          white-space: nowrap; // Prevent links from wrapping to new lines
+          color: $text-color; // Standard text color for dropdown links
+          margin: 0; // Reset margin from general 'a' if needed
+
+          &:hover {
+            color: $link-color-hover; // Hover text color
+            background-color: mix($masthead-link-color, $background-color, 10%); // Subtle background hover
+            text-decoration: none; // Ensure no underline from general 'a' if not desired
+
+            // If you had a :before for underline on main links, ensure it's not here or reset it
+            &:before {
+              display: none; // Remove underline effect from parent if inherited
+            }
+          }
+        }
+      }
+    }
+
+    // Show the submenu on hover of the parent list item, or when parent has focus
+    li.masthead__menu-item:hover > .masthead__submenu,
+    li.masthead__menu-item:focus-within > .masthead__submenu {
+      display: block;
+    }
+  } // End of .visible-links
+
+  .hidden-links { // Styles for the "More" menu (greedy-nav.js)
     position: absolute;
     top: 100%;
     inset-inline-end: 0;
-    margin-top: 15px;
+    margin-top: 15px; // Space from the toggle button
     padding: 5px;
     border: 1px solid $border-color;
     border-radius: $border-radius;
@@ -276,17 +343,17 @@
     }
 
     a {
-      margin: 0;
+      margin: 0; // Override default 'a' margin in .greedy-nav
       padding: 10px 20px;
       font-size: $type-size-5;
 
       &:hover {
         color: $masthead-link-color-hover;
-        background: $navicon-link-color-hover;
+        background: $navicon-link-color-hover; // As per original file
       }
     }
 
-    &::before {
+    &::before { // Arrow for the "More" menu
       content: "";
       position: absolute;
       top: -11px;
@@ -299,7 +366,7 @@
       z-index: 0;
     }
 
-    &::after {
+    &::after { // Arrow for the "More" menu (inner part)
       content: "";
       position: absolute;
       top: -10px;
@@ -334,7 +401,7 @@
 }
 
 /*
-     Navigation list
+     Navigation list (Typically for sidebars or secondary navigation, not masthead)
      ========================================================================== */
 
 .nav__list {

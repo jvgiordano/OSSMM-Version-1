@@ -16,7 +16,27 @@ and modulation.
 
 <br>
 
-# **The Goal:** 
+# Who is it for?
+
+OSSMM is for researchers and sleep enthusiast in need of an affordable
+and accurate sleep monitoring system. It's also for those who need a platform 
+which can implement automated sleep modulation.
+
+Building your own OSSMM requires some basic-to-moderate electronics and 
+3D printing knowledge. We provide resources for learning everything you need to
+know, and a detailed Build Guide for assembling your own.
+
+This is a great starter project for electronics and 3D printing. For first time
+builders with basic background knowledge, assembly should take 4-5 hours for
+the first unit. Those who are experienced can easily assemble a unit in under 2 
+hours.
+
+# Who made it?
+
+OSSMM is a project supported by Maynooth University (Ireland) as part a PhD thesis. 
+
+
+# The Goal:
 OSSMM was created to address the prohibitive entry cost into 
 quality sleep research. By providing researchers and sleep enthusiasts with an
 affordable platform that can be assembled locally, this accessible system 

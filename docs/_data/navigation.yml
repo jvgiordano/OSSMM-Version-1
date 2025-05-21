@@ -21,13 +21,13 @@ foo:
 # _data/navigation.yml
 main:
   - title: "Introduction"
-    children:
+    sublinks:
       - title: "Quick Intro"
         url: /quick-intro/
       - title: "Getting Started"
         url: /getting-started/
   - title: "Build Guide" # Alternative: "Instructionals"
-    children:
+    sunlinks:
       - title: "1. 3D Printables"
         url: /printables/
       - title: "2. Electronics Assembly Guide"
@@ -39,7 +39,7 @@ main:
       - title: "5. Final Checks & Completion"
         url: /final-checks/
   - title: "Results & Demo" # Alternatives: "Performance", "In Action"
-    children:
+    sublinks:
       - title: "Demo"
         url: /demo/
       - title: "Performance - Sleep Staging"
