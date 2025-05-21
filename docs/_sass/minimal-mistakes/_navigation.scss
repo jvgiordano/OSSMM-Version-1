@@ -10,7 +10,8 @@
   @include clearfix;
   margin: 0 auto;
   max-width: 100%;
-  padding-inline: 1em;
+  padding-left: 1em;
+  padding-right: 1em;
   font-family: $sans-serif;
   -webkit-animation: $intro-transition;
   animation: $intro-transition;
@@ -27,7 +28,7 @@
     font-size: $type-size-6;
 
     @include breakpoint($large) {
-      float: inline-end;
+      float: right;
       width: calc(100% - #{$right-sidebar-width-narrow});
     }
 
@@ -51,7 +52,7 @@
 
 .pagination {
   @include clearfix();
-  float: inline-start;
+  float: left;
   margin-top: 1em;
   padding-top: 1em;
   width: 100%;
@@ -65,8 +66,8 @@
 
   li {
     display: block;
-    float: inline-start;
-    margin-inline-start: -1px;
+    float: left;
+    margin-left: -1px;
 
     a {
       display: block;
@@ -100,18 +101,18 @@
     }
 
     &:first-child {
-      margin-inline-start: 0;
+      margin-left: 0;
 
       a {
-        border-start-start-radius: $border-radius;
-        border-end-start-radius: $border-radius;
+        border-top-left-radius: $border-radius;
+        border-bottom-left-radius: $border-radius;
       }
     }
 
     &:last-child {
       a {
-        border-start-end-radius: $border-radius;
-        border-end-end-radius: $border-radius;
+        border-top-right-radius: $border-radius;
+        border-bottom-right-radius: $border-radius;
       }
     }
   }
@@ -120,7 +121,7 @@
   &--pager {
     display: block;
     padding: 1em 2em;
-    float: inline-start;
+    float: left;
     width: 50%;
     font-family: $sans-serif;
     font-size: $type-size-5;
@@ -136,14 +137,14 @@
     }
 
     &:first-child {
-      border-start-end-radius: 0;
-      border-end-end-radius: 0;
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
     }
 
     &:last-child {
-      margin-inline-start: -1px;
-      border-start-start-radius: 0;
-      border-end-start-radius: 0;
+      margin-left: -1px;
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
     }
 
     &.disabled {
@@ -164,7 +165,7 @@
 }
 
 /*
-     Priority plus navigation (Masthead)
+     Priority plus navigation
      ========================================================================== */
 
 .greedy-nav {
@@ -178,11 +179,9 @@
   min-height: $nav-height;
   background: $background-color;
 
-  // General style for links in greedy-nav, including site-title, site-logo
-  // These are not the menu items themselves but other links like title/logo.
-  > a {
+  a {
     display: block;
-    margin: 0 1rem; // Default margin for links like site title/logo
+    margin: 0 1rem;
     color: $masthead-link-color;
     text-decoration: none;
     -webkit-transition: none;
@@ -193,16 +192,16 @@
     }
 
     &.site-logo {
-      margin-inline-start: 0;
-      margin-inline-end: 0.5rem;
+      margin-left: 0;
+      margin-right: 0.5rem;
     }
 
     &.site-title {
-      margin-inline-start: 0;
+      margin-left: 0;
     }
   }
-
-  img {
+  
+  img{
     -webkit-transition: none;
     transition: none;
   }
@@ -227,123 +226,69 @@
     -webkit-box-flex: 1;
     -ms-flex: 1;
     flex: 1;
-    overflow: hidden; // Important for greedy-nav functionality
-    padding: 0; // Reset padding for the UL
-    margin: 0; // Reset margin for the UL
-    list-style: none; // Ensure no list bullets
+    overflow: hidden;
 
-    // Common styles for all top-level list items in the masthead
-    > li {
+    li {
       -webkit-box-flex: 0;
       -ms-flex: none;
-      flex: none; // Don't allow items to grow or shrink by default
-      list-style: none; // Ensure no list bullets on li
-
-      // Styles for links within the top-level menu items
-      > a {
-        position: relative; // For the underline hover effect
-        display: block; // Make whole area clickable
-        margin: 0 0.25rem; // Adjust margin as needed for menu items
-        padding: 0.5rem 0.75rem;   // Add some padding for better clickability
-        color: $masthead-link-color; // Use masthead link color
-        text-decoration: none; // Ensure no default underline
-
-        &:before { // Underline hover effect for all top-level links
-          content: "";
-          position: absolute;
-          inset-inline-start: 0.75rem; // Align with padding
-          bottom: 0; // Position underline at the bottom
-          height: 4px; // Thickness of underline
-          background: $primary-color;
-          width: calc(100% - 1.5rem); // Adjust width based on padding
-          -webkit-transition: $global-transition;
-          transition: $global-transition;
-          -webkit-transform: scaleX(0) translate3d(0, 0, 0);
-          transform: scaleX(0) translate3d(0, 0, 0); // hide by default
-        }
-
-        &:hover:before {
-          -webkit-transform: scaleX(1);
-          -ms-transform: scaleX(1);
-          transform: scaleX(1); // reveal on hover
-        }
-
-        &:hover {
-             color: $masthead-link-color-hover; // Hover color for the text
-        }
-      }
+      flex: none;
     }
 
-    // Specific for regular (non-dropdown) menu items
-    // Your HTML uses <li class="masthead__menu-item"> for these
-    li.masthead__menu-item {
-      // Any specific styles for non-dropdown items, if different from general > li
-    }
+    a {
+      position: relative;
 
-    // Specific for dropdown parent list items
-    // Your HTML uses <li class="dropdown ...">
-    li.dropdown {
-      position: relative; // CRITICAL for positioning dropdown children absolutely
-
-      // The > a style above already targets the .dropdown-toggle link effectively
-      // No need for .icon-caret-down CSS if using Font Awesome
-    }
-
-    // Styles for the Dropdown Submenu
-    // Your HTML uses <ul class="dropdown-content">
-    ul.dropdown-content {
-      display: none; // Hidden by default
-      position: absolute;
-      top: 100%; // Position directly below the parent list item
-      left: 0;   // Align to the left of the parent list item
-      background-color: $background-color;
-      border: 1px solid $border-color;
-      // border-top: none; // Optional
-      list-style: none;
-      padding: 0.5em 0;
-      margin: 0;
-      min-width: 200px;
-      z-index: 1000;
-      box-shadow: $box-shadow;
-
-      // Styles for individual items (<li>) within the dropdown submenu
-      li {
+      &:before {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        height: 4px;
+        background: $primary-color;
         width: 100%;
-        list-style: none; // Ensure no list bullets
+        -webkit-transition: $global-transition;
+        transition: $global-transition;
+        -webkit-transform: scaleX(0) translate3d(0, 0, 0);
+        transform: scaleX(0) translate3d(0, 0, 0); // hide
+      }
 
-        a {
-          display: block;
-          padding: 0.5em 1em;
-          white-space: nowrap;
-          color: $text-color;
-          margin: 0; // Reset margin from general 'a' if needed
-          text-decoration: none;
-
-          // Remove the :before underline effect for dropdown items
-          &:before {
-            display: none !important;
-          }
-
-          &:hover {
-            color: $link-color-hover;
-            background-color: mix($masthead-link-color, $background-color, 10%);
-            text-decoration: none;
-          }
-        }
+      &:hover:before {
+        -webkit-transform: scaleX(1);
+        -ms-transform: scaleX(1);
+        transform: scaleX(1); // reveal
       }
     }
 
-    // Show the submenu on hover of the parent list item, or when parent has focus-within
-    li.dropdown:hover > ul.dropdown-content,
-    li.dropdown:focus-within > ul.dropdown-content {
+    .dropdown {
+      float: left;
+      width: auto;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: darken($background-color, 3%);
+      min-width: 160px;
+      box-shadow: $box-shadow;
+      z-index: 1;
+    }
+
+    .dropdown-content a {
+      padding: 4px 8px;
+    }
+
+    .dropdown:hover .dropdown-content {
       display: block;
     }
-  } // End of .visible-links
 
-  .hidden-links { // Styles for the "More" menu (greedy-nav.js)
+    .dropdown-content a:not(:last-child){
+      border-bottom: none; 
+    }
+  }
+
+  .hidden-links {
     position: absolute;
     top: 100%;
-    inset-inline-end: 0;
+    right: 0;
     margin-top: 15px;
     padding: 5px;
     border: 1px solid $border-color;
@@ -361,10 +306,6 @@
       margin: 0;
       padding: 10px 20px;
       font-size: $type-size-5;
-      // Ensure :before underline is not shown in hidden-links if not desired
-      &:before {
-        display: none !important;
-      }
 
       &:hover {
         color: $masthead-link-color-hover;
@@ -372,11 +313,11 @@
       }
     }
 
-    &::before {
+    &:before {
       content: "";
       position: absolute;
       top: -11px;
-      inset-inline-end: 10px;
+      right: 10px;
       width: 0;
       border-style: solid;
       border-width: 0 10px 10px;
@@ -385,11 +326,11 @@
       z-index: 0;
     }
 
-    &::after {
+    &:after {
       content: "";
       position: absolute;
       top: -10px;
-      inset-inline-end: 10px;
+      right: 10px;
       width: 0;
       border-style: solid;
       border-width: 0 10px 10px;
@@ -401,7 +342,6 @@
     li {
       display: block;
       border-bottom: 1px solid $border-color;
-      list-style: none;
 
       &:last-child {
         border-bottom: none;
@@ -421,7 +361,7 @@
 }
 
 /*
-     Navigation list (Typically for sidebars or secondary navigation, not masthead)
+     Navigation list
      ========================================================================== */
 
 .nav__list {
@@ -447,11 +387,11 @@
       transition: 0.2s ease-out;
       cursor: pointer;
 
-      &::before,
-      &::after {
+      &:before,
+      &:after {
         content: "";
         position: absolute;
-        inset-inline-end: 1em;
+        right: 1em;
         top: 1.25em;
         width: 0.75em;
         height: 0.125em;
@@ -532,8 +472,9 @@
   }
 
   .active {
-    margin-inline-start: -0.5em;
-    padding-inline: 0.5em;
+    margin-left: -0.5em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
     font-weight: bold;
   }
 
@@ -601,8 +542,8 @@
     color: #fff;
     font-size: $type-size-6;
     background: $primary-color;
-    border-start-start-radius: $border-radius;
-    border-start-end-radius: $border-radius;
+    border-top-left-radius: $border-radius;
+    border-top-right-radius: $border-radius;
   }
 
   // Scrollspy marks toc items as .active when they are in focus
@@ -636,23 +577,23 @@
   }
 
   li ul > li a {
-    padding-inline-start: 1.25rem;
+    padding-left: 1.25rem;
     font-weight: normal;
   }
 
   li ul li ul > li a {
-    padding-inline-start: 1.75rem;
+    padding-left: 1.75rem;
   }
 
   li ul li ul li ul > li a {
-    padding-inline-start: 2.25rem;
+    padding-left: 2.25rem;
   }
 
   li ul li ul li ul li ul > li a {
-    padding-inline-start: 2.75rem;
+    padding-left: 2.75rem;
   }
 
   li ul li ul li ul li ul li ul > li a {
-    padding-inline-start: 3.25rem;
+    padding-left: 3.25rem
   }
 }
