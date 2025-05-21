@@ -2,7 +2,7 @@
 title: "Quick Introduction"
 permalink: /quick-intro/
 date: 2025-05-16T00:26:20+01:00
-classes: wide
+classes: single
 read_time: true
 toc: true # Enable Table of Contents for this page
 toc_sticky: true

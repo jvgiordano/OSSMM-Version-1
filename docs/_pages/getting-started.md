@@ -2,7 +2,7 @@
 title: "Getting Started - A Deep Dive Introduction"
 permalink: /getting-started/
 date: 2025-05-16T00:26:20+01:00
-classes: wide
+classes: single
 toc: true # Enable Table of Contents for this page
 toc_sticky: true
 read_time: true
