@@ -5,8 +5,6 @@ date: 2025-05-16T04:20:20+01:00
 classes: single
 toc: true # Enable Table of Contents for this page
 read_time: true
-sidebar:
-  nav: "pages_sidebar_nav"
 ---
 
 # Electronics Assembly

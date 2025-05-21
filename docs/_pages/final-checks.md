@@ -2,11 +2,10 @@
 title: "Final Checks"
 permalink: /final-checks/
 date: "2020-05-16"
-classes: wide
+classes: single
 read_time: true
 toc: true # Enable Table of Contents for this page
-sidebar:
-  nav: "pages_sidebar_nav"
+toc_sticky: true
 ---
 
 You've assembled the OSSMM system! Now let's verify that it works as intended:

@@ -2,11 +2,10 @@
 title: "Major Parts Assembly"
 permalink: /final-assembly/
 date: "2025-05-16"
-classes: wide
+classes: single
 toc: true # Enable Table of Contents for this page
 read_time: true
-sidebar:
-  nav: "pages_sidebar_nav"
+toc_sticky: true
 ---
 
 Now it's time for the final assembly! You should have before you the three major

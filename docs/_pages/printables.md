@@ -2,11 +2,10 @@
 title: "3D Printables"
 permalink: /printables/
 date: "2025-05-16"
-classes: wide
+classes: single
 read_time: true
 toc: true # Enable Table of Contents for this page
-sidebar:
-  nav: "pages_sidebar_nav"
+toc_sticky: true
 ---
 
 Welcome to the 3D Printable Guide! Here the basics of creating the 3D prints

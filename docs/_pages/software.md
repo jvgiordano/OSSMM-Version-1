@@ -3,10 +3,9 @@ title: "Software"
 permalink: /software/
 date: "2025-05-16"
 read_time: true
-classes: wide
+classes: single
 toc: true # Enable Table of Contents for this page
-sidebar:
-  nav: "pages_sidebar_nav"
+toc_sticky: true
 ---
 
 Congratulations on assembling your OSSMM headband! Now let's set up the software 
