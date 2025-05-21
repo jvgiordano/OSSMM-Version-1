@@ -27,7 +27,7 @@ main:
       - title: "Getting Started"
         url: /getting-started/
   - title: "Build Guide" # Alternative: "Instructionals"
-    sunlinks:
+    sublinks:
       - title: "1. 3D Printables"
         url: /printables/
       - title: "2. Electronics Assembly Guide"
