@@ -2,7 +2,7 @@
 title: "Electronics Assembly Guide"
 permalink: /electronics-assembly/
 date: 2025-05-16T04:20:20+01:00
-classes: wide
+classes: single
 toc: true # Enable Table of Contents for this page
 read_time: true
 sidebar:
