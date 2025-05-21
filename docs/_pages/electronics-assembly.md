@@ -8,8 +8,6 @@ toc_sticky: true
 read_time: true
 ---
 
-# Electronics Assembly
-
 Welcome to the Electronics Assembly guide! In this section, you will learn how 
 to combine the electronic components and install them in the 3D printed case 
 to create the "electronic module." 

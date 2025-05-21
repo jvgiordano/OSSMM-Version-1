@@ -6,7 +6,7 @@ classes: single
 read_time: true
 toc: true # Enable Table of Contents for this page
 toc_sticky: true
-subtitle:"Difficulty: ★★★☆☆ (Intermediate)"
+subtitle: "Difficulty: ★★★☆☆ (Intermediate)"
 ---
 
 {% if page.subtitle %}{{ page.subtitle }}{% endif %}
