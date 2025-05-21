@@ -4,6 +4,7 @@ permalink: /electronics-assembly/
 date: 2025-05-16T04:20:20+01:00
 classes: single
 toc: true # Enable Table of Contents for this page
+toc_sticky: true
 read_time: true
 ---
 
@@ -468,7 +469,7 @@ soldering photos further below:
 
 <br>
 <figure style="text-align: center; display: block; margin-left: auto; margin-right: auto;">
-  <img src="{{ site.url }}/OSSMM/media/electronics-assembly/image31.jpeg" style="width: 65%; style="display: block; margin-left: auto; margin-right: auto;">
+  <img src="{{ site.url }}/OSSMM/media/electronics-assembly/image31.jpeg" style="width: 65%; display: block; margin-left: auto; margin-right: auto;">
 </figure>
 <br>
 

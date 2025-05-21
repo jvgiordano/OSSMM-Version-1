@@ -4,9 +4,8 @@ permalink: /getting-started/
 date: 2025-05-16T00:26:20+01:00
 classes: wide
 toc: true # Enable Table of Contents for this page
+toc_sticky: true
 read_time: true
-sidebar:
-  nav: "pages_sidebar_nav"
 ---
 
 This guide provides an in-depth introduction to the OSSMM system, explaining its
