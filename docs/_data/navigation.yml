@@ -18,28 +18,58 @@ foo:
         url: /child-3-page-url/
 
 
-# main links
+# _data/navigation.yml
 main:
-  - title: "Quick Intro"
-    url: /quick-intro/
-  - title: " Getting Started"
-    url: /getting-started/
-  - title: "1. 3D Printables"
-    url: /printables/
-  - title: "2. Electronics Assembly Guide"
-    url: /electronics-assembly/
-  - title: "3. Final Assembly"
-    url: /final-assembly/
-  - title: "4. Software"
-    url: /software/
-  - title: "5. Final Checks & Completion"
-    url: /final-checks/
-  - title: "Demo"
-    url: /demo/
-  - title: "Performance - Sleep Staging"
-    url: /performance/
+  - title: "Introduction"
+    children:
+      - title: "Quick Intro"
+        url: /quick-intro/
+      - title: "Getting Started"
+        url: /getting-started/
+  - title: "Build Guide" # Alternative: "Instructionals"
+    children:
+      - title: "1. 3D Printables"
+        url: /printables/
+      - title: "2. Electronics Assembly Guide"
+        url: /electronics-assembly/
+      - title: "3. Final Assembly"
+        url: /final-assembly/
+      - title: "4. Software"
+        url: /software/
+      - title: "5. Final Checks & Completion"
+        url: /final-checks/
+  - title: "Results & Demo" # Alternatives: "Performance", "In Action"
+    children:
+      - title: "Demo"
+        url: /demo/
+      - title: "Performance - Sleep Staging"
+        url: /performance/
   - title: "Safety & Data Privacy"
     url: /safety-and-data/
+
+
+# main links
+# main:
+#   - title: "Quick Intro"
+#     url: /quick-intro/
+#   - title: " Getting Started"
+#     url: /getting-started/
+#   - title: "1. 3D Printables"
+#     url: /printables/
+#   - title: "2. Electronics Assembly Guide"
+#     url: /electronics-assembly/
+#   - title: "3. Final Assembly"
+#     url: /final-assembly/
+#   - title: "4. Software"
+#     url: /software/
+#   - title: "5. Final Checks & Completion"
+#     url: /final-checks/
+#   - title: "Demo"
+#     url: /demo/
+#   - title: "Performance - Sleep Staging"
+#     url: /performance/
+#   - title: "Safety & Data Privacy"
+#     url: /safety-and-data/
 
 
 # Sidebar navigation for specific pages
