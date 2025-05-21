@@ -15,7 +15,6 @@ open-source hardware and software system designed for both sleep monitoring
 and modulation.
 
 <br>
-
 # Who is it for?
 
 OSSMM is for researchers and sleep enthusiast in need of an affordable
@@ -31,11 +30,12 @@ builders with basic background knowledge, assembly should take 4-5 hours for
 the first unit. Those who are experienced can easily assemble a unit in under 2 
 hours.
 
+<br>
 # Who made it?
 
 OSSMM is a project supported by Maynooth University (Ireland) as part a PhD thesis. 
 
-
+<br>
 # The Goal:
 OSSMM was created to address the prohibitive entry cost into 
 quality sleep research. By providing researchers and sleep enthusiasts with an
@@ -135,7 +135,7 @@ OSSMM promises to offer more accurate sleep staging than many commercial wearabl
 
 *Note: OSSMM is currently under technical validation for 4-stage sleep classification accuracy.*
 
-## Sleep Modulation Capabilities:
+# Sleep Modulation Capabilities:
 
 OSSMM V1.0.4 incorporates a commercial off-the-shelf vibration motor 
 (similar to those in mobile phones) as a stimulus mechanism for sleep 
