@@ -8,6 +8,9 @@ toc: true # Enable Table of Contents for this page
 toc_sticky: true
 ---
 
+** Difficulty:  ★★☆☆☆ (Beginner/Intermediate) **
+
+
 Congratulations on assembling your OSSMM headband! Now let's set up the software 
 needed to bring it to life.
 

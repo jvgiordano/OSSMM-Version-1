@@ -8,6 +8,9 @@ toc: true # Enable Table of Contents for this page
 toc_sticky: true
 ---
 
+** Difficulty: ★☆☆☆☆ (Complete Beginner) **
+
+
 You've assembled the OSSMM system! Now let's verify that it works as intended:
 
 # Basic Verification Procedure

@@ -8,6 +8,9 @@ read_time: true
 toc_sticky: true
 ---
 
+** Difficulty:  ★★☆☆☆ (Beginner) **
+
+
 Now it's time for the final assembly! You should have before you the three major
 components for the OSSMM headband:
 

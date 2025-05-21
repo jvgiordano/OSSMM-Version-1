@@ -6,10 +6,9 @@ classes: single
 read_time: true
 toc: true # Enable Table of Contents for this page
 toc_sticky: true
-subtitle: "Difficulty: ★★★☆☆ (Intermediate)"
 ---
 
-{% if page.subtitle %}{{ page.subtitle }}{% endif %}
+** Difficulty: ★★★☆☆ (Intermediate) **
 
 Welcome to the 3D Printable Guide! Here the basics of creating the 3D prints
 for the OSSMM are covered.
