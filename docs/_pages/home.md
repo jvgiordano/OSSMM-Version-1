@@ -32,12 +32,12 @@ feature_row:
     btn_label: "Start Building"
     
   - image_path: /media/home/performance.jpg
-    alt: "Sleep staging accuracy data and validation"
-    title: "Performance & Validation"
-    excerpt: "Technical validation results for 4-stage sleep classification accuracy and comparison with commercial systems."
+    alt: "Performance assessment"
+    title: "Sleep Staging Performance"
+    excerpt: "*Currently under Assessment for 4-Stage Sleep Classification*"
     url: "/performance/"
     btn_class: "btn--primary"
-    btn_label: "View Results" 
+    btn_label: "Learn more" 
 
 ---
 
