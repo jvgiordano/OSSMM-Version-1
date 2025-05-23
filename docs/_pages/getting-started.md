@@ -8,7 +8,7 @@ toc_sticky: true
 read_time: true
 ---
 
-This guide provides an in-depth introduction to the OSSMM system, explaining its
+This guide provides an in depth introduction to the OSSMM system, explaining its
 functionality, capabilities, cost, and the prerequisites for building your own.
 
 **Please don't be intimidated by the Table of Contents (on any page)!**

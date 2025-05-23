@@ -17,9 +17,9 @@ and modulation.
 <br>
 # Who is it for?
 
-OSSMM is for researchers and sleep enthusiast in need of an affordable
+OSSMM is for researchers and sleep enthusiasts in need of an affordable
 and accurate sleep monitoring system. It's also for those who need a platform 
-which can implement automated sleep modulation.
+which can implement automated sleep modulation. 
 
 Building your own OSSMM requires some basic-to-moderate electronics and 
 3D printing knowledge. We provide resources for learning everything you need to
@@ -33,7 +33,9 @@ hours.
 <br>
 # Who made it?
 
-OSSMM is a project supported by Maynooth University (Ireland) as part a PhD thesis. 
+The OSSMM project was developed as part of Jonny Giordano's thesis at the
+Hamilton Institute at Maynooth Unversity. 
+ 
 
 <br>
 # The Goal:
@@ -63,6 +65,22 @@ where no comparable off-the-shelf system currently exists.**
 </div>
 <br>
 
+# What do you mean by "sleep monitoring" and "sleep modulation"?
+
+<ins> Sleep monitoring </ins> is the recording of physiological signals to 
+assess sleep duration, quality, and architecture. This typically involves sleep 
+staging - the categorization of sleep-wake states. Five-stage systems include N1, 
+N2, N3, REM (Rapid Eye Movement), and Wake states, while four-stage systems use 
+Deep Sleep, Light Sleep, REM, and Wake.
+
+
+<ins> Sleep modulation </ins> is the intentional use of non-invasive techniques 
+to modify, regulate, or enhance sleep architecture and target specific sleep 
+signatures. Goals include improving sleep quality, optimizing sleep stages, and 
+enhancing associated cognitive and physiological functions. Common techniques 
+include acoustic, optical, and electrical stimulation, and physical arousal.
+
+
 # Key Design Features:
 
 * **Reusable silicone wet-dry electrodes.** - no conductive gel needed
@@ -76,7 +94,7 @@ where no comparable off-the-shelf system currently exists.**
 
 # Device Overview (V1.0.4)
 
-In short, OSSMM consists of a wearable headband that collects physiological data
+OSSMM consists of a wearable headband that collects physiological data
 and transmits it wirelessly via Bluetooth Low Energy (BLE) to a dedicated 
 Android application. Only Android is supported at this time.
 
@@ -132,8 +150,7 @@ this feature is not activated in version 1.0.4.*
 OSSMM promises to offer more accurate sleep staging than many commercial wearables 
 (smart watches, rings) at a fraction of the price. 
 
-
-*Note: OSSMM is currently under technical validation for 4-stage sleep classification accuracy.*
+*Note: OSSMM is currently under technical validation for 4-stage sleep classification.*
 
 # Sleep Modulation Capabilities:
 
@@ -163,7 +180,7 @@ To build your own OSSMM system, follow these pages in order:
 1. [3D Printables](https://jvgiordano.github.io/OSSMM/printables) - Print out the printable components
 2. [Electronics Assembly Guide](https://jvgiordano.github.io/OSSMM/electronics-assembly/) - Combine the electronics and 3D printed case
 3. [Major Parts Assembly](https://jvgiordano.github.io/OSSMM/final-assembly/) - Assemble the 3 principal components: headband, receiver, electronic case
-4. [Software](https://jvgiordano.github.io/OSSMM/software/) - Upload OSSMM code to the MCU, and install the OSSMM apk on your Android device
+4. [Software](https://jvgiordano.github.io/OSSMM/software/) - Upload OSSMM code to the MCU (Microcontroller), and install the OSSMM apk (app file) on your Android device
 5. [Final Checks & Completion](https://jvgiordano.github.io/OSSMM/final-checks) - Verify your OSSMM system collects data as intended
 
 **Additional Notes:**
