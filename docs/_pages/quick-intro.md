@@ -34,7 +34,7 @@ hours.
 # Who made it?
 
 The OSSMM project was developed as part of Jonny Giordano's thesis at the
-Hamilton Institute at Maynooth Unversity. 
+Hamilton Institute at Maynooth University. 
  
 
 <br>
@@ -65,7 +65,7 @@ where no comparable off-the-shelf system currently exists.**
 </div>
 <br>
 
-# What do you mean by "sleep monitoring" and "sleep modulation"?
+# What are "sleep monitoring" and "sleep modulation"?
 
 <ins> Sleep monitoring </ins> is the recording of physiological signals to 
 assess sleep duration, quality, and architecture. This typically involves sleep 
@@ -83,10 +83,10 @@ include acoustic, optical, and electrical stimulation, and physical arousal.
 
 # Key Design Features:
 
-* **Reusable silicone wet-dry electrodes.** - no conductive gel needed
+* **Reusable silicone wet-dry electrodes** - no conductive gel needed
 * **Quick-change parts** - easy repair and hygiene
-* **Battery powered with no exposed wiring.** - 15+ hour run-time
-* **Fully open-source hardware designs and software code.**
+* **Battery powered with no exposed wiring** - 15+ hour run-time
+* **Fully open-source hardware designs and software code**
   - Complete access for researcher modifications
   - Full transparency of sleep staging algorithms and hardware code
   
