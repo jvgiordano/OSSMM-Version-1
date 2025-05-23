@@ -12,7 +12,7 @@ excerpt: >
   <small><a href="https://github.com/jvgiordano/OSSMM">Latest release v1.0.4</a></small>
 
 intro:
-  - excerpt: "OSSMM breaks down the cost barriers in sleep research by providing researchers and enthusiasts with an affordable, accurate, and fully open-source platform for both sleep monitoring and modulation experiments. Build your own research-grade sleep monitoring system for under €40."
+  - excerpt: "OSSMM breaks down the cost barriers in sleep research by providing researchers and enthusiasts with an affordable, accurate, and fully open-source platform for both sleep monitoring and modulation experiments. Build your own system for under €65."
 
 feature_row:
   - image_path: /media/home/quick-intro.jpg
