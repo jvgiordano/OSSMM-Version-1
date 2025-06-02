@@ -1,0 +1,48 @@
+Open https://jvgiordano.github.io/OSSMM/ in a single-tab browser
+
+Press F12, and go to console at the bottom. Paste in the following:
+
+// This code will open all OSSMM pages in new tabs for easy PDF printing
+const pages = [
+    '/',
+    '/quick-intro/',
+    '/getting-started/',
+    '/printables/',
+    '/electronics-assembly/',
+    '/final-assembly/',
+    '/software/',
+    '/final-checks/',
+    '/safety-and-data/',
+    '/performance/',
+    '/demo/'
+];
+
+pages.forEach((page, index) => {
+    // Stagger the opening to avoid overwhelming the browser
+    setTimeout(() => {
+        window.open(`https://jvgiordano.github.io/OSSMM${page}`, `_blank_${index}`);
+    }, index * 1000); // Opens one tab per second
+});
+
+
+Press CTRL+P to rapidly "print" (save to PDF) each page. Pages should be named as the
+following:
+
+    'Home.pdf',
+    'Quick_Introduction.pdf',
+    'Getting_Started.pdf',
+    '3D_Printables.pdf',
+    'Electronics_Assembly.pdf',
+    'Major_Parts_Assembly.pdf',
+    'Software.pdf',
+    'Final_Checks.pdf',
+    'Safety_and_Data.pdf',
+    'Performance.pdf',
+    'Demo.pdf'
+
+Next, run the combine_and_compress.py script. This requires Ghostsriter (https://ghostscript.com/releases/gsdnld.html)
+
+This will produce a single combined and compressed version of the PDF,
+other the PDF will be >400 MB!
+
+-Jonny
