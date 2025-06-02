@@ -80,6 +80,24 @@ signatures. Goals include improving sleep quality, optimizing sleep stages, and
 enhancing associated cognitive and physiological functions. Common techniques 
 include acoustic, optical, and electrical stimulation, and physical arousal.
 
+# Understanding the Build Process
+
+Creating your own OSSMM system involves five main steps that follow our detailed build guides:
+
+**Step 1: 3D Printables** - Print the receiver using TPU filament and the electronics case using PLA. Print times will depend on your printer and experience level.
+
+**Step 2: Electronics Assembly** - Standard soldering to connect the electronic components together and install them in the 3D printed case. This should take no more than 4-6 hours for a beginner. Experienced OSSMM builders can assemble comfortably under 50 minutes.
+
+**Step 3: Major Parts Assembly** - Combine the three principal components: headband, receiver, and electronic case. This should take no more than an hour.
+
+**Step 4: Software** - Upload code to the microcontroller and install the Android app. This should take no more than an hour.
+
+**Step 5: Final Checks** - Systematic testing to verify all sensors function correctly. This should take no more than 30 minutes.
+
+The modular design means you can work on these steps independently or 
+collaborate with others who have different expertise in 3D printing, electronics,
+or software. We estimate a first build to require ~2 Days, including over night
+print times.
 
 # Key Design Features:
 
